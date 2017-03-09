@@ -4,11 +4,12 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="LiskMonitor" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="ArkMonitor" customModuleProvider="target">
             <connections>
                 <outlet property="ipAddressLabelHeightConstraint" destination="PQB-pp-EUA" id="jvo-0N-jCp"/>
                 <outlet property="ipAddressSeparatorHeightConstraint" destination="8CG-f9-M5D" id="XBz-mE-Zy4"/>
