@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ark Monitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENH-TG-TAd">
+                                <rect key="frame" x="104" y="315.5" width="167" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEa-tm-MOx" userLabel="Version 1.0">
+                                <rect key="frame" x="146" y="626" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ark_start_screen" translatesAutoresizingMaskIntoConstraints="NO" id="VKK-1O-tZ1">
+                                <rect key="frame" x="122.5" y="160" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="9t1-Rf-sn4"/>
+                                    <constraint firstAttribute="width" constant="130" id="pqU-Zt-1tI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFg-sx-wb9">
+                                <rect key="frame" x="175.5" y="375.5" width="24.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6b-Bo-v3k">
+                                <rect key="frame" x="167.5" y="423.5" width="39.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.023529411764705882" green="0.53333333333333333" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ENH-TG-TAd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1WS-ES-hHx"/>
+                            <constraint firstItem="VKK-1O-tZ1" firstAttribute="centerX" secondItem="ENH-TG-TAd" secondAttribute="centerX" id="BQh-8J-EPz"/>
+                            <constraint firstItem="ENH-TG-TAd" firstAttribute="top" secondItem="VKK-1O-tZ1" secondAttribute="bottom" constant="25.5" id="NIf-U4-uZA"/>
+                            <constraint firstItem="cFg-sx-wb9" firstAttribute="top" secondItem="ENH-TG-TAd" secondAttribute="bottom" constant="24" id="Qna-Jn-vY7"/>
+                            <constraint firstItem="y6b-Bo-v3k" firstAttribute="top" secondItem="cFg-sx-wb9" secondAttribute="bottom" constant="24" id="Tyt-eb-4tf"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="rEa-tm-MOx" secondAttribute="bottom" constant="20" id="Z6D-6i-ldK"/>
+                            <constraint firstItem="ENH-TG-TAd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jtc-Au-w4L"/>
+                            <constraint firstItem="rEa-tm-MOx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="s8A-Z6-xGP"/>
+                            <constraint firstItem="y6b-Bo-v3k" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uTp-06-5g5"/>
+                            <constraint firstItem="cFg-sx-wb9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="v1V-xf-wVb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ark_start_screen" width="192" height="192"/>
+    </resources>
+</document>
