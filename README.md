@@ -1,5 +1,7 @@
 # Ark Monitor
 
+<img src="https://cloud.githubusercontent.com/assets/937766/23776676/798237d0-050e-11e7-8d25-fe345ceb07ca.png" width="200" />
+
 ## License
 
 MIT License
