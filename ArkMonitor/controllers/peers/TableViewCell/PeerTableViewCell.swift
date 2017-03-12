@@ -25,7 +25,7 @@ class PeerTableViewCell: BaseTableViewCell {
             self.portLabel.text =  String(data.port)
             self.versionLabel.text = data.version
             
-            let state : PeerState = PeerState.fromState(state: data.state)
+            let state : PeerStatus = PeerStatus.fromState(state: data.status)
             
             switch (state){
             case .banned:

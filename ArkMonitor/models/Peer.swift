@@ -8,19 +8,19 @@
 
 import UIKit
 
-enum PeerState: Int {
-    case banned = 0
-    case disconnected
-    case connected
-    case undefined
+enum PeerStatus: String {
+    case banned = "EUNAVAILABLE"
+    case disconnected = "ETIMEOUT"
+    case connected = "OK"
+    case undefined = "ERESPONSE"
 
-    public static func fromState(state: Int) -> PeerState {
+    public static func fromState(state: String) -> PeerStatus {
         switch (state){
-        case 0:
+        case "EUNAVAILABLE":
             return banned
-        case 1:
+        case "ETIMEOUT":
             return disconnected
-        case 2:
+        case "OK":
             return connected
         default:
             return undefined
@@ -28,11 +28,10 @@ enum PeerState: Int {
     }
 }
 
-
 class Peer: NSObject {
     public var ip: String = ""
     public var port: NSInteger = 0
-    public var state: NSInteger = 0
+    public var status: String = ""
     public var os: String = ""
     public var version: String = ""
     
@@ -57,8 +56,8 @@ class Peer: NSObject {
             peer.port = port
         }
         
-        if let state = objectJson.object(forKey: "state") as? Int {
-            peer.state = state
+        if let status = objectJson.object(forKey: "status") as? String {
+            peer.status = status
         }
         
         if let os = objectJson.object(forKey: "os") as? String {

@@ -75,7 +75,7 @@ class PeersViewController: UIViewController {
         func onResponse(object: Any)  -> Void {
             selfReference.peers = object as! [Peer]
 
-            selfReference.peers = selfReference.peers.sorted { $0.state > $1.state }
+            selfReference.peers = selfReference.peers.sorted { $0.status > $1.status }
             
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             selfReference.tableView.reloadData()
