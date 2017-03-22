@@ -13,7 +13,7 @@ class Utils: NSObject {
     
     private static let IpAddressFormat = "^(([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.){3}([01]?\\d\\d?|2[0-4]\\d|25[0-5])$"
     private static let maxPortNumber = 65535
-    private static let startDate = "24/05/2016 17:00:00"
+    private static let startDate = "21/03/2017 13:00:00"
     private static let formatDate = "dd/MM/yyyy HH:mm:ss"
     private static let timeZone = "UTC"
     
@@ -52,9 +52,9 @@ class Utils: NSObject {
     public static func getTimeAgo(timestamp : Double) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
-        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        dateFormatter.dateFormat = Utils.formatDate
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        let startDate = dateFormatter.date(from: "24/05/2016 17:00:00")
+        let startDate = dateFormatter.date(from: Utils.startDate)
         
         let diffStartTimes = startDate?.timeIntervalSince1970
 

@@ -10,8 +10,7 @@ import Alamofire
 
 class ExchangeService: NSObject {
     
-    private static let urlTicker = "https://poloniex.com/public?command=returnTicker";
-    private static let currencyPair = "BTC_LSK"
+    private static let urlTicker = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-ark";
     
     private static let bitcoinEurUrlTicker = "https://www.bitstamp.net/api/v2/ticker/btceur/"
     private static let bitcoinUsdUrlTicker = "https://www.bitstamp.net/api/v2/ticker/btcusd/"
@@ -34,9 +33,13 @@ class ExchangeService: NSObject {
                 
                 let response = JSON as! NSDictionary
                 
-                if let ticketJson = response.object(forKey: ExchangeService.currencyPair) as? NSDictionary {
+                if let tickets = response.object(forKey: "result") as? NSArray {
+                    if (tickets.count > 0) {
+                        listener.onResponse(object: Ticker.fromJson(objectJson: tickets[0] as! NSDictionary))
+                    } else {
+                        listener.onResponse(object: Ticker())
+                    }
                     
-                    listener.onResponse(object: Ticker.fromJson(objectJson: ticketJson))
                 } else {
                     listener.onResponse(object: Ticker())
                 }

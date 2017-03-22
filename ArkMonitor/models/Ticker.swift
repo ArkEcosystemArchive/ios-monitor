@@ -52,6 +52,30 @@ class Ticker: NSObject {
         if let low24hr = objectJson.object(forKey: "low24hr") as? String {
             ticker.low24hr = Double(low24hr)!
         }
+
+        if let last = objectJson.object(forKey: "Last") as? Double {
+            ticker.last = last
+        }
+        
+        if let lowestAsk = objectJson.object(forKey: "Ask") as? Double {
+            ticker.lowestAsk = lowestAsk
+        }
+        
+        if let highestBid = objectJson.object(forKey: "Bid") as? Double {
+            ticker.highestBid = highestBid
+        }
+
+        if let baseVolume = objectJson.object(forKey: "BaseVolume") as? Double {
+            ticker.baseVolume = baseVolume
+        }
+
+        if let high24hr = objectJson.object(forKey: "High") as? Double {
+            ticker.high24hr = high24hr
+        }
+
+        if let low24hr = objectJson.object(forKey: "Low") as? Double {
+            ticker.low24hr = low24hr
+        }
         
         return ticker
     }
