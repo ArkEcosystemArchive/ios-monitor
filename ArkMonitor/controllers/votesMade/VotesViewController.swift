@@ -47,7 +47,9 @@ class VotesViewController: UIViewController {
             return
         }
         
-        ArkActivityView.startAnimating()
+        if animated == true {
+            ArkActivityView.startAnimating()
+        }
         
         let settings = Settings.getSettings()
 

@@ -8,7 +8,6 @@
 
 import UIKit
 import Toaster
-import NVActivityIndicatorView
 
 class VotersViewController: UIViewController {
 
@@ -17,7 +16,6 @@ class VotersViewController: UIViewController {
 
     var accounts : [Account] = []
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,10 +35,10 @@ class VotersViewController: UIViewController {
             tableView.addSubview(refreshControl)
         }
         
-        loadVoters()
+        loadVoters(true)
     }
     
-    func loadVoters() -> Void {
+    func loadVoters(_ animated: Bool) -> Void {
         guard Reachability.isConnectedToNetwork() == true else {
             
             Toast(text: "Please connect to internet.",
@@ -49,9 +47,9 @@ class VotersViewController: UIViewController {
             return
         }
         
-        let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
-        
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        if animated == true {
+            ArkActivityView.startAnimating()
+        }
         
         let settings = Settings.getSettings()
 
@@ -74,7 +72,8 @@ class VotersViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -84,14 +83,14 @@ class VotersViewController: UIViewController {
             
             selfReference.accounts = selfReference.accounts.sorted { $0.balance > $1.balance }
             
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
             selfReference.tableView.reloadData()
         }
     }
     
     @objc private func updateTableView() {
-        loadVoters()
-        refreshControl.endRefreshing()
+        loadVoters(false)
     }
 }
 
