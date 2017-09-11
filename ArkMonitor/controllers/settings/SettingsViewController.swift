@@ -172,7 +172,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     func customSaveButton() -> Void {
-        saveButton.backgroundColor = UIColor(hex: "1E88E5")
+        saveButton.backgroundColor = ArkColors.blue
     }
 
     @IBAction func saveAction(_ sender: Any) {

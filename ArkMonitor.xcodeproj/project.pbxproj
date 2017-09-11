@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DE61F6731C800C4B765 /* ArkActivityView.swift */; };
+		16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DEF1F6745CB00C4B765 /* ArkColors.swift */; };
 		50D0451C340D7A669AE07F70 /* Pods_ArkMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED33999C395ABFC734C5C25 /* Pods_ArkMonitor.framework */; };
 		9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFC1E719A8800621D88 /* Assets.xcassets */; };
 		9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFE1E719A8800621D88 /* LaunchScreen.storyboard */; };
@@ -44,7 +45,6 @@
 		9A103B731E719C6300621D88 /* VoterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B361E719C6300621D88 /* VoterTableViewCell.xib */; };
 		9A103B741E719C6300621D88 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B381E719C6300621D88 /* String.swift */; };
 		9A103B751E719C6300621D88 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B391E719C6300621D88 /* UIApplication.swift */; };
-		9A103B761E719C6300621D88 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3A1E719C6300621D88 /* UIColor.swift */; };
 		9A103B771E719C6300621D88 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3B1E719C6300621D88 /* UITableView.swift */; };
 		9A103B781E719C6300621D88 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3C1E719C6300621D88 /* UIViewController.swift */; };
 		9A103B791E719C6300621D88 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3E1E719C6300621D88 /* Account.swift */; };
@@ -71,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		16D14DE61F6731C800C4B765 /* ArkActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkActivityView.swift; sourceTree = "<group>"; };
+		16D14DEF1F6745CB00C4B765 /* ArkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkColors.swift; sourceTree = "<group>"; };
 		4E1E4032A0BBD3BDC693E99D /* Pods-ArkMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArkMonitor/Pods-ArkMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		9A103AF21E719A8800621D88 /* ArkMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArkMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A103AFC1E719A8800621D88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		9A103B361E719C6300621D88 /* VoterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoterTableViewCell.xib; sourceTree = "<group>"; };
 		9A103B381E719C6300621D88 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9A103B391E719C6300621D88 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
-		9A103B3A1E719C6300621D88 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		9A103B3B1E719C6300621D88 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		9A103B3C1E719C6300621D88 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9A103B3E1E719C6300621D88 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -165,6 +165,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		16D14DF11F6745D300C4B765 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				16D14DE61F6731C800C4B765 /* ArkActivityView.swift */,
+				16D14DEF1F6745CB00C4B765 /* ArkColors.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 		9A103AE91E719A8800621D88 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +202,7 @@
 				9A103B4A1E719C6300621D88 /* services */,
 				9A103B4F1E719C6300621D88 /* utils */,
 				9A103B511E719C6300621D88 /* views */,
+				16D14DF11F6745D300C4B765 /* Misc */,
 				9A103AFC1E719A8800621D88 /* Assets.xcassets */,
 				9A103AFE1E719A8800621D88 /* LaunchScreen.storyboard */,
 				9A103B011E719A8800621D88 /* Info.plist */,
@@ -362,7 +372,6 @@
 			children = (
 				9A103B381E719C6300621D88 /* String.swift */,
 				9A103B391E719C6300621D88 /* UIApplication.swift */,
-				9A103B3A1E719C6300621D88 /* UIColor.swift */,
 				9A103B3B1E719C6300621D88 /* UITableView.swift */,
 				9A103B3C1E719C6300621D88 /* UIViewController.swift */,
 			);
@@ -410,7 +419,6 @@
 		9A103B511E719C6300621D88 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				16D14DE61F6731C800C4B765 /* ArkActivityView.swift */,
 				9A103B521E719C6300621D88 /* BaseTableViewCell.swift */,
 				9A103B531E719C6300621D88 /* DataTableViewCell.swift */,
 				9A103B541E719C6300621D88 /* DataTableViewCell.xib */,
@@ -454,7 +462,7 @@
 					9A103AF11E719A8800621D88 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = G8E5P2X66G;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -580,10 +588,10 @@
 				9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */,
 				9A103B811E719C6300621D88 /* Ticker.swift in Sources */,
 				9A103B7C1E719C6300621D88 /* Forging.swift in Sources */,
+				16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */,
 				9A103B5A1E719C6300621D88 /* ForgedBlocksViewController.swift in Sources */,
 				9A103B831E719C6300621D88 /* Voters.swift in Sources */,
 				9A103B721E719C6300621D88 /* VoterTableViewCell.swift in Sources */,
-				9A103B761E719C6300621D88 /* UIColor.swift in Sources */,
 				9A103B5C1E719C6300621D88 /* ForgedBlockTableViewCell.swift in Sources */,
 				9A103B871E719C6300621D88 /* Reachability.swift in Sources */,
 				9A103B641E719C6300621D88 /* LeftMenuViewController.swift in Sources */,
@@ -733,7 +741,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vrlc92.ArkMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -750,7 +759,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vrlc92.ArkMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
