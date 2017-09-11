@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Toaster
 
 class ForgedBlocksViewController: UIViewController {
     
@@ -41,9 +40,7 @@ class ForgedBlocksViewController: UIViewController {
     private func loadBlocks(_ animated: Bool) -> Void {
         
         guard Reachability.isConnectedToNetwork() == true else {
-            Toast(text: "Please connect to internet.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
+            ArkActivityView.showMessage("Please connect to internet.")
             return
         }
         
@@ -69,9 +66,7 @@ class ForgedBlocksViewController: UIViewController {
         }
         
         public func onFailure(e: Error) -> Void {
-            Toast(text: "Unable to retrieve data. Please try again later.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
             ArkActivityView.stopAnimating()
             selfReference.refreshControl.endRefreshing()
         }

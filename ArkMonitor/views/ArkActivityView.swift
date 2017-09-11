@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import Toaster
 
 public struct ArkActivityView {
     
@@ -19,6 +20,12 @@ public struct ArkActivityView {
     
     static public func stopAnimating() {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+    }
+    
+    static public func showMessage(_ text: String) {
+        Toast(text: text,
+              delay: Delay.short,
+              duration: Delay.long).show()
     }
 }
 

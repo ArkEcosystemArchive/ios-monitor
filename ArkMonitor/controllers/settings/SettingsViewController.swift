@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Toaster
 
 protocol SettingsProtocol: class {
     func onSettingsSaved()
@@ -178,10 +177,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func saveAction(_ sender: Any) {
         guard Reachability.isConnectedToNetwork() == true else {
-            
-            Toast(text: "Please connect to internet.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
+            ArkActivityView.showMessage("Please connect to internet.")
             return
         }
 
@@ -194,10 +190,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         let settings = Settings()
 
         if (!Utils.validateUsername(username: username!)) {
-            Toast(text: "Username invalid.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
-            
+            ArkActivityView.showMessage("Username invalid.")
             return
         }
         
@@ -205,18 +198,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
         if (serverId == Server.custom.hashValue) {
             if (!Utils.validateIpAddress(ipAddress: ipAddress!)) {
-                Toast(text: "Ip Address invalid.",
-                      delay: Delay.short,
-                      duration: Delay.long).show()
-                
+                ArkActivityView.showMessage("Ip Address invalid.")
                 return
             }
 
             if (!Utils.validatePortStr(portStr: port!)) {
-                Toast(text: "Port invalid.",
-                      delay: Delay.short,
-                      duration: Delay.long).show()
-                
+                ArkActivityView.showMessage("Port invalid.")
                 return
             }
             
@@ -290,9 +277,7 @@ private class RequestData: RequestListener {
     }
     
     public func onFailure(e: Error) -> Void {
-        Toast(text: "Unable to retrieve data. Please try again later.",
-              delay: Delay.short,
-              duration: Delay.long).show()
+        ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
         ArkActivityView.stopAnimating()
     }
     

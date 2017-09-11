@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Toaster
 
 class PeersViewController: UIViewController {
     
@@ -40,10 +39,7 @@ class PeersViewController: UIViewController {
     
     func loadPeers(_ animated: Bool) -> Void {
         guard Reachability.isConnectedToNetwork() == true else {
-            
-            Toast(text: "Please connect to internet.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
+            ArkActivityView.showMessage("Please connect to internet.")
             return
         }
         
@@ -69,10 +65,7 @@ class PeersViewController: UIViewController {
         }
         
         public func onFailure(e: Error) -> Void {
-            Toast(text: "Unable to retrieve data. Please try again later.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
-            ArkActivityView.stopAnimating()
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
             selfReference.refreshControl.endRefreshing()
         }
         
