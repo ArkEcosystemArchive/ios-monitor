@@ -8,7 +8,6 @@
 
 import UIKit
 import Toaster
-import ESPullToRefresh
 import NVActivityIndicatorView
 
 class HomeViewController: UIViewController {
@@ -33,6 +32,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var blocksRemainingLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
     
+    fileprivate var refreshControl : UIRefreshControl!
+    
     private var account : Account = Account()
     private var delegate : Delegate = Delegate()
     private var forging : Forging = Forging()
@@ -48,17 +49,15 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Home"
+        navigationItem.title = "Home"
         
         setNavigationBarItem()
-
-        _ = self.scrollView.es_addPullToRefresh {
-            [weak self] in
-            
-            self?.loadData()
-            
-            self?.scrollView.es_stopPullToRefresh()
-        }
+        
+        refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(reloadPage), for: .valueChanged)
+        
+        scrollView.addSubview(refreshControl)
 
     }
 
@@ -68,11 +67,11 @@ class HomeViewController: UIViewController {
 
     func loadData() -> Void {
         
-        if (!Reachability.isConnectedToNetwork()) {
+        guard Reachability.isConnectedToNetwork() == true else {
+            
             Toast(text: "Please connect to internet.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            
             return
         }
         
@@ -101,64 +100,64 @@ class HomeViewController: UIViewController {
     }
 
     private func loadAccount() -> Void {
-        if (self.account.address.length > 0) {
-            self.totalBalanceLabel.text = String(Utils.convertToArkBase(value: self.account.balance))
-            self.balance = Double(self.account.balance)
-            self.calculateEquivalentInBitcoinUSDandEUR()
+        if (account.address.length > 0) {
+            totalBalanceLabel.text = String(Utils.convertToArkBase(value: account.balance))
+            balance = Double(account.balance)
+            calculateEquivalentInBitcoinUSDandEUR()
         }
     }
     
     
     private func loadDelegate() -> Void {
-        if (self.delegate.address.length > 0) {
-            self.nameLabel.text = delegate.username
+        if (delegate.address.length > 0) {
+            nameLabel.text = delegate.username
 
             let rankStatus : String = delegate.rate <= 51 ? "Active" : "Standby"
-            self.rankStatusLabel.text = String(delegate.rate) + " / " + rankStatus
+            rankStatusLabel.text = String(delegate.rate) + " / " + rankStatus
 
-            self.productivityLabel.text = String(delegate.productivity) + "%"
-            self.approvalLabel.text = String(delegate.approval) + "%"
-            self.addressLabel.text = delegate.address
+            productivityLabel.text = String(delegate.productivity) + "%"
+            approvalLabel.text = String(delegate.approval) + "%"
+            addressLabel.text = delegate.address
             
-            self.forgedMissedBlocksLabel.text = String(delegate.producedblocks) + " / " + String(delegate.missedblocks)
+            forgedMissedBlocksLabel.text = String(delegate.producedblocks) + " / " + String(delegate.missedblocks)
             
         }
     }
     
     private func loadForging() -> Void {
-        self.feesLabel.text =  String(Utils.convertToArkBase(value: self.forging.fees))
-        self.rewardsLabel.text =  String(Utils.convertToArkBase(value: self.forging.rewards))
-        self.forgedLabel.text =  String(Utils.convertToArkBase(value: self.forging.forged))
+        feesLabel.text =  String(Utils.convertToArkBase(value: forging.fees))
+        rewardsLabel.text =  String(Utils.convertToArkBase(value: forging.rewards))
+        forgedLabel.text =  String(Utils.convertToArkBase(value: forging.forged))
     }
     
     private func loadStatus() -> Void {
-        self.totalBlocksLabel.text =  String(self.status.height)
-        self.blocksRemainingLabel.text = String(self.status.blocks)
+        totalBlocksLabel.text =  String(status.height)
+        blocksRemainingLabel.text = String(status.blocks)
     }
     
     private func loadPeerVersion() -> Void {
-        self.versionLabel.text =  self.peerVersion.version
+        versionLabel.text =  peerVersion.version
     }
     
     private func loadLastBlockForged() -> Void {
-        self.lastBlockForgedLabel.text =  Utils.getTimeAgo(timestamp: Double(self.block.timestamp))
+        lastBlockForgedLabel.text =  Utils.getTimeAgo(timestamp: Double(block.timestamp))
     }
     
     private func calculateEquivalentInBitcoinUSDandEUR() -> Void {
-        if (self.balance > 0 && self.arkBTCValue > 0) {
-            let balanceBtcEquivalent = self.balance * self.arkBTCValue
-            self.totalBalanceLabel.text = String(Utils.convertToArkBase(value: Int64(self.balance)))
+        if (balance > 0 && arkBTCValue > 0) {
+            let balanceBtcEquivalent = balance * arkBTCValue
+            totalBalanceLabel.text = String(Utils.convertToArkBase(value: Int64(balance)))
             
-            self.btcEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceBtcEquivalent)))
+            btcEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceBtcEquivalent)))
 
-            if (self.bitcoinUSDValue > 0) {
-                let balanceUSDEquivalent = balanceBtcEquivalent * self.bitcoinUSDValue
-                self.usdEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceUSDEquivalent)))
+            if (bitcoinUSDValue > 0) {
+                let balanceUSDEquivalent = balanceBtcEquivalent * bitcoinUSDValue
+                usdEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceUSDEquivalent)))
             }
             
-            if (self.bitcoinEURValue > 0) {
-                let balanceEUREquivalent = balanceBtcEquivalent * self.bitcoinEURValue
-                self.eurEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceEUREquivalent)))
+            if (bitcoinEURValue > 0) {
+                let balanceEUREquivalent = balanceBtcEquivalent * bitcoinEURValue
+                eurEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceEUREquivalent)))
             }
         }
     }
@@ -287,6 +286,11 @@ class HomeViewController: UIViewController {
             
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         }
+    }
+    
+    @objc private func reloadPage() {
+        loadData()
+        refreshControl.endRefreshing()
     }
 
 }

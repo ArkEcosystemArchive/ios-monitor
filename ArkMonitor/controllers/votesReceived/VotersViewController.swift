@@ -8,41 +8,44 @@
 
 import UIKit
 import Toaster
-import ESPullToRefresh
 import NVActivityIndicatorView
 
 class VotersViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView   : UITableView!
+    fileprivate var refreshControl : UIRefreshControl!
+
     var accounts : [Account] = []
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Voters"
+        navigationItem.title = "Voters"
         
         setNavigationBarItem()
         
-        self.tableView.registerCellNib(VoterTableViewCell.self)
+        tableView.registerCellNib(VoterTableViewCell.self)
         
-        _ = self.tableView.es_addPullToRefresh {
-            [weak self] in
-            
-            self?.loadVoters()
-            
-            self?.tableView.es_stopPullToRefresh()
+        refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
         }
         
         loadVoters()
     }
     
     func loadVoters() -> Void {
-        if (!Reachability.isConnectedToNetwork()) {
+        guard Reachability.isConnectedToNetwork() == true else {
+            
             Toast(text: "Please connect to internet.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            
             return
         }
         
@@ -54,8 +57,8 @@ class VotersViewController: UIViewController {
 
         let requestVoters = RequestVoters(myClass: self)
         
-        self.accounts = []
-        self.tableView.reloadData()
+        accounts = []
+        tableView.reloadData()
         
         ArkService.sharedInstance.requestVoters(settings: settings, listener: requestVoters)
     }
@@ -86,6 +89,10 @@ class VotersViewController: UIViewController {
         }
     }
     
+    @objc private func updateTableView() {
+        loadVoters()
+        refreshControl.endRefreshing()
+    }
 }
 
 extension VotersViewController : UITableViewDelegate {
@@ -109,7 +116,7 @@ extension VotersViewController : UITableViewDataSource {
         if (indexPath.row == 0) {
             cell.setTitles()
         } else {
-            cell.setData(self.accounts[indexPath.row - 1])
+            cell.setData(accounts[indexPath.row - 1])
         }
         return cell
     }

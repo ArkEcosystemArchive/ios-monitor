@@ -8,40 +8,43 @@
 
 import UIKit
 import Toaster
-import ESPullToRefresh
 import NVActivityIndicatorView
 
 class LatestTransactionsViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView   : UITableView!
+    fileprivate var refreshControl : UIRefreshControl!
+
     var transactions : [Transaction] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Latest Transactions"
+        navigationItem.title = "Latest Transactions"
         
         setNavigationBarItem()
         
-        self.tableView.registerCellNib(TransactionTableViewCell.self)
+        tableView.registerCellNib(TransactionTableViewCell.self)
         
-        _ = self.tableView.es_addPullToRefresh {
-            [weak self] in
-            
-            self?.loadTransactions()
-            
-            self?.tableView.es_stopPullToRefresh()
+        refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
         }
         
         loadTransactions()
     }
     
     func loadTransactions() -> Void {
-        if (!Reachability.isConnectedToNetwork()) {
+        guard Reachability.isConnectedToNetwork() == true else {
+            
             Toast(text: "Please connect to internet.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            
             return
         }
         
@@ -53,8 +56,8 @@ class LatestTransactionsViewController: UIViewController {
 
         let requestTransactions = RequestTransactions(myClass: self)
         
-        self.transactions = []
-        self.tableView.reloadData()
+        transactions = []
+        tableView.reloadData()
 
         ArkService.sharedInstance.requestLatestTransactions(settings: settings, listener: requestTransactions)
     }
@@ -83,6 +86,11 @@ class LatestTransactionsViewController: UIViewController {
         }
     }
     
+    @objc private func updateTableView() {
+        loadTransactions()
+        refreshControl.endRefreshing()
+    }
+    
 }
 
 extension LatestTransactionsViewController : UITableViewDelegate {
@@ -96,14 +104,14 @@ extension LatestTransactionsViewController : UITableViewDelegate {
 extension LatestTransactionsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.transactions.count
+        return transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.identifier, for: indexPath) as! TransactionTableViewCell
         
-        cell.setData(self.transactions[indexPath.row])
+        cell.setData(transactions[indexPath.row])
         return cell
     }
     

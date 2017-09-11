@@ -8,40 +8,43 @@
 
 import UIKit
 import Toaster
-import ESPullToRefresh
 import NVActivityIndicatorView
 
 class VotesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    fileprivate var refreshControl: UIRefreshControl!
+    
     var delegates : [Delegate] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Votes"
+        navigationItem.title = "Votes"
         
         setNavigationBarItem()
         
-        self.tableView.registerCellNib(VoteTableViewCell.self)
+        tableView.registerCellNib(VoteTableViewCell.self)
         
-        _ = self.tableView.es_addPullToRefresh {
-            [weak self] in
-            
-            self?.loadVotes()
-            
-            self?.tableView.es_stopPullToRefresh()
+        refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
         }
         
         loadVotes()
     }
     
     func loadVotes() -> Void {
-        if (!Reachability.isConnectedToNetwork()) {
+        guard Reachability.isConnectedToNetwork() == true else {
+            
             Toast(text: "Please connect to internet.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            
             return
         }
         
@@ -53,8 +56,8 @@ class VotesViewController: UIViewController {
 
         let requestVotes = RequestVotes(myClass: self)
         
-        self.delegates = []
-        self.tableView.reloadData()
+        delegates = []
+        tableView.reloadData()
         
         ArkService.sharedInstance.requestVotes(settings: settings, listener: requestVotes)
     }
@@ -85,6 +88,11 @@ class VotesViewController: UIViewController {
         }
     }
     
+    @objc private func updateTableView() {
+        loadVotes()
+        
+        refreshControl.endRefreshing()
+    }
 }
 
 extension VotesViewController : UITableViewDelegate {
@@ -98,7 +106,7 @@ extension VotesViewController : UITableViewDelegate {
 extension VotesViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.delegates.count
+        return delegates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,7 +116,7 @@ extension VotesViewController : UITableViewDataSource {
         if (indexPath.row == 0) {
             cell.setTitles()
         } else {
-            cell.setData(self.delegates[indexPath.row - 1])
+            cell.setData(delegates[indexPath.row - 1])
         }
         return cell
     }

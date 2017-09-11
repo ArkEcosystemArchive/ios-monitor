@@ -8,7 +8,6 @@
 
 import UIKit
 import Toaster
-import ESPullToRefresh
 import NVActivityIndicatorView
 
 protocol SettingsProtocol: class {
@@ -66,7 +65,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Settings"
+        navigationItem.title = "Settings"
         
         setNavigationBarItem()
         
@@ -74,14 +73,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         loadConstraints()
 
-        self.usernameTextField.delegate = self
-        self.ipAddressTextField.delegate = self
-        self.portTextField.delegate = self
+        usernameTextField.delegate = self
+        ipAddressTextField.delegate = self
+        portTextField.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         loadSettings()
-        adjustConstraints(isCustomServer: self.settings.serverType.hashValue == Server.custom.hashValue)
+        adjustConstraints(isCustomServer: settings.serverType.hashValue == Server.custom.hashValue)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -91,107 +90,107 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
 
     func loadConstraints() -> Void{
-        self.ipAddressTextFieldMarginTop = self.ipAddressTextFieldMarginTopConstraint.constant
-        self.ipAddressTextFieldMarginBottom = self.ipAddressTextFieldMarginBottomConstraint.constant
-        self.ipAddressTextFieldHeight = self.ipAddressTextFieldHeightConstraint.constant
-        self.ipAddressSeparatorHeight = self.ipAddressSeparatorHeightConstraint.constant
-        self.ipAddressLabelHeight = self.ipAddressLabelHeightConstraint.constant
+        ipAddressTextFieldMarginTop = ipAddressTextFieldMarginTopConstraint.constant
+        ipAddressTextFieldMarginBottom = ipAddressTextFieldMarginBottomConstraint.constant
+        ipAddressTextFieldHeight = ipAddressTextFieldHeightConstraint.constant
+        ipAddressSeparatorHeight = ipAddressSeparatorHeightConstraint.constant
+        ipAddressLabelHeight = ipAddressLabelHeightConstraint.constant
         
-        self.portTextFieldMarginTop = self.portTextFieldMarginTopConstraint.constant
-        self.portTextFieldMarginBottom = self.portTextFieldMarginBottomConstraint.constant
-        self.portTextFieldHeight = self.portTextFieldHeightConstraint.constant
-        self.portSeparatorHeight = self.portSeparatorHeightConstraint.constant
-        self.portLabelHeight = self.portLabelHeightConstraint.constant
+        portTextFieldMarginTop = portTextFieldMarginTopConstraint.constant
+        portTextFieldMarginBottom = portTextFieldMarginBottomConstraint.constant
+        portTextFieldHeight = portTextFieldHeightConstraint.constant
+        portSeparatorHeight = portSeparatorHeightConstraint.constant
+        portLabelHeight = portLabelHeightConstraint.constant
         
-        self.sslEnabledSwitchMarginTop = self.sslEnabledSwitchMarginTopConstraint.constant
-        self.sslEnabledSwitchMarginBottom = self.sslEnabledSwitchMarginBottomConstraint.constant
-        self.sslEnabledSwitchHeight = self.sslEnabledSwitchHeightConstraint.constant
-        self.sslEnabledSeparatorHeight = self.sslEnabledSeparatorHeightConstraint.constant
-        self.sslEnabledLabelHeight = self.sslEnabledLabelHeightConstraint.constant
+        sslEnabledSwitchMarginTop = sslEnabledSwitchMarginTopConstraint.constant
+        sslEnabledSwitchMarginBottom = sslEnabledSwitchMarginBottomConstraint.constant
+        sslEnabledSwitchHeight = sslEnabledSwitchHeightConstraint.constant
+        sslEnabledSeparatorHeight = sslEnabledSeparatorHeightConstraint.constant
+        sslEnabledLabelHeight = sslEnabledLabelHeightConstraint.constant
     }
     
     func adjustConstraints(isCustomServer : Bool) -> Void {
 
         if (isCustomServer) {
 
-            self.ipAddressTextFieldMarginTopConstraint.constant = self.ipAddressTextFieldMarginTop
-            self.ipAddressTextFieldMarginBottomConstraint.constant = self.ipAddressTextFieldMarginBottom
-            self.ipAddressTextFieldHeightConstraint.constant = self.ipAddressTextFieldHeight
-            self.ipAddressSeparatorHeightConstraint.constant = self.ipAddressSeparatorHeight
-            self.ipAddressLabelHeightConstraint.constant = self.ipAddressLabelHeight
+            ipAddressTextFieldMarginTopConstraint.constant = ipAddressTextFieldMarginTop
+            ipAddressTextFieldMarginBottomConstraint.constant = ipAddressTextFieldMarginBottom
+            ipAddressTextFieldHeightConstraint.constant = ipAddressTextFieldHeight
+            ipAddressSeparatorHeightConstraint.constant = ipAddressSeparatorHeight
+            ipAddressLabelHeightConstraint.constant = ipAddressLabelHeight
             
-            self.portTextFieldMarginTopConstraint.constant = self.portTextFieldMarginTop
-            self.portTextFieldMarginBottomConstraint.constant = self.portTextFieldMarginBottom
-            self.portTextFieldHeightConstraint.constant = self.portTextFieldHeight
-            self.portSeparatorHeightConstraint.constant = self.portSeparatorHeight
-            self.portLabelHeightConstraint.constant = self.portLabelHeight
+            portTextFieldMarginTopConstraint.constant = portTextFieldMarginTop
+            portTextFieldMarginBottomConstraint.constant = portTextFieldMarginBottom
+            portTextFieldHeightConstraint.constant = portTextFieldHeight
+            portSeparatorHeightConstraint.constant = portSeparatorHeight
+            portLabelHeightConstraint.constant = portLabelHeight
             
-            self.sslEnabledSwitchMarginTopConstraint.constant = self.sslEnabledSwitchMarginTop
-            self.sslEnabledSwitchMarginBottomConstraint.constant = self.sslEnabledSwitchMarginBottom
-            self.sslEnabledSwitchHeightConstraint.constant = self.sslEnabledSwitchHeight
-            self.sslEnabledSeparatorHeightConstraint.constant = self.sslEnabledSeparatorHeight
-            self.sslEnabledLabelHeightConstraint.constant = self.sslEnabledLabelHeight
+            sslEnabledSwitchMarginTopConstraint.constant = sslEnabledSwitchMarginTop
+            sslEnabledSwitchMarginBottomConstraint.constant = sslEnabledSwitchMarginBottom
+            sslEnabledSwitchHeightConstraint.constant = sslEnabledSwitchHeight
+            sslEnabledSeparatorHeightConstraint.constant = sslEnabledSeparatorHeight
+            sslEnabledLabelHeightConstraint.constant = sslEnabledLabelHeight
             
-            self.sslEnabledSwitch.isHidden = false
+            sslEnabledSwitch.isHidden = false
 
         } else {
-            self.ipAddressTextFieldMarginTopConstraint.constant = 0
-            self.ipAddressTextFieldMarginBottomConstraint.constant = 0
-            self.ipAddressTextFieldHeightConstraint.constant = 0
-            self.ipAddressSeparatorHeightConstraint.constant = 0
-            self.ipAddressLabelHeightConstraint.constant = 0
+            ipAddressTextFieldMarginTopConstraint.constant = 0
+            ipAddressTextFieldMarginBottomConstraint.constant = 0
+            ipAddressTextFieldHeightConstraint.constant = 0
+            ipAddressSeparatorHeightConstraint.constant = 0
+            ipAddressLabelHeightConstraint.constant = 0
             
-            self.portTextFieldMarginTopConstraint.constant = 0
-            self.portTextFieldMarginBottomConstraint.constant = 0
-            self.portTextFieldHeightConstraint.constant = 0
-            self.portSeparatorHeightConstraint.constant = 0
-            self.portLabelHeightConstraint.constant = 0
+            portTextFieldMarginTopConstraint.constant = 0
+            portTextFieldMarginBottomConstraint.constant = 0
+            portTextFieldHeightConstraint.constant = 0
+            portSeparatorHeightConstraint.constant = 0
+            portLabelHeightConstraint.constant = 0
             
-            self.sslEnabledSwitchMarginTopConstraint.constant = 0
-            self.sslEnabledSwitchMarginBottomConstraint.constant = 0
-            self.sslEnabledSwitchHeightConstraint.constant = 0
-            self.sslEnabledSeparatorHeightConstraint.constant = 0
-            self.sslEnabledLabelHeightConstraint.constant = 0
+            sslEnabledSwitchMarginTopConstraint.constant = 0
+            sslEnabledSwitchMarginBottomConstraint.constant = 0
+            sslEnabledSwitchHeightConstraint.constant = 0
+            sslEnabledSeparatorHeightConstraint.constant = 0
+            sslEnabledLabelHeightConstraint.constant = 0
 
-            self.sslEnabledSwitch.isHidden = true
+            sslEnabledSwitch.isHidden = true
         }
     }
     
     func loadSettings() -> Void {
-        self.settings = Settings.getSettings()
-        if (self.settings.isValid()) {
-            usernameTextField.text = self.settings.username
+        settings = Settings.getSettings()
+        if (settings.isValid()) {
+            usernameTextField.text = settings.username
             
             if (settings.serverType == Server.custom) {
-                ipAddressTextField.text = self.settings.ipAddress
-                portTextField.text = String(self.settings.port)
+                ipAddressTextField.text = settings.ipAddress
+                portTextField.text = String(settings.port)
             }
 
-            sslEnabledSwitch.setOn(self.settings.sslEnabled, animated: true)
+            sslEnabledSwitch.setOn(settings.sslEnabled, animated: true)
 
-            serversPickerView.selectRow(self.settings.serverType.hashValue, inComponent: 0, animated: true)
+            serversPickerView.selectRow(settings.serverType.hashValue, inComponent: 0, animated: true)
             
         }
     }
     
     func customSaveButton() -> Void {
-        self.saveButton.backgroundColor = UIColor(hex: "1E88E5")
+        saveButton.backgroundColor = UIColor(hex: "1E88E5")
     }
 
     @IBAction func saveAction(_ sender: Any) {
-        if (!Reachability.isConnectedToNetwork()) {
+        guard Reachability.isConnectedToNetwork() == true else {
+            
             Toast(text: "Please connect to internet.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            
             return
         }
 
-        let username = self.usernameTextField.text
-        let ipAddress = self.ipAddressTextField.text
-        let port = self.portTextField.text
-        let sslEnabled = self.sslEnabledSwitch.isOn
-        let serverId = self.serversPickerView.selectedRow(inComponent: 0)
+        let username = usernameTextField.text
+        let ipAddress = ipAddressTextField.text
+        let port = portTextField.text
+        let sslEnabled = sslEnabledSwitch.isOn
+        let serverId = serversPickerView.selectedRow(inComponent: 0)
  
         let settings = Settings()
 
@@ -245,7 +244,7 @@ extension SettingsViewController : UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if (pickerView == self.serversPickerView) {
+        if (pickerView == serversPickerView) {
             return Server.count
         }
 
@@ -253,7 +252,7 @@ extension SettingsViewController : UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if (pickerView == self.serversPickerView) {
+        if (pickerView == serversPickerView) {
             let server = Server(rawValue: row)
             
             let isCustomServersCustomServer = server?.hashValue == Server.custom.hashValue
@@ -261,11 +260,11 @@ extension SettingsViewController : UIPickerViewDelegate {
             adjustConstraints(isCustomServer:isCustomServersCustomServer)
             
             if (isCustomServersCustomServer) {
-                self.sslEnabledSwitch.setOn(false, animated: false)
+                sslEnabledSwitch.setOn(false, animated: false)
             } else {
-                self.ipAddressTextField.text = ""
-                self.portTextField.text = ""
-                self.sslEnabledSwitch.setOn(true, animated: false)
+                ipAddressTextField.text = ""
+                portTextField.text = ""
+                sslEnabledSwitch.setOn(true, animated: false)
             }
         }
         
@@ -276,12 +275,11 @@ extension SettingsViewController : UIPickerViewDelegate {
 extension SettingsViewController : UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if (pickerView == self.serversPickerView) {
-            return Server(rawValue: row)?.description
+        guard pickerView == serversPickerView else {
+            return nil
         }
-
-        return ""
         
+        return Server(rawValue: row)?.description
     }
     
 }
@@ -307,11 +305,11 @@ private class RequestData: RequestListener {
 
             let settings = Settings.getSettings()
 
-            let username = self.selfReference.usernameTextField.text
-            let ipAddress = self.selfReference.ipAddressTextField.text
-            let port = self.selfReference.portTextField.text
-            let sslEnabled = self.selfReference.sslEnabledSwitch.isOn
-            let serverId = self.selfReference.serversPickerView.selectedRow(inComponent: 0)
+            let username = selfReference.usernameTextField.text
+            let ipAddress = selfReference.ipAddressTextField.text
+            let port = selfReference.portTextField.text
+            let sslEnabled = selfReference.sslEnabledSwitch.isOn
+            let serverId = selfReference.serversPickerView.selectedRow(inComponent: 0)
 
             settings.username = username!
             settings.sslEnabled = sslEnabled
@@ -328,16 +326,16 @@ private class RequestData: RequestListener {
             settings.arkAddress = delegate.address
             settings.publicKey = delegate.publicKey
             
-            self.selfReference.settings = settings
+            selfReference.settings = settings
 
             Settings.saveSettings(settings: settings)
 
-            if (self.selfReference.delegate == nil) {
+            if (selfReference.delegate == nil) {
                 let navController = UINavigationController(rootViewController: HomeViewController())
-                self.selfReference.slideMenuController()?.changeMainViewController(navController, close: true)
+                selfReference.slideMenuController()?.changeMainViewController(navController, close: true)
                 
             } else {
-                self.selfReference.delegate?.onSettingsSaved()
+                selfReference.delegate?.onSettingsSaved()
             }
             
         }

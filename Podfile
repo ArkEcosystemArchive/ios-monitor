@@ -10,7 +10,6 @@ target 'ArkMonitor' do
   pod 'SlideMenuControllerSwift'
   pod 'Alamofire', '~> 4.3'
   pod 'Toaster', '~> 2.0'
-  pod 'ESPullToRefresh'
   pod 'NVActivityIndicatorView'
 
 end
