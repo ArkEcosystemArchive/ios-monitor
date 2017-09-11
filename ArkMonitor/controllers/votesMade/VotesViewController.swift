@@ -8,7 +8,6 @@
 
 import UIKit
 import Toaster
-import NVActivityIndicatorView
 
 class VotesViewController: UIViewController {
     
@@ -36,10 +35,10 @@ class VotesViewController: UIViewController {
             tableView.addSubview(refreshControl)
         }
         
-        loadVotes()
+        loadVotes(true)
     }
     
-    func loadVotes() -> Void {
+    func loadVotes(_ animated: Bool) -> Void {
         guard Reachability.isConnectedToNetwork() == true else {
             
             Toast(text: "Please connect to internet.",
@@ -48,9 +47,7 @@ class VotesViewController: UIViewController {
             return
         }
         
-        let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
-        
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        ArkActivityView.startAnimating()
         
         let settings = Settings.getSettings()
 
@@ -73,7 +70,8 @@ class VotesViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -83,15 +81,14 @@ class VotesViewController: UIViewController {
             
             selfReference.delegates = selfReference.delegates.sorted { $0.rate < $1.rate }
             
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
             selfReference.tableView.reloadData()
         }
     }
     
     @objc private func updateTableView() {
-        loadVotes()
-        
-        refreshControl.endRefreshing()
+        loadVotes(false)
     }
 }
 
