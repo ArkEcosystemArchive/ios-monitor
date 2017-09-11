@@ -8,7 +8,6 @@
 
 import UIKit
 import Toaster
-import NVActivityIndicatorView
 
 protocol SettingsProtocol: class {
     func onSettingsSaved()
@@ -227,10 +226,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
 
         settings.setServerType(serverType: Server(rawValue: serverId)!)
-
-        let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
         
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        ArkActivityView.startAnimating()
         
         ArkService.sharedInstance.requestDelegate(settings: settings, listener: RequestData(myClass: self))
     }
@@ -296,7 +293,7 @@ private class RequestData: RequestListener {
         Toast(text: "Unable to retrieve data. Please try again later.",
               delay: Delay.short,
               duration: Delay.long).show()
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        ArkActivityView.stopAnimating()
     }
     
     func onResponse(object: Any)  -> Void {
@@ -340,6 +337,6 @@ private class RequestData: RequestListener {
             
         }
         
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        ArkActivityView.stopAnimating()
     }
 }
