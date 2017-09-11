@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DE61F6731C800C4B765 /* ArkActivityView.swift */; };
 		50D0451C340D7A669AE07F70 /* Pods_ArkMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED33999C395ABFC734C5C25 /* Pods_ArkMonitor.framework */; };
 		9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFC1E719A8800621D88 /* Assets.xcassets */; };
 		9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFE1E719A8800621D88 /* LaunchScreen.storyboard */; };
@@ -69,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16D14DE61F6731C800C4B765 /* ArkActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkActivityView.swift; sourceTree = "<group>"; };
 		4E1E4032A0BBD3BDC693E99D /* Pods-ArkMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArkMonitor/Pods-ArkMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		9A103AF21E719A8800621D88 /* ArkMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArkMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A103AFC1E719A8800621D88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 		9A103B511E719C6300621D88 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				16D14DE61F6731C800C4B765 /* ArkActivityView.swift */,
 				9A103B521E719C6300621D88 /* BaseTableViewCell.swift */,
 				9A103B531E719C6300621D88 /* DataTableViewCell.swift */,
 				9A103B541E719C6300621D88 /* DataTableViewCell.xib */,
@@ -596,6 +599,7 @@
 				9A103B7F1E719C6300621D88 /* Settings.swift in Sources */,
 				9A103B821E719C6300621D88 /* Transaction.swift in Sources */,
 				9A103B781E719C6300621D88 /* UIViewController.swift in Sources */,
+				16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */,
 				9A103B701E719C6300621D88 /* VotersViewController.swift in Sources */,
 				9A103B6E1E719C6300621D88 /* VoteTableViewCell.swift in Sources */,
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,

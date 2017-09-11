@@ -8,14 +8,12 @@
 
 import UIKit
 import Toaster
-import NVActivityIndicatorView
 
 class DelegatesViewController: UIViewController {
 
     @IBOutlet weak var tableView   : UITableView!
     fileprivate var refreshControl : UIRefreshControl!
 
-    
     var delegates: [Delegate] = []
     
     override func viewDidLoad() {
@@ -37,10 +35,10 @@ class DelegatesViewController: UIViewController {
             tableView.addSubview(refreshControl)
         }
 
-        loadDelegates()
+        loadDelegates(true)
     }
     
-    func loadDelegates() -> Void {
+    func loadDelegates(_ animated: Bool) -> Void {
         guard Reachability.isConnectedToNetwork() == true else {
             
             Toast(text: "Please connect to internet.",
@@ -48,10 +46,10 @@ class DelegatesViewController: UIViewController {
                   duration: Delay.long).show()
             return
         }
-
-        let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
-
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
+        if animated == true {
+            ArkActivityView.startAnimating()
+        }
 
         let settings = Settings.getSettings()
         
@@ -77,7 +75,8 @@ class DelegatesViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
         }
 
         func onResponse(object: Any)  -> Void {
@@ -86,8 +85,9 @@ class DelegatesViewController: UIViewController {
             selfReference.delegates = selfReference.delegates.sorted { $0.rate < $1.rate }
 
             if (selfReference.delegates.count > 51) {
-                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                ArkActivityView.stopAnimating()
                 selfReference.tableView.reloadData()
+                selfReference.refreshControl.endRefreshing()
             }
         }
     }
@@ -104,7 +104,8 @@ class DelegatesViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -113,15 +114,15 @@ class DelegatesViewController: UIViewController {
             selfReference.delegates = selfReference.delegates.sorted { $0.rate < $1.rate }
             
             if (selfReference.delegates.count > 51) {
-                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                ArkActivityView.stopAnimating()
+                selfReference.refreshControl.endRefreshing()
                 selfReference.tableView.reloadData()
             }
         }
     }
     
     @objc private func updateTableView() {
-        loadDelegates()
-        refreshControl.endRefreshing()
+        loadDelegates(false)
     }
 }
 
