@@ -8,7 +8,6 @@
 
 import UIKit
 import Toaster
-import NVActivityIndicatorView
 
 class LatestTransactionsViewController: UIViewController {
     
@@ -36,10 +35,10 @@ class LatestTransactionsViewController: UIViewController {
             tableView.addSubview(refreshControl)
         }
         
-        loadTransactions()
+        loadTransactions(true)
     }
     
-    func loadTransactions() -> Void {
+    func loadTransactions(_ animated: Bool) -> Void {
         guard Reachability.isConnectedToNetwork() == true else {
             
             Toast(text: "Please connect to internet.",
@@ -48,9 +47,9 @@ class LatestTransactionsViewController: UIViewController {
             return
         }
         
-        let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
-        
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        if animated == true {
+            ArkActivityView.startAnimating()
+        }
         
         let settings = Settings.getSettings()
 
@@ -73,7 +72,8 @@ class LatestTransactionsViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -81,14 +81,14 @@ class LatestTransactionsViewController: UIViewController {
             
             selfReference.transactions = transactions
 
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
             selfReference.tableView.reloadData()
         }
     }
     
     @objc private func updateTableView() {
-        loadTransactions()
-        refreshControl.endRefreshing()
+        loadTransactions(false)
     }
     
 }

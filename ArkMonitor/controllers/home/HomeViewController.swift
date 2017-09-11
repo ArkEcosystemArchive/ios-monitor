@@ -8,7 +8,6 @@
 
 import UIKit
 import Toaster
-import NVActivityIndicatorView
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
@@ -62,10 +61,10 @@ class HomeViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        loadData()
+        loadData(true)
     }
 
-    func loadData() -> Void {
+    func loadData(_ animated: Bool) -> Void {
         
         guard Reachability.isConnectedToNetwork() == true else {
             
@@ -75,9 +74,9 @@ class HomeViewController: UIViewController {
             return
         }
         
-        let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
-        
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        if animated == true {
+            ArkActivityView.startAnimating()
+        }
         
         let settings = Settings.getSettings()
 
@@ -173,7 +172,8 @@ class HomeViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -207,7 +207,9 @@ class HomeViewController: UIViewController {
                 selfReference.loadLastBlockForged()
             }
             
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
+            
         }
     }
     
@@ -223,7 +225,8 @@ class HomeViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
             selfReference.arkBTCValue = -1
         }
         
@@ -233,7 +236,9 @@ class HomeViewController: UIViewController {
                 selfReference.calculateEquivalentInBitcoinUSDandEUR()
             }
             
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
+            
         }
     }
     
@@ -249,7 +254,8 @@ class HomeViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
             selfReference.bitcoinUSDValue = -1
         }
         
@@ -259,7 +265,9 @@ class HomeViewController: UIViewController {
                 selfReference.calculateEquivalentInBitcoinUSDandEUR()
             }
             
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
+            
         }
     }
     
@@ -274,7 +282,9 @@ class HomeViewController: UIViewController {
             Toast(text: "Unable to retrieve data. Please try again later.",
                   delay: Delay.short,
                   duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
+            
         }
 
         func onResponse(object: Any)  -> Void {
@@ -284,13 +294,13 @@ class HomeViewController: UIViewController {
 
             }
             
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
+            
         }
     }
     
     @objc private func reloadPage() {
-        loadData()
-        refreshControl.endRefreshing()
+        loadData(false)
     }
-
 }

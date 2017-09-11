@@ -88,7 +88,6 @@ class PeersViewController: UIViewController {
     
     @objc private func updateTableView() {
         loadPeers()
-        refreshControl.endRefreshing()
     }
 }
 
