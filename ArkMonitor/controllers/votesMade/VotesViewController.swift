@@ -7,54 +7,52 @@
 //
 
 import UIKit
-import Toaster
-import ESPullToRefresh
-import NVActivityIndicatorView
 
 class VotesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    fileprivate var refreshControl: UIRefreshControl!
+    
     var delegates : [Delegate] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Votes"
+        navigationItem.title = "Votes"
         
         setNavigationBarItem()
         
-        self.tableView.registerCellNib(VoteTableViewCell.self)
+        tableView.registerCellNib(VoteTableViewCell.self)
         
-        _ = self.tableView.es_addPullToRefresh {
-            [weak self] in
-            
-            self?.loadVotes()
-            
-            self?.tableView.es_stopPullToRefresh()
+        refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
         }
         
-        loadVotes()
+        loadVotes(true)
     }
     
-    func loadVotes() -> Void {
-        if (!Reachability.isConnectedToNetwork()) {
-            Toast(text: "Please connect to internet.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
-            
+    func loadVotes(_ animated: Bool) -> Void {
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkActivityView.showMessage("Please connect to internet.")
             return
         }
         
-        let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
-        
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        if animated == true {
+            ArkActivityView.startAnimating()
+        }
         
         let settings = Settings.getSettings()
 
         let requestVotes = RequestVotes(myClass: self)
         
-        self.delegates = []
-        self.tableView.reloadData()
+        delegates = []
+        tableView.reloadData()
         
         ArkService.sharedInstance.requestVotes(settings: settings, listener: requestVotes)
     }
@@ -67,10 +65,9 @@ class VotesViewController: UIViewController {
         }
         
         public func onFailure(e: Error) -> Void {
-            Toast(text: "Unable to retrieve data. Please try again later.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -80,11 +77,15 @@ class VotesViewController: UIViewController {
             
             selfReference.delegates = selfReference.delegates.sorted { $0.rate < $1.rate }
             
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
             selfReference.tableView.reloadData()
         }
     }
     
+    @objc private func updateTableView() {
+        loadVotes(false)
+    }
 }
 
 extension VotesViewController : UITableViewDelegate {
@@ -98,7 +99,7 @@ extension VotesViewController : UITableViewDelegate {
 extension VotesViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.delegates.count
+        return delegates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,7 +109,7 @@ extension VotesViewController : UITableViewDataSource {
         if (indexPath.row == 0) {
             cell.setTitles()
         } else {
-            cell.setData(self.delegates[indexPath.row - 1])
+            cell.setData(delegates[indexPath.row - 1])
         }
         return cell
     }

@@ -25,7 +25,7 @@ class DataTableViewCell : BaseTableViewCell {
     
     override func awakeFromNib() {
         self.dataText?.font = UIFont.italicSystemFont(ofSize: 16)
-        self.dataText?.textColor = UIColor(hex: "9E9E9E")
+        self.dataText?.textColor = ArkColors.gray
     }
  
     override class func height() -> CGFloat {

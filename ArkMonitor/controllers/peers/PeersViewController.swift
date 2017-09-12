@@ -7,53 +7,52 @@
 //
 
 import UIKit
-import Toaster
-import ESPullToRefresh
-import NVActivityIndicatorView
 
 class PeersViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var tableView   : UITableView!
+    fileprivate var refreshControl : UIRefreshControl!
+    
     var peers: [Peer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Peers"
+        navigationItem.title = "Peers"
         
         setNavigationBarItem()
 
-        self.tableView.registerCellNib(PeerTableViewCell.self)
+        tableView.registerCellNib(PeerTableViewCell.self)
         
-        _ = self.tableView.es_addPullToRefresh {
-            [weak self] in
-            
-            self?.loadPeers()
-            
-            self?.tableView.es_stopPullToRefresh()
+        refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
         }
         
-        loadPeers()
+        loadPeers(true)
     }
     
-    func loadPeers() -> Void {
-        if (!Reachability.isConnectedToNetwork()) {
-            Toast(text: "Please connect to internet.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
-            
+    func loadPeers(_ animated: Bool) -> Void {
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkActivityView.showMessage("Please connect to internet.")
             return
         }
         
-        let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
-        
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        if animated == true {
+            ArkActivityView.startAnimating()
+        }
         
         let settings = Settings.getSettings()
 
         let requestPeers = RequestPeers(myClass: self)
         
-        self.peers = []
-        self.tableView.reloadData()
+        peers = []
+        tableView.reloadData()
         
         ArkService.sharedInstance.requestPeers(settings: settings, listener: requestPeers)
     }
@@ -66,10 +65,8 @@ class PeersViewController: UIViewController {
         }
         
         public func onFailure(e: Error) -> Void {
-            Toast(text: "Unable to retrieve data. Please try again later.",
-                  delay: Delay.short,
-                  duration: Delay.long).show()
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            selfReference.refreshControl.endRefreshing()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -77,11 +74,15 @@ class PeersViewController: UIViewController {
 
             selfReference.peers = selfReference.peers.sorted { $0.status > $1.status }
             
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            ArkActivityView.stopAnimating()
+            selfReference.refreshControl.endRefreshing()
             selfReference.tableView.reloadData()
         }
     }
- 
+    
+    @objc private func updateTableView() {
+        loadPeers(false)
+    }
 }
 
 
@@ -96,7 +97,7 @@ extension PeersViewController : UITableViewDelegate {
 extension PeersViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.peers.count + 1
+        return peers.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,7 +107,7 @@ extension PeersViewController : UITableViewDataSource {
         if (indexPath.row == 0) {
             cell.setTitles()
         } else {
-            cell.setData(self.peers[indexPath.row - 1])
+            cell.setData(peers[indexPath.row - 1])
         }
         return cell
     }
