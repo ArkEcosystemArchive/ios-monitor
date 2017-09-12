@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     fileprivate var peerVersion : PeerVersion = PeerVersion()
     fileprivate var block : Block = Block()
     
-    fileprivate var tableView      : UITableView!
+    fileprivate var tableView      : ArkTableView!
     fileprivate var refreshControl : UIRefreshControl!
     
     private var balance         : Double?
@@ -32,9 +32,7 @@ class HomeViewController: UIViewController {
         navigationItem.titleView          = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "whiteGear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         
-        tableView = UITableView(frame: CGRect.zero, style: .grouped)
-        tableView.backgroundColor = UIColor.white
-        tableView.separatorStyle = .none
+        tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate = self
         tableView.dataSource = self
         

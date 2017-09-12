@@ -11,6 +11,7 @@
 		16089A061F67A16A0051E267 /* DelegateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */; };
 		163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */; };
 		163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */; };
+		164919C71F68880B003A8B08 /* ArkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164919C61F68880B003A8B08 /* ArkTableView.swift */; };
 		1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */; };
 		1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */; };
 		1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */; };
@@ -66,9 +67,6 @@
 		9A103B871E719C6300621D88 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B4D1E719C6300621D88 /* Reachability.swift */; };
 		9A103B881E719C6300621D88 /* RequestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B4E1E719C6300621D88 /* RequestListener.swift */; };
 		9A103B891E719C6300621D88 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B501E719C6300621D88 /* Utils.swift */; };
-		9A103B8A1E719C6300621D88 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B521E719C6300621D88 /* BaseTableViewCell.swift */; };
-		9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B531E719C6300621D88 /* DataTableViewCell.swift */; };
-		9A103B8C1E719C6300621D88 /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B541E719C6300621D88 /* DataTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +74,7 @@
 		16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTableViewCell.swift; sourceTree = "<group>"; };
 		163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerSectionHeader.swift; sourceTree = "<group>"; };
 		163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
+		164919C61F68880B003A8B08 /* ArkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTableView.swift; sourceTree = "<group>"; };
 		1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockViewController.swift; sourceTree = "<group>"; };
 		1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockSectionHeader.swift; sourceTree = "<group>"; };
 		1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,9 +132,6 @@
 		9A103B4D1E719C6300621D88 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9A103B4E1E719C6300621D88 /* RequestListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestListener.swift; sourceTree = "<group>"; };
 		9A103B501E719C6300621D88 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		9A103B521E719C6300621D88 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B531E719C6300621D88 /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B541E719C6300621D88 /* DataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataTableViewCell.xib; sourceTree = "<group>"; };
 		AED33999C395ABFC734C5C25 /* Pods_ArkMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArkMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE14C90B39699DD8DF85A49B /* Pods-ArkMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArkMonitor/Pods-ArkMonitor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -385,9 +381,7 @@
 		9A103B511E719C6300621D88 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B521E719C6300621D88 /* BaseTableViewCell.swift */,
-				9A103B531E719C6300621D88 /* DataTableViewCell.swift */,
-				9A103B541E719C6300621D88 /* DataTableViewCell.xib */,
+				164919C61F68880B003A8B08 /* ArkTableView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -456,7 +450,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A103B8C1E719C6300621D88 /* DataTableViewCell.xib in Resources */,
 				9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */,
 				9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */,
 				9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */,
@@ -537,7 +530,6 @@
 				169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */,
 				9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */,
 				169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */,
-				9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */,
 				9A103B811E719C6300621D88 /* Ticker.swift in Sources */,
 				1656B5EC1F685067006FCDE5 /* LastestTransactionViewController.swift in Sources */,
 				9A103B7C1E719C6300621D88 /* Forging.swift in Sources */,
@@ -555,6 +547,7 @@
 				1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */,
 				16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */,
 				1656B5EE1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift in Sources */,
+				164919C71F68880B003A8B08 /* ArkTableView.swift in Sources */,
 				9A103B7D1E719C6300621D88 /* Peer.swift in Sources */,
 				169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */,
 				9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */,
@@ -586,7 +579,6 @@
 				9A103B841E719C6300621D88 /* Votes.swift in Sources */,
 				9A103B7E1E719C6300621D88 /* PeerVersion.swift in Sources */,
 				163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */,
-				9A103B8A1E719C6300621D88 /* BaseTableViewCell.swift in Sources */,
 				1656B5E41F683D34006FCDE5 /* VotesSectionHeader.swift in Sources */,
 				9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */,
 			);

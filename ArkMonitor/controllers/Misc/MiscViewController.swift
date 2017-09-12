@@ -11,7 +11,7 @@ import UIKit
 class MiscViewController: UIViewController {
     
     fileprivate var segmentControl : UISegmentedControl!
-    fileprivate var tableView      : UITableView!
+    fileprivate var tableView      : ArkTableView!
     fileprivate var refreshControl : UIRefreshControl!
     
     var peers  : [Peer]     = []
@@ -28,10 +28,9 @@ class MiscViewController: UIViewController {
         navigationItem.titleView = segmentControl
         segmentControl.selectedSegmentIndex = 0
         
-        tableView                = UITableView(frame: CGRect.zero, style: .grouped)
-        tableView.separatorStyle = .none
-        tableView.delegate       = self
-        tableView.dataSource     = self
+        tableView            = ArkTableView(frame: CGRect.zero)
+        tableView.delegate   = self
+        tableView.dataSource = self
         
         refreshControl = UIRefreshControl()
         refreshControl.tintColor = ArkColors.blue

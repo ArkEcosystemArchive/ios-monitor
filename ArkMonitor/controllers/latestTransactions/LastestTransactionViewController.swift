@@ -10,7 +10,7 @@ import UIKit
 
 class LastestTransactionsViewController: UIViewController {
     
-    fileprivate var tableView      : UITableView!
+    fileprivate var tableView      : ArkTableView!
     fileprivate var refreshControl : UIRefreshControl!
     
     fileprivate var transactions : [Transaction] = []
@@ -20,9 +20,7 @@ class LastestTransactionsViewController: UIViewController {
         
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
         
-        tableView = UITableView(frame: CGRect.zero, style: .grouped)
-        tableView.backgroundColor = UIColor.white
-        tableView.separatorStyle = .none
+        tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate       = self
         tableView.dataSource     = self
         
