@@ -62,10 +62,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Settings"
         
-        setNavigationBarItem()
+        navigationItem.titleView          = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
+
         
         customSaveButton()
         
