@@ -47,8 +47,6 @@
 		9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B071E719C6300621D88 /* AppDelegate.swift */; };
 		9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B291E719C6300621D88 /* SettingsViewController.swift */; };
 		9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B2A1E719C6300621D88 /* SettingsViewController.xib */; };
-		9A103B741E719C6300621D88 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B381E719C6300621D88 /* String.swift */; };
-		9A103B771E719C6300621D88 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3B1E719C6300621D88 /* UITableView.swift */; };
 		9A103B791E719C6300621D88 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3E1E719C6300621D88 /* Account.swift */; };
 		9A103B7A1E719C6300621D88 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3F1E719C6300621D88 /* Block.swift */; };
 		9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B401E719C6300621D88 /* Delegate.swift */; };
@@ -111,8 +109,6 @@
 		9A103B071E719C6300621D88 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A103B291E719C6300621D88 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A103B2A1E719C6300621D88 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		9A103B381E719C6300621D88 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		9A103B3B1E719C6300621D88 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		9A103B3E1E719C6300621D88 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9A103B3F1E719C6300621D88 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		9A103B401E719C6300621D88 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -253,7 +249,6 @@
 				1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */,
 				1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */,
 				9A103B081E719C6300621D88 /* controllers */,
-				9A103B371E719C6300621D88 /* extensions */,
 				9A103B3D1E719C6300621D88 /* models */,
 				9A103B4A1E719C6300621D88 /* services */,
 				9A103B4F1E719C6300621D88 /* utils */,
@@ -326,15 +321,6 @@
 				9A103B2A1E719C6300621D88 /* SettingsViewController.xib */,
 			);
 			path = settings;
-			sourceTree = "<group>";
-		};
-		9A103B371E719C6300621D88 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B381E719C6300621D88 /* String.swift */,
-				9A103B3B1E719C6300621D88 /* UITableView.swift */,
-			);
-			path = extensions;
 			sourceTree = "<group>";
 		};
 		9A103B3D1E719C6300621D88 /* models */ = {
@@ -567,8 +553,6 @@
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,
 				1656B5EA1F6840EA006FCDE5 /* VotersTableViewCell.swift in Sources */,
 				1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */,
-				9A103B741E719C6300621D88 /* String.swift in Sources */,
-				9A103B771E719C6300621D88 /* UITableView.swift in Sources */,
 				9A103B7A1E719C6300621D88 /* Block.swift in Sources */,
 				169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */,
 				1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */,
