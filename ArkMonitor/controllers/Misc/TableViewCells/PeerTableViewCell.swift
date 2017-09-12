@@ -28,7 +28,7 @@ class PeerTableViewCell: UITableViewCell {
         
         ipLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.4)
         }
         
         portLabel = UILabel()
@@ -40,7 +40,7 @@ class PeerTableViewCell: UITableViewCell {
         portLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(ipLabel.snp.right)
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.3)
         }
         
         versionLabel = UILabel()
@@ -52,7 +52,7 @@ class PeerTableViewCell: UITableViewCell {
         versionLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(portLabel.snp.right)
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.3)
         }
     }
     

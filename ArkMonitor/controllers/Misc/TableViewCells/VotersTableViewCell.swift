@@ -21,7 +21,7 @@ class VotersTableViewCell: UITableViewCell {
         selectionStyle  = .none
         
         usernameLabel = UILabel()
-        usernameLabel.textColor = ArkColors.darkGray
+        usernameLabel.textColor = ArkColors.gray
         usernameLabel.textAlignment = .center
         usernameLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(usernameLabel)
@@ -32,7 +32,7 @@ class VotersTableViewCell: UITableViewCell {
         }
         
         addressLabel = UILabel()
-        addressLabel.textColor = ArkColors.darkGray
+        addressLabel.textColor = ArkColors.gray
         addressLabel.textAlignment = .center
         addressLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(addressLabel)
@@ -44,7 +44,7 @@ class VotersTableViewCell: UITableViewCell {
         }
         
         balanceLabel = UILabel()
-        balanceLabel.textColor = ArkColors.darkGray
+        balanceLabel.textColor = ArkColors.blue
         balanceLabel.textAlignment = .center
         balanceLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(balanceLabel)

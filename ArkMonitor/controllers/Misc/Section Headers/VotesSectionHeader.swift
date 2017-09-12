@@ -23,7 +23,7 @@ class VotesSectionHeader: UIView {
         
         rankLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.2)
         }
         
         let nameLabel = UILabel()
@@ -36,7 +36,7 @@ class VotesSectionHeader: UIView {
         nameLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(rankLabel.snp.right)
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.4)
         }
         
         let addressLabel = UILabel()
@@ -49,7 +49,7 @@ class VotesSectionHeader: UIView {
         addressLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(nameLabel.snp.right)
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.4)
         }
     }
     

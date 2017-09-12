@@ -21,18 +21,18 @@ class VotesTableViewCell: UITableViewCell {
         selectionStyle  = .none
         
         rankLabel = UILabel()
-        rankLabel.textColor = ArkColors.darkGray
+        rankLabel.textColor = ArkColors.blue
         rankLabel.textAlignment = .center
         rankLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.2)
         }
         
         nameLabel = UILabel()
-        nameLabel.textColor = ArkColors.darkGray
+        nameLabel.textColor = ArkColors.gray
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(nameLabel)
@@ -40,11 +40,11 @@ class VotesTableViewCell: UITableViewCell {
         nameLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(rankLabel.snp.right)
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.4)
         }
         
         addressLabel = UILabel()
-        addressLabel.textColor = ArkColors.darkGray
+        addressLabel.textColor = ArkColors.gray
         addressLabel.textAlignment = .center
         addressLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(addressLabel)
@@ -52,7 +52,7 @@ class VotesTableViewCell: UITableViewCell {
         addressLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(nameLabel.snp.right)
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalToSuperview().multipliedBy(0.4)
         }
     }
     
