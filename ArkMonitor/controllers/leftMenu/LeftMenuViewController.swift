@@ -32,7 +32,7 @@ class LeftMenuViewController: UIViewController, SettingsProtocol {
     var homeViewController: HomeViewController!
     var forgedBlocksViewController: ForgedBlockViewController!
     var latestTransactionsViewController: LatestTransactionsViewController!
-    var peersViewController: PeerViewController!
+    var peersViewController: DelegateViewController!
     var delegatesViewController: DelegateViewController!
     var votesMadeViewController: VotesViewController!
     var votesReceivedViewController: VotersViewController!
@@ -46,7 +46,7 @@ class LeftMenuViewController: UIViewController, SettingsProtocol {
         self.homeViewController = HomeViewController()
         self.forgedBlocksViewController = ForgedBlockViewController()
         self.latestTransactionsViewController = LatestTransactionsViewController()
-        self.peersViewController = PeerViewController()
+        self.peersViewController = DelegateViewController()
         self.delegatesViewController = DelegateViewController()
         self.votesMadeViewController = VotesViewController()
         self.votesReceivedViewController = VotersViewController()

@@ -24,7 +24,7 @@ class PeerSectionHeader: UIView {
         
         ipLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.5)
+            make.width.equalToSuperview().dividedBy(3.0)
         }
         
         let portLabel = UILabel()
@@ -37,7 +37,7 @@ class PeerSectionHeader: UIView {
         portLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(ipLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.25)
+            make.width.equalToSuperview().dividedBy(3.0)
         }
         
         let versionLabel = UILabel()
@@ -50,7 +50,7 @@ class PeerSectionHeader: UIView {
         versionLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(portLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.25)
+            make.width.equalToSuperview().dividedBy(3.0)
         }
     }
     

@@ -144,8 +144,17 @@ extension MiscViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = PeerSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
-        return header
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            let header = PeerSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+            return header
+        case 1:
+            let header = VotesSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+            return header
+        default:
+            let header = VotersSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+            return header
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -155,6 +164,14 @@ extension MiscViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let aCell = cell as? PeerTableViewCell {
             aCell.update(peers[indexPath.row])
+        }
+        
+        if let aCell = cell as? VotesTableViewCell {
+            aCell.update(votes[indexPath.row])
+        }
+        
+        if let aCell = cell as? VotersTableViewCell {
+            aCell.update(voters[indexPath.row])
         }
     }
     
@@ -189,17 +206,22 @@ extension MiscViewController : UITableViewDataSource {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             var cell = tableView.dequeueReusableCell(withIdentifier: "peer") as? PeerTableViewCell
-            
             if cell == nil {
                 cell = PeerTableViewCell(style: .default, reuseIdentifier: "peer")
             }
             return cell!
         case 1:
-            let cell = UITableViewCell()
-            return cell
+            var cell = tableView.dequeueReusableCell(withIdentifier: "votes") as? VotesTableViewCell
+            if cell == nil {
+                cell = VotesTableViewCell(style: .default, reuseIdentifier: "votes")
+            }
+            return cell!
         default:
-            let cell = UITableViewCell()
-            return cell
+            var cell = tableView.dequeueReusableCell(withIdentifier: "voters") as? VotersTableViewCell
+            if cell == nil {
+                cell = VotersTableViewCell(style: .default, reuseIdentifier: "voters")
+            }
+            return cell!
         }
     }
 }
