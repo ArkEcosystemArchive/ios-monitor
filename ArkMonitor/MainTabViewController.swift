@@ -34,9 +34,8 @@ class MainTabViewController: UITabBarController {
         nav4.tabBarItem = UITabBarItem(title: "Delegates", image: #imageLiteral(resourceName: "ic_group_black_36dp"), selectedImage: nil)
 
         
-        
-        let peersViewController =  PeerViewController()
-        let nav5 = UINavigationController(rootViewController: peersViewController)
+        let miscViewController =  MiscViewController()
+        let nav5 = UINavigationController(rootViewController: miscViewController)
         nav5.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "moreUnfilled"), selectedImage: #imageLiteral(resourceName: "moreFilled"))
 
         

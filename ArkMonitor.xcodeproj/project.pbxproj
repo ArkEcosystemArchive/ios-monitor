@@ -15,6 +15,7 @@
 		1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */; };
 		1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */; };
 		1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */; };
+		1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */; };
 		169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */; };
 		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
@@ -84,6 +85,7 @@
 		1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockViewController.swift; sourceTree = "<group>"; };
 		1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockSectionHeader.swift; sourceTree = "<group>"; };
 		1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscViewController.swift; sourceTree = "<group>"; };
 		169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1656B5E01F68345F006FCDE5 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 		169FB7841F678A2300DDDBD9 /* TableView cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +261,7 @@
 				9A103B1E1E719C6300621D88 /* leftMenu */,
 				9A103B2B1E719C6300621D88 /* votesMade */,
 				9A103B311E719C6300621D88 /* votesReceived */,
+				1656B5E01F68345F006FCDE5 /* Misc */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -624,6 +635,7 @@
 				9A103B7A1E719C6300621D88 /* Block.swift in Sources */,
 				9A103B601E719C6300621D88 /* LatestTransactionsViewController.swift in Sources */,
 				169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */,
+				1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */,
 				9A103B841E719C6300621D88 /* Votes.swift in Sources */,
 				9A103B7E1E719C6300621D88 /* PeerVersion.swift in Sources */,
 				163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */,
