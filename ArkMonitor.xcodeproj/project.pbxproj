@@ -20,6 +20,10 @@
 		1656B5E81F683FA2006FCDE5 /* VotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E71F683FA2006FCDE5 /* VotesTableViewCell.swift */; };
 		1656B5EA1F6840EA006FCDE5 /* VotersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */; };
 		1656B5EC1F685067006FCDE5 /* LastestTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */; };
+		1656B5EE1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5ED1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift */; };
+		1656B5F01F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */; };
+		1656B5F21F686F9C006FCDE5 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */; };
+		1656B5F41F687287006FCDE5 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */; };
 		169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */; };
 		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
@@ -83,6 +87,10 @@
 		1656B5E71F683FA2006FCDE5 /* VotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesTableViewCell.swift; sourceTree = "<group>"; };
 		1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotersTableViewCell.swift; sourceTree = "<group>"; };
 		1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestTransactionViewController.swift; sourceTree = "<group>"; };
+		1656B5ED1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTransactionTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTransactionsSectionHeaderView.swift; sourceTree = "<group>"; };
+		1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
@@ -303,8 +311,12 @@
 			isa = PBXGroup;
 			children = (
 				1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */,
+				1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */,
+				1656B5ED1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift */,
 				9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */,
 				9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */,
+				1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */,
+				1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */,
 				9A103B1B1E719C6300621D88 /* TransactionTableViewCell */,
 			);
 			path = latestTransactions;
@@ -539,6 +551,7 @@
 				1656B5EC1F685067006FCDE5 /* LastestTransactionViewController.swift in Sources */,
 				9A103B7C1E719C6300621D88 /* Forging.swift in Sources */,
 				1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */,
+				1656B5F01F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift in Sources */,
 				16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */,
 				16D9A3C01F675F8100AA0637 /* ArkConstants.swift in Sources */,
 				1656B5E61F683E38006FCDE5 /* VotersSectionHeader.swift in Sources */,
@@ -549,6 +562,7 @@
 				9A103B891E719C6300621D88 /* Utils.swift in Sources */,
 				1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */,
 				16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */,
+				1656B5EE1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift in Sources */,
 				9A103B7D1E719C6300621D88 /* Peer.swift in Sources */,
 				169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */,
 				9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */,
@@ -557,6 +571,7 @@
 				169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */,
 				16D9A3C41F676F0800AA0637 /* HomeForgingTableViewCell.swift in Sources */,
 				9A103B801E719C6300621D88 /* Status.swift in Sources */,
+				1656B5F41F687287006FCDE5 /* TransactionDetailTableViewCell.swift in Sources */,
 				169FB78C1F679AFF00DDDBD9 /* DelegateViewController.swift in Sources */,
 				163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */,
 				9A103B7F1E719C6300621D88 /* Settings.swift in Sources */,
@@ -566,6 +581,7 @@
 				1656B5E81F683FA2006FCDE5 /* VotesTableViewCell.swift in Sources */,
 				16D9A3BE1F67548E00AA0637 /* HomeDelegateTableViewCell.swift in Sources */,
 				16D9A3C21F67640400AA0637 /* MainTabViewController.swift in Sources */,
+				1656B5F21F686F9C006FCDE5 /* TransactionDetailViewController.swift in Sources */,
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,
 				1656B5EA1F6840EA006FCDE5 /* VotersTableViewCell.swift in Sources */,
 				1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */,

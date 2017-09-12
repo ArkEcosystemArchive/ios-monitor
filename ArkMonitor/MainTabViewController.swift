@@ -25,8 +25,9 @@ class MainTabViewController: UITabBarController {
         let nav2 = UINavigationController(rootViewController: forgedBlocksViewController)
         nav2.tabBarItem = UITabBarItem(title: "Forged", image: #imageLiteral(resourceName: "hammerUnfilled"), selectedImage: #imageLiteral(resourceName: "hammerFilled"))
         
-        let latestTransactionsViewController = LatestTransactionsViewController()
-        latestTransactionsViewController.tabBarItem = UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "historyUnfilled"), selectedImage: #imageLiteral(resourceName: "historyFilled"))
+        let transactionVC = LastestTransactionsViewController()
+        let nav3 = UINavigationController(rootViewController: transactionVC)
+        nav3.tabBarItem = UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "historyUnfilled"), selectedImage: #imageLiteral(resourceName: "historyFilled"))
         
         let delegatesViewController =  DelegateViewController()
         let nav4 = UINavigationController(rootViewController: delegatesViewController)
@@ -37,7 +38,7 @@ class MainTabViewController: UITabBarController {
         let nav5 = UINavigationController(rootViewController: miscViewController)
         nav5.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "moreUnfilled"), selectedImage: #imageLiteral(resourceName: "moreFilled"))
 
-        viewControllers = [nav1, nav2, latestTransactionsViewController, nav4, nav5]
+        viewControllers = [nav1, nav2, nav3, nav4, nav5]
     }
 
 }

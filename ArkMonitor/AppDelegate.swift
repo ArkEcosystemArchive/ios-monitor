@@ -54,8 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setNavigationBarStyle() {
-        UIApplication.shared.statusBarStyle = .lightContent
-        
+        UIApplication.shared.statusBarStyle        = .lightContent
         UINavigationBar.appearance().barTintColor  = ArkColors.blue
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor     = UIColor.white
@@ -63,7 +62,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
-
-
 }
 

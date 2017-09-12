@@ -21,6 +21,7 @@ class LastestTransactionsViewController: UIViewController {
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
         
         tableView = UITableView(frame: CGRect.zero, style: .grouped)
+        tableView.backgroundColor = UIColor.white
         tableView.separatorStyle = .none
         tableView.delegate       = self
         tableView.dataSource     = self
@@ -77,16 +78,18 @@ extension LastestTransactionsViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = ForgedBlockSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+        let header = LatestTransactionsSectionHeaderView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 35.0
+        return 50.0
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //
+        if let aCell = cell as? LatestTransactionTableViewCell {
+            aCell.update(transactions[indexPath.row])
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -95,6 +98,11 @@ extension LastestTransactionsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = TransactionDetailViewController(transactions[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -110,7 +118,10 @@ extension LastestTransactionsViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "transaction") as? LatestTransactionTableViewCell
+        if cell == nil {
+            cell = LatestTransactionTableViewCell(style: .default, reuseIdentifier: "transaction")
+        }
+        return cell!
     }
 }

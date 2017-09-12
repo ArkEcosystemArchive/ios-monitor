@@ -79,5 +79,4 @@ class ForgedBlockTableViewCell: UITableViewCell {
         feeLabel.text    = String(Utils.convertToArkBase(value: Int64(block.totalFee)))
         rewardLabel.text = String(Utils.convertToArkBase(value: Int64(block.reward)))
     }
-
 }
