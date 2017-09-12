@@ -12,6 +12,9 @@
 		163EB5971F67A91F001074F2 /* PeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB5961F67A91F001074F2 /* PeerViewController.swift */; };
 		163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */; };
 		163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */; };
+		1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */; };
+		1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */; };
+		1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */; };
 		169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */; };
 		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
@@ -30,10 +33,6 @@
 		9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFC1E719A8800621D88 /* Assets.xcassets */; };
 		9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFE1E719A8800621D88 /* LaunchScreen.storyboard */; };
 		9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B071E719C6300621D88 /* AppDelegate.swift */; };
-		9A103B5A1E719C6300621D88 /* ForgedBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B101E719C6300621D88 /* ForgedBlocksViewController.swift */; };
-		9A103B5B1E719C6300621D88 /* ForgedBlocksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */; };
-		9A103B5C1E719C6300621D88 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */; };
-		9A103B5D1E719C6300621D88 /* ForgedBlockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B141E719C6300621D88 /* ForgedBlockTableViewCell.xib */; };
 		9A103B601E719C6300621D88 /* LatestTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */; };
 		9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */; };
 		9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */; };
@@ -82,6 +81,9 @@
 		163EB5961F67A91F001074F2 /* PeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerViewController.swift; sourceTree = "<group>"; };
 		163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerSectionHeader.swift; sourceTree = "<group>"; };
 		163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockViewController.swift; sourceTree = "<group>"; };
+		1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockSectionHeader.swift; sourceTree = "<group>"; };
+		1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,10 +104,6 @@
 		9A103AFF1E719A8800621D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A103B011E719A8800621D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A103B071E719C6300621D88 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A103B101E719C6300621D88 /* ForgedBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgedBlocksViewController.swift; sourceTree = "<group>"; };
-		9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgedBlocksViewController.xib; sourceTree = "<group>"; };
-		9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B141E719C6300621D88 /* ForgedBlockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgedBlockTableViewCell.xib; sourceTree = "<group>"; };
 		9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestTransactionsViewController.swift; sourceTree = "<group>"; };
 		9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LatestTransactionsViewController.xib; sourceTree = "<group>"; };
 		9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
@@ -270,20 +268,11 @@
 		9A103B0F1E719C6300621D88 /* forgedBlocks */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B101E719C6300621D88 /* ForgedBlocksViewController.swift */,
-				9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */,
-				9A103B121E719C6300621D88 /* ForgedBlockTableViewCell */,
+				1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */,
+				1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */,
+				1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */,
 			);
 			path = forgedBlocks;
-			sourceTree = "<group>";
-		};
-		9A103B121E719C6300621D88 /* ForgedBlockTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */,
-				9A103B141E719C6300621D88 /* ForgedBlockTableViewCell.xib */,
-			);
-			path = ForgedBlockTableViewCell;
 			sourceTree = "<group>";
 		};
 		9A103B151E719C6300621D88 /* home */ = {
@@ -506,13 +495,11 @@
 				9A103B6F1E719C6300621D88 /* VoteTableViewCell.xib in Resources */,
 				9A103B8C1E719C6300621D88 /* DataTableViewCell.xib in Resources */,
 				9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */,
-				9A103B5D1E719C6300621D88 /* ForgedBlockTableViewCell.xib in Resources */,
 				9A103B731E719C6300621D88 /* VoterTableViewCell.xib in Resources */,
 				9A103B6D1E719C6300621D88 /* VotesViewController.xib in Resources */,
 				9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */,
 				9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */,
 				9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */,
-				9A103B5B1E719C6300621D88 /* ForgedBlocksViewController.xib in Resources */,
 				9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */,
 				9A103B711E719C6300621D88 /* VotersViewController.xib in Resources */,
 				9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */,
@@ -598,17 +585,17 @@
 				9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */,
 				9A103B811E719C6300621D88 /* Ticker.swift in Sources */,
 				9A103B7C1E719C6300621D88 /* Forging.swift in Sources */,
+				1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */,
 				16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */,
-				9A103B5A1E719C6300621D88 /* ForgedBlocksViewController.swift in Sources */,
 				16D9A3C01F675F8100AA0637 /* ArkConstants.swift in Sources */,
 				9A103B831E719C6300621D88 /* Voters.swift in Sources */,
 				16089A061F67A16A0051E267 /* DelegateTableViewCell.swift in Sources */,
 				9A103B721E719C6300621D88 /* VoterTableViewCell.swift in Sources */,
-				9A103B5C1E719C6300621D88 /* ForgedBlockTableViewCell.swift in Sources */,
 				9A103B871E719C6300621D88 /* Reachability.swift in Sources */,
 				9A103B641E719C6300621D88 /* LeftMenuViewController.swift in Sources */,
 				9A103B861E719C6300621D88 /* ArkService.swift in Sources */,
 				9A103B891E719C6300621D88 /* Utils.swift in Sources */,
+				1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */,
 				16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */,
 				9A103B7D1E719C6300621D88 /* Peer.swift in Sources */,
 				169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */,
@@ -631,6 +618,7 @@
 				16D9A3BE1F67548E00AA0637 /* HomeDelegateTableViewCell.swift in Sources */,
 				16D9A3C21F67640400AA0637 /* MainTabViewController.swift in Sources */,
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,
+				1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */,
 				9A103B741E719C6300621D88 /* String.swift in Sources */,
 				9A103B771E719C6300621D88 /* UITableView.swift in Sources */,
 				9A103B7A1E719C6300621D88 /* Block.swift in Sources */,

@@ -18,10 +18,10 @@ class PeerTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = UIColor.white
+        selectionStyle  = .none
         
         ipLabel = UILabel()
         ipLabel.textColor = ArkColors.blue
-        ipLabel.text = "Ip Address"
         ipLabel.textAlignment = .center
         ipLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(ipLabel)
@@ -33,7 +33,6 @@ class PeerTableViewCell: UITableViewCell {
         
         portLabel = UILabel()
         portLabel.textColor = ArkColors.gray
-        portLabel.text = "Port"
         portLabel.textAlignment = .center
         portLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(portLabel)
@@ -46,7 +45,6 @@ class PeerTableViewCell: UITableViewCell {
         
         versionLabel = UILabel()
         versionLabel.textColor = ArkColors.gray
-        versionLabel.text = "Version"
         versionLabel.textAlignment = .center
         versionLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(versionLabel)

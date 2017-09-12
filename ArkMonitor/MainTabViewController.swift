@@ -21,8 +21,9 @@ class MainTabViewController: UITabBarController {
         let nav1 = UINavigationController(rootViewController: homeViewController)
         nav1.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "homeUnfilled"), selectedImage: #imageLiteral(resourceName: "homeFilled"))
         
-        let forgedBlocksViewController =  ForgedBlocksViewController()
-        forgedBlocksViewController.tabBarItem = UITabBarItem(title: "Forged", image: #imageLiteral(resourceName: "hammerUnfilled"), selectedImage: #imageLiteral(resourceName: "hammerFilled"))
+        let forgedBlocksViewController =  ForgedBlockViewController()
+        let nav2 = UINavigationController(rootViewController: forgedBlocksViewController)
+        nav2.tabBarItem = UITabBarItem(title: "Forged", image: #imageLiteral(resourceName: "hammerUnfilled"), selectedImage: #imageLiteral(resourceName: "hammerFilled"))
         
         let latestTransactionsViewController = LatestTransactionsViewController()
         latestTransactionsViewController.tabBarItem = UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "ic_history_black_36dp"), selectedImage: nil)
@@ -39,7 +40,7 @@ class MainTabViewController: UITabBarController {
         nav5.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "moreUnfilled"), selectedImage: #imageLiteral(resourceName: "moreFilled"))
 
         
-        viewControllers = [nav1, forgedBlocksViewController, latestTransactionsViewController, nav4, nav5]
+        viewControllers = [nav1, nav2, latestTransactionsViewController, nav4, nav5]
         
     }
 
