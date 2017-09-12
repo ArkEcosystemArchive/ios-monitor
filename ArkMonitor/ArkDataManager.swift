@@ -12,6 +12,8 @@ public struct ArkDataManager {
     
     static public let shared = ArkDataManager()
     
+    static private var errorMessageDate: Date?
+    
     public struct Home {
         static var account         : Account     = Account()
         static var delegate        : Delegate    = Delegate()
@@ -53,9 +55,19 @@ public struct ArkDataManager {
     }
     
     static fileprivate func handleError() {
-        ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-
-        
+        if let logDate = errorMessageDate {
+            let now = Date()
+            if now.timeIntervalSince(logDate) > 15 {
+                ArkActivityView.showMessage("Cannot fetch data. Please verify settings.")
+                errorMessageDate = now
+            } else {
+                return
+            }
+        } else {
+            let now = Date()
+            ArkActivityView.showMessage("Cannot fetch data. Please verify settings.")
+            errorMessageDate = now
+        }
     }
 }
 
