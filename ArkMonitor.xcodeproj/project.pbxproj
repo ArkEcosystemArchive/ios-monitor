@@ -24,6 +24,8 @@
 		1656B5F01F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */; };
 		1656B5F21F686F9C006FCDE5 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */; };
 		1656B5F41F687287006FCDE5 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */; };
+		1656B5F71F6874EE006FCDE5 /* ArkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */; };
+		1656B5F91F687852006FCDE5 /* ArkNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */; };
 		169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */; };
 		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
@@ -87,6 +89,8 @@
 		1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTransactionsSectionHeaderView.swift; sourceTree = "<group>"; };
 		1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
 		1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkDataManager.swift; sourceTree = "<group>"; };
+		1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkNotificationManager.swift; sourceTree = "<group>"; };
 		169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
@@ -252,6 +256,8 @@
 			children = (
 				9A103B071E719C6300621D88 /* AppDelegate.swift */,
 				16D9A3C11F67640400AA0637 /* MainTabViewController.swift */,
+				1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */,
+				1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */,
 				9A103B081E719C6300621D88 /* controllers */,
 				9A103B371E719C6300621D88 /* extensions */,
 				9A103B3D1E719C6300621D88 /* models */,
@@ -543,6 +549,7 @@
 				9A103B831E719C6300621D88 /* Voters.swift in Sources */,
 				16089A061F67A16A0051E267 /* DelegateTableViewCell.swift in Sources */,
 				9A103B871E719C6300621D88 /* Reachability.swift in Sources */,
+				1656B5F91F687852006FCDE5 /* ArkNotificationManager.swift in Sources */,
 				9A103B861E719C6300621D88 /* ArkService.swift in Sources */,
 				9A103B891E719C6300621D88 /* Utils.swift in Sources */,
 				1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */,
@@ -560,6 +567,7 @@
 				169FB78C1F679AFF00DDDBD9 /* DelegateViewController.swift in Sources */,
 				163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */,
 				9A103B7F1E719C6300621D88 /* Settings.swift in Sources */,
+				1656B5F71F6874EE006FCDE5 /* ArkDataManager.swift in Sources */,
 				9A103B821E719C6300621D88 /* Transaction.swift in Sources */,
 				16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */,
 				16089A041F679F4D0051E267 /* DelegateSectionHeaderView.swift in Sources */,
