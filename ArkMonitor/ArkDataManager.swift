@@ -51,6 +51,12 @@ public struct ArkDataManager {
         updateDelegates()
         updateMisc()
     }
+    
+    static fileprivate func handleError() {
+        ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+
+        
+    }
 }
 
 // Home
@@ -84,7 +90,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -129,7 +135,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -149,7 +155,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -168,7 +174,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -197,7 +203,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -225,7 +231,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -255,7 +261,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -275,7 +281,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -311,7 +317,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -331,7 +337,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
@@ -351,7 +357,7 @@ public extension ArkDataManager {
         }
         
         public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            handleError()
         }
         
         func onResponse(object: Any)  -> Void {
