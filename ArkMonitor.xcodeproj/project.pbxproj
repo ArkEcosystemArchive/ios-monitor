@@ -12,6 +12,7 @@
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
 		169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */; };
 		169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7851F678A3F00DDDBD9 /* HomeTableViewCell.swift */; };
+		169FB78A1F67978600DDDBD9 /* KMPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7891F67978600DDDBD9 /* KMPlaceholderTextView.swift */; };
 		16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DE61F6731C800C4B765 /* ArkActivityView.swift */; };
 		16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DEF1F6745CB00C4B765 /* ArkColors.swift */; };
 		16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */; };
@@ -84,6 +85,7 @@
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVersionTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7851F678A3F00DDDBD9 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		169FB7891F67978600DDDBD9 /* KMPlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMPlaceholderTextView.swift; sourceTree = "<group>"; };
 		16D14DE61F6731C800C4B765 /* ArkActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkActivityView.swift; sourceTree = "<group>"; };
 		16D14DEF1F6745CB00C4B765 /* ArkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkColors.swift; sourceTree = "<group>"; };
 		16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 		9A103B371E719C6300621D88 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				169FB7891F67978600DDDBD9 /* KMPlaceholderTextView.swift */,
 				9A103B381E719C6300621D88 /* String.swift */,
 				9A103B391E719C6300621D88 /* UIApplication.swift */,
 				9A103B3B1E719C6300621D88 /* UITableView.swift */,
@@ -623,6 +626,7 @@
 				169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */,
 				9A103B581E719C6300621D88 /* DelegateTableViewCell.swift in Sources */,
 				9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */,
+				169FB78A1F67978600DDDBD9 /* KMPlaceholderTextView.swift in Sources */,
 				9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */,
 				9A103B811E719C6300621D88 /* Ticker.swift in Sources */,
 				9A103B7C1E719C6300621D88 /* Forging.swift in Sources */,
