@@ -42,10 +42,6 @@
 		9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFC1E719A8800621D88 /* Assets.xcassets */; };
 		9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFE1E719A8800621D88 /* LaunchScreen.storyboard */; };
 		9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B071E719C6300621D88 /* AppDelegate.swift */; };
-		9A103B601E719C6300621D88 /* LatestTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */; };
-		9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */; };
-		9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */; };
-		9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */; };
 		9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B291E719C6300621D88 /* SettingsViewController.swift */; };
 		9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B2A1E719C6300621D88 /* SettingsViewController.xib */; };
 		9A103B741E719C6300621D88 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B381E719C6300621D88 /* String.swift */; };
@@ -111,10 +107,6 @@
 		9A103AFF1E719A8800621D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A103B011E719A8800621D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A103B071E719C6300621D88 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestTransactionsViewController.swift; sourceTree = "<group>"; };
-		9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LatestTransactionsViewController.xib; sourceTree = "<group>"; };
-		9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		9A103B291E719C6300621D88 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A103B2A1E719C6300621D88 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		9A103B381E719C6300621D88 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -201,6 +193,15 @@
 				1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		1656B5F51F6874B8006FCDE5 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */,
+				1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */,
+			);
+			path = detail;
 			sourceTree = "<group>";
 		};
 		169FB7841F678A2300DDDBD9 /* TableView cells */ = {
@@ -313,22 +314,9 @@
 				1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */,
 				1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */,
 				1656B5ED1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift */,
-				9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */,
-				9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */,
-				1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */,
-				1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */,
-				9A103B1B1E719C6300621D88 /* TransactionTableViewCell */,
+				1656B5F51F6874B8006FCDE5 /* detail */,
 			);
 			path = latestTransactions;
-			sourceTree = "<group>";
-		};
-		9A103B1B1E719C6300621D88 /* TransactionTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */,
-				9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */,
-			);
-			path = TransactionTableViewCell;
 			sourceTree = "<group>";
 		};
 		9A103B281E719C6300621D88 /* settings */ = {
@@ -464,9 +452,7 @@
 			files = (
 				9A103B8C1E719C6300621D88 /* DataTableViewCell.xib in Resources */,
 				9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */,
-				9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */,
 				9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */,
-				9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */,
 				9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,7 +531,6 @@
 				169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */,
 				9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */,
 				169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */,
-				9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */,
 				9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */,
 				9A103B811E719C6300621D88 /* Ticker.swift in Sources */,
 				1656B5EC1F685067006FCDE5 /* LastestTransactionViewController.swift in Sources */,
@@ -588,7 +573,6 @@
 				9A103B741E719C6300621D88 /* String.swift in Sources */,
 				9A103B771E719C6300621D88 /* UITableView.swift in Sources */,
 				9A103B7A1E719C6300621D88 /* Block.swift in Sources */,
-				9A103B601E719C6300621D88 /* LatestTransactionsViewController.swift in Sources */,
 				169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */,
 				1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */,
 				9A103B841E719C6300621D88 /* Votes.swift in Sources */,
