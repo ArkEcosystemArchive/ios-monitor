@@ -7,9 +7,10 @@ target 'ArkMonitor' do
 
   # Pods for ArkMonitor
 
-  pod 'SlideMenuControllerSwift'
+  pod 'SlideMenuControllerSwift', :git => 'https://github.com/dekatotoro/SlideMenuControllerSwift.git', :branch => 'swift4'
   pod 'Alamofire', '~> 4.3'
-  pod 'Toaster', '~> 2.0'
-  pod 'NVActivityIndicatorView'
+  pod 'Toaster', :git => 'https://github.com/devxoul/Toaster.git', :branch => 'swift-4'
+  pod 'NVActivityIndicatorView', :git => 'https://github.com/ninjaprox/NVActivityIndicatorView.git', :branch => 'swift4'
+  pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git', :branch => 'swift-4'
 
 end

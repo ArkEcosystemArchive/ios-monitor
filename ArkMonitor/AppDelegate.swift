@@ -18,19 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.black
+        window?.backgroundColor = ArkColors.gray
         window?.makeKeyAndVisible()
-
-        let settings = Settings.getSettings()
-
-        let rootViewController:UIViewController = settings.isValid() ? HomeViewController() : SettingsViewController()
-
-        let navController = UINavigationController(rootViewController: rootViewController)
         
-        let slideMenuController = SlideMenuController(mainViewController: navController, leftMenuViewController: LeftMenuViewController())
-        
-        self.window?.rootViewController = slideMenuController
+        setNavigationBarStyle()
+
+        let newVC = MainTabViewController()
+        self.window?.rootViewController = newVC
         self.window?.makeKeyAndVisible()
+        
         
         return true
     }
@@ -55,6 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    private func setNavigationBarStyle() {
+        UINavigationBar.appearance().barTintColor  = ArkColors.blue
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor     = UIColor.white
+        UINavigationBar.appearance().shadowImage   = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
 
 
