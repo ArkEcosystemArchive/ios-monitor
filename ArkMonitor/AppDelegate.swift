@@ -54,6 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setNavigationBarStyle() {
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         UINavigationBar.appearance().barTintColor  = ArkColors.blue
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor     = UIColor.white

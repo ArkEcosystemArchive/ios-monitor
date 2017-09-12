@@ -19,6 +19,7 @@
 		1656B5E61F683E38006FCDE5 /* VotersSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E51F683E38006FCDE5 /* VotersSectionHeader.swift */; };
 		1656B5E81F683FA2006FCDE5 /* VotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E71F683FA2006FCDE5 /* VotesTableViewCell.swift */; };
 		1656B5EA1F6840EA006FCDE5 /* VotersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */; };
+		1656B5EC1F685067006FCDE5 /* LastestTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */; };
 		169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */; };
 		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
@@ -81,6 +82,7 @@
 		1656B5E51F683E38006FCDE5 /* VotersSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotersSectionHeader.swift; sourceTree = "<group>"; };
 		1656B5E71F683FA2006FCDE5 /* VotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesTableViewCell.swift; sourceTree = "<group>"; };
 		1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotersTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestTransactionViewController.swift; sourceTree = "<group>"; };
 		169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		9A103B181E719C6300621D88 /* latestTransactions */ = {
 			isa = PBXGroup;
 			children = (
+				1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */,
 				9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */,
 				9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */,
 				9A103B1B1E719C6300621D88 /* TransactionTableViewCell */,
@@ -533,6 +536,7 @@
 				9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */,
 				9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */,
 				9A103B811E719C6300621D88 /* Ticker.swift in Sources */,
+				1656B5EC1F685067006FCDE5 /* LastestTransactionViewController.swift in Sources */,
 				9A103B7C1E719C6300621D88 /* Forging.swift in Sources */,
 				1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */,
 				16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */,
