@@ -41,22 +41,11 @@
 		9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */; };
 		9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */; };
 		9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */; };
-		9A103B641E719C6300621D88 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B1F1E719C6300621D88 /* LeftMenuViewController.swift */; };
-		9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B201E719C6300621D88 /* LeftMenuViewController.xib */; };
 		9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B291E719C6300621D88 /* SettingsViewController.swift */; };
 		9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B2A1E719C6300621D88 /* SettingsViewController.xib */; };
-		9A103B6C1E719C6300621D88 /* VotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B2C1E719C6300621D88 /* VotesViewController.swift */; };
-		9A103B6D1E719C6300621D88 /* VotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B2D1E719C6300621D88 /* VotesViewController.xib */; };
-		9A103B6E1E719C6300621D88 /* VoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B2F1E719C6300621D88 /* VoteTableViewCell.swift */; };
-		9A103B6F1E719C6300621D88 /* VoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B301E719C6300621D88 /* VoteTableViewCell.xib */; };
-		9A103B701E719C6300621D88 /* VotersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B321E719C6300621D88 /* VotersViewController.swift */; };
-		9A103B711E719C6300621D88 /* VotersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B331E719C6300621D88 /* VotersViewController.xib */; };
-		9A103B721E719C6300621D88 /* VoterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B351E719C6300621D88 /* VoterTableViewCell.swift */; };
-		9A103B731E719C6300621D88 /* VoterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B361E719C6300621D88 /* VoterTableViewCell.xib */; };
 		9A103B741E719C6300621D88 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B381E719C6300621D88 /* String.swift */; };
 		9A103B751E719C6300621D88 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B391E719C6300621D88 /* UIApplication.swift */; };
 		9A103B771E719C6300621D88 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3B1E719C6300621D88 /* UITableView.swift */; };
-		9A103B781E719C6300621D88 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3C1E719C6300621D88 /* UIViewController.swift */; };
 		9A103B791E719C6300621D88 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3E1E719C6300621D88 /* Account.swift */; };
 		9A103B7A1E719C6300621D88 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3F1E719C6300621D88 /* Block.swift */; };
 		9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B401E719C6300621D88 /* Delegate.swift */; };
@@ -116,22 +105,11 @@
 		9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LatestTransactionsViewController.xib; sourceTree = "<group>"; };
 		9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B1F1E719C6300621D88 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		9A103B201E719C6300621D88 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
 		9A103B291E719C6300621D88 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A103B2A1E719C6300621D88 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		9A103B2C1E719C6300621D88 /* VotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotesViewController.swift; sourceTree = "<group>"; };
-		9A103B2D1E719C6300621D88 /* VotesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotesViewController.xib; sourceTree = "<group>"; };
-		9A103B2F1E719C6300621D88 /* VoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B301E719C6300621D88 /* VoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoteTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B321E719C6300621D88 /* VotersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotersViewController.swift; sourceTree = "<group>"; };
-		9A103B331E719C6300621D88 /* VotersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotersViewController.xib; sourceTree = "<group>"; };
-		9A103B351E719C6300621D88 /* VoterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoterTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B361E719C6300621D88 /* VoterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoterTableViewCell.xib; sourceTree = "<group>"; };
 		9A103B381E719C6300621D88 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9A103B391E719C6300621D88 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		9A103B3B1E719C6300621D88 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		9A103B3C1E719C6300621D88 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9A103B3E1E719C6300621D88 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9A103B3F1E719C6300621D88 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		9A103B401E719C6300621D88 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -285,9 +263,6 @@
 				9A103B091E719C6300621D88 /* delegates */,
 				9A103B0F1E719C6300621D88 /* forgedBlocks */,
 				9A103B181E719C6300621D88 /* latestTransactions */,
-				9A103B1E1E719C6300621D88 /* leftMenu */,
-				9A103B2B1E719C6300621D88 /* votesMade */,
-				9A103B311E719C6300621D88 /* votesReceived */,
 				1656B5E01F68345F006FCDE5 /* Misc */,
 			);
 			path = controllers;
@@ -341,15 +316,6 @@
 			path = TransactionTableViewCell;
 			sourceTree = "<group>";
 		};
-		9A103B1E1E719C6300621D88 /* leftMenu */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B1F1E719C6300621D88 /* LeftMenuViewController.swift */,
-				9A103B201E719C6300621D88 /* LeftMenuViewController.xib */,
-			);
-			path = leftMenu;
-			sourceTree = "<group>";
-		};
 		9A103B281E719C6300621D88 /* settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,51 +325,12 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
-		9A103B2B1E719C6300621D88 /* votesMade */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B2C1E719C6300621D88 /* VotesViewController.swift */,
-				9A103B2D1E719C6300621D88 /* VotesViewController.xib */,
-				9A103B2E1E719C6300621D88 /* VoteTableViewCell */,
-			);
-			path = votesMade;
-			sourceTree = "<group>";
-		};
-		9A103B2E1E719C6300621D88 /* VoteTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B2F1E719C6300621D88 /* VoteTableViewCell.swift */,
-				9A103B301E719C6300621D88 /* VoteTableViewCell.xib */,
-			);
-			path = VoteTableViewCell;
-			sourceTree = "<group>";
-		};
-		9A103B311E719C6300621D88 /* votesReceived */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B321E719C6300621D88 /* VotersViewController.swift */,
-				9A103B331E719C6300621D88 /* VotersViewController.xib */,
-				9A103B341E719C6300621D88 /* VoterTableViewCell */,
-			);
-			path = votesReceived;
-			sourceTree = "<group>";
-		};
-		9A103B341E719C6300621D88 /* VoterTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B351E719C6300621D88 /* VoterTableViewCell.swift */,
-				9A103B361E719C6300621D88 /* VoterTableViewCell.xib */,
-			);
-			path = VoterTableViewCell;
-			sourceTree = "<group>";
-		};
 		9A103B371E719C6300621D88 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
 				9A103B381E719C6300621D88 /* String.swift */,
 				9A103B391E719C6300621D88 /* UIApplication.swift */,
 				9A103B3B1E719C6300621D88 /* UITableView.swift */,
-				9A103B3C1E719C6300621D88 /* UIViewController.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -520,17 +447,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A103B6F1E719C6300621D88 /* VoteTableViewCell.xib in Resources */,
 				9A103B8C1E719C6300621D88 /* DataTableViewCell.xib in Resources */,
 				9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */,
-				9A103B731E719C6300621D88 /* VoterTableViewCell.xib in Resources */,
-				9A103B6D1E719C6300621D88 /* VotesViewController.xib in Resources */,
 				9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */,
 				9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */,
 				9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */,
 				9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */,
-				9A103B711E719C6300621D88 /* VotersViewController.xib in Resources */,
-				9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,7 +528,6 @@
 				9A103B751E719C6300621D88 /* UIApplication.swift in Sources */,
 				9A103B791E719C6300621D88 /* Account.swift in Sources */,
 				169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */,
-				9A103B6C1E719C6300621D88 /* VotesViewController.swift in Sources */,
 				9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */,
 				169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */,
 				9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */,
@@ -619,9 +540,7 @@
 				1656B5E61F683E38006FCDE5 /* VotersSectionHeader.swift in Sources */,
 				9A103B831E719C6300621D88 /* Voters.swift in Sources */,
 				16089A061F67A16A0051E267 /* DelegateTableViewCell.swift in Sources */,
-				9A103B721E719C6300621D88 /* VoterTableViewCell.swift in Sources */,
 				9A103B871E719C6300621D88 /* Reachability.swift in Sources */,
-				9A103B641E719C6300621D88 /* LeftMenuViewController.swift in Sources */,
 				9A103B861E719C6300621D88 /* ArkService.swift in Sources */,
 				9A103B891E719C6300621D88 /* Utils.swift in Sources */,
 				1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */,
@@ -638,12 +557,9 @@
 				163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */,
 				9A103B7F1E719C6300621D88 /* Settings.swift in Sources */,
 				9A103B821E719C6300621D88 /* Transaction.swift in Sources */,
-				9A103B781E719C6300621D88 /* UIViewController.swift in Sources */,
 				16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */,
-				9A103B701E719C6300621D88 /* VotersViewController.swift in Sources */,
 				16089A041F679F4D0051E267 /* DelegateSectionHeaderView.swift in Sources */,
 				1656B5E81F683FA2006FCDE5 /* VotesTableViewCell.swift in Sources */,
-				9A103B6E1E719C6300621D88 /* VoteTableViewCell.swift in Sources */,
 				16D9A3BE1F67548E00AA0637 /* HomeDelegateTableViewCell.swift in Sources */,
 				16D9A3C21F67640400AA0637 /* MainTabViewController.swift in Sources */,
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,

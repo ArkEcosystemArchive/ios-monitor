@@ -19,9 +19,7 @@ class LatestTransactionsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = "Latest Transactions"
-        
-        setNavigationBarItem()
-        
+                
         tableView.registerCellNib(TransactionTableViewCell.self)
         
         refreshControl = UIRefreshControl()
