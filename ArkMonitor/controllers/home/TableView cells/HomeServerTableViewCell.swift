@@ -8,14 +8,11 @@
 
 import UIKit
 
-extension HomeViewController1 {
-    class HomeServerTableViewCell: UITableViewCell {
+extension HomeViewController {
+    class HomeServerTableViewCell: HomeTableViewCell {
         
         private let row      : Int
         private let category : ServerCategory
-        
-        private var descriptionLabel : UILabel!
-        private var valueLabel       : UILabel!
         
         enum ServerCategory: Int {
             case total     = 0
@@ -26,22 +23,6 @@ extension HomeViewController1 {
             self.row = row
             self.category = ServerCategory(rawValue: row)!
             super.init(style: .default, reuseIdentifier: "server")
-            
-            descriptionLabel = UILabel()
-            descriptionLabel.textAlignment = .left
-            addSubview(descriptionLabel)
-            descriptionLabel.snp.makeConstraints { (make) in
-                make.right.top.bottom.equalToSuperview()
-                make.left.equalTo(12.5)
-            }
-            
-            valueLabel = UILabel()
-            valueLabel.textAlignment = .right
-            addSubview(valueLabel)
-            valueLabel.snp.makeConstraints { (make) in
-                make.left.top.bottom.equalToSuperview()
-                make.right.equalToSuperview().offset(-12.5)
-            }
         }
         
         public func update(_ status: Status) {

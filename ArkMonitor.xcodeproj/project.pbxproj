@@ -11,9 +11,10 @@
 		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
 		169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */; };
+		169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7851F678A3F00DDDBD9 /* HomeTableViewCell.swift */; };
 		16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DE61F6731C800C4B765 /* ArkActivityView.swift */; };
 		16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DEF1F6745CB00C4B765 /* ArkColors.swift */; };
-		16D9A3BC1F67521C00AA0637 /* HomeViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BB1F67521C00AA0637 /* HomeViewController1.swift */; };
+		16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */; };
 		16D9A3BE1F67548E00AA0637 /* HomeDelegateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BD1F67548E00AA0637 /* HomeDelegateTableViewCell.swift */; };
 		16D9A3C01F675F8100AA0637 /* ArkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BF1F675F8100AA0637 /* ArkConstants.swift */; };
 		16D9A3C21F67640400AA0637 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3C11F67640400AA0637 /* MainTabViewController.swift */; };
@@ -31,8 +32,6 @@
 		9A103B5B1E719C6300621D88 /* ForgedBlocksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */; };
 		9A103B5C1E719C6300621D88 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */; };
 		9A103B5D1E719C6300621D88 /* ForgedBlockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B141E719C6300621D88 /* ForgedBlockTableViewCell.xib */; };
-		9A103B5E1E719C6300621D88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B161E719C6300621D88 /* HomeViewController.swift */; };
-		9A103B5F1E719C6300621D88 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B171E719C6300621D88 /* HomeViewController.xib */; };
 		9A103B601E719C6300621D88 /* LatestTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */; };
 		9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */; };
 		9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */; };
@@ -84,9 +83,10 @@
 		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVersionTableViewCell.swift; sourceTree = "<group>"; };
+		169FB7851F678A3F00DDDBD9 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		16D14DE61F6731C800C4B765 /* ArkActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkActivityView.swift; sourceTree = "<group>"; };
 		16D14DEF1F6745CB00C4B765 /* ArkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkColors.swift; sourceTree = "<group>"; };
-		16D9A3BB1F67521C00AA0637 /* HomeViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController1.swift; sourceTree = "<group>"; };
+		16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		16D9A3BD1F67548E00AA0637 /* HomeDelegateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegateTableViewCell.swift; sourceTree = "<group>"; };
 		16D9A3BF1F675F8100AA0637 /* ArkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkConstants.swift; sourceTree = "<group>"; };
 		16D9A3C11F67640400AA0637 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
@@ -106,8 +106,6 @@
 		9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgedBlocksViewController.xib; sourceTree = "<group>"; };
 		9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
 		9A103B141E719C6300621D88 /* ForgedBlockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgedBlockTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B161E719C6300621D88 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		9A103B171E719C6300621D88 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestTransactionsViewController.swift; sourceTree = "<group>"; };
 		9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LatestTransactionsViewController.xib; sourceTree = "<group>"; };
 		9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
@@ -183,6 +181,21 @@
 				AED33999C395ABFC734C5C25 /* Pods_ArkMonitor.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		169FB7841F678A2300DDDBD9 /* TableView cells */ = {
+			isa = PBXGroup;
+			children = (
+				169FB7851F678A3F00DDDBD9 /* HomeTableViewCell.swift */,
+				16D9A3BD1F67548E00AA0637 /* HomeDelegateTableViewCell.swift */,
+				16D9A3C31F676F0800AA0637 /* HomeForgingTableViewCell.swift */,
+				16D9A3C51F6776B500AA0637 /* HomeLastBlockTableViewCell.swift */,
+				169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */,
+				169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */,
+				169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */,
+				169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */,
+			);
+			path = "TableView cells";
 			sourceTree = "<group>";
 		};
 		16D14DF11F6745D300C4B765 /* Misc */ = {
@@ -289,16 +302,8 @@
 		9A103B151E719C6300621D88 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B161E719C6300621D88 /* HomeViewController.swift */,
-				9A103B171E719C6300621D88 /* HomeViewController.xib */,
-				16D9A3BB1F67521C00AA0637 /* HomeViewController1.swift */,
-				16D9A3BD1F67548E00AA0637 /* HomeDelegateTableViewCell.swift */,
-				16D9A3C31F676F0800AA0637 /* HomeForgingTableViewCell.swift */,
-				16D9A3C51F6776B500AA0637 /* HomeLastBlockTableViewCell.swift */,
-				169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */,
-				169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */,
-				169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */,
-				169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */,
+				16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */,
+				169FB7841F678A2300DDDBD9 /* TableView cells */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -532,7 +537,6 @@
 				9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */,
 				9A103B5B1E719C6300621D88 /* ForgedBlocksViewController.xib in Resources */,
 				9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */,
-				9A103B5F1E719C6300621D88 /* HomeViewController.xib in Resources */,
 				9A103B711E719C6300621D88 /* VotersViewController.xib in Resources */,
 				9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */,
 				9A103B691E719C6300621D88 /* PeerTableViewCell.xib in Resources */,
@@ -612,6 +616,7 @@
 			files = (
 				9A103B751E719C6300621D88 /* UIApplication.swift in Sources */,
 				9A103B791E719C6300621D88 /* Account.swift in Sources */,
+				169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */,
 				9A103B6C1E719C6300621D88 /* VotesViewController.swift in Sources */,
 				9A103B661E719C6300621D88 /* PeersViewController.swift in Sources */,
 				9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */,
@@ -631,7 +636,7 @@
 				9A103B641E719C6300621D88 /* LeftMenuViewController.swift in Sources */,
 				9A103B861E719C6300621D88 /* ArkService.swift in Sources */,
 				9A103B891E719C6300621D88 /* Utils.swift in Sources */,
-				16D9A3BC1F67521C00AA0637 /* HomeViewController1.swift in Sources */,
+				16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */,
 				9A103B7D1E719C6300621D88 /* Peer.swift in Sources */,
 				169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */,
 				9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */,
@@ -640,7 +645,6 @@
 				16D9A3C61F6776B500AA0637 /* HomeLastBlockTableViewCell.swift in Sources */,
 				9A103B681E719C6300621D88 /* PeerTableViewCell.swift in Sources */,
 				169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */,
-				9A103B5E1E719C6300621D88 /* HomeViewController.swift in Sources */,
 				16D9A3C41F676F0800AA0637 /* HomeForgingTableViewCell.swift in Sources */,
 				9A103B801E719C6300621D88 /* Status.swift in Sources */,
 				9A103B7F1E719C6300621D88 /* Settings.swift in Sources */,

@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension HomeViewController1 {
-    class HomeBalanceTableViewCell: UITableViewCell {
+extension HomeViewController {
+    class HomeBalanceTableViewCell: HomeTableViewCell {
         
         enum BalanceCategory: Int {
             case balance = 1
@@ -18,31 +18,11 @@ extension HomeViewController1 {
             case eur     = 4
         }
         
-        
-        private var descriptionLabel : UILabel!
-        private var valueLabel       : UILabel!
-        
         private let category: BalanceCategory
         
         init(_ row: Int) {
             self.category = BalanceCategory(rawValue: row)!
             super.init(style: .default, reuseIdentifier: "Balance")
-            
-            descriptionLabel = UILabel()
-            descriptionLabel.textAlignment = .left
-            addSubview(descriptionLabel)
-            descriptionLabel.snp.makeConstraints { (make) in
-                make.right.top.bottom.equalToSuperview()
-                make.left.equalTo(12.5)
-            }
-            
-            valueLabel = UILabel()
-            valueLabel.textAlignment = .right
-            addSubview(valueLabel)
-            valueLabel.snp.makeConstraints { (make) in
-                make.left.top.bottom.equalToSuperview()
-                make.right.equalToSuperview().offset(-12.5)
-            }
         }
         
         public func update(balance: Double?, arkBTCValue: Double?,  bitcoinUSDValue: Double?, bitcoinEURValue: Double?) {

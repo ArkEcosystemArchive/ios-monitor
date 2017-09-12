@@ -8,14 +8,11 @@
 
 import UIKit
 
-extension HomeViewController1 {
-class HomeDelegateTableViewCell: UITableViewCell {
+extension HomeViewController {
+class HomeDelegateTableViewCell: HomeTableViewCell {
     
     private let row      : Int
     private let category : DelegateCategory
-    
-    private var descriptionLabel : UILabel!
-    private var valueLabel       : UILabel!
     
     enum DelegateCategory: Int {
         case name         = 0
@@ -29,22 +26,6 @@ class HomeDelegateTableViewCell: UITableViewCell {
         self.row = row
         self.category = DelegateCategory(rawValue: row)!
         super.init(style: .default, reuseIdentifier: "delegate")
-        
-        descriptionLabel = UILabel()
-        descriptionLabel.textAlignment = .left
-        addSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints { (make) in
-            make.right.top.bottom.equalToSuperview()
-            make.left.equalTo(12.5)
-        }
-        
-        valueLabel = UILabel()
-        valueLabel.textAlignment = .right
-        addSubview(valueLabel)
-        valueLabel.snp.makeConstraints { (make) in
-            make.left.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().offset(-12.5)
-        }
     }
     
     public func update(_ delegate: Delegate) {

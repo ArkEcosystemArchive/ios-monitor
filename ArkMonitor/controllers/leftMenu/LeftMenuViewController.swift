@@ -29,7 +29,7 @@ class LeftMenuViewController: UIViewController, SettingsProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var homeViewController: HomeViewController1!
+    var homeViewController: HomeViewController!
     var forgedBlocksViewController: ForgedBlocksViewController!
     var latestTransactionsViewController: LatestTransactionsViewController!
     var peersViewController: PeersViewController!
@@ -43,7 +43,7 @@ class LeftMenuViewController: UIViewController, SettingsProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.homeViewController = HomeViewController1()
+        self.homeViewController = HomeViewController()
         self.forgedBlocksViewController = ForgedBlocksViewController()
         self.latestTransactionsViewController = LatestTransactionsViewController()
         self.peersViewController = PeersViewController()

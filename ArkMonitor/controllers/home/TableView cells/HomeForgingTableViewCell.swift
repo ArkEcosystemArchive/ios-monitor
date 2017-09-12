@@ -8,14 +8,11 @@
 
 import UIKit
 
-extension HomeViewController1 {
-    class HomeForgingTableViewCell: UITableViewCell {
+extension HomeViewController {
+    class HomeForgingTableViewCell: HomeTableViewCell {
         
         private let row      : Int
         private let category : ForgingCategory
-        
-        private var descriptionLabel : UILabel!
-        private var valueLabel       : UILabel!
         
         enum ForgingCategory: Int {
             case forged  = 0
@@ -27,22 +24,6 @@ extension HomeViewController1 {
             self.row = row
             self.category = ForgingCategory(rawValue: row)!
             super.init(style: .default, reuseIdentifier: "forging")
-            
-            descriptionLabel = UILabel()
-            descriptionLabel.textAlignment = .left
-            addSubview(descriptionLabel)
-            descriptionLabel.snp.makeConstraints { (make) in
-                make.right.top.bottom.equalToSuperview()
-                make.left.equalTo(12.5)
-            }
-            
-            valueLabel = UILabel()
-            valueLabel.textAlignment = .right
-            addSubview(valueLabel)
-            valueLabel.snp.makeConstraints { (make) in
-                make.left.top.bottom.equalToSuperview()
-                make.right.equalToSuperview().offset(-12.5)
-            }
         }
         
         public func update(_ forging: Forging) {

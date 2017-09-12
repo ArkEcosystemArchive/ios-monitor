@@ -17,7 +17,7 @@ class MainTabViewController: UITabBarController {
         tabBar.unselectedItemTintColor = ArkColors.gray
         tabBar.isTranslucent = true
 
-        let homeViewController = HomeViewController1()
+        let homeViewController = HomeViewController()
         let nav1 = UINavigationController(rootViewController: homeViewController)
         nav1.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "homeUnfilled"), selectedImage: #imageLiteral(resourceName: "homeFilled"))
         
