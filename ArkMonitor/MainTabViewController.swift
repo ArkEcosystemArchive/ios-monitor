@@ -27,8 +27,10 @@ class MainTabViewController: UITabBarController {
         let latestTransactionsViewController = LatestTransactionsViewController()
         latestTransactionsViewController.tabBarItem = UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "ic_history_black_36dp"), selectedImage: nil)
         
-        let delegatesViewController =  DelegatesViewController()
-        delegatesViewController.tabBarItem = UITabBarItem(title: "Delegates", image: #imageLiteral(resourceName: "ic_group_black_36dp"), selectedImage: nil)
+        
+        let delegatesViewController =  DelegateViewController()
+        let nav4 = UINavigationController(rootViewController: delegatesViewController)
+        nav4.tabBarItem = UITabBarItem(title: "Delegates", image: #imageLiteral(resourceName: "ic_group_black_36dp"), selectedImage: nil)
 
         
         
@@ -36,7 +38,7 @@ class MainTabViewController: UITabBarController {
         peersViewController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "moreUnfilled"), selectedImage: #imageLiteral(resourceName: "moreFilled"))
 
         
-        viewControllers = [nav1, forgedBlocksViewController, latestTransactionsViewController, delegatesViewController, peersViewController]
+        viewControllers = [nav1, forgedBlocksViewController, latestTransactionsViewController, nav4, peersViewController]
         
     }
 
