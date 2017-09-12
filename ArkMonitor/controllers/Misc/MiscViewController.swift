@@ -46,90 +46,41 @@ class MiscViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(miscInfoUpdatedNotification), name: NSNotification.Name(rawValue: ArkNotifications.delegatesUpdated.rawValue), object: nil)
+        getDataFromDataManager()
         loadData()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc private func loadData() {
-        let settings = Settings.getSettings()
-        
-        let requestPeers = RequestPeers(myClass: self)
-        ArkService.sharedInstance.requestPeers(settings: settings, listener: requestPeers)
-        
-        let requestVotes = RequestVotes(myClass: self)
-        ArkService.sharedInstance.requestVotes(settings: settings, listener: requestVotes)
-        
-        let requestVoters = RequestVoters(myClass: self)
-        ArkService.sharedInstance.requestVoters(settings: settings, listener: requestVoters)
-    }
-    
-    private class RequestPeers: RequestListener {
-        let selfReference: MiscViewController
-        
-        init(myClass: MiscViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            selfReference.peers = object as! [Peer]
-            selfReference.peers = selfReference.peers.sorted { $0.status > $1.status }
-            
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-            selfReference.tableView.reloadData()
+        ArkDataManager.shared.updateMisc()
+        delay(0.75) {
+            self.refreshControl.endRefreshing()
         }
     }
     
-    private class RequestVotes: RequestListener {
-        let selfReference: MiscViewController
-        
-        init(myClass: MiscViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            let votes = object as! Votes
-            
-            selfReference.votes = votes.delegates
-            selfReference.votes = selfReference.votes.sorted { $0.rate < $1.rate }
-            
-            selfReference.refreshControl.endRefreshing()
-            selfReference.tableView.reloadData()
-        }
+    @objc private func miscInfoUpdatedNotification() {
+        getDataFromDataManager()
     }
     
-    private class RequestVoters: RequestListener {
-        let selfReference: MiscViewController
-        
-        init(myClass: MiscViewController) {
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            let votes = object as! Voters
-            
-            selfReference.voters = votes.accounts
-            selfReference.voters = selfReference.voters.sorted { $0.balance > $1.balance }
-            
-            selfReference.refreshControl.endRefreshing()
-            selfReference.tableView.reloadData()
-        }
+    private func getDataFromDataManager() {
+        peers = ArkDataManager.Misc.peers
+        votes = ArkDataManager.Misc.votes
+        voters = ArkDataManager.Misc.voters
+        tableView.reloadData()
     }
+    
+
+
+
     
     @objc private func segmentSelected(sender: UISegmentedControl) {
         tableView.reloadData()

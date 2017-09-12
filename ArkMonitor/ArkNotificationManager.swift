@@ -13,6 +13,7 @@ enum ArkNotifications: String {
     case forgedBlocksUpdated = "forgedBlocksUpdated"
     case transactionsUpdated = "transactionsUpdated"
     case delegatesUpdated    = "delegatesUpdated"
+    case miscUpdated         = "miscUpdated"
 }
 
 class ArkNotificationManager: NSObject {

@@ -37,14 +37,20 @@ public struct ArkDataManager {
         static var delegates        : [Delegate] = []
         static var standByDelegates : [Delegate] = []
     }
+    
+    public struct Misc {
+        static var peers  : [Peer]     = []
+        static var votes  : [Delegate] = []
+        static var voters : [Account]  = []
+    }
 
     public func updateData() {
         updateHomeInfo()
         updateForgedBlocks()
         updateLatestTransactions()
         updateDelegates()
+        updateMisc()
     }
-
 }
 
 // Home
@@ -229,7 +235,7 @@ public extension ArkDataManager {
     }
 }
 
-// Forged Delegates
+// Delegates
 public extension ArkDataManager {
     
     public func updateDelegates() {
@@ -277,6 +283,83 @@ public extension ArkDataManager {
             currentDelegates.sort { $0.rate < $1.rate }
             Delegates.standByDelegates = currentDelegates
             ArkNotificationManager.postNotification(.delegatesUpdated)
+        }
+    }
+}
+
+// Delegates
+public extension ArkDataManager {
+    
+    public func updateMisc() {
+        let settings = Settings.getSettings()
+        
+        let requestPeers = RequestPeers(myClass: self)
+        ArkService.sharedInstance.requestPeers(settings: settings, listener: requestPeers)
+        
+        let requestVotes = RequestVotes(myClass: self)
+        ArkService.sharedInstance.requestVotes(settings: settings, listener: requestVotes)
+        
+        let requestVoters = RequestVoters(myClass: self)
+        ArkService.sharedInstance.requestVoters(settings: settings, listener: requestVoters)
+    }
+    
+    private class RequestPeers: RequestListener {
+        let selfReference: ArkDataManager
+        
+        init(myClass: ArkDataManager){
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            var peers = object as! [Peer]
+            peers.sort { $0.status > $1.status }
+            
+            ArkDataManager.Misc.peers = peers
+            ArkNotificationManager.postNotification(.miscUpdated)
+        }
+    }
+    
+    private class RequestVotes: RequestListener {
+        let selfReference: ArkDataManager
+        
+        init(myClass: ArkDataManager){
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            var votes = (object as! Votes).delegates
+            votes.sort { $0.rate < $1.rate }
+            
+            ArkDataManager.Misc.votes = votes
+            ArkNotificationManager.postNotification(.miscUpdated)
+        }
+    }
+    
+    private class RequestVoters: RequestListener {
+        let selfReference: ArkDataManager
+        
+        init(myClass: ArkDataManager) {
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            var voters = (object as! Voters).accounts
+            voters.sort { $0.balance > $1.balance }
+            
+            ArkDataManager.Misc.voters = voters
+            ArkNotificationManager.postNotification(.miscUpdated)
         }
     }
 }

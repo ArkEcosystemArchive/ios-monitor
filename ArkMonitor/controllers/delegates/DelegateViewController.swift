@@ -54,7 +54,7 @@ class DelegateViewController: UIViewController {
     }
     
     @objc private func loadData() {
-        ArkDataManager.shared.updateLatestTransactions()
+        ArkDataManager.shared.updateDelegates()
         delay(0.75) {
             self.refreshControl.endRefreshing()
         }
