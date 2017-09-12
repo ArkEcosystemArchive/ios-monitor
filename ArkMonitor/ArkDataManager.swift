@@ -29,10 +29,15 @@ public struct ArkDataManager {
         static var blocks : [Block] = []
     }
     
+    public struct Transactions {
+        static var transactions : [Transaction] = []
+    }
+    
 
     public func updateData() {
         updateHomeInfo()
         updateForgedBlocks()
+        updateLatestTransactions()
     }
 
 }
@@ -164,7 +169,7 @@ public extension ArkDataManager {
     }
 }
 
-// Home
+// Forged Blocks
 public extension ArkDataManager {
     
     public func updateForgedBlocks() {
@@ -191,3 +196,40 @@ public extension ArkDataManager {
         }
     }
 }
+
+// Forged Blocks
+public extension ArkDataManager {
+    
+    public func updateLatestTransactions() {
+        let settings = Settings.getSettings()
+        let requestTransactions = RequestTransactions(myClass: self)
+        ArkService.sharedInstance.requestLatestTransactions(settings: settings, listener: requestTransactions)
+    }
+    
+    private class RequestTransactions: RequestListener {
+        let selfReference: ArkDataManager
+        
+        init(myClass: ArkDataManager){
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            let transactions = object as! [Transaction]
+            Transactions.transactions = transactions
+            ArkNotificationManager.postNotification(.transactionsUpdated)
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

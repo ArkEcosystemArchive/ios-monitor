@@ -277,9 +277,9 @@
 			children = (
 				9A103B151E719C6300621D88 /* home */,
 				9A103B281E719C6300621D88 /* settings */,
-				9A103B091E719C6300621D88 /* delegates */,
 				9A103B0F1E719C6300621D88 /* forgedBlocks */,
 				9A103B181E719C6300621D88 /* latestTransactions */,
+				9A103B091E719C6300621D88 /* delegates */,
 				1656B5E01F68345F006FCDE5 /* Misc */,
 			);
 			path = controllers;

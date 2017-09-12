@@ -39,35 +39,36 @@ class LastestTransactionsViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(transactionsUpdateNotification), name: NSNotification.Name(rawValue: ArkNotifications.transactionsUpdated.rawValue), object: nil)
+        getDataFromDataManager()
         loadData()
     }
     
-    @objc private func loadData() {
-        let settings = Settings.getSettings()
-        let requestTransactions = RequestTransactions(myClass: self)
-        ArkService.sharedInstance.requestLatestTransactions(settings: settings, listener: requestTransactions)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    private class RequestTransactions: RequestListener {
-        let selfReference: LastestTransactionsViewController
-        
-        init(myClass: LastestTransactionsViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            let transactions = object as! [Transaction]
-            
-            selfReference.transactions = transactions
-            selfReference.refreshControl.endRefreshing()
-            selfReference.tableView.reloadData()
+    @objc private func loadData() {
+        ArkDataManager.shared.updateLatestTransactions()
+        delay(0.75) {
+            self.refreshControl.endRefreshing()
         }
     }
+    
+    @objc private func transactionsUpdateNotification() {
+        getDataFromDataManager()
+    }
+    
+    private func getDataFromDataManager() {
+        transactions = ArkDataManager.Transactions.transactions
+        tableView.reloadData()
+    }
+
 }
 
 // MARK: UITableViewDelegate
