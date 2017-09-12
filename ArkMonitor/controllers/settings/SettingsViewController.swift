@@ -157,6 +157,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
             self.sslEnabledSwitch.isHidden = true
         }
+        
+        UIView .animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
+
     }
     
     func loadSettings() -> Void {
