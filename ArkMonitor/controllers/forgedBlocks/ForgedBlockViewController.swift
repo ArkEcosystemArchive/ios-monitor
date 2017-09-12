@@ -37,35 +37,34 @@ class ForgedBlockViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(forgeBlockUpdateNotification), name: NSNotification.Name(rawValue: ArkNotifications.forgedBlocksUpdated.rawValue), object: nil)
+        getDataFromDataManager()
         loadData()
     }
     
-    @objc private func loadData() {
-        let settings = Settings.getSettings()
-        let requestBlocks = RequestBlocks(myClass: self)
-        ArkService.sharedInstance.requestBlocks(settings: settings, listener: requestBlocks)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    private class RequestBlocks: RequestListener {
-        let selfReference: ForgedBlockViewController
-        
-        init(myClass: ForgedBlockViewController){
-            selfReference = myClass
+    @objc private func loadData() {
+        ArkDataManager.shared.updateForgedBlocks()
+        delay(0.75) {
+            self.refreshControl.endRefreshing()
         }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            let blocks = object as! [Block]
-            
-            selfReference.blocks = blocks
-            selfReference.refreshControl.endRefreshing()
-            selfReference.tableView.reloadData()
-        }
+    }
+    
+    @objc private func forgeBlockUpdateNotification() {
+        getDataFromDataManager()
+    }
+    
+    private func getDataFromDataManager() {
+        blocks = ArkDataManager.ForgedBlocks.blocks
+        tableView.reloadData()
     }
 }
 

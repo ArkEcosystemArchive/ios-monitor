@@ -25,8 +25,14 @@ public struct ArkDataManager {
         static var bitcoinEURValue : Double?
     }
     
+    public struct ForgedBlocks {
+        static var blocks : [Block] = []
+    }
+    
+
     public func updateData() {
         updateHomeInfo()
+        updateForgedBlocks()
     }
 
 }
@@ -154,6 +160,34 @@ public extension ArkDataManager {
                 Home.bitcoinEURValue = ticker.last
                 ArkNotificationManager.postNotification(.homeUpdated)
             }
+        }
+    }
+}
+
+// Home
+public extension ArkDataManager {
+    
+    public func updateForgedBlocks() {
+        let settings = Settings.getSettings()
+        let requestBlocks = RequestBlocks(myClass: self)
+        ArkService.sharedInstance.requestBlocks(settings: settings, listener: requestBlocks)
+    }
+    
+    private class RequestBlocks: RequestListener {
+        let selfReference: ArkDataManager
+        
+        init(myClass: ArkDataManager) {
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            let blocks = object as! [Block]
+            ForgedBlocks.blocks = blocks
+            ArkNotificationManager.postNotification(.forgedBlocksUpdated)
         }
     }
 }

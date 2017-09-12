@@ -9,7 +9,8 @@
 import UIKit
 
 enum ArkNotifications: String {
-    case homeUpdated = "homeUpdated"
+    case homeUpdated         = "homeUpdated"
+    case forgedBlocksUpdated = "forgedBlocksUpdated"
 }
 
 class ArkNotificationManager: NSObject {
