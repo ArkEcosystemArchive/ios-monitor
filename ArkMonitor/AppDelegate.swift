@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = newVC
         self.window?.makeKeyAndVisible()
         
+        ArkDataManager.shared.updateData()
         
         return true
     }

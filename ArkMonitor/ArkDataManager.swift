@@ -10,6 +10,8 @@ import UIKit
 
 public struct ArkDataManager {
     
+    static public let shared = ArkDataManager()
+    
     public struct Home {
         static var account         : Account     = Account()
         static var delegate        : Delegate    = Delegate()
@@ -22,6 +24,11 @@ public struct ArkDataManager {
         static var bitcoinUSDValue : Double?
         static var bitcoinEURValue : Double?
     }
+    
+    public func updateData() {
+        updateHomeInfo()
+    }
+
 }
 
 // Home

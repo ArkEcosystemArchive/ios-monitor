@@ -51,150 +51,49 @@ class HomeViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+        getDataFromDataManager()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(homeUpdateNotificationRecieved), name: NSNotification.Name(rawValue: ArkNotifications.homeUpdated.rawValue), object: nil)
         loadData()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc fileprivate func loadData() {
+        ArkDataManager.shared.updateHomeInfo()
         
-        let settings = Settings.getSettings()
-        let requestData = RequestData(myClass: self)
-
-        ArkService.sharedInstance.requestDelegate(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestAccount(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestForging(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestStatus(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestPeerVersion(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestLastBlockForged(settings: settings, listener: requestData)
-        
-        let requestTicker = RequestTicker(myClass: self)
-        let requestBitcoinUSDTicker = RequestBitcoinUSDTicker(myClass: self)
-        let requestBitcoinEURTicker = RequestBitcoinEURTicker(myClass: self)
-        
-        ExchangeService.sharedInstance.requestTicker(listener: requestTicker)
-        ExchangeService.sharedInstance.requestBitcoinUSDTicker(listener: requestBitcoinUSDTicker)
-        ExchangeService.sharedInstance.requestBitcoinEURTicker(listener: requestBitcoinEURTicker)
-    }
-    
-    private class RequestData: RequestListener {
-        let selfReference: HomeViewController
-        
-        init(myClass: HomeViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            selfReference.refreshControl.endRefreshing()
-            if let account = object as? Account {
-                selfReference.account = account
-                selfReference.balance = Double(account.balance)
-                selfReference.tableView.reloadData()
-            }
-            
-            if let delegate = object as? Delegate {
-                selfReference.delegate = delegate
-                selfReference.tableView.reloadData()
-            }
-            
-            if let forging = object as? Forging {
-                selfReference.forging = forging
-                selfReference.tableView.reloadData()
-            }
-            
-            if let status = object as? Status {
-                selfReference.status = status
-                selfReference.tableView.reloadData()
-            }
-            
-            if let peerVersion = object as? PeerVersion {
-                selfReference.peerVersion = peerVersion
-                selfReference.tableView.reloadData()
-            }
-            
-            if let block = object as? Block {
-                selfReference.block = block
-                selfReference.tableView.reloadData()
-            }
-        }
-    }
-    
-    private class RequestTicker: RequestListener {
-        let selfReference: HomeViewController
-        
-        init(myClass: HomeViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            if let ticker = object as? Ticker {
-                selfReference.arkBTCValue = ticker.last
-                selfReference.tableView.reloadData()
-            }
-            
-            selfReference.refreshControl.endRefreshing()
-        }
-    }
-    
-    
-    private class RequestBitcoinUSDTicker: RequestListener {
-        let selfReference: HomeViewController
-        
-        init(myClass: HomeViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            if let ticker = object as? Ticker {
-                selfReference.bitcoinUSDValue = ticker.last
-                selfReference.tableView.reloadData()
-            }
-            
-            selfReference.refreshControl.endRefreshing()
-        }
-    }
-    
-    private class RequestBitcoinEURTicker: RequestListener {
-        let selfReference: HomeViewController
-        
-        init(myClass: HomeViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            if let ticker = object as? Ticker {
-                selfReference.bitcoinEURValue = ticker.last
-                selfReference.tableView.reloadData()
-            }
-            selfReference.refreshControl.endRefreshing()
+        delay(0.75) {
+            self.refreshControl.endRefreshing()
         }
     }
     
     @objc private func settingsButtonTapped() {
         let settingsVC = SettingsViewController()
         navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    @objc private func homeUpdateNotificationRecieved() {
+        getDataFromDataManager()
+    }
+    
+    private func getDataFromDataManager() {
+        account         = ArkDataManager.Home.account
+        delegate        = ArkDataManager.Home.delegate
+        forging         = ArkDataManager.Home.forging
+        status          = ArkDataManager.Home.status
+        peerVersion     = ArkDataManager.Home.peerVersion
+        block           = ArkDataManager.Home.block
+        balance         = ArkDataManager.Home.balance
+        arkBTCValue     = ArkDataManager.Home.arkBTCValue
+        bitcoinUSDValue = ArkDataManager.Home.bitcoinUSDValue
+        bitcoinEURValue = ArkDataManager.Home.bitcoinUSDValue
+        tableView.reloadData()
     }
 }
 
