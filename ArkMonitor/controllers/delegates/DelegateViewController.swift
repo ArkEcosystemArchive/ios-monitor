@@ -39,61 +39,37 @@ class DelegateViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(delegatesUpdatedNotification), name: NSNotification.Name(rawValue: ArkNotifications.delegatesUpdated.rawValue), object: nil)
+        getDataFromDataManager()
         loadData()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc private func loadData() {
-        let requestActiveDelegates = RequestActiveDelegates(myClass: self)
-        let requestStandbyDelegates = RequestStandbyDelegates(myClass: self)
+        ArkDataManager.shared.updateLatestTransactions()
+        delay(0.75) {
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    @objc private func delegatesUpdatedNotification() {
+        getDataFromDataManager()
+    }
+    
+    private func getDataFromDataManager() {
+        delegates        = ArkDataManager.Delegates.delegates
+        standByDelegates = ArkDataManager.Delegates.standByDelegates
+        tableView.reloadData()
+    }
 
-        let settings = Settings.getSettings()
-        ArkService.sharedInstance.requestActiveDelegates(settings: settings, listener: requestActiveDelegates)
-        ArkService.sharedInstance.requestStandyByDelegates(settings: settings, listener: requestStandbyDelegates)
-    }
-    
-    private class RequestActiveDelegates: RequestListener {
-        let selfReference: DelegateViewController
-        
-        init(myClass: DelegateViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            var currentDelegates = object as! [Delegate]
-            currentDelegates.sort { $0.rate < $1.rate }
-            selfReference.delegates = currentDelegates
-            selfReference.refreshControl.endRefreshing()
-            selfReference.tableView.reloadData()
-        }
-    }
-    
-    
-    private class RequestStandbyDelegates: RequestListener {
-        let selfReference: DelegateViewController
-        
-        init(myClass: DelegateViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            var currentDelegates = object as! [Delegate]
-            currentDelegates.sort { $0.rate < $1.rate }
-            selfReference.standByDelegates = currentDelegates
-            selfReference.refreshControl.endRefreshing()
-            selfReference.tableView.reloadData()
-        }
-    }
 }
 
 // MARK: UITableViewDelegate

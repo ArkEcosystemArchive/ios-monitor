@@ -33,11 +33,16 @@ public struct ArkDataManager {
         static var transactions : [Transaction] = []
     }
     
+    public struct Delegates {
+        static var delegates        : [Delegate] = []
+        static var standByDelegates : [Delegate] = []
+    }
 
     public func updateData() {
         updateHomeInfo()
         updateForgedBlocks()
         updateLatestTransactions()
+        updateDelegates()
     }
 
 }
@@ -220,7 +225,58 @@ public extension ArkDataManager {
         func onResponse(object: Any)  -> Void {
             let transactions = object as! [Transaction]
             Transactions.transactions = transactions
-            ArkNotificationManager.postNotification(.transactionsUpdated)
+        }
+    }
+}
+
+// Forged Delegates
+public extension ArkDataManager {
+    
+    public func updateDelegates() {
+        let requestActiveDelegates = RequestActiveDelegates(myClass: self)
+        let requestStandbyDelegates = RequestStandbyDelegates(myClass: self)
+        
+        let settings = Settings.getSettings()
+        ArkService.sharedInstance.requestActiveDelegates(settings: settings, listener: requestActiveDelegates)
+        ArkService.sharedInstance.requestStandyByDelegates(settings: settings, listener: requestStandbyDelegates)
+    }
+    
+    private class RequestActiveDelegates: RequestListener {
+        let selfReference: ArkDataManager
+        
+        init(myClass: ArkDataManager){
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            var currentDelegates = object as! [Delegate]
+            currentDelegates.sort { $0.rate < $1.rate }
+            Delegates.delegates = currentDelegates
+            ArkNotificationManager.postNotification(.delegatesUpdated)
+        }
+    }
+    
+    
+    private class RequestStandbyDelegates: RequestListener {
+        let selfReference: ArkDataManager
+        
+        init(myClass: ArkDataManager){
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            var currentDelegates = object as! [Delegate]
+            currentDelegates.sort { $0.rate < $1.rate }
+            Delegates.standByDelegates = currentDelegates
+            ArkNotificationManager.postNotification(.delegatesUpdated)
         }
     }
 }
