@@ -107,6 +107,29 @@ extension DelegateViewController : UITableViewDelegate {
         let header = DelegateSectionHeaderView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
         return header
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 35.0
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let aCell = cell as? DelegateTableViewCell {
+            if indexPath.row <= delegates.count - 1 {
+                aCell.update(delegates[indexPath.row])
+            } else {
+                let maxValue = max(0, indexPath.row - delegates.count - 1)
+                aCell.update(standByDelegates[maxValue])
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
 }
 
 // MARK: UITableViewDatasource
@@ -122,8 +145,12 @@ extension DelegateViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "delegate")
+        
+        if cell == nil {
+            cell = DelegateTableViewCell(style: .default, reuseIdentifier: "delegate")
+        }
+        return cell!
     }
     
 }

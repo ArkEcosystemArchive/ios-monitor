@@ -27,8 +27,6 @@
 		9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFC1E719A8800621D88 /* Assets.xcassets */; };
 		9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFE1E719A8800621D88 /* LaunchScreen.storyboard */; };
 		9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B071E719C6300621D88 /* AppDelegate.swift */; };
-		9A103B561E719C6300621D88 /* DelegatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B0A1E719C6300621D88 /* DelegatesViewController.swift */; };
-		9A103B571E719C6300621D88 /* DelegatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B0B1E719C6300621D88 /* DelegatesViewController.xib */; };
 		9A103B5A1E719C6300621D88 /* ForgedBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B101E719C6300621D88 /* ForgedBlocksViewController.swift */; };
 		9A103B5B1E719C6300621D88 /* ForgedBlocksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */; };
 		9A103B5C1E719C6300621D88 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */; };
@@ -102,8 +100,6 @@
 		9A103AFF1E719A8800621D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A103B011E719A8800621D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A103B071E719C6300621D88 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A103B0A1E719C6300621D88 /* DelegatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesViewController.swift; sourceTree = "<group>"; };
-		9A103B0B1E719C6300621D88 /* DelegatesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DelegatesViewController.xib; sourceTree = "<group>"; };
 		9A103B101E719C6300621D88 /* ForgedBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgedBlocksViewController.swift; sourceTree = "<group>"; };
 		9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgedBlocksViewController.xib; sourceTree = "<group>"; };
 		9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
@@ -269,8 +265,6 @@
 				169FB78B1F679AFF00DDDBD9 /* DelegateViewController.swift */,
 				16089A031F679F4D0051E267 /* DelegateSectionHeaderView.swift */,
 				16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */,
-				9A103B0A1E719C6300621D88 /* DelegatesViewController.swift */,
-				9A103B0B1E719C6300621D88 /* DelegatesViewController.xib */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -534,7 +528,6 @@
 				9A103B711E719C6300621D88 /* VotersViewController.xib in Resources */,
 				9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */,
 				9A103B691E719C6300621D88 /* PeerTableViewCell.xib in Resources */,
-				9A103B571E719C6300621D88 /* DelegatesViewController.xib in Resources */,
 				9A103B671E719C6300621D88 /* PeersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,7 +627,6 @@
 				9A103B7D1E719C6300621D88 /* Peer.swift in Sources */,
 				169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */,
 				9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */,
-				9A103B561E719C6300621D88 /* DelegatesViewController.swift in Sources */,
 				9A103B881E719C6300621D88 /* RequestListener.swift in Sources */,
 				16D9A3C61F6776B500AA0637 /* HomeLastBlockTableViewCell.swift in Sources */,
 				9A103B681E719C6300621D88 /* PeerTableViewCell.swift in Sources */,

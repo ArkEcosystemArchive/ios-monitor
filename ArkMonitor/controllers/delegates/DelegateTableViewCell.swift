@@ -16,6 +16,10 @@ class DelegateTableViewCell: UITableViewCell {
     var productivityLabel : UILabel!
     
     public func update(_ delegate: Delegate) {
+        rankLabel.text = String(delegate.rate)
+        nameLabel.text = delegate.username
+        approvalLabel.text = String(delegate.approval) + "%"
+        productivityLabel.text = String(delegate.productivity) + "%"
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -25,7 +29,7 @@ class DelegateTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         rankLabel = UILabel()
-        rankLabel.textColor = ArkColors.darkGray
+        rankLabel.textColor = ArkColors.blue
         rankLabel.textAlignment = .center
         rankLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(rankLabel)
@@ -36,7 +40,7 @@ class DelegateTableViewCell: UITableViewCell {
         }
         
         nameLabel = UILabel()
-        nameLabel.textColor = ArkColors.darkGray
+        nameLabel.textColor = ArkColors.gray
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(nameLabel)
@@ -48,7 +52,7 @@ class DelegateTableViewCell: UITableViewCell {
         }
         
         approvalLabel = UILabel()
-        approvalLabel.textColor = ArkColors.darkGray
+        approvalLabel.textColor = ArkColors.gray
         approvalLabel.textAlignment = .center
         approvalLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(approvalLabel)
@@ -60,7 +64,7 @@ class DelegateTableViewCell: UITableViewCell {
         }
         
         productivityLabel = UILabel()
-        productivityLabel.textColor = ArkColors.darkGray
+        productivityLabel.textColor = ArkColors.gray
         productivityLabel.textAlignment = .center
         productivityLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(productivityLabel)
