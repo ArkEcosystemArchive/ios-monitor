@@ -12,7 +12,8 @@ public struct ArkDataManager {
     
     static public let shared = ArkDataManager()
     
-    static private var errorMessageDate: Date?
+    static private var errorMessageDate : Date?
+    static private var noNetworkDate    : Date?
     
     public struct Home {
         static var account         : Account     = Account()
@@ -54,7 +55,7 @@ public struct ArkDataManager {
         updateMisc()
     }
     
-    static fileprivate func handleError() {
+     static fileprivate func handleError() {
         if let logDate = errorMessageDate {
             let now = Date()
             if now.timeIntervalSince(logDate) > 15 {
@@ -69,12 +70,33 @@ public struct ArkDataManager {
             errorMessageDate = now
         }
     }
+    
+    static public func handleNoNetwork() {
+        if let logDate = noNetworkDate {
+            let now = Date()
+            if now.timeIntervalSince(logDate) > 10 {
+                ArkActivityView.showMessage("No network found. Please connect to internet.")
+                noNetworkDate = now
+            } else {
+                return
+            }
+        } else {
+            let now = Date()
+            ArkActivityView.showMessage("No network found. Please connect to internet.")
+            noNetworkDate = now
+        }
+    }
 }
 
 // Home
 public extension ArkDataManager {
     
     public func updateHomeInfo() {
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkDataManager.handleNoNetwork()
+            return
+        }
+        
         let settings = Settings.getSettings()
         let requestData = RequestData(myClass: self)
         
@@ -202,6 +224,11 @@ public extension ArkDataManager {
 public extension ArkDataManager {
     
     public func updateForgedBlocks() {
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkDataManager.handleNoNetwork()
+            return
+        }
+        
         let settings = Settings.getSettings()
         let requestBlocks = RequestBlocks(myClass: self)
         ArkService.sharedInstance.requestBlocks(settings: settings, listener: requestBlocks)
@@ -226,10 +253,16 @@ public extension ArkDataManager {
     }
 }
 
-// Forged Blocks
+// Transactions
 public extension ArkDataManager {
     
     public func updateLatestTransactions() {
+        
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkDataManager.handleNoNetwork()
+            return
+        }
+        
         let settings = Settings.getSettings()
         let requestTransactions = RequestTransactions(myClass: self)
         ArkService.sharedInstance.requestLatestTransactions(settings: settings, listener: requestTransactions)
@@ -257,6 +290,12 @@ public extension ArkDataManager {
 public extension ArkDataManager {
     
     public func updateDelegates() {
+        
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkDataManager.handleNoNetwork()
+            return
+        }
+        
         let requestActiveDelegates = RequestActiveDelegates(myClass: self)
         let requestStandbyDelegates = RequestStandbyDelegates(myClass: self)
         
@@ -305,10 +344,16 @@ public extension ArkDataManager {
     }
 }
 
-// Delegates
+// Misc
 public extension ArkDataManager {
     
     public func updateMisc() {
+        
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkDataManager.handleNoNetwork()
+            return
+        }
+        
         let settings = Settings.getSettings()
         
         let requestPeers = RequestPeers(myClass: self)
