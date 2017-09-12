@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="LiskMonitor" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ArkMonitor" customModuleProvider="target">
             <connections>
                 <outlet property="addressLabel" destination="MmB-5Y-LqH" id="I6g-IK-qU3"/>
                 <outlet property="approvalLabel" destination="krM-lE-DpK" id="R4m-oS-DtG"/>
@@ -329,13 +330,13 @@
                                         <constraint firstAttribute="height" constant="1" id="0Qu-qC-WqH"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyU-QW-agC">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyU-QW-agC">
                                     <rect key="frame" x="16" y="54" width="60" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmB-5Y-LqH">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="MmB-5Y-LqH">
                                     <rect key="frame" x="359" y="64" width="0.0" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
@@ -425,6 +426,7 @@
                                 <constraint firstItem="KFo-vX-by1" firstAttribute="leading" secondItem="8TC-yo-pFD" secondAttribute="leading" constant="16" id="BAH-5O-kZa"/>
                                 <constraint firstAttribute="trailing" secondItem="MmB-5Y-LqH" secondAttribute="trailing" constant="16" id="DN0-VT-Wrx"/>
                                 <constraint firstAttribute="trailing" secondItem="BH1-Kd-6w3" secondAttribute="trailing" constant="16" id="DPY-4x-60L"/>
+                                <constraint firstItem="MmB-5Y-LqH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nyU-QW-agC" secondAttribute="trailing" constant="8" id="EqV-Nl-wUC"/>
                                 <constraint firstItem="1he-OM-cw8" firstAttribute="leading" secondItem="8TC-yo-pFD" secondAttribute="leading" constant="16" id="Fju-Lg-KcR"/>
                                 <constraint firstItem="6ak-qh-Es2" firstAttribute="centerX" secondItem="8TC-yo-pFD" secondAttribute="centerX" id="GBi-p4-79J"/>
                                 <constraint firstAttribute="height" constant="236" id="GQh-ND-qNB"/>
