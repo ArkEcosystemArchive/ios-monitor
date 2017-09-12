@@ -13,6 +13,10 @@ extension HomeViewController {
         
         init(_ row: Int) {
             super.init(style: .default, reuseIdentifier: "address")
+            valueLabel.snp.remakeConstraints { (make) in
+                make.top.bottom.right.equalToSuperview()
+                make.width.equalToSuperview().multipliedBy(0.75)
+            }
         }
         
         public func update(_ delegate: Delegate) {
