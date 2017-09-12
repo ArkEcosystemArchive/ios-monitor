@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
     private var arkBTCValue     : Double?
     private var bitcoinUSDValue : Double?
     private var bitcoinEURValue : Double?
+    
+    private var settingsAcknowledged = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +60,27 @@ class HomeViewController: UIViewController {
         loadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        verifySettings()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func verifySettings() {
+        guard settingsAcknowledged == false else {
+            return
+        }
+        
+        settingsAcknowledged = true
+        let settings = Settings.getSettings()
+        
+        if settings.isValid() == false {
+           settingsButtonTapped()
+        }
     }
     
     @objc fileprivate func loadData() {
