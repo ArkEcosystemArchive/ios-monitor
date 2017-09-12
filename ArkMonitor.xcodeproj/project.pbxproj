@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		16089A041F679F4D0051E267 /* DelegateSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16089A031F679F4D0051E267 /* DelegateSectionHeaderView.swift */; };
 		16089A061F67A16A0051E267 /* DelegateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */; };
+		163EB5971F67A91F001074F2 /* PeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB5961F67A91F001074F2 /* PeerViewController.swift */; };
+		163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */; };
+		163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */; };
 		169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */; };
 		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
@@ -37,10 +40,6 @@
 		9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */; };
 		9A103B641E719C6300621D88 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B1F1E719C6300621D88 /* LeftMenuViewController.swift */; };
 		9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B201E719C6300621D88 /* LeftMenuViewController.xib */; };
-		9A103B661E719C6300621D88 /* PeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B231E719C6300621D88 /* PeersViewController.swift */; };
-		9A103B671E719C6300621D88 /* PeersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B241E719C6300621D88 /* PeersViewController.xib */; };
-		9A103B681E719C6300621D88 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B261E719C6300621D88 /* PeerTableViewCell.swift */; };
-		9A103B691E719C6300621D88 /* PeerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B271E719C6300621D88 /* PeerTableViewCell.xib */; };
 		9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B291E719C6300621D88 /* SettingsViewController.swift */; };
 		9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B2A1E719C6300621D88 /* SettingsViewController.xib */; };
 		9A103B6C1E719C6300621D88 /* VotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B2C1E719C6300621D88 /* VotesViewController.swift */; };
@@ -80,6 +79,9 @@
 /* Begin PBXFileReference section */
 		16089A031F679F4D0051E267 /* DelegateSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateSectionHeaderView.swift; sourceTree = "<group>"; };
 		16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTableViewCell.swift; sourceTree = "<group>"; };
+		163EB5961F67A91F001074F2 /* PeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerViewController.swift; sourceTree = "<group>"; };
+		163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerSectionHeader.swift; sourceTree = "<group>"; };
+		163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
@@ -110,10 +112,6 @@
 		9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		9A103B1F1E719C6300621D88 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		9A103B201E719C6300621D88 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
-		9A103B231E719C6300621D88 /* PeersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeersViewController.swift; sourceTree = "<group>"; };
-		9A103B241E719C6300621D88 /* PeersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeersViewController.xib; sourceTree = "<group>"; };
-		9A103B261E719C6300621D88 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B271E719C6300621D88 /* PeerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeerTableViewCell.xib; sourceTree = "<group>"; };
 		9A103B291E719C6300621D88 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A103B2A1E719C6300621D88 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		9A103B2C1E719C6300621D88 /* VotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotesViewController.swift; sourceTree = "<group>"; };
@@ -247,12 +245,12 @@
 			isa = PBXGroup;
 			children = (
 				9A103B151E719C6300621D88 /* home */,
+				9A103B281E719C6300621D88 /* settings */,
 				9A103B091E719C6300621D88 /* delegates */,
+				9A103B221E719C6300621D88 /* peers */,
 				9A103B0F1E719C6300621D88 /* forgedBlocks */,
 				9A103B181E719C6300621D88 /* latestTransactions */,
 				9A103B1E1E719C6300621D88 /* leftMenu */,
-				9A103B221E719C6300621D88 /* peers */,
-				9A103B281E719C6300621D88 /* settings */,
 				9A103B2B1E719C6300621D88 /* votesMade */,
 				9A103B311E719C6300621D88 /* votesReceived */,
 			);
@@ -328,20 +326,11 @@
 		9A103B221E719C6300621D88 /* peers */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B231E719C6300621D88 /* PeersViewController.swift */,
-				9A103B241E719C6300621D88 /* PeersViewController.xib */,
-				9A103B251E719C6300621D88 /* TableViewCell */,
+				163EB5961F67A91F001074F2 /* PeerViewController.swift */,
+				163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */,
+				163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */,
 			);
 			path = peers;
-			sourceTree = "<group>";
-		};
-		9A103B251E719C6300621D88 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B261E719C6300621D88 /* PeerTableViewCell.swift */,
-				9A103B271E719C6300621D88 /* PeerTableViewCell.xib */,
-			);
-			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		9A103B281E719C6300621D88 /* settings */ = {
@@ -527,8 +516,6 @@
 				9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */,
 				9A103B711E719C6300621D88 /* VotersViewController.xib in Resources */,
 				9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */,
-				9A103B691E719C6300621D88 /* PeerTableViewCell.xib in Resources */,
-				9A103B671E719C6300621D88 /* PeersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +592,6 @@
 				9A103B791E719C6300621D88 /* Account.swift in Sources */,
 				169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */,
 				9A103B6C1E719C6300621D88 /* VotesViewController.swift in Sources */,
-				9A103B661E719C6300621D88 /* PeersViewController.swift in Sources */,
 				9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */,
 				169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */,
 				9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */,
@@ -626,14 +612,15 @@
 				16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */,
 				9A103B7D1E719C6300621D88 /* Peer.swift in Sources */,
 				169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */,
+				163EB5971F67A91F001074F2 /* PeerViewController.swift in Sources */,
 				9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */,
 				9A103B881E719C6300621D88 /* RequestListener.swift in Sources */,
 				16D9A3C61F6776B500AA0637 /* HomeLastBlockTableViewCell.swift in Sources */,
-				9A103B681E719C6300621D88 /* PeerTableViewCell.swift in Sources */,
 				169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */,
 				16D9A3C41F676F0800AA0637 /* HomeForgingTableViewCell.swift in Sources */,
 				9A103B801E719C6300621D88 /* Status.swift in Sources */,
 				169FB78C1F679AFF00DDDBD9 /* DelegateViewController.swift in Sources */,
+				163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */,
 				9A103B7F1E719C6300621D88 /* Settings.swift in Sources */,
 				9A103B821E719C6300621D88 /* Transaction.swift in Sources */,
 				9A103B781E719C6300621D88 /* UIViewController.swift in Sources */,
@@ -651,6 +638,7 @@
 				169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */,
 				9A103B841E719C6300621D88 /* Votes.swift in Sources */,
 				9A103B7E1E719C6300621D88 /* PeerVersion.swift in Sources */,
+				163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */,
 				9A103B8A1E719C6300621D88 /* BaseTableViewCell.swift in Sources */,
 				9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */,
 			);

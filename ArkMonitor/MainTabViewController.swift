@@ -34,11 +34,12 @@ class MainTabViewController: UITabBarController {
 
         
         
-        let peersViewController =  PeersViewController()
-        peersViewController.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "moreUnfilled"), selectedImage: #imageLiteral(resourceName: "moreFilled"))
+        let peersViewController =  PeerViewController()
+        let nav5 = UINavigationController(rootViewController: peersViewController)
+        nav5.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "moreUnfilled"), selectedImage: #imageLiteral(resourceName: "moreFilled"))
 
         
-        viewControllers = [nav1, forgedBlocksViewController, latestTransactionsViewController, nav4, peersViewController]
+        viewControllers = [nav1, forgedBlocksViewController, latestTransactionsViewController, nav4, nav5]
         
     }
 
