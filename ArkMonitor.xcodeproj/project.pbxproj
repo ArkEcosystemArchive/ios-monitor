@@ -48,7 +48,6 @@
 		9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B291E719C6300621D88 /* SettingsViewController.swift */; };
 		9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B2A1E719C6300621D88 /* SettingsViewController.xib */; };
 		9A103B741E719C6300621D88 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B381E719C6300621D88 /* String.swift */; };
-		9A103B751E719C6300621D88 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B391E719C6300621D88 /* UIApplication.swift */; };
 		9A103B771E719C6300621D88 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3B1E719C6300621D88 /* UITableView.swift */; };
 		9A103B791E719C6300621D88 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3E1E719C6300621D88 /* Account.swift */; };
 		9A103B7A1E719C6300621D88 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3F1E719C6300621D88 /* Block.swift */; };
@@ -113,7 +112,6 @@
 		9A103B291E719C6300621D88 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A103B2A1E719C6300621D88 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		9A103B381E719C6300621D88 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		9A103B391E719C6300621D88 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		9A103B3B1E719C6300621D88 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		9A103B3E1E719C6300621D88 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9A103B3F1E719C6300621D88 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				9A103B381E719C6300621D88 /* String.swift */,
-				9A103B391E719C6300621D88 /* UIApplication.swift */,
 				9A103B3B1E719C6300621D88 /* UITableView.swift */,
 			);
 			path = extensions;
@@ -467,18 +464,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ArkMonitor/Pods-ArkMonitor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -525,7 +522,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A103B751E719C6300621D88 /* UIApplication.swift in Sources */,
 				9A103B791E719C6300621D88 /* Account.swift in Sources */,
 				169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */,
 				9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */,

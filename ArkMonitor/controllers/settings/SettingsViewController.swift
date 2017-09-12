@@ -312,8 +312,8 @@ private class RequestData: RequestListener {
             Settings.saveSettings(settings: settings)
 
             if (selfReference.delegate == nil) {
-                let navController = UINavigationController(rootViewController: HomeViewController())
-                selfReference.slideMenuController()?.changeMainViewController(navController, close: true)
+                //let navController = UINavigationController(rootViewController: HomeViewController())
+                //selfReference.slideMenuController()?.changeMainViewController(navController, close: true)
                 
             } else {
                 selfReference.delegate?.onSettingsSaved()
