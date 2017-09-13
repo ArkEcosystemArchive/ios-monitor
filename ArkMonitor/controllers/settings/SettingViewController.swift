@@ -36,17 +36,16 @@ class SettingViewController1: UIViewController {
 extension SettingViewController1: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch mode {
-        case .custom:
-            return 40.0
+        switch indexPath.section {
+        case 0:
+            return 60.0
+        case 1:
+            return 100.0
         default:
-            switch indexPath.section {
-            case 0:
-                return 60.0
-            case 1:
-                return 100.0
-            default:
+            if mode == .custom {
                 return 40.0
+            } else {
+                return 0.0
             }
         }
     }
@@ -78,12 +77,7 @@ extension SettingViewController1: UITableViewDelegate {
 extension SettingViewController1: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        switch mode {
-            case .custom:
-                return 6
-            default:
-                return 3
-        }
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,24 +85,18 @@ extension SettingViewController1: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch mode {
-        case .custom:
-            let cell = UITableViewCell()
+        switch indexPath.section {
+        case 0:
+            let cell = SettingsUsernameTableViewCell(mode)
+            cell.delegate = self
+            return cell
+        case 1:
+            let cell = SettingsServerTableViewCell(mode)
+            cell.delegate = self
             return cell
         default:
-            switch indexPath.section {
-                case 0:
-                    let cell = SettingsUsernameTableViewCell(mode)
-                    cell.delegate = self
-                    return cell
-                case 1:
-                    let cell = SettingsServerTableViewCell(mode)
-                    cell.delegate = self
-                    return cell
-                default:
-                    let cell = UITableViewCell()
-                    return cell
-            }
+            let cell = UITableViewCell()
+            return cell
         }
     }
 }
