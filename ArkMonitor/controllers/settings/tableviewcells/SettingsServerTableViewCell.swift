@@ -43,7 +43,8 @@ class SettingsServerTableViewCell: UITableViewCell {
         
         addSubview(serverPicker)
         serverPicker.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview()
+            make.top.equalTo(10.0)
+            make.bottom.equalToSuperview().offset(-10.0)
             make.right.equalToSuperview().offset(-25.0)
             make.width.equalToSuperview().multipliedBy(0.65)
         }

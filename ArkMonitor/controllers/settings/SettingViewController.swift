@@ -40,7 +40,9 @@ extension SettingViewController1: UITableViewDelegate {
         case 0:
             return 60.0
         case 1:
-            return 100.0
+            return 125.0
+        case 5:
+            return 60.0
         default:
             if mode == .custom {
                 return 40.0
@@ -94,6 +96,10 @@ extension SettingViewController1: UITableViewDataSource {
             let cell = SettingsServerTableViewCell(mode)
             cell.delegate = self
             return cell
+        case 5:
+            let cell = SettingsSaveTableViewCell(mode)
+            cell.delegate = self
+            return cell
         default:
             let cell = UITableViewCell()
             return cell
@@ -117,6 +123,13 @@ extension SettingViewController1: SettingsServerTableViewCellDelegate {
     func serverCell(_ cell: SettingsServerTableViewCell, didChangeMode mode: ServerMode) {
         self.mode = mode
         tableview.reloadData()
+    }
+}
+
+//MARK: SettingsSaveTableViewCellDelegate
+extension SettingViewController1: SettingsSaveTableViewCellDelegate {
+    func saveCellButtonWasTapped(_ cell: SettingsSaveTableViewCell) {
+        print("Save Button Tapped")
     }
 }
 

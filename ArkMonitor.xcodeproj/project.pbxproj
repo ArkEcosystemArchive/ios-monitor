@@ -13,6 +13,8 @@
 		1621496A1F69925300F33CAF /* SettingsUsernameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149691F69925300F33CAF /* SettingsUsernameTableViewCell.swift */; };
 		1621496D1F69957F00F33CAF /* ArkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621496C1F69957F00F33CAF /* ArkTextField.swift */; };
 		1621496F1F69994900F33CAF /* SettingsServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621496E1F69994900F33CAF /* SettingsServerTableViewCell.swift */; };
+		162149711F69A19F00F33CAF /* SettingsSaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149701F69A19F00F33CAF /* SettingsSaveTableViewCell.swift */; };
+		162149731F69A21B00F33CAF /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149721F69A21B00F33CAF /* UIButton+Extension.swift */; };
 		163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */; };
 		163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */; };
 		164919C71F68880B003A8B08 /* ArkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164919C61F68880B003A8B08 /* ArkTableView.swift */; };
@@ -76,6 +78,8 @@
 		162149691F69925300F33CAF /* SettingsUsernameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUsernameTableViewCell.swift; sourceTree = "<group>"; };
 		1621496C1F69957F00F33CAF /* ArkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTextField.swift; sourceTree = "<group>"; };
 		1621496E1F69994900F33CAF /* SettingsServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServerTableViewCell.swift; sourceTree = "<group>"; };
+		162149701F69A19F00F33CAF /* SettingsSaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSaveTableViewCell.swift; sourceTree = "<group>"; };
+		162149721F69A21B00F33CAF /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerSectionHeader.swift; sourceTree = "<group>"; };
 		163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
 		164919C61F68880B003A8B08 /* ArkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTableView.swift; sourceTree = "<group>"; };
@@ -178,8 +182,17 @@
 			children = (
 				162149691F69925300F33CAF /* SettingsUsernameTableViewCell.swift */,
 				1621496E1F69994900F33CAF /* SettingsServerTableViewCell.swift */,
+				162149701F69A19F00F33CAF /* SettingsSaveTableViewCell.swift */,
 			);
 			path = tableviewcells;
+			sourceTree = "<group>";
+		};
+		162149741F69A22500F33CAF /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				162149721F69A21B00F33CAF /* UIButton+Extension.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		1656B5E01F68345F006FCDE5 /* Misc */ = {
@@ -272,6 +285,7 @@
 				9A103B3D1E719C6300621D88 /* models */,
 				9A103B4A1E719C6300621D88 /* services */,
 				9A103B4F1E719C6300621D88 /* utils */,
+				162149741F69A22500F33CAF /* extensions */,
 				9A103B511E719C6300621D88 /* views */,
 				16D14DF11F6745D300C4B765 /* Misc */,
 				9A103AFC1E719A8800621D88 /* Assets.xcassets */,
@@ -559,6 +573,7 @@
 				9A103B7D1E719C6300621D88 /* Peer.swift in Sources */,
 				162149681F6990A500F33CAF /* SettingViewController.swift in Sources */,
 				169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */,
+				162149731F69A21B00F33CAF /* UIButton+Extension.swift in Sources */,
 				9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */,
 				9A103B881E719C6300621D88 /* RequestListener.swift in Sources */,
 				16D9A3C61F6776B500AA0637 /* HomeLastBlockTableViewCell.swift in Sources */,
@@ -581,6 +596,7 @@
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,
 				1656B5EA1F6840EA006FCDE5 /* VotersTableViewCell.swift in Sources */,
 				1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */,
+				162149711F69A19F00F33CAF /* SettingsSaveTableViewCell.swift in Sources */,
 				9A103B7A1E719C6300621D88 /* Block.swift in Sources */,
 				169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */,
 				1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */,
