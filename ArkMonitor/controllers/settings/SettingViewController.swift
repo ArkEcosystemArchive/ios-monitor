@@ -43,6 +43,8 @@ extension SettingViewController1: UITableViewDelegate {
             switch indexPath.section {
             case 0:
                 return 60.0
+            case 1:
+                return 100.0
             default:
                 return 40.0
             }
@@ -63,6 +65,12 @@ extension SettingViewController1: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let aCell = cell as? SettingsServerTableViewCell {
+            aCell.updateMode(mode)
+        }
     }
 }
 
@@ -93,6 +101,10 @@ extension SettingViewController1: UITableViewDataSource {
                     let cell = SettingsUsernameTableViewCell(mode)
                     cell.delegate = self
                     return cell
+                case 1:
+                    let cell = SettingsServerTableViewCell(mode)
+                    cell.delegate = self
+                    return cell
                 default:
                     let cell = UITableViewCell()
                     return cell
@@ -103,8 +115,6 @@ extension SettingViewController1: UITableViewDataSource {
 
 // MARK: SettingsUsernameTableViewCellDelegate
 extension SettingViewController1: SettingsUsernameTableViewCellDelegate {
-    
-    
     func usernameCell(_ cell: SettingsUsernameTableViewCell, didChangeText text: String?) {
         if let aText = text {
             print(aText)
@@ -113,6 +123,15 @@ extension SettingViewController1: SettingsUsernameTableViewCellDelegate {
         }
     }
 }
+
+// MARK: SettingsServerTableViewCellDelegate
+extension SettingViewController1: SettingsServerTableViewCellDelegate {
+    func serverCell(_ cell: SettingsServerTableViewCell, didChangeMode mode: ServerMode) {
+        self.mode = mode
+        tableview.reloadData()
+    }
+}
+
 
 
 

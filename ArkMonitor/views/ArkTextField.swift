@@ -17,6 +17,7 @@ class ArkTextField: UITextField {
         isUserInteractionEnabled = true
         bottomSeparator = UIView()
         bottomSeparator.backgroundColor = ArkColors.gray
+        textAlignment = .center
         autocapitalizationType = .none
         autocorrectionType     = .no
         spellCheckingType      = .no

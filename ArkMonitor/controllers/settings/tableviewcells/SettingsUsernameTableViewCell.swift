@@ -34,7 +34,7 @@ class SettingsUsernameTableViewCell: UITableViewCell {
         nameLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(25.0)
-            make.width.equalToSuperview().multipliedBy(0.45)
+            make.width.equalToSuperview().multipliedBy(0.35)
         }
         
         nameTextField = ArkTextField(placeHolder: "enter here")
@@ -45,7 +45,7 @@ class SettingsUsernameTableViewCell: UITableViewCell {
             make.height.equalTo(30.0)
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-25.0)
-            make.width.equalToSuperview().multipliedBy(0.5)
+            make.width.equalToSuperview().multipliedBy(0.65)
         }
     }
     
