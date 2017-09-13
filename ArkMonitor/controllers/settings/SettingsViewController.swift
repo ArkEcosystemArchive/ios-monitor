@@ -68,6 +68,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         customSaveButton()
         
+        setNumpadInputAccessoryView()
+        
         loadConstraints()
 
         usernameTextField.delegate = self
@@ -151,6 +153,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
             sslEnabledSwitch.isHidden = true
         }
+        
+        UIView .animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
+
     }
     
     func loadSettings() -> Void {
@@ -172,6 +179,25 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     func customSaveButton() -> Void {
         saveButton.backgroundColor = ArkColors.blue
+    }
+    
+    func setNumpadInputAccessoryView() {
+        let superviewWidth = view.bounds.size.width
+        
+        let inputAccessoryViewHeight : CGFloat = 40.0
+        let inputAccessoryView = UIView(frame:CGRect(x: 0, y: 0, width: superviewWidth, height: inputAccessoryViewHeight))
+        inputAccessoryView.backgroundColor = UIColor.gray
+
+        let buttonWidth = superviewWidth
+        let buttonOriginX = inputAccessoryView.bounds.size.width - buttonWidth
+        let doneButton = UIButton(frame: CGRect(x: buttonOriginX, y: 0, width: buttonWidth, height: inputAccessoryViewHeight))
+        doneButton.setTitle("Done", for: .normal)
+        doneButton.contentHorizontalAlignment = .right
+        doneButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 16)
+        doneButton.addTarget(portTextField, action: #selector(resignFirstResponder), for: .touchUpInside)
+        inputAccessoryView.addSubview(doneButton)
+        
+        portTextField.inputAccessoryView = inputAccessoryView
     }
 
     @IBAction func saveAction(_ sender: Any) {
