@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingViewController1: UIViewController {
+class SettingViewController: UIViewController {
     
     fileprivate var tableview: ArkTableView!
     fileprivate var mode : Server = .arkNet1
@@ -55,7 +55,11 @@ class SettingViewController1: UIViewController {
 }
 
 // MARK: UITableViewDelegate
-extension SettingViewController1: UITableViewDelegate {
+extension SettingViewController: UITableViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
@@ -119,7 +123,7 @@ extension SettingViewController1: UITableViewDelegate {
 }
 
 // MARK: UITableViewDataSource
-extension SettingViewController1: UITableViewDataSource {
+extension SettingViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 6
@@ -172,14 +176,14 @@ extension SettingViewController1: UITableViewDataSource {
 }
 
 // MARK: SettingsUsernameTableViewCellDelegate
-extension SettingViewController1: SettingsUsernameTableViewCellDelegate {
+extension SettingViewController: SettingsUsernameTableViewCellDelegate {
     func usernameCell(_ cell: SettingsUsernameTableViewCell, didChangeText text: String?) {
         self.username = text
     }
 }
 
 // MARK: SettingsServerTableViewCellDelegate
-extension SettingViewController1: SettingsServerTableViewCellDelegate {
+extension SettingViewController: SettingsServerTableViewCellDelegate {
     func serverCell(_ cell: SettingsServerTableViewCell, didChangeMode mode: Server) {
         self.mode = mode
         tableview.beginUpdates()
@@ -196,14 +200,14 @@ extension SettingViewController1: SettingsServerTableViewCellDelegate {
 }
 
 // MARK: SettingsIPTableViewCellDelegate
-extension SettingViewController1 : SettingsIPTableViewCellDelegate {
+extension SettingViewController : SettingsIPTableViewCellDelegate {
     func ipCell(_ cell: SettingsIPTableViewCell, didChangeText text: String?) {
         self.ipAddress = text
     }
 }
 
 // MARK: SettingsPortTableViewCellDelegate
-extension SettingViewController1 : SettingsPortTableViewCellDelegate {
+extension SettingViewController : SettingsPortTableViewCellDelegate {
     func portCell(_ cell: SettingsPortTableViewCell, didChangeText text: String?) {
         if let portString = text {
             self.port = Int(portString)
@@ -212,15 +216,18 @@ extension SettingViewController1 : SettingsPortTableViewCellDelegate {
 }
 
 // MARK: SettingsSSLTableViewCellDelegate
-extension SettingViewController1 : SettingsSSLTableViewCellDelegate {
+extension SettingViewController : SettingsSSLTableViewCellDelegate {
     func sslCell(_ cell: SettingsSSLTableViewCell, didChangeStatus enabled: Bool) {
         self.sslEnabled = enabled
     }
 }
 
 // MARK: SettingsSaveTableViewCellDelegate
-extension SettingViewController1: SettingsSaveTableViewCellDelegate {
+extension SettingViewController: SettingsSaveTableViewCellDelegate {
     func saveCellButtonWasTapped(_ cell: SettingsSaveTableViewCell) {
+        
+        view.endEditing(true)
+
         guard Reachability.isConnectedToNetwork() == true else {
             ArkActivityView.showMessage("Please connect to internet.")
             return
@@ -272,9 +279,9 @@ extension SettingViewController1: SettingsSaveTableViewCellDelegate {
     }
     
     private class RequestData: RequestListener {
-        let selfReference: SettingViewController1
+        let selfReference: SettingViewController
         
-        init(myClass: SettingViewController1){
+        init(myClass: SettingViewController){
             selfReference = myClass
         }
         
@@ -309,8 +316,8 @@ extension SettingViewController1: SettingsSaveTableViewCellDelegate {
                 selfReference.settings = settings
                 Settings.saveSettings(settings: settings)
                 
-                ArkActivityView.stopAnimating()
                 ArkDataManager.shared.updateData()
+                ArkActivityView.showSuccessMessage("Settings successfully updated")
                 selfReference.navigationController?.popViewController(animated: true)
             } else {
                 ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")

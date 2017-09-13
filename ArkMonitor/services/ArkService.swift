@@ -516,9 +516,7 @@ class ArkService: NSObject {
         
         var urlRequest = self.replaceURLWithSettings(url: ArkService.delegateUrl, settings: settings)
         urlRequest = urlRequest + "?username=" + settings.username
-        
-        print(urlRequest)
-        
+                
         Alamofire.request(urlRequest).validate().responseJSON { response in
             switch response.result {
             case .success(let JSON):
