@@ -41,7 +41,7 @@ extension SettingViewController1: UITableViewDelegate {
             return 60.0
         case 1:
             return 125.0
-        case 2:
+        case 2, 3:
             if mode == .custom {
                 return 60.0
             } else {
@@ -109,6 +109,13 @@ extension SettingViewController1: UITableViewDataSource {
                 cell.isHidden = true
             }
             return cell
+        case 3:
+            let cell = SettingsPortTableViewCell(mode)
+            cell.delegate = self
+            if mode != .custom {
+                cell.isHidden = true
+            }
+            return cell
         case 5:
             let cell = SettingsSaveTableViewCell(mode)
             cell.delegate = self
@@ -151,6 +158,16 @@ extension SettingViewController1 : SettingsIPTableViewCellDelegate {
     func ipCell(_ cell: SettingsIPTableViewCell, didChangeText text: String?) {
         print("IP Address updated")
     }
+}
+
+// MARK: SettingsPortTableViewCellDelegate
+extension SettingViewController1 : SettingsPortTableViewCellDelegate {
+    func portCell(_ cell: SettingsPortTableViewCell, didChangeText text: String?) {
+        print("port updated")
+
+    }
+    
+    
 }
 
 
