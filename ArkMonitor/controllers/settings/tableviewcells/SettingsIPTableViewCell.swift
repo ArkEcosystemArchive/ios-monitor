@@ -1,5 +1,5 @@
 //
-//  SettingsUsernameTableViewCell.swift
+//  SettingsIPTableViewCell.swift
 //  ArkMonitor
 //
 //  Created by Andrew on 2017-09-13.
@@ -8,25 +8,26 @@
 
 import UIKit
 
-protocol SettingsUsernameTableViewCellDelegate: class {
-    func usernameCell(_ cell: SettingsUsernameTableViewCell, didChangeText text: String?)
+protocol SettingsIPTableViewCellDelegate: class {
+    func ipCell(_ cell: SettingsIPTableViewCell, didChangeText text: String?)
 }
 
-class SettingsUsernameTableViewCell: UITableViewCell {
+class SettingsIPTableViewCell: UITableViewCell {
     
-    public weak var delegate: SettingsUsernameTableViewCellDelegate?
+    public weak var delegate: SettingsIPTableViewCellDelegate?
     
     var nameLabel      : UILabel!
     var nameTextField  : ArkTextField!
     
     init(_ mode: ServerMode) {
-        super.init(style: .default, reuseIdentifier: "username")
+        super.init(style: .default, reuseIdentifier: "ip")
         
         backgroundColor = UIColor.white
         selectionStyle = .none
+
         
         let nameLabel = UILabel()
-        nameLabel.text          = "Username"
+        nameLabel.text          = "IP Address"
         nameLabel.textColor     = ArkColors.darkGray
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0)
@@ -38,7 +39,7 @@ class SettingsUsernameTableViewCell: UITableViewCell {
             make.width.equalToSuperview().multipliedBy(0.35)
         }
         
-        nameTextField = ArkTextField(placeHolder: "enter here")
+        nameTextField = ArkTextField(placeHolder: "")
         nameTextField.delegate = self
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         addSubview(nameTextField)
@@ -56,7 +57,7 @@ class SettingsUsernameTableViewCell: UITableViewCell {
 }
 
 // MARK: UITextFieldDelegate
-extension SettingsUsernameTableViewCell : UITextFieldDelegate {
+extension SettingsIPTableViewCell : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -64,6 +65,6 @@ extension SettingsUsernameTableViewCell : UITextFieldDelegate {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        delegate?.usernameCell(self, didChangeText: textField.text)
+        delegate?.ipCell(self, didChangeText: textField.text)
     }
 }

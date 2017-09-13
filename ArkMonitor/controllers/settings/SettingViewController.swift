@@ -41,6 +41,12 @@ extension SettingViewController1: UITableViewDelegate {
             return 60.0
         case 1:
             return 125.0
+        case 2:
+            if mode == .custom {
+                return 60.0
+            } else {
+                return 0.0
+            }
         case 5:
             return 60.0
         default:
@@ -96,6 +102,13 @@ extension SettingViewController1: UITableViewDataSource {
             let cell = SettingsServerTableViewCell(mode)
             cell.delegate = self
             return cell
+        case 2:
+            let cell = SettingsIPTableViewCell(mode)
+            cell.delegate = self
+            if mode != .custom {
+                cell.isHidden = true
+            }
+            return cell
         case 5:
             let cell = SettingsSaveTableViewCell(mode)
             cell.delegate = self
@@ -126,10 +139,17 @@ extension SettingViewController1: SettingsServerTableViewCellDelegate {
     }
 }
 
-//MARK: SettingsSaveTableViewCellDelegate
+// MARK: SettingsSaveTableViewCellDelegate
 extension SettingViewController1: SettingsSaveTableViewCellDelegate {
     func saveCellButtonWasTapped(_ cell: SettingsSaveTableViewCell) {
         print("Save Button Tapped")
+    }
+}
+
+// MARK: SettingsIPTableViewCellDelegate
+extension SettingViewController1 : SettingsIPTableViewCellDelegate {
+    func ipCell(_ cell: SettingsIPTableViewCell, didChangeText text: String?) {
+        print("IP Address updated")
     }
 }
 

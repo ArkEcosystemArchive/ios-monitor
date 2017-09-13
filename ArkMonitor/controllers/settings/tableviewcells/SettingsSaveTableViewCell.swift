@@ -23,6 +23,7 @@ class SettingsSaveTableViewCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: "username")
         
         backgroundColor = UIColor.white
+        selectionStyle = .none
         
         saveButton = UIButton()
         saveButton.title("Save", color: UIColor.white)

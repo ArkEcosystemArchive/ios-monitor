@@ -23,6 +23,8 @@ class SettingsServerTableViewCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: "server")
         
         backgroundColor = UIColor.white
+        selectionStyle = .none
+
         
         let nameLabel           = UILabel()
         nameLabel.text          = "Server"
