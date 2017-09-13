@@ -8,27 +8,49 @@
 
 import UIKit
 
-internal enum ServerMode {
-    case node1
-    case node2
-    case custom
-}
-
 class SettingViewController1: UIViewController {
     
     fileprivate var tableview: ArkTableView!
-    fileprivate var mode : ServerMode = .node1
+    fileprivate var mode : Server = .arkNet1
+    
+    fileprivate var username    : String?
+    fileprivate var ipAddress   : String?
+    fileprivate var port        : Int?
+    fileprivate var sslEnabled  = false
+    
+    var settings: Settings = Settings()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableview = ArkTableView(frame: CGRect.zero)
-        tableview.delegate = self
+        tableview.showEmptyNotice = false
+        tableview.delegate      = self
         tableview.dataSource = self
         view.addSubview(tableview)
         tableview.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+        loadSettings()
+    }
+    
+    private func loadSettings() {
+        settings = Settings.getSettings()
+        
+        guard settings.isValid() == true else {
+            return
+        }
+        
+        username   = settings.username
+        ipAddress  = settings.ipAddress
+        sslEnabled = settings.sslEnabled
+        mode       = settings.serverType
+        if settings.port != -1 {
+            port = settings.port
+        }
+        
+        tableview.reloadData()
     }
 }
 
@@ -71,8 +93,27 @@ extension SettingViewController1: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if let aCell = cell as? SettingsUsernameTableViewCell {
+            aCell.update(username)
+        }
+        
         if let aCell = cell as? SettingsServerTableViewCell {
             aCell.updateMode(mode)
+        }
+        
+        if let aCell = cell as? SettingsIPTableViewCell {
+            aCell.update(ipAddress)
+        }
+        
+        if let aCell = cell as? SettingsPortTableViewCell {
+            if let aPort = port {
+                aCell.update(String(aPort))
+            }
+        }
+        
+        if let aCell = cell as? SettingsSSLTableViewCell {
+            aCell.update(sslEnabled)
         }
     }
 }
@@ -133,17 +174,13 @@ extension SettingViewController1: UITableViewDataSource {
 // MARK: SettingsUsernameTableViewCellDelegate
 extension SettingViewController1: SettingsUsernameTableViewCellDelegate {
     func usernameCell(_ cell: SettingsUsernameTableViewCell, didChangeText text: String?) {
-        if let aText = text {
-            print(aText)
-        } else {
-            print("Blank")
-        }
+        self.username = text
     }
 }
 
 // MARK: SettingsServerTableViewCellDelegate
 extension SettingViewController1: SettingsServerTableViewCellDelegate {
-    func serverCell(_ cell: SettingsServerTableViewCell, didChangeMode mode: ServerMode) {
+    func serverCell(_ cell: SettingsServerTableViewCell, didChangeMode mode: Server) {
         self.mode = mode
         tableview.beginUpdates()
         
@@ -168,22 +205,23 @@ extension SettingViewController1: SettingsSaveTableViewCellDelegate {
 // MARK: SettingsIPTableViewCellDelegate
 extension SettingViewController1 : SettingsIPTableViewCellDelegate {
     func ipCell(_ cell: SettingsIPTableViewCell, didChangeText text: String?) {
-        print("IP Address updated")
+        self.ipAddress = text
     }
 }
 
 // MARK: SettingsPortTableViewCellDelegate
 extension SettingViewController1 : SettingsPortTableViewCellDelegate {
     func portCell(_ cell: SettingsPortTableViewCell, didChangeText text: String?) {
-        print("port updated")
-
+        if let portString = text {
+            self.port = Int(portString)
+        }
     }
 }
 
 // MARK: SettingsSSLTableViewCellDelegate
 extension SettingViewController1 : SettingsSSLTableViewCellDelegate {
     func sslCell(_ cell: SettingsSSLTableViewCell, didChangeStatus enabled: Bool) {
-        print("ssl updated")
+        self.sslEnabled = enabled
     }
 }
 

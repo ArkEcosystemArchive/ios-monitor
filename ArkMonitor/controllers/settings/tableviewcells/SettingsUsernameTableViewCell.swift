@@ -19,7 +19,7 @@ class SettingsUsernameTableViewCell: UITableViewCell {
     var nameLabel      : UILabel!
     var nameTextField  : ArkTextField!
     
-    init(_ mode: ServerMode) {
+    init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "username")
         
         backgroundColor = UIColor.white
@@ -52,6 +52,10 @@ class SettingsUsernameTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func update(_ username: String?) {
+        nameTextField.text = username
     }
 }
 

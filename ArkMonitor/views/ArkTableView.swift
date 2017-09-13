@@ -10,6 +10,8 @@ import UIKit
 
 class ArkTableView: UITableView {
     
+    public var showEmptyNotice = true
+    
     init(frame: CGRect) {
         super.init(frame: frame, style: .grouped)
         backgroundColor              = UIColor.white
@@ -23,6 +25,11 @@ class ArkTableView: UITableView {
     
     override func reloadData() {
         super.reloadData()
+        
+        guard showEmptyNotice == true else {
+            return
+        }
+        
         if visibleCells.isEmpty == true {
             let emptyBackgroundView = UIView(frame: frame)
             let emptyLabel = UILabel()

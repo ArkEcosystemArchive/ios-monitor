@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SettingsServerTableViewCellDelegate: class {
-    func serverCell(_ cell: SettingsServerTableViewCell, didChangeMode mode: ServerMode)
+    func serverCell(_ cell: SettingsServerTableViewCell, didChangeMode mode: Server)
 }
 
 class SettingsServerTableViewCell: UITableViewCell {
@@ -19,7 +19,7 @@ class SettingsServerTableViewCell: UITableViewCell {
     var nameLabel    : UILabel!
     var serverPicker : UIPickerView!
     
-    init(_ mode: ServerMode) {
+    init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "server")
         
         backgroundColor = UIColor.white
@@ -55,11 +55,11 @@ class SettingsServerTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func updateMode(_ mode: ServerMode) {
+    public func updateMode(_ mode: Server) {
         switch mode {
-        case .node1:
+        case .arkNet1:
             serverPicker.selectRow(0, inComponent: 0, animated: false)
-        case .node2:
+        case .arkNet2:
             serverPicker.selectRow(1, inComponent: 0, animated: false)
         default:
             serverPicker.selectRow(2, inComponent: 0, animated: false)
@@ -107,9 +107,9 @@ extension SettingsServerTableViewCell : UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case 0:
-            delegate?.serverCell(self, didChangeMode: .node1)
+            delegate?.serverCell(self, didChangeMode: .arkNet1)
         case 1:
-            delegate?.serverCell(self, didChangeMode: .node2)
+            delegate?.serverCell(self, didChangeMode: .arkNet2)
         default:
             delegate?.serverCell(self, didChangeMode: .custom)
         }

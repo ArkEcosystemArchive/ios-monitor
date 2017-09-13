@@ -19,7 +19,7 @@ class SettingsSaveTableViewCell: UITableViewCell {
 
     public weak var delegate: SettingsSaveTableViewCellDelegate?
     
-    init(_ mode: ServerMode) {
+    init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "username")
         
         backgroundColor = UIColor.white

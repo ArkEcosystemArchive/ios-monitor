@@ -19,7 +19,7 @@ class SettingsIPTableViewCell: UITableViewCell {
     var nameLabel      : UILabel!
     var nameTextField  : ArkTextField!
     
-    init(_ mode: ServerMode) {
+    init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "ip")
         
         backgroundColor = UIColor.white
@@ -53,6 +53,10 @@ class SettingsIPTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func update(_ ipAddress: String?) {
+        nameTextField.text = ipAddress
     }
 }
 

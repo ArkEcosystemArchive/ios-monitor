@@ -19,7 +19,7 @@ class SettingsSSLTableViewCell: UITableViewCell {
     var nameLabel  : UILabel!
     var sslSwitch  : UISwitch!
     
-    init(_ mode: ServerMode) {
+    init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "port")
         
         backgroundColor = UIColor.white
@@ -47,6 +47,10 @@ class SettingsSSLTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-25.0)
         }
+    }
+    
+    public func update(_ enabled: Bool) {
+        sslSwitch.setOn(enabled, animated: false)
     }
     
     @objc private func switchValueChanged() {

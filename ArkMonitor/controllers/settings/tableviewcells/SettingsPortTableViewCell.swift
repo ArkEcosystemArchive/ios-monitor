@@ -19,7 +19,7 @@ class SettingsPortTableViewCell: UITableViewCell {
     var nameLabel      : UILabel!
     var nameTextField  : ArkTextField!
     
-    init(_ mode: ServerMode) {
+    init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "port")
         
         backgroundColor = UIColor.white
@@ -54,6 +54,10 @@ class SettingsPortTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func update(_ port: String) {
+        nameTextField.text = port
     }
 }
 
