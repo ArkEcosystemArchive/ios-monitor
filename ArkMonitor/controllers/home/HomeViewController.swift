@@ -2,293 +2,244 @@
 //  HomeViewController.swift
 //  ArkMonitor
 //
-//  Created by Victor Lins on 22/01/17.
+//  Created by Andrew on 2017-09-11.
 //  Copyright © 2017 vrlc92. All rights reserved.
 //
 
 import UIKit
+import SnapKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet weak var scrollView: UIScrollView!
     
+    fileprivate var account     : Account     = Account()
+    fileprivate var delegate    : Delegate    = Delegate()
+    fileprivate var forging     : Forging     = Forging()
+    fileprivate var status      : Status      = Status()
+    fileprivate var peerVersion : PeerVersion = PeerVersion()
+    fileprivate var block       : Block       = Block()
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var rankStatusLabel: UILabel!
-    @IBOutlet weak var productivityLabel: UILabel!
-    @IBOutlet weak var forgedMissedBlocksLabel: UILabel!
-    @IBOutlet weak var approvalLabel: UILabel!
-    @IBOutlet weak var forgedLabel: UILabel!
-    @IBOutlet weak var lastBlockForgedLabel: UILabel!
-    @IBOutlet weak var feesLabel: UILabel!
-    @IBOutlet weak var rewardsLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var totalBalanceLabel: UILabel!
-    @IBOutlet weak var btcEquivalentLabel: UILabel!
-    @IBOutlet weak var usdEquivalentLabel: UILabel!
-    @IBOutlet weak var eurEquivalentLabel: UILabel!
-    @IBOutlet weak var totalBlocksLabel: UILabel!
-    @IBOutlet weak var blocksRemainingLabel: UILabel!
-    @IBOutlet weak var versionLabel: UILabel!
-    
+    fileprivate var tableView      : ArkTableView!
     fileprivate var refreshControl : UIRefreshControl!
     
-    private var account : Account = Account()
-    private var delegate : Delegate = Delegate()
-    private var forging : Forging = Forging()
-    private var status : Status = Status()
-    private var peerVersion : PeerVersion = PeerVersion()
-    private var block : Block = Block()
+    private var balance         : Double?
+    private var arkBTCValue     : Double?
+    private var bitcoinUSDValue : Double?
+    private var bitcoinEURValue : Double?
     
-    private var balance : Double = -1
-    private var arkBTCValue : Double = -1
-    private var bitcoinUSDValue : Double = -1
-    private var bitcoinEURValue : Double = -1
-    
+    private var settingsAcknowledged = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Home"
         
-        setNavigationBarItem()
+        navigationItem.titleView          = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "whiteGear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
+        
+        tableView = ArkTableView(frame: CGRect.zero)
+        tableView.delegate = self
+        tableView.dataSource = self
         
         refreshControl = UIRefreshControl()
+        refreshControl.tintColor = ArkColors.blue
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
-        refreshControl.addTarget(self, action: #selector(reloadPage), for: .valueChanged)
-        
-        scrollView.addSubview(refreshControl)
-
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalToSuperview()
+        }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
-        loadData(true)
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(homeUpdateNotificationRecieved), name: NSNotification.Name(rawValue: ArkNotifications.homeUpdated.rawValue), object: nil)
+        getDataFromDataManager()
+        loadData()
     }
-
-    func loadData(_ animated: Bool) -> Void {
-        
-        guard Reachability.isConnectedToNetwork() == true else {
-            ArkActivityView.showMessage("Please connect to internet.")
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        verifySettings()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func verifySettings() {
+        guard settingsAcknowledged == false else {
             return
         }
         
-        if animated == true {
-            ArkActivityView.startAnimating()
-        }
-        
+        settingsAcknowledged = true
         let settings = Settings.getSettings()
+        
+        if settings.isValid() == false {
+           settingsButtonTapped()
+        }
+    }
+    
+    @objc fileprivate func loadData() {
+        ArkDataManager.shared.updateHomeInfo()
+        
+        delay(0.75) {
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    @objc private func settingsButtonTapped() {
+        let settingsVC = SettingsViewController()
+        navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    @objc private func homeUpdateNotificationRecieved() {
+        getDataFromDataManager()
+    }
+    
+    private func getDataFromDataManager() {
+        account         = ArkDataManager.Home.account
+        delegate        = ArkDataManager.Home.delegate
+        forging         = ArkDataManager.Home.forging
+        status          = ArkDataManager.Home.status
+        peerVersion     = ArkDataManager.Home.peerVersion
+        block           = ArkDataManager.Home.block
+        balance         = ArkDataManager.Home.balance
+        arkBTCValue     = ArkDataManager.Home.arkBTCValue
+        bitcoinUSDValue = ArkDataManager.Home.bitcoinUSDValue
+        bitcoinEURValue = ArkDataManager.Home.bitcoinEURValue
+        tableView.reloadData()
+    }
+}
 
-        let requestData = RequestData(myClass: self)
-        
-        ArkService.sharedInstance.requestDelegate(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestAccount(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestForging(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestStatus(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestPeerVersion(settings: settings, listener: requestData)
-        ArkService.sharedInstance.requestLastBlockForged(settings: settings, listener: requestData)
-        
-        let requestTicker = RequestTicker(myClass: self)
-        let requestBitcoinUSDTicker = RequestBitcoinUSDTicker(myClass: self)
-        let requestBitcoinEURTicker = RequestBitcoinEURTicker(myClass: self)
-        
-        ExchangeService.sharedInstance.requestTicker(listener: requestTicker)
-        ExchangeService.sharedInstance.requestBitcoinUSDTicker(listener: requestBitcoinUSDTicker)
-        ExchangeService.sharedInstance.requestBitcoinEURTicker(listener: requestBitcoinEURTicker)
-    }
 
-    private func loadAccount() -> Void {
-        if (account.address.length > 0) {
-            totalBalanceLabel.text = String(Utils.convertToArkBase(value: account.balance))
-            balance = Double(account.balance)
-            calculateEquivalentInBitcoinUSDandEUR()
+// MARK: UITableViewDelegate
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40.0
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let aCell = cell as? HomeDelegateTableViewCell {
+            aCell.update(delegate)
+        }
+        
+        if let aCell = cell as? HomeForgingTableViewCell {
+            aCell.update(forging)
+        }
+        
+        if let aCell = cell as? HomeLastBlockTableViewCell {
+            aCell.update(block)
+        }
+        
+        if let aCell = cell as? HomeBalanceTableViewCell {
+            aCell.update(balance: balance, arkBTCValue: arkBTCValue, bitcoinUSDValue: bitcoinUSDValue, bitcoinEURValue: bitcoinEURValue)
+        }
+        
+        if let aCell = cell as? HomeAddressTableViewCell {
+            aCell.update(delegate)
+        }
+        
+        if let aCell = cell as? HomeServerTableViewCell {
+            aCell.update(status)
+        }
+        
+        if let aCell = cell as? HomeVersionTableViewCell {
+            aCell.update(peerVersion)
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+        headerView.backgroundColor = UIColor.white
+        
+        let headerLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+        headerLabel.textColor = ArkColors.darkGray
+        headerLabel.textAlignment = .center
+        
+        switch section {
+        case 0:
+            headerLabel.text = "Delegate"
+        case 1:
+            headerLabel.text = "Forging"
+        case 2:
+            headerLabel.text = "Account"
+        default:
+            headerLabel.text = "Server"
+        }
+        headerView.addSubview(headerLabel)
+        return headerView
+    }
     
-    private func loadDelegate() -> Void {
-        if (delegate.address.length > 0) {
-            nameLabel.text = delegate.username
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 35.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+}
 
-            let rankStatus : String = delegate.rate <= 51 ? "Active" : "Standby"
-            rankStatusLabel.text = String(delegate.rate) + " / " + rankStatus
-
-            productivityLabel.text = String(delegate.productivity) + "%"
-            approvalLabel.text = String(delegate.approval) + "%"
-            addressLabel.text = delegate.address
-            
-            forgedMissedBlocksLabel.text = String(delegate.producedblocks) + " / " + String(delegate.missedblocks)
-            
+// MARK: UITableViewDataSource
+extension HomeViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+            case 0:
+                return 5
+            case 1:
+                return 4
+            case 2:
+                return 5
+            default:
+                return 3
         }
     }
     
-    private func loadForging() -> Void {
-        feesLabel.text =  String(Utils.convertToArkBase(value: forging.fees))
-        rewardsLabel.text =  String(Utils.convertToArkBase(value: forging.rewards))
-        forgedLabel.text =  String(Utils.convertToArkBase(value: forging.forged))
-    }
-    
-    private func loadStatus() -> Void {
-        totalBlocksLabel.text =  String(status.height)
-        blocksRemainingLabel.text = String(status.blocks)
-    }
-    
-    private func loadPeerVersion() -> Void {
-        versionLabel.text =  peerVersion.version
-    }
-    
-    private func loadLastBlockForged() -> Void {
-        lastBlockForgedLabel.text =  Utils.getTimeAgo(timestamp: Double(block.timestamp))
-    }
-    
-    private func calculateEquivalentInBitcoinUSDandEUR() -> Void {
-        if (balance > 0 && arkBTCValue > 0) {
-            let balanceBtcEquivalent = balance * arkBTCValue
-            totalBalanceLabel.text = String(Utils.convertToArkBase(value: Int64(balance)))
-            
-            btcEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceBtcEquivalent)))
-
-            if (bitcoinUSDValue > 0) {
-                let balanceUSDEquivalent = balanceBtcEquivalent * bitcoinUSDValue
-                usdEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceUSDEquivalent)))
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = HomeDelegateTableViewCell(indexPath.row)
+            return cell
+        case 1:
+            if indexPath.row == 3 {
+                let cell = HomeLastBlockTableViewCell(indexPath.row)
+                return cell
+            } else {
+                let cell = HomeForgingTableViewCell(indexPath.row)
+                return cell
             }
-            
-            if (bitcoinEURValue > 0) {
-                let balanceEUREquivalent = balanceBtcEquivalent * bitcoinEURValue
-                eurEquivalentLabel.text = String(Utils.convertToArkBase(value: Int64(balanceEUREquivalent)))
+        case 2:
+            if indexPath.row == 0 {
+                let cell = HomeAddressTableViewCell(indexPath.row)
+                return cell
+            } else {
+                let cell = HomeBalanceTableViewCell(indexPath.row)
+                return cell
             }
-        }
-    }
-    
-    private class RequestData: RequestListener {
-        let selfReference: HomeViewController
-        
-        init(myClass: HomeViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            if let account = object as? Account {
-                selfReference.account = account
-                selfReference.loadAccount()
+        case 3:
+            if indexPath.row == 2 {
+                let cell = HomeVersionTableViewCell(indexPath.row)
+                return cell
+            } else {
+                let cell = HomeServerTableViewCell(indexPath.row)
+                return cell
             }
-            
-            if let delegate = object as? Delegate {
-                selfReference.delegate = delegate
-                selfReference.loadDelegate()
-            }
-            
-            if let forging = object as? Forging {
-                selfReference.forging = forging
-                selfReference.loadForging()
-            }
-            
-            if let status = object as? Status {
-                selfReference.status = status
-                selfReference.loadStatus()
-            }
-            
-            if let peerVersion = object as? PeerVersion {
-                selfReference.peerVersion = peerVersion
-                selfReference.loadPeerVersion()
-            }
-            
-            if let block = object as? Block {
-                selfReference.block = block
-                selfReference.loadLastBlockForged()
-            }
-            
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-            
+        default:
+            let cell = UITableViewCell()
+            return cell
         }
-    }
-    
-    
-    private class RequestTicker: RequestListener {
-        let selfReference: HomeViewController
-        
-        init(myClass: HomeViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-            selfReference.arkBTCValue = -1
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            if let ticker = object as? Ticker {
-                selfReference.arkBTCValue = ticker.last
-                selfReference.calculateEquivalentInBitcoinUSDandEUR()
-            }
-            
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-            
-        }
-    }
-    
-    
-    private class RequestBitcoinUSDTicker: RequestListener {
-        let selfReference: HomeViewController
-        
-        init(myClass: HomeViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-            selfReference.bitcoinUSDValue = -1
-        }
-        
-        func onResponse(object: Any)  -> Void {
-            if let ticker = object as? Ticker {
-                selfReference.bitcoinUSDValue = ticker.last
-                selfReference.calculateEquivalentInBitcoinUSDandEUR()
-            }
-            
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-            
-        }
-    }
-    
-    private class RequestBitcoinEURTicker: RequestListener {
-        let selfReference: HomeViewController
-        
-        init(myClass: HomeViewController){
-            selfReference = myClass
-        }
-        
-        public func onFailure(e: Error) -> Void {
-            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-            
-        }
-
-        func onResponse(object: Any)  -> Void {
-            if let ticker = object as? Ticker {
-                selfReference.bitcoinEURValue = ticker.last
-                selfReference.calculateEquivalentInBitcoinUSDandEUR()
-
-            }
-            
-            ArkActivityView.stopAnimating()
-            selfReference.refreshControl.endRefreshing()
-            
-        }
-    }
-    
-    @objc private func reloadPage() {
-        loadData(false)
     }
 }

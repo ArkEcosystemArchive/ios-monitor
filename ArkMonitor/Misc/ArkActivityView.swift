@@ -8,10 +8,9 @@
 
 import UIKit
 import NVActivityIndicatorView
-import Toaster
+import NotificationBannerSwift
 
-public struct ArkActivityView {
-    
+public struct ArkActivityView  {
     static private let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
 
     static public func startAnimating() {
@@ -23,9 +22,26 @@ public struct ArkActivityView {
     }
     
     static public func showMessage(_ text: String) {
-        Toast(text: text,
-              delay: Delay.short,
-              duration: Delay.long).show()
+        let banner = StatusBarNotificationBanner(title: text, style: .warning, colors: CustomBannerColors())
+        banner.show()
+    }
+}
+
+fileprivate class CustomBannerColors: BannerColorsProtocol {
+    
+    func color(for style: BannerStyle) -> UIColor {
+        switch style {
+        case .danger:
+            return ArkColors.gray
+        case .info:     // Your custom .info color
+            return ArkColors.gray
+        case .none:     // Your custom .none color
+            return ArkColors.gray
+        case .success:  // Your custom .success color
+            return ArkColors.gray
+        case .warning:  // Your custom .warning color
+            return ArkColors.gray
+        }
     }
 }
 

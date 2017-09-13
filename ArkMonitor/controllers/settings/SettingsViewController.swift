@@ -62,10 +62,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Settings"
         
-        setNavigationBarItem()
+        navigationItem.titleView          = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
+
         
         customSaveButton()
         
@@ -313,15 +312,16 @@ private class RequestData: RequestListener {
             Settings.saveSettings(settings: settings)
 
             if (selfReference.delegate == nil) {
-                let navController = UINavigationController(rootViewController: HomeViewController())
-                selfReference.slideMenuController()?.changeMainViewController(navController, close: true)
+                //let navController = UINavigationController(rootViewController: HomeViewController())
+                //selfReference.slideMenuController()?.changeMainViewController(navController, close: true)
                 
             } else {
                 selfReference.delegate?.onSettingsSaved()
             }
             
         }
-        
         ArkActivityView.stopAnimating()
+        ArkDataManager.shared.updateData()
+        selfReference.navigationController?.popViewController(animated: true)
     }
 }

@@ -8,6 +8,11 @@
 
 import UIKit
 
+func delay(_ delay:Double, closure:@escaping ()->()) {
+    DispatchQueue.main.asyncAfter(
+        deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+}
+
 class Utils: NSObject {
     
     
@@ -18,7 +23,7 @@ class Utils: NSObject {
     private static let timeZone = "UTC"
     
     public static func validateArkAddress(arkAddress: String) -> Bool {
-        return arkAddress.length > 0
+        return arkAddress.characters.count > 0
     }
 
     public static func validateIpAddress(ipAddress: String) -> Bool {
@@ -38,11 +43,11 @@ class Utils: NSObject {
     }
     
     public static func validatePublicKey(publicKey: String) -> Bool {
-        return publicKey.length > 0
+        return publicKey.characters.count > 0
     }
 
     public static func validateUsername(username: String) -> Bool {
-        return username.length > 0 && username.length <= 20
+        return username.characters.count > 0 && username.characters.count <= 20
     }
 
     public static func convertToArkBase(value: Int64) -> Double {
