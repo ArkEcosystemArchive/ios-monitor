@@ -159,6 +159,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		160D7DF31F68B8BE009544F5 /* tab */ = {
+			isa = PBXGroup;
+			children = (
+				16D9A3C11F67640400AA0637 /* MainTabViewController.swift */,
+			);
+			name = tab;
+			sourceTree = "<group>";
+		};
 		1656B5E01F68345F006FCDE5 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,9 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				9A103B071E719C6300621D88 /* AppDelegate.swift */,
-				16D9A3C11F67640400AA0637 /* MainTabViewController.swift */,
-				1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */,
-				1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */,
 				9A103B081E719C6300621D88 /* controllers */,
 				9A103B3D1E719C6300621D88 /* models */,
 				9A103B4A1E719C6300621D88 /* services */,
@@ -264,6 +269,7 @@
 		9A103B081E719C6300621D88 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				160D7DF31F68B8BE009544F5 /* tab */,
 				9A103B151E719C6300621D88 /* home */,
 				9A103B281E719C6300621D88 /* settings */,
 				9A103B0F1E719C6300621D88 /* forgedBlocks */,
@@ -356,6 +362,8 @@
 		9A103B4F1E719C6300621D88 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */,
+				1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */,
 				9A103B501E719C6300621D88 /* Utils.swift */,
 			);
 			path = utils;
