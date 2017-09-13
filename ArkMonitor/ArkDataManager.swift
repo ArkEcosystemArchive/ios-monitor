@@ -214,6 +214,7 @@ public extension ArkDataManager {
         func onResponse(object: Any)  -> Void {
             if let ticker = object as? Ticker {
                 Home.bitcoinEURValue = ticker.last
+                print(ticker.last)
                 ArkNotificationManager.postNotification(.homeUpdated)
             }
         }

@@ -40,15 +40,17 @@ extension HomeViewController {
             case .usd:
                 descriptionLabel.text = "USD equivalent"
                 if let btcValue = arkBTCValue,
+                    let cBalance = balance,
                     let value = bitcoinUSDValue {
-                    let balanceUSDEquivalent = btcValue * value
+                    let balanceUSDEquivalent = btcValue * value * cBalance
                     valueLabel.text = String(Utils.convertToArkBase(value: Int64(balanceUSDEquivalent)))
                 }
             case .eur:
                 descriptionLabel.text = "EUR equivalent"
                 if let btcValue = arkBTCValue,
+                    let cBalance = balance,
                     let value = bitcoinEURValue {
-                    let balanceUSDEquivalent = btcValue * value
+                    let balanceUSDEquivalent = btcValue * value * cBalance
                     valueLabel.text = String(Utils.convertToArkBase(value: Int64(balanceUSDEquivalent)))
                 }
             }

@@ -110,7 +110,7 @@ class HomeViewController: UIViewController {
         balance         = ArkDataManager.Home.balance
         arkBTCValue     = ArkDataManager.Home.arkBTCValue
         bitcoinUSDValue = ArkDataManager.Home.bitcoinUSDValue
-        bitcoinEURValue = ArkDataManager.Home.bitcoinUSDValue
+        bitcoinEURValue = ArkDataManager.Home.bitcoinEURValue
         tableView.reloadData()
     }
 }
