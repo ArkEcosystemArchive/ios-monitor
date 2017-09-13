@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func settingsButtonTapped() {
-        let settingsVC = SettingsViewController()
+        let settingsVC = SettingViewController1()
         navigationController?.pushViewController(settingsVC, animated: true)
     }
     

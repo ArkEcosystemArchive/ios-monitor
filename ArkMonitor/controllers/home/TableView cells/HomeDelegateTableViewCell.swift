@@ -33,7 +33,6 @@ class HomeDelegateTableViewCell: HomeTableViewCell {
         case .name:
             descriptionLabel.text = "Name"
             valueLabel.text = delegate.username
-            valueLabel.text = "Testy123"
         case .rank:
             descriptionLabel.text = "Rank / Status"
             let rankStatus : String = delegate.rate <= 51 ? "Active" : "Standby"
