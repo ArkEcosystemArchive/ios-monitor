@@ -38,23 +38,19 @@ extension SettingViewController1: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 60.0
+            return 50.0
         case 1:
-            return 125.0
+            return 100.0
         case 2, 3, 4:
             if mode == .custom {
-                return 60.0
+                return 50.0
             } else {
                 return 0.0
             }
         case 5:
-            return 60.0
+            return 70.0
         default:
-            if mode == .custom {
-                return 40.0
-            } else {
-                return 0.0
-            }
+            return 0.0
         }
     }
     
@@ -149,6 +145,15 @@ extension SettingViewController1: SettingsUsernameTableViewCellDelegate {
 extension SettingViewController1: SettingsServerTableViewCellDelegate {
     func serverCell(_ cell: SettingsServerTableViewCell, didChangeMode mode: ServerMode) {
         self.mode = mode
+        tableview.beginUpdates()
+        
+        let ipIndex = IndexPath(row: 0, section: 2)
+        let portIndex = IndexPath(row: 0, section: 3)
+        let sslIndex = IndexPath(row: 0, section: 4)
+
+        let indexes : [IndexPath] = [ipIndex, portIndex, sslIndex]
+        tableview.reloadRows(at: indexes, with: .fade)
+        tableview.endUpdates()
         tableview.reloadData()
     }
 }

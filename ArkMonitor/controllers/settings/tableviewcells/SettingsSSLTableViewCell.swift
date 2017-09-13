@@ -27,7 +27,7 @@ class SettingsSSLTableViewCell: UITableViewCell {
         
         
         nameLabel               = UILabel()
-        nameLabel.text          = "Port"
+        nameLabel.text          = "SSL Enabled?"
         nameLabel.textColor     = ArkColors.darkGray
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0)
