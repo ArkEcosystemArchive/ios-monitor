@@ -195,13 +195,6 @@ extension SettingViewController1: SettingsServerTableViewCellDelegate {
     }
 }
 
-// MARK: SettingsSaveTableViewCellDelegate
-extension SettingViewController1: SettingsSaveTableViewCellDelegate {
-    func saveCellButtonWasTapped(_ cell: SettingsSaveTableViewCell) {
-        print("Save Button Tapped")
-    }
-}
-
 // MARK: SettingsIPTableViewCellDelegate
 extension SettingViewController1 : SettingsIPTableViewCellDelegate {
     func ipCell(_ cell: SettingsIPTableViewCell, didChangeText text: String?) {
@@ -224,6 +217,109 @@ extension SettingViewController1 : SettingsSSLTableViewCellDelegate {
         self.sslEnabled = enabled
     }
 }
+
+// MARK: SettingsSaveTableViewCellDelegate
+extension SettingViewController1: SettingsSaveTableViewCellDelegate {
+    func saveCellButtonWasTapped(_ cell: SettingsSaveTableViewCell) {
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkActivityView.showMessage("Please connect to internet.")
+            return
+        }
+        
+        let settings = Settings()
+        
+        guard let currentUserName = username else {
+            ArkActivityView.showMessage("Username invalid.")
+            return
+        }
+        
+        if (!Utils.validateUsername(username: currentUserName)) {
+            ArkActivityView.showMessage("Username invalid.")
+            return
+        }
+        
+        
+        settings.username = currentUserName
+        
+        if mode == .custom {
+            guard let currentIPAddress = ipAddress else {
+                ArkActivityView.showMessage("Ip Address invalid.")
+                return
+            }
+            
+            if (!Utils.validateIpAddress(ipAddress: currentIPAddress)) {
+                ArkActivityView.showMessage("Ip Address invalid.")
+                return
+            }
+            
+            guard let currentPort = port else {
+                ArkActivityView.showMessage("Port invalid.")
+                return
+            }
+            
+            if (!Utils.validatePortStr(portStr: String(currentPort))) {
+                ArkActivityView.showMessage("Port invalid.")
+                return
+            }
+            
+            settings.ipAddress  = currentIPAddress
+            settings.port       = currentPort
+            settings.sslEnabled = sslEnabled
+        }
+        
+        settings.setServerType(serverType: mode)
+        ArkService.sharedInstance.requestDelegate(settings: settings, listener: RequestData(myClass: self))
+    }
+    
+    private class RequestData: RequestListener {
+        let selfReference: SettingViewController1
+        
+        init(myClass: SettingViewController1){
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            
+            if let delegate = object as? Delegate {
+                let settings = Settings.getSettings()
+                
+                settings.username = selfReference.username!
+                settings.sslEnabled = selfReference.sslEnabled
+                settings.setServerType(serverType: selfReference.mode)
+                
+                if let ipAddress = selfReference.ipAddress {
+                    if (Utils.validateIpAddress(ipAddress: ipAddress)) {
+                        settings.ipAddress = ipAddress
+                    }
+                }
+                
+                if let port = selfReference.port {
+                    if (Utils.validatePortStr(portStr: String(port))) {
+                        settings.port = Int(port)
+                    }
+                }
+
+                settings.arkAddress = delegate.address
+                settings.publicKey = delegate.publicKey
+                
+                selfReference.settings = settings
+                Settings.saveSettings(settings: settings)
+                
+                ArkActivityView.stopAnimating()
+                ArkDataManager.shared.updateData()
+                selfReference.navigationController?.popViewController(animated: true)
+            } else {
+                ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+            }
+        }
+    }
+}
+
+
 
 
 
