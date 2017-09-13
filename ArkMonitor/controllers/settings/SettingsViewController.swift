@@ -320,7 +320,8 @@ private class RequestData: RequestListener {
             }
             
         }
-        
         ArkActivityView.stopAnimating()
+        ArkDataManager.shared.updateData()
+        selfReference.navigationController?.popViewController(animated: true)
     }
 }

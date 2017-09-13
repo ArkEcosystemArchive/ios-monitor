@@ -11,12 +11,12 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     
-    fileprivate var account : Account = Account()
-    fileprivate var delegate : Delegate = Delegate()
-    fileprivate var forging : Forging = Forging()
-    fileprivate var status : Status = Status()
+    fileprivate var account     : Account     = Account()
+    fileprivate var delegate    : Delegate    = Delegate()
+    fileprivate var forging     : Forging     = Forging()
+    fileprivate var status      : Status      = Status()
     fileprivate var peerVersion : PeerVersion = PeerVersion()
-    fileprivate var block : Block = Block()
+    fileprivate var block       : Block       = Block()
     
     fileprivate var tableView      : ArkTableView!
     fileprivate var refreshControl : UIRefreshControl!
