@@ -41,7 +41,7 @@ extension SettingViewController1: UITableViewDelegate {
             return 60.0
         case 1:
             return 125.0
-        case 2, 3:
+        case 2, 3, 4:
             if mode == .custom {
                 return 60.0
             } else {
@@ -116,6 +116,13 @@ extension SettingViewController1: UITableViewDataSource {
                 cell.isHidden = true
             }
             return cell
+        case 4:
+            let cell = SettingsSSLTableViewCell(mode)
+            cell.delegate = self
+            if mode != .custom {
+                cell.isHidden = true
+            }
+            return cell
         case 5:
             let cell = SettingsSaveTableViewCell(mode)
             cell.delegate = self
@@ -166,9 +173,15 @@ extension SettingViewController1 : SettingsPortTableViewCellDelegate {
         print("port updated")
 
     }
-    
-    
 }
+
+// MARK: SettingsSSLTableViewCellDelegate
+extension SettingViewController1 : SettingsSSLTableViewCellDelegate {
+    func sslCell(_ cell: SettingsSSLTableViewCell, didChangeStatus enabled: Bool) {
+        print("ssl updated")
+    }
+}
+
 
 
 

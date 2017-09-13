@@ -39,7 +39,7 @@ class SettingsPortTableViewCell: UITableViewCell {
             make.width.equalToSuperview().multipliedBy(0.35)
         }
         
-        nameTextField = ArkTextField(placeHolder: "")
+        nameTextField = ArkTextField(placeHolder: "8000")
         nameTextField.keyboardType = .numberPad
         nameTextField.delegate = self
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -48,7 +48,7 @@ class SettingsPortTableViewCell: UITableViewCell {
             make.height.equalTo(30.0)
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-25.0)
-            make.width.equalToSuperview().multipliedBy(0.65)
+            make.width.equalToSuperview().multipliedBy(0.5)
         }
     }
     

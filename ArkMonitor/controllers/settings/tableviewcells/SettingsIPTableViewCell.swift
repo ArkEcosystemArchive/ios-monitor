@@ -47,7 +47,7 @@ class SettingsIPTableViewCell: UITableViewCell {
             make.height.equalTo(30.0)
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-25.0)
-            make.width.equalToSuperview().multipliedBy(0.65)
+            make.width.equalToSuperview().multipliedBy(0.5)
         }
     }
     
