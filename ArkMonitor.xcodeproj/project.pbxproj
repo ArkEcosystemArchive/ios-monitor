@@ -7,45 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16089A041F679F4D0051E267 /* DelegateSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16089A031F679F4D0051E267 /* DelegateSectionHeaderView.swift */; };
+		16089A061F67A16A0051E267 /* DelegateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */; };
+		162149681F6990A500F33CAF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149671F6990A500F33CAF /* SettingViewController.swift */; };
+		1621496A1F69925300F33CAF /* SettingsUsernameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149691F69925300F33CAF /* SettingsUsernameTableViewCell.swift */; };
+		1621496D1F69957F00F33CAF /* ArkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621496C1F69957F00F33CAF /* ArkTextField.swift */; };
+		1621496F1F69994900F33CAF /* SettingsServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621496E1F69994900F33CAF /* SettingsServerTableViewCell.swift */; };
+		162149711F69A19F00F33CAF /* SettingsSaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149701F69A19F00F33CAF /* SettingsSaveTableViewCell.swift */; };
+		162149731F69A21B00F33CAF /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149721F69A21B00F33CAF /* UIButton+Extension.swift */; };
+		162149761F69A5C200F33CAF /* SettingsIPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149751F69A5C200F33CAF /* SettingsIPTableViewCell.swift */; };
+		162149781F69A7C500F33CAF /* SettingsPortTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149771F69A7C500F33CAF /* SettingsPortTableViewCell.swift */; };
+		1621497A1F69A9B300F33CAF /* SettingsSSLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162149791F69A9B300F33CAF /* SettingsSSLTableViewCell.swift */; };
+		163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */; };
+		163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */; };
+		164919C71F68880B003A8B08 /* ArkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164919C61F68880B003A8B08 /* ArkTableView.swift */; };
+		1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */; };
+		1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */; };
+		1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */; };
+		1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */; };
+		1656B5E41F683D34006FCDE5 /* VotesSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E31F683D34006FCDE5 /* VotesSectionHeader.swift */; };
+		1656B5E61F683E38006FCDE5 /* VotersSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E51F683E38006FCDE5 /* VotersSectionHeader.swift */; };
+		1656B5E81F683FA2006FCDE5 /* VotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E71F683FA2006FCDE5 /* VotesTableViewCell.swift */; };
+		1656B5EA1F6840EA006FCDE5 /* VotersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */; };
+		1656B5EC1F685067006FCDE5 /* LastestTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */; };
+		1656B5EE1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5ED1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift */; };
+		1656B5F01F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */; };
+		1656B5F21F686F9C006FCDE5 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */; };
+		1656B5F41F687287006FCDE5 /* TransactionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */; };
+		1656B5F71F6874EE006FCDE5 /* ArkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */; };
+		1656B5F91F687852006FCDE5 /* ArkNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */; };
+		169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */; };
+		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
+		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
+		169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */; };
+		169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7851F678A3F00DDDBD9 /* HomeTableViewCell.swift */; };
+		169FB78C1F679AFF00DDDBD9 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB78B1F679AFF00DDDBD9 /* DelegateViewController.swift */; };
+		16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DE61F6731C800C4B765 /* ArkActivityView.swift */; };
+		16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DEF1F6745CB00C4B765 /* ArkColors.swift */; };
+		16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */; };
+		16D9A3BE1F67548E00AA0637 /* HomeDelegateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BD1F67548E00AA0637 /* HomeDelegateTableViewCell.swift */; };
+		16D9A3C01F675F8100AA0637 /* ArkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BF1F675F8100AA0637 /* ArkConstants.swift */; };
+		16D9A3C21F67640400AA0637 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3C11F67640400AA0637 /* MainTabViewController.swift */; };
+		16D9A3C41F676F0800AA0637 /* HomeForgingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3C31F676F0800AA0637 /* HomeForgingTableViewCell.swift */; };
+		16D9A3C61F6776B500AA0637 /* HomeLastBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3C51F6776B500AA0637 /* HomeLastBlockTableViewCell.swift */; };
 		50D0451C340D7A669AE07F70 /* Pods_ArkMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED33999C395ABFC734C5C25 /* Pods_ArkMonitor.framework */; };
 		9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFC1E719A8800621D88 /* Assets.xcassets */; };
 		9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A103AFE1E719A8800621D88 /* LaunchScreen.storyboard */; };
 		9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B071E719C6300621D88 /* AppDelegate.swift */; };
-		9A103B561E719C6300621D88 /* DelegatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B0A1E719C6300621D88 /* DelegatesViewController.swift */; };
-		9A103B571E719C6300621D88 /* DelegatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B0B1E719C6300621D88 /* DelegatesViewController.xib */; };
-		9A103B581E719C6300621D88 /* DelegateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B0D1E719C6300621D88 /* DelegateTableViewCell.swift */; };
-		9A103B591E719C6300621D88 /* DelegateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B0E1E719C6300621D88 /* DelegateTableViewCell.xib */; };
-		9A103B5A1E719C6300621D88 /* ForgedBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B101E719C6300621D88 /* ForgedBlocksViewController.swift */; };
-		9A103B5B1E719C6300621D88 /* ForgedBlocksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */; };
-		9A103B5C1E719C6300621D88 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */; };
-		9A103B5D1E719C6300621D88 /* ForgedBlockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B141E719C6300621D88 /* ForgedBlockTableViewCell.xib */; };
-		9A103B5E1E719C6300621D88 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B161E719C6300621D88 /* HomeViewController.swift */; };
-		9A103B5F1E719C6300621D88 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B171E719C6300621D88 /* HomeViewController.xib */; };
-		9A103B601E719C6300621D88 /* LatestTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */; };
-		9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */; };
-		9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */; };
-		9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */; };
-		9A103B641E719C6300621D88 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B1F1E719C6300621D88 /* LeftMenuViewController.swift */; };
-		9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B201E719C6300621D88 /* LeftMenuViewController.xib */; };
-		9A103B661E719C6300621D88 /* PeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B231E719C6300621D88 /* PeersViewController.swift */; };
-		9A103B671E719C6300621D88 /* PeersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B241E719C6300621D88 /* PeersViewController.xib */; };
-		9A103B681E719C6300621D88 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B261E719C6300621D88 /* PeerTableViewCell.swift */; };
-		9A103B691E719C6300621D88 /* PeerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B271E719C6300621D88 /* PeerTableViewCell.xib */; };
-		9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B291E719C6300621D88 /* SettingsViewController.swift */; };
-		9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B2A1E719C6300621D88 /* SettingsViewController.xib */; };
-		9A103B6C1E719C6300621D88 /* VotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B2C1E719C6300621D88 /* VotesViewController.swift */; };
-		9A103B6D1E719C6300621D88 /* VotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B2D1E719C6300621D88 /* VotesViewController.xib */; };
-		9A103B6E1E719C6300621D88 /* VoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B2F1E719C6300621D88 /* VoteTableViewCell.swift */; };
-		9A103B6F1E719C6300621D88 /* VoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B301E719C6300621D88 /* VoteTableViewCell.xib */; };
-		9A103B701E719C6300621D88 /* VotersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B321E719C6300621D88 /* VotersViewController.swift */; };
-		9A103B711E719C6300621D88 /* VotersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B331E719C6300621D88 /* VotersViewController.xib */; };
-		9A103B721E719C6300621D88 /* VoterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B351E719C6300621D88 /* VoterTableViewCell.swift */; };
-		9A103B731E719C6300621D88 /* VoterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B361E719C6300621D88 /* VoterTableViewCell.xib */; };
-		9A103B741E719C6300621D88 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B381E719C6300621D88 /* String.swift */; };
-		9A103B751E719C6300621D88 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B391E719C6300621D88 /* UIApplication.swift */; };
-		9A103B761E719C6300621D88 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3A1E719C6300621D88 /* UIColor.swift */; };
-		9A103B771E719C6300621D88 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3B1E719C6300621D88 /* UITableView.swift */; };
-		9A103B781E719C6300621D88 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3C1E719C6300621D88 /* UIViewController.swift */; };
 		9A103B791E719C6300621D88 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3E1E719C6300621D88 /* Account.swift */; };
 		9A103B7A1E719C6300621D88 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B3F1E719C6300621D88 /* Block.swift */; };
 		9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B401E719C6300621D88 /* Delegate.swift */; };
@@ -63,53 +71,58 @@
 		9A103B871E719C6300621D88 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B4D1E719C6300621D88 /* Reachability.swift */; };
 		9A103B881E719C6300621D88 /* RequestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B4E1E719C6300621D88 /* RequestListener.swift */; };
 		9A103B891E719C6300621D88 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B501E719C6300621D88 /* Utils.swift */; };
-		9A103B8A1E719C6300621D88 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B521E719C6300621D88 /* BaseTableViewCell.swift */; };
-		9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A103B531E719C6300621D88 /* DataTableViewCell.swift */; };
-		9A103B8C1E719C6300621D88 /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A103B541E719C6300621D88 /* DataTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16089A031F679F4D0051E267 /* DelegateSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateSectionHeaderView.swift; sourceTree = "<group>"; };
+		16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTableViewCell.swift; sourceTree = "<group>"; };
+		162149671F6990A500F33CAF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		162149691F69925300F33CAF /* SettingsUsernameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUsernameTableViewCell.swift; sourceTree = "<group>"; };
+		1621496C1F69957F00F33CAF /* ArkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTextField.swift; sourceTree = "<group>"; };
+		1621496E1F69994900F33CAF /* SettingsServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServerTableViewCell.swift; sourceTree = "<group>"; };
+		162149701F69A19F00F33CAF /* SettingsSaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSaveTableViewCell.swift; sourceTree = "<group>"; };
+		162149721F69A21B00F33CAF /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		162149751F69A5C200F33CAF /* SettingsIPTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsIPTableViewCell.swift; sourceTree = "<group>"; };
+		162149771F69A7C500F33CAF /* SettingsPortTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPortTableViewCell.swift; sourceTree = "<group>"; };
+		162149791F69A9B300F33CAF /* SettingsSSLTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSSLTableViewCell.swift; sourceTree = "<group>"; };
+		163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerSectionHeader.swift; sourceTree = "<group>"; };
+		163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
+		164919C61F68880B003A8B08 /* ArkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTableView.swift; sourceTree = "<group>"; };
+		1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockViewController.swift; sourceTree = "<group>"; };
+		1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockSectionHeader.swift; sourceTree = "<group>"; };
+		1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscViewController.swift; sourceTree = "<group>"; };
+		1656B5E31F683D34006FCDE5 /* VotesSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesSectionHeader.swift; sourceTree = "<group>"; };
+		1656B5E51F683E38006FCDE5 /* VotersSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotersSectionHeader.swift; sourceTree = "<group>"; };
+		1656B5E71F683FA2006FCDE5 /* VotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotersTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestTransactionViewController.swift; sourceTree = "<group>"; };
+		1656B5ED1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTransactionTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTransactionsSectionHeaderView.swift; sourceTree = "<group>"; };
+		1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailTableViewCell.swift; sourceTree = "<group>"; };
+		1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkDataManager.swift; sourceTree = "<group>"; };
+		1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkNotificationManager.swift; sourceTree = "<group>"; };
+		169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceTableViewCell.swift; sourceTree = "<group>"; };
+		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
+		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
+		169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVersionTableViewCell.swift; sourceTree = "<group>"; };
+		169FB7851F678A3F00DDDBD9 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		169FB78B1F679AFF00DDDBD9 /* DelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
+		16D14DE61F6731C800C4B765 /* ArkActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkActivityView.swift; sourceTree = "<group>"; };
+		16D14DEF1F6745CB00C4B765 /* ArkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkColors.swift; sourceTree = "<group>"; };
+		16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		16D9A3BD1F67548E00AA0637 /* HomeDelegateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegateTableViewCell.swift; sourceTree = "<group>"; };
+		16D9A3BF1F675F8100AA0637 /* ArkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkConstants.swift; sourceTree = "<group>"; };
+		16D9A3C11F67640400AA0637 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		16D9A3C31F676F0800AA0637 /* HomeForgingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeForgingTableViewCell.swift; sourceTree = "<group>"; };
+		16D9A3C51F6776B500AA0637 /* HomeLastBlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLastBlockTableViewCell.swift; sourceTree = "<group>"; };
 		4E1E4032A0BBD3BDC693E99D /* Pods-ArkMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArkMonitor/Pods-ArkMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		9A103AF21E719A8800621D88 /* ArkMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArkMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A103AFC1E719A8800621D88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A103AFF1E719A8800621D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A103B011E719A8800621D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A103B071E719C6300621D88 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A103B0A1E719C6300621D88 /* DelegatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesViewController.swift; sourceTree = "<group>"; };
-		9A103B0B1E719C6300621D88 /* DelegatesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DelegatesViewController.xib; sourceTree = "<group>"; };
-		9A103B0D1E719C6300621D88 /* DelegateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B0E1E719C6300621D88 /* DelegateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DelegateTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B101E719C6300621D88 /* ForgedBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgedBlocksViewController.swift; sourceTree = "<group>"; };
-		9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgedBlocksViewController.xib; sourceTree = "<group>"; };
-		9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B141E719C6300621D88 /* ForgedBlockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgedBlockTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B161E719C6300621D88 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		9A103B171E719C6300621D88 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestTransactionsViewController.swift; sourceTree = "<group>"; };
-		9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LatestTransactionsViewController.xib; sourceTree = "<group>"; };
-		9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B1F1E719C6300621D88 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		9A103B201E719C6300621D88 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
-		9A103B231E719C6300621D88 /* PeersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeersViewController.swift; sourceTree = "<group>"; };
-		9A103B241E719C6300621D88 /* PeersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeersViewController.xib; sourceTree = "<group>"; };
-		9A103B261E719C6300621D88 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B271E719C6300621D88 /* PeerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeerTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B291E719C6300621D88 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		9A103B2A1E719C6300621D88 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		9A103B2C1E719C6300621D88 /* VotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotesViewController.swift; sourceTree = "<group>"; };
-		9A103B2D1E719C6300621D88 /* VotesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotesViewController.xib; sourceTree = "<group>"; };
-		9A103B2F1E719C6300621D88 /* VoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B301E719C6300621D88 /* VoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoteTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B321E719C6300621D88 /* VotersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotersViewController.swift; sourceTree = "<group>"; };
-		9A103B331E719C6300621D88 /* VotersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VotersViewController.xib; sourceTree = "<group>"; };
-		9A103B351E719C6300621D88 /* VoterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoterTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B361E719C6300621D88 /* VoterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoterTableViewCell.xib; sourceTree = "<group>"; };
-		9A103B381E719C6300621D88 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		9A103B391E719C6300621D88 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
-		9A103B3A1E719C6300621D88 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		9A103B3B1E719C6300621D88 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		9A103B3C1E719C6300621D88 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9A103B3E1E719C6300621D88 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9A103B3F1E719C6300621D88 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		9A103B401E719C6300621D88 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -127,9 +140,6 @@
 		9A103B4D1E719C6300621D88 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9A103B4E1E719C6300621D88 /* RequestListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestListener.swift; sourceTree = "<group>"; };
 		9A103B501E719C6300621D88 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		9A103B521E719C6300621D88 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B531E719C6300621D88 /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
-		9A103B541E719C6300621D88 /* DataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataTableViewCell.xib; sourceTree = "<group>"; };
 		AED33999C395ABFC734C5C25 /* Pods_ArkMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArkMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE14C90B39699DD8DF85A49B /* Pods-ArkMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArkMonitor/Pods-ArkMonitor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +173,99 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		160D7DF31F68B8BE009544F5 /* tab */ = {
+			isa = PBXGroup;
+			children = (
+				16D9A3C11F67640400AA0637 /* MainTabViewController.swift */,
+			);
+			name = tab;
+			sourceTree = "<group>";
+		};
+		1621496B1F69925800F33CAF /* tableviewcells */ = {
+			isa = PBXGroup;
+			children = (
+				162149691F69925300F33CAF /* SettingsUsernameTableViewCell.swift */,
+				1621496E1F69994900F33CAF /* SettingsServerTableViewCell.swift */,
+				162149701F69A19F00F33CAF /* SettingsSaveTableViewCell.swift */,
+				162149751F69A5C200F33CAF /* SettingsIPTableViewCell.swift */,
+				162149771F69A7C500F33CAF /* SettingsPortTableViewCell.swift */,
+				162149791F69A9B300F33CAF /* SettingsSSLTableViewCell.swift */,
+			);
+			path = tableviewcells;
+			sourceTree = "<group>";
+		};
+		162149741F69A22500F33CAF /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				162149721F69A21B00F33CAF /* UIButton+Extension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		1656B5E01F68345F006FCDE5 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */,
+				1656B5E11F683BCF006FCDE5 /* Section Headers */,
+				1656B5E21F683BD7006FCDE5 /* TableViewCells */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		1656B5E11F683BCF006FCDE5 /* Section Headers */ = {
+			isa = PBXGroup;
+			children = (
+				163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */,
+				1656B5E31F683D34006FCDE5 /* VotesSectionHeader.swift */,
+				1656B5E51F683E38006FCDE5 /* VotersSectionHeader.swift */,
+			);
+			path = "Section Headers";
+			sourceTree = "<group>";
+		};
+		1656B5E21F683BD7006FCDE5 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */,
+				1656B5E71F683FA2006FCDE5 /* VotesTableViewCell.swift */,
+				1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		1656B5F51F6874B8006FCDE5 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				1656B5F11F686F9C006FCDE5 /* TransactionDetailViewController.swift */,
+				1656B5F31F687287006FCDE5 /* TransactionDetailTableViewCell.swift */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		169FB7841F678A2300DDDBD9 /* TableView cells */ = {
+			isa = PBXGroup;
+			children = (
+				169FB7851F678A3F00DDDBD9 /* HomeTableViewCell.swift */,
+				16D9A3BD1F67548E00AA0637 /* HomeDelegateTableViewCell.swift */,
+				16D9A3C31F676F0800AA0637 /* HomeForgingTableViewCell.swift */,
+				16D9A3C51F6776B500AA0637 /* HomeLastBlockTableViewCell.swift */,
+				169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */,
+				169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */,
+				169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */,
+				169FB7821F67889B00DDDBD9 /* HomeVersionTableViewCell.swift */,
+			);
+			path = "TableView cells";
+			sourceTree = "<group>";
+		};
+		16D14DF11F6745D300C4B765 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				16D14DE61F6731C800C4B765 /* ArkActivityView.swift */,
+				16D9A3BF1F675F8100AA0637 /* ArkConstants.swift */,
+				16D14DEF1F6745CB00C4B765 /* ArkColors.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 		9A103AE91E719A8800621D88 = {
 			isa = PBXGroup;
 			children = (
@@ -186,11 +289,12 @@
 			children = (
 				9A103B071E719C6300621D88 /* AppDelegate.swift */,
 				9A103B081E719C6300621D88 /* controllers */,
-				9A103B371E719C6300621D88 /* extensions */,
 				9A103B3D1E719C6300621D88 /* models */,
 				9A103B4A1E719C6300621D88 /* services */,
 				9A103B4F1E719C6300621D88 /* utils */,
+				162149741F69A22500F33CAF /* extensions */,
 				9A103B511E719C6300621D88 /* views */,
+				16D14DF11F6745D300C4B765 /* Misc */,
 				9A103AFC1E719A8800621D88 /* Assets.xcassets */,
 				9A103AFE1E719A8800621D88 /* LaunchScreen.storyboard */,
 				9A103B011E719A8800621D88 /* Info.plist */,
@@ -201,15 +305,13 @@
 		9A103B081E719C6300621D88 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B091E719C6300621D88 /* delegates */,
-				9A103B0F1E719C6300621D88 /* forgedBlocks */,
+				160D7DF31F68B8BE009544F5 /* tab */,
 				9A103B151E719C6300621D88 /* home */,
-				9A103B181E719C6300621D88 /* latestTransactions */,
-				9A103B1E1E719C6300621D88 /* leftMenu */,
-				9A103B221E719C6300621D88 /* peers */,
 				9A103B281E719C6300621D88 /* settings */,
-				9A103B2B1E719C6300621D88 /* votesMade */,
-				9A103B311E719C6300621D88 /* votesReceived */,
+				9A103B0F1E719C6300621D88 /* forgedBlocks */,
+				9A103B181E719C6300621D88 /* latestTransactions */,
+				9A103B091E719C6300621D88 /* delegates */,
+				1656B5E01F68345F006FCDE5 /* Misc */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -217,46 +319,28 @@
 		9A103B091E719C6300621D88 /* delegates */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B0A1E719C6300621D88 /* DelegatesViewController.swift */,
-				9A103B0B1E719C6300621D88 /* DelegatesViewController.xib */,
-				9A103B0C1E719C6300621D88 /* TableViewCell */,
+				169FB78B1F679AFF00DDDBD9 /* DelegateViewController.swift */,
+				16089A031F679F4D0051E267 /* DelegateSectionHeaderView.swift */,
+				16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */,
 			);
 			path = delegates;
-			sourceTree = "<group>";
-		};
-		9A103B0C1E719C6300621D88 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B0D1E719C6300621D88 /* DelegateTableViewCell.swift */,
-				9A103B0E1E719C6300621D88 /* DelegateTableViewCell.xib */,
-			);
-			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		9A103B0F1E719C6300621D88 /* forgedBlocks */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B101E719C6300621D88 /* ForgedBlocksViewController.swift */,
-				9A103B111E719C6300621D88 /* ForgedBlocksViewController.xib */,
-				9A103B121E719C6300621D88 /* ForgedBlockTableViewCell */,
+				1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */,
+				1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */,
+				1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */,
 			);
 			path = forgedBlocks;
-			sourceTree = "<group>";
-		};
-		9A103B121E719C6300621D88 /* ForgedBlockTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B131E719C6300621D88 /* ForgedBlockTableViewCell.swift */,
-				9A103B141E719C6300621D88 /* ForgedBlockTableViewCell.xib */,
-			);
-			path = ForgedBlockTableViewCell;
 			sourceTree = "<group>";
 		};
 		9A103B151E719C6300621D88 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B161E719C6300621D88 /* HomeViewController.swift */,
-				9A103B171E719C6300621D88 /* HomeViewController.xib */,
+				16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */,
+				169FB7841F678A2300DDDBD9 /* TableView cells */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -264,107 +348,21 @@
 		9A103B181E719C6300621D88 /* latestTransactions */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B191E719C6300621D88 /* LatestTransactionsViewController.swift */,
-				9A103B1A1E719C6300621D88 /* LatestTransactionsViewController.xib */,
-				9A103B1B1E719C6300621D88 /* TransactionTableViewCell */,
+				1656B5EB1F685067006FCDE5 /* LastestTransactionViewController.swift */,
+				1656B5EF1F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift */,
+				1656B5ED1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift */,
+				1656B5F51F6874B8006FCDE5 /* detail */,
 			);
 			path = latestTransactions;
-			sourceTree = "<group>";
-		};
-		9A103B1B1E719C6300621D88 /* TransactionTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B1C1E719C6300621D88 /* TransactionTableViewCell.swift */,
-				9A103B1D1E719C6300621D88 /* TransactionTableViewCell.xib */,
-			);
-			path = TransactionTableViewCell;
-			sourceTree = "<group>";
-		};
-		9A103B1E1E719C6300621D88 /* leftMenu */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B1F1E719C6300621D88 /* LeftMenuViewController.swift */,
-				9A103B201E719C6300621D88 /* LeftMenuViewController.xib */,
-			);
-			path = leftMenu;
-			sourceTree = "<group>";
-		};
-		9A103B221E719C6300621D88 /* peers */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B231E719C6300621D88 /* PeersViewController.swift */,
-				9A103B241E719C6300621D88 /* PeersViewController.xib */,
-				9A103B251E719C6300621D88 /* TableViewCell */,
-			);
-			path = peers;
-			sourceTree = "<group>";
-		};
-		9A103B251E719C6300621D88 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B261E719C6300621D88 /* PeerTableViewCell.swift */,
-				9A103B271E719C6300621D88 /* PeerTableViewCell.xib */,
-			);
-			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		9A103B281E719C6300621D88 /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B291E719C6300621D88 /* SettingsViewController.swift */,
-				9A103B2A1E719C6300621D88 /* SettingsViewController.xib */,
+				162149671F6990A500F33CAF /* SettingViewController.swift */,
+				1621496B1F69925800F33CAF /* tableviewcells */,
 			);
 			path = settings;
-			sourceTree = "<group>";
-		};
-		9A103B2B1E719C6300621D88 /* votesMade */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B2C1E719C6300621D88 /* VotesViewController.swift */,
-				9A103B2D1E719C6300621D88 /* VotesViewController.xib */,
-				9A103B2E1E719C6300621D88 /* VoteTableViewCell */,
-			);
-			path = votesMade;
-			sourceTree = "<group>";
-		};
-		9A103B2E1E719C6300621D88 /* VoteTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B2F1E719C6300621D88 /* VoteTableViewCell.swift */,
-				9A103B301E719C6300621D88 /* VoteTableViewCell.xib */,
-			);
-			path = VoteTableViewCell;
-			sourceTree = "<group>";
-		};
-		9A103B311E719C6300621D88 /* votesReceived */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B321E719C6300621D88 /* VotersViewController.swift */,
-				9A103B331E719C6300621D88 /* VotersViewController.xib */,
-				9A103B341E719C6300621D88 /* VoterTableViewCell */,
-			);
-			path = votesReceived;
-			sourceTree = "<group>";
-		};
-		9A103B341E719C6300621D88 /* VoterTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B351E719C6300621D88 /* VoterTableViewCell.swift */,
-				9A103B361E719C6300621D88 /* VoterTableViewCell.xib */,
-			);
-			path = VoterTableViewCell;
-			sourceTree = "<group>";
-		};
-		9A103B371E719C6300621D88 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9A103B381E719C6300621D88 /* String.swift */,
-				9A103B391E719C6300621D88 /* UIApplication.swift */,
-				9A103B3A1E719C6300621D88 /* UIColor.swift */,
-				9A103B3B1E719C6300621D88 /* UITableView.swift */,
-				9A103B3C1E719C6300621D88 /* UIViewController.swift */,
-			);
-			path = extensions;
 			sourceTree = "<group>";
 		};
 		9A103B3D1E719C6300621D88 /* models */ = {
@@ -400,6 +398,8 @@
 		9A103B4F1E719C6300621D88 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */,
+				1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */,
 				9A103B501E719C6300621D88 /* Utils.swift */,
 			);
 			path = utils;
@@ -408,9 +408,8 @@
 		9A103B511E719C6300621D88 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				9A103B521E719C6300621D88 /* BaseTableViewCell.swift */,
-				9A103B531E719C6300621D88 /* DataTableViewCell.swift */,
-				9A103B541E719C6300621D88 /* DataTableViewCell.xib */,
+				164919C61F68880B003A8B08 /* ArkTableView.swift */,
+				1621496C1F69957F00F33CAF /* ArkTextField.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -445,13 +444,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = vrlc92;
 				TargetAttributes = {
 					9A103AF11E719A8800621D88 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 722BA5G9FW;
-						LastSwiftMigration = 0820;
+						DevelopmentTeam = G8E5P2X66G;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -479,24 +478,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A103B6F1E719C6300621D88 /* VoteTableViewCell.xib in Resources */,
-				9A103B8C1E719C6300621D88 /* DataTableViewCell.xib in Resources */,
-				9A103B6B1E719C6300621D88 /* SettingsViewController.xib in Resources */,
-				9A103B5D1E719C6300621D88 /* ForgedBlockTableViewCell.xib in Resources */,
-				9A103B731E719C6300621D88 /* VoterTableViewCell.xib in Resources */,
-				9A103B6D1E719C6300621D88 /* VotesViewController.xib in Resources */,
-				9A103B591E719C6300621D88 /* DelegateTableViewCell.xib in Resources */,
-				9A103B611E719C6300621D88 /* LatestTransactionsViewController.xib in Resources */,
 				9A103B001E719A8800621D88 /* LaunchScreen.storyboard in Resources */,
-				9A103B631E719C6300621D88 /* TransactionTableViewCell.xib in Resources */,
-				9A103B5B1E719C6300621D88 /* ForgedBlocksViewController.xib in Resources */,
 				9A103AFD1E719A8800621D88 /* Assets.xcassets in Resources */,
-				9A103B5F1E719C6300621D88 /* HomeViewController.xib in Resources */,
-				9A103B711E719C6300621D88 /* VotersViewController.xib in Resources */,
-				9A103B651E719C6300621D88 /* LeftMenuViewController.xib in Resources */,
-				9A103B691E719C6300621D88 /* PeerTableViewCell.xib in Resources */,
-				9A103B571E719C6300621D88 /* DelegatesViewController.xib in Resources */,
-				9A103B671E719C6300621D88 /* PeersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,9 +492,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ArkMonitor/Pods-ArkMonitor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -524,13 +518,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArkMonitor-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BDAD00AC34CC9BCCCD04D2FF /* [CP] Copy Pods Resources */ = {
@@ -555,46 +552,67 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A103B751E719C6300621D88 /* UIApplication.swift in Sources */,
 				9A103B791E719C6300621D88 /* Account.swift in Sources */,
-				9A103B6C1E719C6300621D88 /* VotesViewController.swift in Sources */,
-				9A103B661E719C6300621D88 /* PeersViewController.swift in Sources */,
+				169FB7861F678A3F00DDDBD9 /* HomeTableViewCell.swift in Sources */,
 				9A103B551E719C6300621D88 /* AppDelegate.swift in Sources */,
-				9A103B581E719C6300621D88 /* DelegateTableViewCell.swift in Sources */,
-				9A103B621E719C6300621D88 /* TransactionTableViewCell.swift in Sources */,
-				9A103B8B1E719C6300621D88 /* DataTableViewCell.swift in Sources */,
+				169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */,
+				162149781F69A7C500F33CAF /* SettingsPortTableViewCell.swift in Sources */,
+				1621496D1F69957F00F33CAF /* ArkTextField.swift in Sources */,
 				9A103B811E719C6300621D88 /* Ticker.swift in Sources */,
+				1656B5EC1F685067006FCDE5 /* LastestTransactionViewController.swift in Sources */,
 				9A103B7C1E719C6300621D88 /* Forging.swift in Sources */,
-				9A103B5A1E719C6300621D88 /* ForgedBlocksViewController.swift in Sources */,
+				1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */,
+				1656B5F01F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift in Sources */,
+				16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */,
+				1621496F1F69994900F33CAF /* SettingsServerTableViewCell.swift in Sources */,
+				16D9A3C01F675F8100AA0637 /* ArkConstants.swift in Sources */,
+				1656B5E61F683E38006FCDE5 /* VotersSectionHeader.swift in Sources */,
 				9A103B831E719C6300621D88 /* Voters.swift in Sources */,
-				9A103B721E719C6300621D88 /* VoterTableViewCell.swift in Sources */,
-				9A103B761E719C6300621D88 /* UIColor.swift in Sources */,
-				9A103B5C1E719C6300621D88 /* ForgedBlockTableViewCell.swift in Sources */,
+				16089A061F67A16A0051E267 /* DelegateTableViewCell.swift in Sources */,
 				9A103B871E719C6300621D88 /* Reachability.swift in Sources */,
-				9A103B641E719C6300621D88 /* LeftMenuViewController.swift in Sources */,
+				1656B5F91F687852006FCDE5 /* ArkNotificationManager.swift in Sources */,
 				9A103B861E719C6300621D88 /* ArkService.swift in Sources */,
 				9A103B891E719C6300621D88 /* Utils.swift in Sources */,
+				1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */,
+				16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */,
+				1656B5EE1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift in Sources */,
+				164919C71F68880B003A8B08 /* ArkTableView.swift in Sources */,
 				9A103B7D1E719C6300621D88 /* Peer.swift in Sources */,
+				162149761F69A5C200F33CAF /* SettingsIPTableViewCell.swift in Sources */,
+				162149681F6990A500F33CAF /* SettingViewController.swift in Sources */,
+				169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */,
+				162149731F69A21B00F33CAF /* UIButton+Extension.swift in Sources */,
 				9A103B7B1E719C6300621D88 /* Delegate.swift in Sources */,
-				9A103B561E719C6300621D88 /* DelegatesViewController.swift in Sources */,
 				9A103B881E719C6300621D88 /* RequestListener.swift in Sources */,
-				9A103B681E719C6300621D88 /* PeerTableViewCell.swift in Sources */,
-				9A103B5E1E719C6300621D88 /* HomeViewController.swift in Sources */,
+				16D9A3C61F6776B500AA0637 /* HomeLastBlockTableViewCell.swift in Sources */,
+				169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */,
+				1621496A1F69925300F33CAF /* SettingsUsernameTableViewCell.swift in Sources */,
+				16D9A3C41F676F0800AA0637 /* HomeForgingTableViewCell.swift in Sources */,
 				9A103B801E719C6300621D88 /* Status.swift in Sources */,
+				1656B5F41F687287006FCDE5 /* TransactionDetailTableViewCell.swift in Sources */,
+				169FB78C1F679AFF00DDDBD9 /* DelegateViewController.swift in Sources */,
+				163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */,
 				9A103B7F1E719C6300621D88 /* Settings.swift in Sources */,
+				1656B5F71F6874EE006FCDE5 /* ArkDataManager.swift in Sources */,
 				9A103B821E719C6300621D88 /* Transaction.swift in Sources */,
-				9A103B781E719C6300621D88 /* UIViewController.swift in Sources */,
-				9A103B701E719C6300621D88 /* VotersViewController.swift in Sources */,
-				9A103B6E1E719C6300621D88 /* VoteTableViewCell.swift in Sources */,
+				16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */,
+				16089A041F679F4D0051E267 /* DelegateSectionHeaderView.swift in Sources */,
+				1621497A1F69A9B300F33CAF /* SettingsSSLTableViewCell.swift in Sources */,
+				1656B5E81F683FA2006FCDE5 /* VotesTableViewCell.swift in Sources */,
+				16D9A3BE1F67548E00AA0637 /* HomeDelegateTableViewCell.swift in Sources */,
+				16D9A3C21F67640400AA0637 /* MainTabViewController.swift in Sources */,
+				1656B5F21F686F9C006FCDE5 /* TransactionDetailViewController.swift in Sources */,
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,
-				9A103B741E719C6300621D88 /* String.swift in Sources */,
-				9A103B771E719C6300621D88 /* UITableView.swift in Sources */,
+				1656B5EA1F6840EA006FCDE5 /* VotersTableViewCell.swift in Sources */,
+				1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */,
+				162149711F69A19F00F33CAF /* SettingsSaveTableViewCell.swift in Sources */,
 				9A103B7A1E719C6300621D88 /* Block.swift in Sources */,
-				9A103B601E719C6300621D88 /* LatestTransactionsViewController.swift in Sources */,
+				169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */,
+				1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */,
 				9A103B841E719C6300621D88 /* Votes.swift in Sources */,
 				9A103B7E1E719C6300621D88 /* PeerVersion.swift in Sources */,
-				9A103B8A1E719C6300621D88 /* BaseTableViewCell.swift in Sources */,
-				9A103B6A1E719C6300621D88 /* SettingsViewController.swift in Sources */,
+				163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */,
+				1656B5E41F683D34006FCDE5 /* VotesSectionHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +639,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -629,7 +649,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -670,7 +694,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -678,7 +704,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -711,13 +741,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 722BA5G9FW;
+				DEVELOPMENT_TEAM = G8E5P2X66G;
 				INFOPLIST_FILE = ArkMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vrlc92.ArkMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -729,12 +760,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 722BA5G9FW;
+				DEVELOPMENT_TEAM = G8E5P2X66G;
 				INFOPLIST_FILE = ArkMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vrlc92.ArkMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
