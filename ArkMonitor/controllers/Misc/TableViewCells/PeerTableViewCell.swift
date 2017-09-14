@@ -17,11 +17,11 @@ class PeerTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle  = .none
         
         ipLabel = UILabel()
-        ipLabel.textColor = ArkColors.blue
+        ipLabel.textColor = ArkPalette.highlightedTextColor
         ipLabel.textAlignment = .center
         ipLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(ipLabel)
@@ -32,7 +32,7 @@ class PeerTableViewCell: UITableViewCell {
         }
         
         portLabel = UILabel()
-        portLabel.textColor = ArkColors.gray
+        portLabel.textColor = ArkPalette.textColor
         portLabel.textAlignment = .center
         portLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(portLabel)
@@ -44,7 +44,7 @@ class PeerTableViewCell: UITableViewCell {
         }
         
         versionLabel = UILabel()
-        versionLabel.textColor = ArkColors.gray
+        versionLabel.textColor = ArkPalette.textColor
         versionLabel.textAlignment = .center
         versionLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(versionLabel)
@@ -77,9 +77,9 @@ class PeerTableViewCell: UITableViewCell {
             portLabel.textColor    = UIColor(red: 255/255, green: 165/255, blue: 0/255, alpha: 1.0)
             versionLabel.textColor = UIColor(red: 255/255, green: 165/255, blue: 0/255, alpha: 1.0)
         default:
-            ipLabel.textColor      = ArkColors.blue
-            portLabel.textColor    = ArkColors.gray
-            versionLabel.textColor = ArkColors.gray
+            ipLabel.textColor      = ArkPalette.highlightedTextColor
+            portLabel.textColor    = ArkPalette.textColor
+            versionLabel.textColor = ArkPalette.textColor
             
         }
     }

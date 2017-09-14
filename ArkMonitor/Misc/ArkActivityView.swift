@@ -38,15 +38,15 @@ fileprivate class CustomBannerColors: BannerColorsProtocol {
     func color(for style: BannerStyle) -> UIColor {
         switch style {
         case .danger:
-            return ArkColors.gray
+            return ArkPalette.textColor
         case .info:     // Your custom .info color
-            return ArkColors.gray
+            return ArkPalette.textColor
         case .none:     // Your custom .none color
-            return ArkColors.gray
+            return ArkPalette.textColor
         case .success:  // Your custom .success color
-            return ArkColors.blue
+            return ArkPalette.highlightedTextColor
         case .warning:  // Your custom .warning color
-            return ArkColors.gray
+            return ArkPalette.textColor
         }
     }
 }

@@ -22,13 +22,13 @@ class SettingsPortTableViewCell: UITableViewCell {
     init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "port")
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
         
         
         let nameLabel = UILabel()
         nameLabel.text          = "Port"
-        nameLabel.textColor     = ArkColors.darkGray
+        nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0)
         addSubview(nameLabel)

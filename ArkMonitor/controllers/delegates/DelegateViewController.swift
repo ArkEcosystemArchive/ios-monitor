@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DelegateViewController: UIViewController {
+class DelegateViewController: ArkViewController {
     
     fileprivate var tableView      : ArkTableView!
     fileprivate var refreshControl : UIRefreshControl!
@@ -19,14 +19,14 @@ class DelegateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView          = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
-        
+        navigationItem.title = "Delegates"
+
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate = self
         tableView.dataSource = self
         
         refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkColors.blue
+        refreshControl.tintColor = ArkPalette.accentColor
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
         if #available(iOS 10.0, *) {
@@ -75,11 +75,11 @@ class DelegateViewController: UIViewController {
 extension DelegateViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40.0
+        return 35.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = DelegateSectionHeaderView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+        let header = DelegateSectionHeaderView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 35.0))
         return header
     }
     

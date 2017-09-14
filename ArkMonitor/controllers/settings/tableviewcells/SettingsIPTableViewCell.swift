@@ -22,13 +22,13 @@ class SettingsIPTableViewCell: UITableViewCell {
     init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "ip")
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
 
         
         let nameLabel = UILabel()
         nameLabel.text          = "IP Address"
-        nameLabel.textColor     = ArkColors.darkGray
+        nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0)
         addSubview(nameLabel)

@@ -12,10 +12,10 @@ class VotesSectionHeader: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         
         let rankLabel = UILabel()
-        rankLabel.textColor = ArkColors.darkGray
+        rankLabel.textColor = ArkPalette.highlightedTextColor
         rankLabel.text = "Rank"
         rankLabel.textAlignment = .center
         rankLabel.font = UIFont.systemFont(ofSize: 14.0)
@@ -27,7 +27,7 @@ class VotesSectionHeader: UIView {
         }
         
         let nameLabel = UILabel()
-        nameLabel.textColor = ArkColors.darkGray
+        nameLabel.textColor = ArkPalette.highlightedTextColor
         nameLabel.text = "Username"
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 14.0)
@@ -40,7 +40,7 @@ class VotesSectionHeader: UIView {
         }
         
         let addressLabel = UILabel()
-        addressLabel.textColor = ArkColors.darkGray
+        addressLabel.textColor = ArkPalette.highlightedTextColor
         addressLabel.text = "Address"
         addressLabel.textAlignment = .center
         addressLabel.font = UIFont.systemFont(ofSize: 14.0)

@@ -13,10 +13,10 @@ class PeerSectionHeader: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         
         let ipLabel = UILabel()
-        ipLabel.textColor = ArkColors.darkGray
+        ipLabel.textColor = ArkPalette.highlightedTextColor
         ipLabel.text = "Ip Address"
         ipLabel.textAlignment = .center
         ipLabel.font = UIFont.systemFont(ofSize: 14.0)
@@ -28,7 +28,7 @@ class PeerSectionHeader: UIView {
         }
         
         let portLabel = UILabel()
-        portLabel.textColor = ArkColors.darkGray
+        portLabel.textColor = ArkPalette.highlightedTextColor
         portLabel.text = "Port"
         portLabel.textAlignment = .center
         portLabel.font = UIFont.systemFont(ofSize: 14.0)
@@ -41,7 +41,7 @@ class PeerSectionHeader: UIView {
         }
         
         let versionLabel = UILabel()
-        versionLabel.textColor = ArkColors.darkGray
+        versionLabel.textColor = ArkPalette.highlightedTextColor
         versionLabel.text = "Version"
         versionLabel.textAlignment = .center
         versionLabel.font = UIFont.systemFont(ofSize: 14.0)

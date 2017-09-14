@@ -16,13 +16,13 @@ class LatestTransactionTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle  = .none
         
         timeLabel = UILabel()
-        timeLabel.textColor = ArkColors.gray
+        timeLabel.textColor = ArkPalette.textColor
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 14.0)
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -31,9 +31,9 @@ class LatestTransactionTableViewCell: UITableViewCell {
         }
         
         idLabel = UILabel()
-        idLabel.textColor = ArkColors.blue
+        idLabel.textColor = ArkPalette.highlightedTextColor
         idLabel.textAlignment = .center
-        idLabel.font = UIFont.systemFont(ofSize: 14.0)
+        idLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
         addSubview(idLabel)
         
         idLabel.snp.makeConstraints { (make) in
@@ -49,7 +49,10 @@ class LatestTransactionTableViewCell: UITableViewCell {
             make.width.equalToSuperview().multipliedBy(0.15)
         }
         
-        let chevron = UIImageView(image: #imageLiteral(resourceName: "chevron"))
+        
+        let chevonImage = #imageLiteral(resourceName: "chevron")
+        
+        let chevron = UIImageView(image: chevonImage.maskWithColor(color: ArkPalette.accentColor))
         spacer.addSubview(chevron)
         chevron.snp.makeConstraints { (make) in
             make.height.width.equalTo(20.0)

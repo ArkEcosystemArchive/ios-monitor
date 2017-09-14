@@ -22,13 +22,13 @@ class SettingsSSLTableViewCell: UITableViewCell {
     init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "port")
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
         
         
         nameLabel               = UILabel()
         nameLabel.text          = "SSL Enabled?"
-        nameLabel.textColor     = ArkColors.darkGray
+        nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0)
         addSubview(nameLabel)
@@ -40,7 +40,7 @@ class SettingsSSLTableViewCell: UITableViewCell {
         }
         
         sslSwitch             = UISwitch()
-        sslSwitch.onTintColor = ArkColors.blue
+        sslSwitch.onTintColor = ArkPalette.highlightedTextColor
         sslSwitch.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         addSubview(sslSwitch)
         sslSwitch.snp.makeConstraints { (make) in

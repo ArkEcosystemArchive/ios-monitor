@@ -22,12 +22,12 @@ class SettingsUsernameTableViewCell: UITableViewCell {
     init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "username")
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
         
         let nameLabel = UILabel()
         nameLabel.text          = "Username"
-        nameLabel.textColor     = ArkColors.darkGray
+        nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0)
         addSubview(nameLabel)

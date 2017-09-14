@@ -17,12 +17,13 @@ class HomeTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
         
         descriptionLabel = UILabel()
         descriptionLabel.textAlignment = .left
-        descriptionLabel.textColor = ArkColors.gray
+        descriptionLabel.textColor = ArkPalette.textColor
+        descriptionLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .light)
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { (make) in
             make.right.top.bottom.equalToSuperview()
@@ -31,7 +32,9 @@ class HomeTableViewCell: UITableViewCell {
         
         valueLabel = UILabel()
         valueLabel.textAlignment = .right
-        valueLabel.textColor = ArkColors.blue
+        valueLabel.textColor = ArkPalette.highlightedTextColor
+        valueLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .light)
+
         addSubview(valueLabel)
         valueLabel.snp.makeConstraints { (make) in
             make.left.top.bottom.equalToSuperview()

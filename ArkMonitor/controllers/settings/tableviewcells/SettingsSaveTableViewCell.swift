@@ -22,12 +22,12 @@ class SettingsSaveTableViewCell: UITableViewCell {
     init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "username")
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
         
         saveButton = UIButton()
         saveButton.title("Save", color: UIColor.white)
-        saveButton.setBackgroundColor(ArkColors.blue, forState: UIControlState())
+        saveButton.setBackgroundColor(ArkPalette.highlightedTextColor, forState: UIControlState())
         saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         saveButton.clipsToBounds = true

@@ -18,13 +18,13 @@ class ForgedBlockTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle  = .none
         
         heightLabel = UILabel()
-        heightLabel.textColor = ArkColors.gray
+        heightLabel.textColor = ArkPalette.textColor
         heightLabel.textAlignment = .center
-        heightLabel.font = UIFont.systemFont(ofSize: 14.0)
+        heightLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
         addSubview(heightLabel)
         
         heightLabel.snp.makeConstraints { (make) in
@@ -33,9 +33,9 @@ class ForgedBlockTableViewCell: UITableViewCell {
         }
         
         timeLabel = UILabel()
-        timeLabel.textColor = ArkColors.gray
+        timeLabel.textColor = ArkPalette.textColor
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 14.0)
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -45,9 +45,9 @@ class ForgedBlockTableViewCell: UITableViewCell {
         }
         
         feeLabel = UILabel()
-        feeLabel.textColor = ArkColors.blue
+        feeLabel.textColor = ArkPalette.highlightedTextColor
         feeLabel.textAlignment = .center
-        feeLabel.font = UIFont.systemFont(ofSize: 14.0)
+        feeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
         addSubview(feeLabel)
         
         feeLabel.snp.makeConstraints { (make) in
@@ -57,9 +57,9 @@ class ForgedBlockTableViewCell: UITableViewCell {
         }
         
         rewardLabel = UILabel()
-        rewardLabel.textColor = ArkColors.blue
+        rewardLabel.textColor = ArkPalette.highlightedTextColor
         rewardLabel.textAlignment = .center
-        rewardLabel.font = UIFont.systemFont(ofSize: 14.0)
+        rewardLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
         addSubview(rewardLabel)
         
         rewardLabel.snp.makeConstraints { (make) in

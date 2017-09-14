@@ -13,18 +13,20 @@ class TransactionDetailTableViewCell: UITableViewCell {
     init(_ title: String) {
         super.init(style: .default, reuseIdentifier: "detail")
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle  = .none
         
         let titleLabel           = UILabel()
         titleLabel.text          = title
-        titleLabel.textColor     = ArkColors.blue
-        titleLabel.font          = UIFont.systemFont(ofSize: 14.0)
+        titleLabel.textColor     = ArkPalette.highlightedTextColor
+        titleLabel.font          = UIFont.systemFont(ofSize: 14.0, weight: .light)
         titleLabel.textAlignment = .left
+        titleLabel.adjustsFontSizeToFitWidth = true
         addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { (make) in
-            make.top.bottom.right.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.right.equalToSuperview().offset(-12.5)
             make.left.equalTo(12.5)
         }
     }

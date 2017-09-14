@@ -14,7 +14,7 @@ class ArkTableView: UITableView {
     
     init(frame: CGRect) {
         super.init(frame: frame, style: .grouped)
-        backgroundColor              = UIColor.white
+        backgroundColor              = ArkPalette.backgroundColor
         separatorStyle               = .none
         showsVerticalScrollIndicator = false
     }
@@ -33,7 +33,7 @@ class ArkTableView: UITableView {
         if visibleCells.isEmpty == true {
             let emptyBackgroundView = UIView(frame: frame)
             let emptyLabel = UILabel()
-            emptyLabel.textColor = ArkColors.blue
+            emptyLabel.textColor = ArkPalette.highlightedTextColor
             emptyLabel.textAlignment = .center
             emptyLabel.text = "No data available"
             emptyBackgroundView.addSubview(emptyLabel)

@@ -17,11 +17,11 @@ class VotesTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle  = .none
         
         rankLabel = UILabel()
-        rankLabel.textColor = ArkColors.blue
+        rankLabel.textColor = ArkPalette.highlightedTextColor
         rankLabel.textAlignment = .center
         rankLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(rankLabel)
@@ -32,7 +32,7 @@ class VotesTableViewCell: UITableViewCell {
         }
         
         nameLabel = UILabel()
-        nameLabel.textColor = ArkColors.gray
+        nameLabel.textColor = ArkPalette.textColor
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(nameLabel)
@@ -44,7 +44,7 @@ class VotesTableViewCell: UITableViewCell {
         }
         
         addressLabel = UILabel()
-        addressLabel.textColor = ArkColors.gray
+        addressLabel.textColor = ArkPalette.textColor
         addressLabel.textAlignment = .center
         addressLabel.font = UIFont.systemFont(ofSize: 14.0)
         addSubview(addressLabel)

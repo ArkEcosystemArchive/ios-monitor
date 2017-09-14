@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionDetailViewController: UIViewController {
+class TransactionDetailViewController: ArkViewController {
     
     fileprivate let transaction : Transaction
     fileprivate var tableView   : ArkTableView!
@@ -25,8 +25,8 @@ class TransactionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
-        
+        navigationItem.title = "Detail"
+
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate       = self
         tableView.dataSource     = self
@@ -48,11 +48,11 @@ extension TransactionDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 35.0))
-        headerView.backgroundColor = UIColor.white
+        headerView.backgroundColor = ArkPalette.secondaryBackgroundColor
         
         let headerLabel = UILabel(frame: CGRect(x: 12.5, y: 0.0, width: _screenWidth - 12.5, height: 35.0))
-        headerLabel.textColor = ArkColors.darkGray
-        headerLabel.textAlignment = .left
+        headerLabel.textColor = ArkPalette.tertiaryBackgroundColor
+        headerLabel.textAlignment = .center
         
         switch section {
         case 0:

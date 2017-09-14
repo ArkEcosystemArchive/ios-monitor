@@ -13,8 +13,9 @@ class MainTabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.tintColor               = ArkColors.blue
-        tabBar.unselectedItemTintColor = ArkColors.gray
+        tabBar.tintColor               = ArkPalette.accentColor
+        tabBar.unselectedItemTintColor = ArkPalette.textColor
+        tabBar.barTintColor            = ArkPalette.backgroundColor
         tabBar.isTranslucent           = true
 
         let homeViewController = HomeViewController()

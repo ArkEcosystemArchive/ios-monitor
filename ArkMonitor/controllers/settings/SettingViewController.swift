@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: ArkViewController {
     
     fileprivate var tableview: ArkTableView!
     fileprivate var mode : Server = .arkNet1

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MiscViewController: UIViewController {
+class MiscViewController: ArkViewController {
     
     fileprivate var segmentControl : UISegmentedControl!
     fileprivate var tableView      : ArkTableView!
@@ -33,7 +33,7 @@ class MiscViewController: UIViewController {
         tableView.dataSource = self
         
         refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkColors.blue
+        refreshControl.tintColor = ArkPalette.accentColor
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
         if #available(iOS 10.0, *) {

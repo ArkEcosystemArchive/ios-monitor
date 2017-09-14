@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: ArkViewController {
     
     fileprivate var account     : Account     = Account()
     fileprivate var delegate    : Delegate    = Delegate()
@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView          = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
+        navigationItem.title              = "Home"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "whiteGear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         
         tableView = ArkTableView(frame: CGRect.zero)
@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         
         refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkColors.blue
+        refreshControl.tintColor = ArkPalette.accentColor
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
         if #available(iOS 10.0, *) {
@@ -120,7 +120,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40.0
+        return 35.0
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -154,11 +154,12 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
-        headerView.backgroundColor = UIColor.white
+        let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 35.0))
+        headerView.backgroundColor = ArkPalette.secondaryBackgroundColor
         
-        let headerLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
-        headerLabel.textColor = ArkColors.darkGray
+        let headerLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 35.0))
+        headerLabel.font = UIFont.systemFont(ofSize: 18.0)
+        headerLabel.textColor = ArkPalette.tertiaryBackgroundColor
         headerLabel.textAlignment = .center
         
         switch section {

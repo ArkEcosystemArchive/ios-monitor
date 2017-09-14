@@ -22,13 +22,13 @@ class SettingsServerTableViewCell: UITableViewCell {
     init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "server")
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
 
         
         let nameLabel           = UILabel()
         nameLabel.text          = "Server"
-        nameLabel.textColor     = ArkColors.darkGray
+        nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0)
         addSubview(nameLabel)
@@ -86,7 +86,7 @@ extension SettingsServerTableViewCell : UIPickerViewDelegate {
         
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18.0)
-        label.textColor = ArkColors.blue
+        label.textColor = ArkPalette.highlightedTextColor
         label.adjustsFontSizeToFitWidth = true
         return label
     }

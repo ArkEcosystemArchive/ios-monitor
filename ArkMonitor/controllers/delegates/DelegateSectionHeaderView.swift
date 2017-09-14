@@ -13,13 +13,13 @@ class DelegateSectionHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         
         let rankLabel = UILabel()
-        rankLabel.textColor = ArkColors.darkGray
+        rankLabel.textColor = ArkPalette.tertiaryBackgroundColor
         rankLabel.text = "Rank"
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 14.0)
+        rankLabel.font = UIFont.systemFont(ofSize: 15.0)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
@@ -28,10 +28,10 @@ class DelegateSectionHeaderView: UIView {
         }
         
         let nameLabel = UILabel()
-        nameLabel.textColor = ArkColors.darkGray
+        nameLabel.textColor = ArkPalette.tertiaryBackgroundColor
         nameLabel.text = "Username"
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 14.0)
+        nameLabel.font = UIFont.systemFont(ofSize: 15.0)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
@@ -41,10 +41,10 @@ class DelegateSectionHeaderView: UIView {
         }
         
         let approvalLabel = UILabel()
-        approvalLabel.textColor = ArkColors.darkGray
+        approvalLabel.textColor = ArkPalette.tertiaryBackgroundColor
         approvalLabel.text = "Approval"
         approvalLabel.textAlignment = .center
-        approvalLabel.font = UIFont.systemFont(ofSize: 14.0)
+        approvalLabel.font = UIFont.systemFont(ofSize: 15.0)
         addSubview(approvalLabel)
         
         approvalLabel.snp.makeConstraints { (make) in
@@ -54,10 +54,10 @@ class DelegateSectionHeaderView: UIView {
         }
         
         let productivityLabel = UILabel()
-        productivityLabel.textColor = ArkColors.darkGray
+        productivityLabel.textColor = ArkPalette.tertiaryBackgroundColor
         productivityLabel.text = "Productivity"
         productivityLabel.textAlignment = .center
-        productivityLabel.font = UIFont.systemFont(ofSize: 14.0)
+        productivityLabel.font = UIFont.systemFont(ofSize: 15.0)
         addSubview(productivityLabel)
         
         productivityLabel.snp.makeConstraints { (make) in

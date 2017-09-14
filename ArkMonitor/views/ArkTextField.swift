@@ -16,15 +16,15 @@ class ArkTextField: UITextField {
         super.init(frame: CGRect.zero)
         isUserInteractionEnabled = true
         bottomSeparator = UIView()
-        bottomSeparator.backgroundColor = ArkColors.gray
+        bottomSeparator.backgroundColor = ArkPalette.textColor
         textAlignment = .center
         autocapitalizationType = .none
         autocorrectionType     = .no
         spellCheckingType      = .no
-        textColor = ArkColors.blue
-        tintColor = ArkColors.blue
+        textColor = ArkPalette.highlightedTextColor
+        tintColor = ArkPalette.highlightedTextColor
         placeholder = placeHolder
-        placeHolderTextColor = ArkColors.gray
+        placeHolderTextColor = ArkPalette.textColor
         font = UIFont.systemFont(ofSize: 16.0)
         addSubview(bottomSeparator)
         bottomSeparator.snp.makeConstraints { (make) in
