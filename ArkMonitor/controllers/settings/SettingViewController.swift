@@ -24,6 +24,9 @@ class SettingViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Server"
+
+        
         tableview = ArkTableView(frame: CGRect.zero)
         tableview.showEmptyNotice = false
         tableview.delegate      = self
