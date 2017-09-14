@@ -479,7 +479,7 @@
 				TargetAttributes = {
 					9A103AF11E719A8800621D88 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = G8E5P2X66G;
+						DevelopmentTeam = DGV5BLXSF9;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -781,10 +781,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = G8E5P2X66G;
+				DEVELOPMENT_TEAM = DGV5BLXSF9;
 				INFOPLIST_FILE = ArkMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vrlc92.ArkMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vrlc92.ArkMonitor123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -800,10 +800,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = G8E5P2X66G;
+				DEVELOPMENT_TEAM = DGV5BLXSF9;
 				INFOPLIST_FILE = ArkMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vrlc92.ArkMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vrlc92.ArkMonitor123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

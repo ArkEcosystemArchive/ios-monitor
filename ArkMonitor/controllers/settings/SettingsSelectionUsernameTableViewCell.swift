@@ -9,7 +9,9 @@
 import UIKit
 
 protocol SettingsSelectionUsernameTableViewCellDelegate: class {
-    func usernameCell(_ cell: SettingsSelectionUsernameTableViewCell, didChangeText text: String?)
+    func usernameCell(_ cell: SettingsSelectionUsernameTableViewCell, didChangeText    text: String?)
+    func usernameCell(_ cell: SettingsSelectionUsernameTableViewCell, didFinishEditing text: String?)
+
 }
 
 class SettingsSelectionUsernameTableViewCell: UITableViewCell {
@@ -64,5 +66,9 @@ extension SettingsSelectionUsernameTableViewCell : UITextFieldDelegate {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         delegate?.usernameCell(self, didChangeText: textField.text)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.usernameCell(self, didFinishEditing: textField.text)
     }
 }

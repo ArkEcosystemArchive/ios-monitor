@@ -104,7 +104,7 @@ extension SettingSelectionViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let aCell = cell as? SettingsSelectionUsernameTableViewCell {
-            aCell.update(settings.username)
+            aCell.update(username)
         }
         
         if let aCell = cell as? SettingSelectionPresetTableViewCell {
@@ -128,12 +128,24 @@ extension SettingSelectionViewController : UITableViewDelegate {
         }
     }
     
+    private func updateServer() {
+        if currentMode == .custom {
+            
+        } else {
+            updatePreset()
+        }
+    }
+    
     private func changeServerToPreset(_ mode: Server) {
         guard mode != currentMode else {
             return
         }
         
         currentMode = mode
+        updatePreset()
+    }
+    
+    private func updatePreset() {
         tableview.reloadData()
         
         view.endEditing(true)
@@ -144,20 +156,14 @@ extension SettingSelectionViewController : UITableViewDelegate {
         }
         
         let settings = Settings()
-
-       /* guard let currentUserName = username else {
+        
+        if (!Utils.validateUsername(username: username)) {
             ArkActivityView.showMessage("Username invalid.")
             return
         }
-        
-        if (!Utils.validateUsername(username: currentUserName)) {
-            ArkActivityView.showMessage("Username invalid.")
-            return
-        } */
-        
-        
-        settings.username = "sharkpool"
-        settings.setServerType(serverType: mode)
+
+        settings.setServerType(serverType: currentMode)
+        settings.username = username
         ArkService.sharedInstance.requestDelegate(settings: settings, listener: RequestData(myClass: self))
     }
 }
@@ -173,6 +179,7 @@ extension SettingSelectionViewController {
         }
         
         public func onFailure(e: Error) -> Void {
+            ArkDataManager.shared.updateData()
             ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
         }
         
@@ -242,6 +249,7 @@ extension SettingSelectionViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = SettingsSelectionUsernameTableViewCell(style: .default, reuseIdentifier: "username")
+            cell.delegate = self
             return cell
         } else {
             let totalRow = tableView.numberOfRows(inSection: indexPath.section)
@@ -264,3 +272,23 @@ extension SettingSelectionViewController : UITableViewDataSource {
         }
     }
 }
+
+// MARK: SettingsSelectionUsernameTableViewCellDelegate
+extension SettingSelectionViewController : SettingsSelectionUsernameTableViewCellDelegate {
+    
+    func usernameCell(_ cell: SettingsSelectionUsernameTableViewCell, didChangeText text: String?) {
+        if let name = text {
+            username = name
+        }
+    }
+    
+    func usernameCell(_ cell: SettingsSelectionUsernameTableViewCell, didFinishEditing text: String?) {
+        if let name = text {
+            username = name
+        }
+        updateServer()
+    }
+    
+
+}
+
