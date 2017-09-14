@@ -32,6 +32,7 @@ class SettingSelectionViewController: ArkViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadSettings()
+        customServers = ArkCustomServerManager.CustomServers
     }
     
     private func loadSettings() {
@@ -126,16 +127,22 @@ extension SettingSelectionViewController : UITableViewDataSource {
             let cell = SettingsSelectionUsernameTableViewCell(style: .default, reuseIdentifier: "username")
             return cell
         } else {
-            switch indexPath.row {
-            case 0:
-                let cell = SettingSelectionPresetTableViewCell(.arkNet1)
-                return cell
-            case 1:
-                let cell = SettingSelectionPresetTableViewCell(.arkNet2)
-                return cell
-            default:
+            let totalRow = tableView.numberOfRows(inSection: indexPath.section)
+            if indexPath.row == totalRow - 1 {
                 let cell = SettingsSelectionAddServerTableViewCell(style: .default, reuseIdentifier: "addCustomServer")
                 return cell
+            } else {
+                switch indexPath.row {
+                case 0:
+                    let cell = SettingSelectionPresetTableViewCell(.arkNet1)
+                    return cell
+                case 1:
+                    let cell = SettingSelectionPresetTableViewCell(.arkNet2)
+                    return cell
+                default:
+                    let cell = SettingSelectionCustomTableViewCell(customServers[indexPath.row - 2])
+                    return cell
+                }
             }
         }
     }
