@@ -10,6 +10,20 @@ import UIKit
 
 class ArkTextField: UITextField {
     
+    init(settings: Bool, placeHolder: String) {
+        super.init(frame: CGRect.zero)
+        isUserInteractionEnabled = true
+        textAlignment          = .right
+        autocapitalizationType = .none
+        autocorrectionType     = .no
+        spellCheckingType      = .no
+        textColor = ArkPalette.accentColor
+        tintColor = ArkPalette.accentColor
+        placeholder = placeHolder
+        placeHolderTextColor = ArkPalette.textColor
+        font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
+    }
+    
     init(placeHolder: String) {
         super.init(frame: CGRect.zero)
         isUserInteractionEnabled = true

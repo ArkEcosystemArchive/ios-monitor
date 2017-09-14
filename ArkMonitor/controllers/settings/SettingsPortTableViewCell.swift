@@ -22,7 +22,7 @@ class SettingsPortTableViewCell: UITableViewCell {
     init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "port")
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle = .none
         
         
@@ -39,7 +39,7 @@ class SettingsPortTableViewCell: UITableViewCell {
             make.width.equalToSuperview().multipliedBy(0.35)
         }
         
-        nameTextField = ArkTextField(placeHolder: "8000")
+        nameTextField = ArkTextField(settings: true, placeHolder: "8080")
         nameTextField.keyboardType = .numberPad
         nameTextField.delegate = self
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -49,6 +49,14 @@ class SettingsPortTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-25.0)
             make.width.equalToSuperview().multipliedBy(0.5)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

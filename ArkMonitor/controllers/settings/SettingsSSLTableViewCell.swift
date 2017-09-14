@@ -22,7 +22,7 @@ class SettingsSSLTableViewCell: UITableViewCell {
     init(_ mode: Server) {
         super.init(style: .default, reuseIdentifier: "port")
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle = .none
         
         
@@ -46,6 +46,14 @@ class SettingsSSLTableViewCell: UITableViewCell {
         sslSwitch.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-25.0)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

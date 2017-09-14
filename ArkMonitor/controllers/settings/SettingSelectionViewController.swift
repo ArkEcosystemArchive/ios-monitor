@@ -100,6 +100,11 @@ extension SettingSelectionViewController : UITableViewDelegate {
         if let cell = tableView.cellForRow(at: indexPath) as? SettingSelectionPresetTableViewCell {
             changeServerToPreset(cell.mode)
         }
+        
+        if let _ = tableView.cellForRow(at: indexPath) as? SettingsSelectionAddServerTableViewCell {
+            let customServerVC = SettingsCustomServerViewController()
+            navigationController?.pushViewController(customServerVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
