@@ -40,7 +40,7 @@ class SettingsSSLTableViewCell: UITableViewCell {
         }
         
         sslSwitch             = UISwitch()
-        sslSwitch.onTintColor = ArkPalette.highlightedTextColor
+        sslSwitch.onTintColor = ArkPalette.accentColor
         sslSwitch.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         addSubview(sslSwitch)
         sslSwitch.snp.makeConstraints { (make) in
