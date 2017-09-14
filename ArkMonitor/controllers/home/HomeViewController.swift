@@ -19,7 +19,6 @@ class HomeViewController: ArkViewController {
     fileprivate var block       : Block       = Block()
     
     fileprivate var tableView      : ArkTableView!
-    fileprivate var refreshControl : UIRefreshControl!
     
     private var balance         : Double?
     private var arkBTCValue     : Double?
@@ -38,15 +37,6 @@ class HomeViewController: ArkViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkPalette.accentColor
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
@@ -85,10 +75,6 @@ class HomeViewController: ArkViewController {
     
     @objc fileprivate func loadData() {
         ArkDataManager.shared.updateHomeInfo()
-        
-        delay(0.75) {
-            self.refreshControl.endRefreshing()
-        }
     }
     
     @objc private func settingsButtonTapped() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-let isDarkMode = false
+let isDarkMode = true
 
 public struct ArkPalette {
     

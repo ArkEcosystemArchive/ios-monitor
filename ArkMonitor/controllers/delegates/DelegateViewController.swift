@@ -11,7 +11,6 @@ import UIKit
 class DelegateViewController: ArkViewController {
     
     fileprivate var tableView      : ArkTableView!
-    fileprivate var refreshControl : UIRefreshControl!
     
     fileprivate var delegates        = [Delegate]()
     fileprivate var standByDelegates = [Delegate]()
@@ -25,15 +24,6 @@ class DelegateViewController: ArkViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkPalette.accentColor
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
@@ -54,9 +44,6 @@ class DelegateViewController: ArkViewController {
     
     @objc private func loadData() {
         ArkDataManager.shared.updateDelegates()
-        delay(0.75) {
-            self.refreshControl.endRefreshing()
-        }
     }
     
     @objc private func delegatesUpdatedNotification() {

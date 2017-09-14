@@ -12,7 +12,6 @@ class MiscViewController: ArkViewController {
     
     fileprivate var segmentControl : UISegmentedControl!
     fileprivate var tableView      : ArkTableView!
-    fileprivate var refreshControl : UIRefreshControl!
     
     var peers  : [Peer]     = []
     var votes  : [Delegate] = []
@@ -32,15 +31,6 @@ class MiscViewController: ArkViewController {
         tableView.delegate   = self
         tableView.dataSource = self
         
-        refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkPalette.accentColor
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
@@ -61,9 +51,6 @@ class MiscViewController: ArkViewController {
     
     @objc private func loadData() {
         ArkDataManager.shared.updateMisc()
-        delay(0.75) {
-            self.refreshControl.endRefreshing()
-        }
     }
     
     @objc private func miscInfoUpdatedNotification() {
@@ -76,10 +63,6 @@ class MiscViewController: ArkViewController {
         voters = ArkDataManager.Misc.voters
         tableView.reloadData()
     }
-    
-
-
-
     
     @objc private func segmentSelected(sender: UISegmentedControl) {
         tableView.reloadData()
