@@ -62,7 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor  = ArkPalette.secondaryBackgroundColor
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor     = ArkPalette.textColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: ArkPalette.accentColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: ArkPalette.accentColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20.0)]
+    }
+    
+    public func updateColors() {
+        setNavigationBarStyle()
     }
 }
 

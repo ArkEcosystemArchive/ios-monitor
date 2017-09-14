@@ -27,18 +27,28 @@ class LastestTransactionsViewController: ArkViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(transactionsUpdateNotification), name: NSNotification.Name(rawValue: ArkNotifications.transactionsUpdated.rawValue), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(transactionsUpdateNotification), name: NSNotification.Name(rawValue: ArkNotifications.transactionsUpdated.rawValue), object: nil)
         getDataFromDataManager()
         loadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableView.reloadData()
+        tableView.backgroundColor = ArkPalette.backgroundColor
     }
     
     @objc private func loadData() {

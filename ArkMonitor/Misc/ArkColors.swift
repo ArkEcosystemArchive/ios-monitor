@@ -8,7 +8,19 @@
 
 import UIKit
 
-let isDarkMode = true
+var isDarkMode: Bool {
+    get {
+        return UserDefaults.standard.bool(forKey: "isDarkMode")
+    }
+    set {
+        UserDefaults.standard.set(newValue, forKey: "isDarkMode")
+        UserDefaults.standard.synchronize()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.updateColors()
+        ArkNotificationManager.postNotification(.colorUpdated)
+    }
+}
 
 public struct ArkPalette {
     

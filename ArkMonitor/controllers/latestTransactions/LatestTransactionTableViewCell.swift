@@ -12,6 +12,9 @@ class LatestTransactionTableViewCell: UITableViewCell {
     
     var timeLabel : UILabel!
     var idLabel   : UILabel!
+    var chevron   : UIImageView!
+    var seperator : UIView!
+
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,15 +54,16 @@ class LatestTransactionTableViewCell: UITableViewCell {
         
         
         let chevonImage = #imageLiteral(resourceName: "chevron")
+        chevron = UIImageView()
+        chevron.image = chevonImage.maskWithColor(color: ArkPalette.accentColor)
         
-        let chevron = UIImageView(image: chevonImage.maskWithColor(color: ArkPalette.accentColor))
         spacer.addSubview(chevron)
         chevron.snp.makeConstraints { (make) in
             make.height.width.equalTo(15.0)
             make.center.greaterThanOrEqualToSuperview()
         }
         
-        let seperator = UIView()
+        seperator = UIView()
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
         addSubview(seperator)
         seperator.snp.makeConstraints { (make) in
@@ -75,5 +79,14 @@ class LatestTransactionTableViewCell: UITableViewCell {
     public func update(_ transaction: Transaction) {
         idLabel.text   = transaction.id
         timeLabel.text = Utils.getTimeAgo(timestamp: Double(transaction.timestamp))
+        
+        backgroundColor     = ArkPalette.secondaryBackgroundColor
+        timeLabel.textColor = ArkPalette.textColor
+        idLabel.textColor  = ArkPalette.highlightedTextColor
+        
+        let chevonImage = #imageLiteral(resourceName: "chevron")
+        chevron.image = chevonImage.maskWithColor(color: ArkPalette.accentColor)
+
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
     }
 }

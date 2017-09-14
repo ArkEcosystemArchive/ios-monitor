@@ -49,6 +49,12 @@ class MiscViewController: ArkViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableView.reloadData()
+        tableView.backgroundColor = ArkPalette.backgroundColor
+    }
+    
     @objc private func loadData() {
         ArkDataManager.shared.updateMisc()
     }

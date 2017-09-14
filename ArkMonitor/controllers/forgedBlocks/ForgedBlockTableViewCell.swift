@@ -11,9 +11,10 @@ import UIKit
 class ForgedBlockTableViewCell: UITableViewCell {
     
     var heightLabel  : UILabel!
-    var timeLabel   : UILabel!
-    var feeLabel    : UILabel!
-    var rewardLabel : UILabel!
+    var timeLabel    : UILabel!
+    var feeLabel     : UILabel!
+    var rewardLabel  : UILabel!
+    var seperator    : UIView!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -68,7 +69,7 @@ class ForgedBlockTableViewCell: UITableViewCell {
             make.width.equalToSuperview().multipliedBy(0.2)
         }
         
-        let seperator = UIView()
+        seperator = UIView()
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
         addSubview(seperator)
         seperator.snp.makeConstraints { (make) in
@@ -86,5 +87,12 @@ class ForgedBlockTableViewCell: UITableViewCell {
         timeLabel.text   = Utils.getTimeAgo(timestamp: Double(block.timestamp))
         feeLabel.text    = String(Utils.convertToArkBase(value: Int64(block.totalFee)))
         rewardLabel.text = String(Utils.convertToArkBase(value: Int64(block.reward)))
+        
+        backgroundColor           = ArkPalette.secondaryBackgroundColor
+        heightLabel.textColor     = ArkPalette.textColor
+        timeLabel.textColor       = ArkPalette.textColor
+        feeLabel.textColor        = ArkPalette.highlightedTextColor
+        rewardLabel.textColor     = ArkPalette.highlightedTextColor
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
     }
 }

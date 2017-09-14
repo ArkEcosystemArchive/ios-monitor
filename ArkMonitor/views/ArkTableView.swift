@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArkTableView: UITableView {
+class ArkTableView: UITableView, UIGestureRecognizerDelegate {
     
     public var showEmptyNotice = true
     
@@ -17,6 +17,12 @@ class ArkTableView: UITableView {
         backgroundColor              = ArkPalette.backgroundColor
         separatorStyle               = .none
         showsVerticalScrollIndicator = false
+        panGestureRecognizer.delegate = self
+        
+        let anotherPanGesture = UIPanGestureRecognizer(target: self, action: #selector(twoFingerPan(_:)))
+        anotherPanGesture.minimumNumberOfTouches = 2
+        anotherPanGesture.maximumNumberOfTouches = 2
+        addGestureRecognizer(anotherPanGesture)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,4 +52,28 @@ class ArkTableView: UITableView {
             backgroundView = blankView
         }
     }
+    
+    @objc private func twoFingerPan(_ pan: UIPanGestureRecognizer) {
+        let translation = pan.translation(in: self).y
+        
+        if translation > 100.0 && isDarkMode == false {
+            isDarkMode = true
+        }
+        
+        if translation < -100.0 && isDarkMode == true {
+            isDarkMode = false
+        }  
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
 }
+
+// MARK: UIGestureRecognizerDelegate
+extension HomeViewController: UIGestureRecognizerDelegate {
+    
+
+}
+
+

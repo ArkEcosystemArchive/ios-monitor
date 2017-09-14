@@ -14,6 +14,7 @@ class DelegateTableViewCell: UITableViewCell {
     var nameLabel         : UILabel!
     var approvalLabel     : UILabel!
     var productivityLabel : UILabel!
+    var seperator         : UIView!
     
     public func update(_ delegate: Delegate) {
         rankLabel.text         = String(delegate.rate)
@@ -21,6 +22,9 @@ class DelegateTableViewCell: UITableViewCell {
         approvalLabel.text     = String(delegate.approval) + "%"
         productivityLabel.text = String(delegate.productivity) + "%"
         
+        backgroundColor = ArkPalette.secondaryBackgroundColor
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+
         if ArkDataManager.Home.delegate.username == delegate.username {
             rankLabel.textColor         = ArkPalette.accentColor
             nameLabel.textColor         = ArkPalette.accentColor
@@ -95,7 +99,7 @@ class DelegateTableViewCell: UITableViewCell {
             make.width.equalToSuperview().multipliedBy(0.28)
         }
         
-        let seperator = UIView()
+        seperator = UIView()
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
         addSubview(seperator)
         seperator.snp.makeConstraints { (make) in
