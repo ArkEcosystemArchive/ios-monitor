@@ -10,6 +10,28 @@ import UIKit
 
 struct ArkCustomServerManager {
     
+    static public private(set) var CurrentCustomServer: CustomServer? {
+        get {
+            guard let rawData = UserDefaults.standard.object(forKey: "currentCustomServer") as? [String: AnyObject] else {
+                return nil
+            }
+            
+            if let server = CustomServer(dictionary: rawData) {
+                return server
+            } else {
+                return nil
+            }
+        }
+        set {
+            if let server = newValue {
+                UserDefaults.standard.set(server.dictionary(), forKey: "currentCustomServer")
+            } else {
+                UserDefaults.standard.removeObject(forKey: "currentCustomServer")
+            }
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
     static public private(set) var CustomServers: [CustomServer] {
         get {
             guard let rawData = UserDefaults.standard.object(forKey: "customServers") as? [[String: AnyObject]] else {

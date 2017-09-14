@@ -29,6 +29,7 @@ public struct ArkActivityView  {
     
     static public func showSuccessMessage(_ text: String) {
         let banner = StatusBarNotificationBanner(title: text, style: .success, colors: CustomBannerColors())
+        banner.duration = 2.0
         banner.show()
     }
 }
@@ -44,7 +45,7 @@ fileprivate class CustomBannerColors: BannerColorsProtocol {
         case .none:     // Your custom .none color
             return ArkPalette.textColor
         case .success:  // Your custom .success color
-            return ArkPalette.highlightedTextColor
+            return ArkPalette.accentColor
         case .warning:  // Your custom .warning color
             return ArkPalette.textColor
         }

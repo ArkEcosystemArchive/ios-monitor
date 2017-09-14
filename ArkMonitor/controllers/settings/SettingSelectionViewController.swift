@@ -13,6 +13,9 @@ class SettingSelectionViewController: ArkViewController {
     fileprivate var tableview     : ArkTableView!
     fileprivate var settings      : Settings = Settings()
     fileprivate var customServers =  [CustomServer]()
+    fileprivate var currentCustom : CustomServer?
+    fileprivate var currentMode   : Server = .arkNet1
+    fileprivate var username      : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +36,16 @@ class SettingSelectionViewController: ArkViewController {
         super.viewWillAppear(animated)
         loadSettings()
         customServers = ArkCustomServerManager.CustomServers
+        
+        if let currentCustomServer = ArkCustomServerManager.CurrentCustomServer, settings.serverType == .custom {
+            self.currentCustom = currentCustomServer
+        }
     }
     
     private func loadSettings() {
-        settings = Settings.getSettings()
-        
-        guard settings.isValid() == true else {
-            return
-        }
+        settings    = Settings.getSettings()
+        currentMode = settings.serverType
+        username    = settings.username
         tableview.reloadData()
     }
 }
@@ -91,16 +96,128 @@ extension SettingSelectionViewController : UITableViewDelegate {
         return nil
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? SettingSelectionPresetTableViewCell {
+            changeServerToPreset(cell.mode)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let aCell = cell as? SettingsSelectionUsernameTableViewCell {
             aCell.update(settings.username)
         }
         
         if let aCell = cell as? SettingSelectionPresetTableViewCell {
-            if aCell.mode == settings.serverType {
+            if aCell.mode == currentMode {
                 aCell.setServerSelction(true)
             } else {
                 aCell.setServerSelction(false)
+            }
+        }
+        
+        if let aCell = cell as? SettingSelectionCustomTableViewCell {
+            if let currentCustomServer = self.currentCustom {
+                if currentCustomServer == aCell.server {
+                    aCell.setServerSelction(true)
+                } else {
+                    aCell.setServerSelction(false)
+                }
+            } else {
+                aCell.setServerSelction(false)
+            }
+        }
+    }
+    
+    private func changeServerToPreset(_ mode: Server) {
+        guard mode != currentMode else {
+            return
+        }
+        
+        currentMode = mode
+        tableview.reloadData()
+        
+        view.endEditing(true)
+        
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkActivityView.showMessage("Please connect to internet.")
+            return
+        }
+        
+        let settings = Settings()
+
+       /* guard let currentUserName = username else {
+            ArkActivityView.showMessage("Username invalid.")
+            return
+        }
+        
+        if (!Utils.validateUsername(username: currentUserName)) {
+            ArkActivityView.showMessage("Username invalid.")
+            return
+        } */
+        
+        
+        settings.username = "sharkpool"
+        settings.setServerType(serverType: mode)
+        ArkService.sharedInstance.requestDelegate(settings: settings, listener: RequestData(myClass: self))
+    }
+}
+
+// MARK: RequestData
+extension SettingSelectionViewController {
+    
+    private class RequestData: RequestListener {
+        let selfReference: SettingSelectionViewController
+        
+        init(myClass: SettingSelectionViewController){
+            selfReference = myClass
+        }
+        
+        public func onFailure(e: Error) -> Void {
+            ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+        }
+        
+        func onResponse(object: Any)  -> Void {
+            
+            if let delegate = object as? Delegate {
+                let settings = Settings.getSettings()
+                
+                if selfReference.currentMode != .custom {
+                    settings.username = selfReference.username
+                    settings.setServerType(serverType: selfReference.currentMode)
+                    settings.arkAddress = delegate.address
+                    settings.publicKey = delegate.publicKey
+                    selfReference.settings = settings
+                    Settings.saveSettings(settings: settings)
+                    ArkDataManager.shared.updateData()
+                    ArkActivityView.showSuccessMessage("Settings successfully updated")
+                } else {
+                    
+                }
+                
+               /* settings.sslEnabled = selfReference.sslEnabled
+                
+                if let ipAddress = selfReference.ipAddress {
+                    if (Utils.validateIpAddress(ipAddress: ipAddress)) {
+                        settings.ipAddress = ipAddress
+                    }
+                }
+                
+                if let port = selfReference.port {
+                    if (Utils.validatePortStr(portStr: String(port))) {
+                        settings.port = Int(port)
+                    }
+                }
+                
+                settings.arkAddress = delegate.address
+                settings.publicKey = delegate.publicKey
+                
+                selfReference.settings = settings
+                Settings.saveSettings(settings: settings)
+                
+                ArkDataManager.shared.updateData()
+                ArkActivityView.showSuccessMessage("Settings successfully updated") */
+            } else {
+                ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
             }
         }
     }

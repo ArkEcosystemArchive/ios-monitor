@@ -66,10 +66,10 @@ class SettingSelectionPresetTableViewCell: UITableViewCell {
         check.image = checkImage.maskWithColor(color: ArkPalette.accentColor)
         if isCurrentServer == true {
             nameLabel.textColor = ArkPalette.highlightedTextColor
-            check.isHidden = true
+            check.isHidden = false
         } else {
             nameLabel.textColor = ArkPalette.highlightedTextColor
-            check.isHidden = false
+            check.isHidden = true
         }
     }
     
