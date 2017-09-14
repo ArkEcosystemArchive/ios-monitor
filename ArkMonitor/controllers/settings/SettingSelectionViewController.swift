@@ -10,20 +10,37 @@ import UIKit
 
 class SettingSelectionViewController: ArkViewController {
     
-    fileprivate var tableView : ArkTableView!
+    fileprivate var tableview     : ArkTableView!
+    fileprivate var settings      : Settings = Settings()
+    fileprivate var customServers =  [CustomServer]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Server"
-        tableView            = ArkTableView(frame: CGRect.zero)
-        tableView.delegate   = self
-        tableView.dataSource = self
+        tableview            = ArkTableView(frame: CGRect.zero)
+        tableview.delegate   = self
+        tableview.dataSource = self
+        tableview.showEmptyNotice = false
         
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
+        view.addSubview(tableview)
+        tableview.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadSettings()
+    }
+    
+    private func loadSettings() {
+        settings = Settings.getSettings()
+        
+        guard settings.isValid() == true else {
+            return
+        }
+        tableview.reloadData()
     }
 }
 
@@ -35,6 +52,9 @@ extension SettingSelectionViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 60.0
+        }
         return 40.0
     }
     
@@ -42,12 +62,16 @@ extension SettingSelectionViewController : UITableViewDelegate {
         let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
         headerView.backgroundColor = ArkPalette.backgroundColor
         
-        let headerLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
-        headerLabel.font = UIFont.systemFont(ofSize: 18.0)
+        let headerLabel       = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+        headerLabel.font      = UIFont.systemFont(ofSize: 18.0)
         headerLabel.textColor = ArkPalette.textColor
         headerLabel.textAlignment = .center
         
-        headerLabel.text = "Select Server"
+        if section == 0 {
+            headerLabel.text = "Username"
+        } else {
+            headerLabel.text = "Select Server"
+        }
 
         headerView.addSubview(headerLabel)
         
@@ -65,6 +89,20 @@ extension SettingSelectionViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let aCell = cell as? SettingsSelectionUsernameTableViewCell {
+            aCell.update(settings.username)
+        }
+        
+        if let aCell = cell as? SettingSelectionPresetTableViewCell {
+            if aCell.mode == settings.serverType {
+                aCell.setServerSelction(true)
+            } else {
+                aCell.setServerSelction(false)
+            }
+        }
+    }
 }
 
 
@@ -72,24 +110,33 @@ extension SettingSelectionViewController : UITableViewDelegate {
 extension SettingSelectionViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if section == 0 {
+            return 1
+        } else {
+            return customServers.count + 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            let cell = SettingSelectionTableViewCell(.arkNet1)
+        if indexPath.section == 0 {
+            let cell = SettingsSelectionUsernameTableViewCell(style: .default, reuseIdentifier: "username")
             return cell
-        case 1:
-            let cell = SettingSelectionTableViewCell(.arkNet2)
-            return cell
-        default:
-            let cell = UITableViewCell()
-            return cell
+        } else {
+            switch indexPath.row {
+            case 0:
+                let cell = SettingSelectionPresetTableViewCell(.arkNet1)
+                return cell
+            case 1:
+                let cell = SettingSelectionPresetTableViewCell(.arkNet2)
+                return cell
+            default:
+                let cell = SettingsSelectionAddServerTableViewCell(style: .default, reuseIdentifier: "addCustomServer")
+                return cell
+            }
         }
     }
 }

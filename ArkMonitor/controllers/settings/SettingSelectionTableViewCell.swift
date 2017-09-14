@@ -8,9 +8,12 @@
 
 import UIKit
 
-class SettingSelectionTableViewCell: UITableViewCell {
+class SettingSelectionPresetTableViewCell: UITableViewCell {
     
-    public let mode: Server
+    public  let mode      : Server
+    private var nameLabel : UILabel!
+    private var check     : UIImageView!
+
     
     init(_ mode: Server) {
         self.mode = mode
@@ -19,9 +22,9 @@ class SettingSelectionTableViewCell: UITableViewCell {
         backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle = .none
         
-        let nameLabel = UILabel()
+        nameLabel = UILabel()
         nameLabel.textAlignment = .left
-        nameLabel.textColor = ArkPalette.textColor
+        nameLabel.textColor = ArkPalette.highlightedTextColor
         nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .light)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
@@ -36,12 +39,37 @@ class SettingSelectionTableViewCell: UITableViewCell {
             nameLabel.text = "node2.arknet.cloud"
         }
         
+        
+        let checkImage = #imageLiteral(resourceName: "serverCheck")
+        check = UIImageView()
+        check.image = checkImage.maskWithColor(color: ArkPalette.accentColor)
+        check.isHidden = true
+        
+        addSubview(check)
+        check.snp.makeConstraints { (make) in
+            make.height.width.equalTo(25.0)
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-12.5)
+        }
+        
         let seperator = UIView()
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
         addSubview(seperator)
         seperator.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
             make.height.equalTo(0.5)
+        }
+    }
+    
+    public func setServerSelction(_ isCurrentServer: Bool) {
+        let checkImage = #imageLiteral(resourceName: "serverCheck")
+        check.image = checkImage.maskWithColor(color: ArkPalette.accentColor)
+        if isCurrentServer == true {
+            nameLabel.textColor = ArkPalette.highlightedTextColor
+            check.isHidden = true
+        } else {
+            nameLabel.textColor = ArkPalette.highlightedTextColor
+            check.isHidden = false
         }
     }
     

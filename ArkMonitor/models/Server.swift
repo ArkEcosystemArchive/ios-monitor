@@ -8,7 +8,12 @@
 
 import UIKit
 
-struct CustomServer {
+struct CustomServer: Equatable {
+    
+    static func ==(lhs: CustomServer, rhs: CustomServer) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
     let name      : String
     let ipAddress : String
     let port      : Int
@@ -19,5 +24,25 @@ struct CustomServer {
         self.ipAddress = ipAddress
         self.port      = port
         self.isSSL     = isSSL
+    }
+    
+    init?(dictionary: [String : AnyObject]) {
+        
+        guard let name     = dictionary["name"]   as? String,
+             let ipAddress = dictionary["ipAdress"] as? String,
+             let port      = dictionary["port"]     as? Int,
+             let isSSL     = dictionary["isSSL"]    as? Bool
+        else {
+            print("Failed to Create CustomServer")
+            return nil
+        }
+        self.name      = name
+        self.ipAddress = ipAddress
+        self.port      = port
+        self.isSSL     = isSSL
+    }
+        
+    public func dictionary() -> [String : AnyObject] {
+        return ["name": name as AnyObject, "ipAdress": ipAddress as AnyObject, "port": port as AnyObject, "isSSL": isSSL as AnyObject]
     }
 }

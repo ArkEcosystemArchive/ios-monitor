@@ -60,7 +60,7 @@ class LatestTransactionTableViewCell: UITableViewCell {
         spacer.addSubview(chevron)
         chevron.snp.makeConstraints { (make) in
             make.height.width.equalTo(15.0)
-            make.center.greaterThanOrEqualToSuperview()
+            make.center.equalToSuperview()
         }
         
         seperator = UIView()
