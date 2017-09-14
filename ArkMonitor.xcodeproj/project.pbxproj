@@ -45,6 +45,9 @@
 		16A9AFEC1F69E0C7001838ED /* UINavigationBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFEB1F69E0C7001838ED /* UINavigationBar+Extension.swift */; };
 		16A9AFEE1F69EA29001838ED /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFED1F69EA29001838ED /* UIImage+Extension.swift */; };
 		16A9AFF01F6A031C001838ED /* ArkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFEF1F6A031C001838ED /* ArkViewController.swift */; };
+		16A9AFF21F6AEDFD001838ED /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFF11F6AEDFD001838ED /* Server.swift */; };
+		16A9AFF41F6AF08D001838ED /* SettingSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFF31F6AF08D001838ED /* SettingSelectionViewController.swift */; };
+		16A9AFF61F6AF703001838ED /* SettingSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFF51F6AF703001838ED /* SettingSelectionTableViewCell.swift */; };
 		16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DE61F6731C800C4B765 /* ArkActivityView.swift */; };
 		16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DEF1F6745CB00C4B765 /* ArkColors.swift */; };
 		16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */; };
@@ -115,6 +118,9 @@
 		16A9AFEB1F69E0C7001838ED /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
 		16A9AFED1F69EA29001838ED /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		16A9AFEF1F6A031C001838ED /* ArkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkViewController.swift; sourceTree = "<group>"; };
+		16A9AFF11F6AEDFD001838ED /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		16A9AFF31F6AF08D001838ED /* SettingSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSelectionViewController.swift; sourceTree = "<group>"; };
+		16A9AFF51F6AF703001838ED /* SettingSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		16D14DE61F6731C800C4B765 /* ArkActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkActivityView.swift; sourceTree = "<group>"; };
 		16D14DEF1F6745CB00C4B765 /* ArkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkColors.swift; sourceTree = "<group>"; };
 		16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -369,6 +375,8 @@
 			children = (
 				162149671F6990A500F33CAF /* SettingViewController.swift */,
 				1621496B1F69925800F33CAF /* tableviewcells */,
+				16A9AFF31F6AF08D001838ED /* SettingSelectionViewController.swift */,
+				16A9AFF51F6AF703001838ED /* SettingSelectionTableViewCell.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 				9A103B411E719C6300621D88 /* Forging.swift */,
 				9A103B421E719C6300621D88 /* Peer.swift */,
 				9A103B431E719C6300621D88 /* PeerVersion.swift */,
+				16A9AFF11F6AEDFD001838ED /* Server.swift */,
 				9A103B441E719C6300621D88 /* Settings.swift */,
 				9A103B451E719C6300621D88 /* Status.swift */,
 				9A103B461E719C6300621D88 /* Ticker.swift */,
@@ -573,6 +582,7 @@
 				1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */,
 				1656B5F01F685EC8006FCDE5 /* LatestTransactionsSectionHeaderView.swift in Sources */,
 				16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */,
+				16A9AFF41F6AF08D001838ED /* SettingSelectionViewController.swift in Sources */,
 				1621496F1F69994900F33CAF /* SettingsServerTableViewCell.swift in Sources */,
 				16D9A3C01F675F8100AA0637 /* ArkConstants.swift in Sources */,
 				1656B5E61F683E38006FCDE5 /* VotersSectionHeader.swift in Sources */,
@@ -596,6 +606,7 @@
 				9A103B881E719C6300621D88 /* RequestListener.swift in Sources */,
 				16D9A3C61F6776B500AA0637 /* HomeLastBlockTableViewCell.swift in Sources */,
 				16A9AFEC1F69E0C7001838ED /* UINavigationBar+Extension.swift in Sources */,
+				16A9AFF61F6AF703001838ED /* SettingSelectionTableViewCell.swift in Sources */,
 				169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */,
 				1621496A1F69925300F33CAF /* SettingsUsernameTableViewCell.swift in Sources */,
 				16D9A3C41F676F0800AA0637 /* HomeForgingTableViewCell.swift in Sources */,
@@ -611,6 +622,7 @@
 				1621497A1F69A9B300F33CAF /* SettingsSSLTableViewCell.swift in Sources */,
 				1656B5E81F683FA2006FCDE5 /* VotesTableViewCell.swift in Sources */,
 				16D9A3BE1F67548E00AA0637 /* HomeDelegateTableViewCell.swift in Sources */,
+				16A9AFF21F6AEDFD001838ED /* Server.swift in Sources */,
 				16D9A3C21F67640400AA0637 /* MainTabViewController.swift in Sources */,
 				1656B5F21F686F9C006FCDE5 /* TransactionDetailViewController.swift in Sources */,
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,

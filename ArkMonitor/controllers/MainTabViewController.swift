@@ -22,9 +22,12 @@ class MainTabViewController: UITabBarController {
         let nav1 = UINavigationController(rootViewController: homeViewController)
         nav1.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "homeUnfilled"), selectedImage: #imageLiteral(resourceName: "homeFilled"))
         
-        let forgedBlocksViewController =  ForgedBlockViewController()
-        let nav2 = UINavigationController(rootViewController: forgedBlocksViewController)
-        nav2.tabBarItem = UITabBarItem(title: "Forged", image: #imageLiteral(resourceName: "hammerUnfilled"), selectedImage: #imageLiteral(resourceName: "hammerFilled"))
+        
+        //let forgedBlocksViewController =  ForgedBlockViewController()
+        
+        let settingVC = SettingSelectionViewController()
+        let nav2 = UINavigationController(rootViewController: settingVC)
+        nav2.tabBarItem = UITabBarItem(title: "Server", image: #imageLiteral(resourceName: "hammerUnfilled"), selectedImage: #imageLiteral(resourceName: "hammerFilled"))
         
         let transactionVC = LastestTransactionsViewController()
         let nav3 = UINavigationController(rootViewController: transactionVC)
