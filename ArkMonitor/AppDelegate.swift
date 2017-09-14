@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             UIApplication.shared.statusBarStyle = .default
         }
-        UINavigationBar.appearance().barTintColor  = ArkPalette.backgroundColor
+        UINavigationBar.appearance().barTintColor  = ArkPalette.secondaryBackgroundColor
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor     = ArkPalette.textColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: ArkPalette.accentColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)]

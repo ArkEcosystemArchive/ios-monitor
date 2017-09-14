@@ -43,15 +43,15 @@ class TransactionDetailViewController: ArkViewController {
 extension TransactionDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35.0
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 35.0))
-        headerView.backgroundColor = ArkPalette.secondaryBackgroundColor
+        let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+        headerView.backgroundColor = ArkPalette.backgroundColor
         
-        let headerLabel = UILabel(frame: CGRect(x: 12.5, y: 0.0, width: _screenWidth - 12.5, height: 35.0))
-        headerLabel.textColor = ArkPalette.tertiaryBackgroundColor
+        let headerLabel = UILabel(frame: CGRect(x: 12.5, y: 0.0, width: _screenWidth - 12.5, height: 40.0))
+        headerLabel.textColor = ArkPalette.textColor
         headerLabel.textAlignment = .center
         
         switch section {
@@ -71,11 +71,16 @@ extension TransactionDetailViewController : UITableViewDelegate {
             headerLabel.text = "Confirmations"
         }
         headerView.addSubview(headerLabel)
+        
+        let seperator = UIView(frame: CGRect(x: 0.0, y: 39.5, width: _screenWidth, height: 0.5))
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        
+        headerView.addSubview(seperator)
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 35.0
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

@@ -15,7 +15,7 @@ class MainTabViewController: UITabBarController {
         
         tabBar.tintColor               = ArkPalette.accentColor
         tabBar.unselectedItemTintColor = ArkPalette.textColor
-        tabBar.barTintColor            = ArkPalette.backgroundColor
+        tabBar.barTintColor            = ArkPalette.secondaryBackgroundColor
         tabBar.isTranslucent           = true
 
         let homeViewController = HomeViewController()

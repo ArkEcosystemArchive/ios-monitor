@@ -13,10 +13,10 @@ class LatestTransactionsSectionHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = ArkPalette.secondaryBackgroundColor
+        backgroundColor = ArkPalette.backgroundColor
         
         let timeLabel = UILabel()
-        timeLabel.textColor = ArkPalette.tertiaryBackgroundColor
+        timeLabel.textColor = ArkPalette.textColor
         timeLabel.textAlignment = .center
         timeLabel.text = "Time"
         timeLabel.font = UIFont.systemFont(ofSize: 15.0)
@@ -28,7 +28,7 @@ class LatestTransactionsSectionHeaderView: UIView {
         }
         
         let idLabel = UILabel()
-        idLabel.textColor = ArkPalette.tertiaryBackgroundColor
+        idLabel.textColor = ArkPalette.textColor
         idLabel.textAlignment = .center
         idLabel.text = "Transaction Id"
         idLabel.font = UIFont.systemFont(ofSize: 15.0)
@@ -38,6 +38,14 @@ class LatestTransactionsSectionHeaderView: UIView {
             make.top.bottom.equalToSuperview()
             make.left.equalTo(timeLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.5)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

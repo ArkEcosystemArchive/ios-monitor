@@ -13,10 +13,10 @@ class DelegateSectionHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = ArkPalette.secondaryBackgroundColor
+        backgroundColor = ArkPalette.backgroundColor
         
         let rankLabel = UILabel()
-        rankLabel.textColor = ArkPalette.tertiaryBackgroundColor
+        rankLabel.textColor = ArkPalette.textColor
         rankLabel.text = "Rank"
         rankLabel.textAlignment = .center
         rankLabel.font = UIFont.systemFont(ofSize: 15.0)
@@ -28,7 +28,7 @@ class DelegateSectionHeaderView: UIView {
         }
         
         let nameLabel = UILabel()
-        nameLabel.textColor = ArkPalette.tertiaryBackgroundColor
+        nameLabel.textColor = ArkPalette.textColor
         nameLabel.text = "Username"
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 15.0)
@@ -41,7 +41,7 @@ class DelegateSectionHeaderView: UIView {
         }
         
         let approvalLabel = UILabel()
-        approvalLabel.textColor = ArkPalette.tertiaryBackgroundColor
+        approvalLabel.textColor = ArkPalette.textColor
         approvalLabel.text = "Approval"
         approvalLabel.textAlignment = .center
         approvalLabel.font = UIFont.systemFont(ofSize: 15.0)
@@ -54,7 +54,7 @@ class DelegateSectionHeaderView: UIView {
         }
         
         let productivityLabel = UILabel()
-        productivityLabel.textColor = ArkPalette.tertiaryBackgroundColor
+        productivityLabel.textColor = ArkPalette.textColor
         productivityLabel.text = "Productivity"
         productivityLabel.textAlignment = .center
         productivityLabel.font = UIFont.systemFont(ofSize: 15.0)
@@ -64,6 +64,14 @@ class DelegateSectionHeaderView: UIView {
             make.top.bottom.equalToSuperview()
             make.left.equalTo(approvalLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.28)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

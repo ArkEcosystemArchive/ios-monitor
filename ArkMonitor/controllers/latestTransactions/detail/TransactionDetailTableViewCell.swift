@@ -13,7 +13,7 @@ class TransactionDetailTableViewCell: UITableViewCell {
     init(_ title: String) {
         super.init(style: .default, reuseIdentifier: "detail")
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
         let titleLabel           = UILabel()
@@ -28,6 +28,14 @@ class TransactionDetailTableViewCell: UITableViewCell {
             make.top.bottom.equalToSuperview()
             make.right.equalToSuperview().offset(-12.5)
             make.left.equalTo(12.5)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

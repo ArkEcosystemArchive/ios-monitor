@@ -17,7 +17,7 @@ class HomeTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle = .none
         
         descriptionLabel = UILabel()
@@ -39,6 +39,14 @@ class HomeTableViewCell: UITableViewCell {
         valueLabel.snp.makeConstraints { (make) in
             make.left.top.bottom.equalToSuperview()
             make.right.equalToSuperview().offset(-12.5)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

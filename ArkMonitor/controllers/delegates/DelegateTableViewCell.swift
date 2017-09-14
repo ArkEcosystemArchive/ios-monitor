@@ -45,7 +45,7 @@ class DelegateTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle = .none
         
         rankLabel = UILabel()
@@ -93,6 +93,14 @@ class DelegateTableViewCell: UITableViewCell {
             make.top.bottom.equalToSuperview()
             make.left.equalTo(approvalLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.28)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

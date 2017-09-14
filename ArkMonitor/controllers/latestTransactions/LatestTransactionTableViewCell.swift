@@ -16,7 +16,7 @@ class LatestTransactionTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
         timeLabel = UILabel()
@@ -55,8 +55,16 @@ class LatestTransactionTableViewCell: UITableViewCell {
         let chevron = UIImageView(image: chevonImage.maskWithColor(color: ArkPalette.accentColor))
         spacer.addSubview(chevron)
         chevron.snp.makeConstraints { (make) in
-            make.height.width.equalTo(20.0)
+            make.height.width.equalTo(15.0)
             make.center.greaterThanOrEqualToSuperview()
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

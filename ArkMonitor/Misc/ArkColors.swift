@@ -14,49 +14,49 @@ public struct ArkPalette {
     
     static public var backgroundColor: UIColor {
         if isDarkMode == false {
-            return UIColor(r: 255, g: 255, b: 255)
+            return UIColor(r: 202, g: 202, b: 202)
         } else {
-            return UIColor(r: 14, g: 14, b: 14)
+            return UIColor(r: 0, g: 0, b: 0)
         }
     }
     
     static public var secondaryBackgroundColor: UIColor {
         if isDarkMode == false {
-            return UIColor(r: 245, g: 245, b: 245)
+            return UIColor(r: 210, g: 210, b: 210)
         } else {
-            return UIColor(r: 26, g: 26, b: 26)
+            return UIColor(r: 19, g: 19, b: 19)
         }
     }
     
     static public var tertiaryBackgroundColor: UIColor {
         if isDarkMode == false {
-            return UIColor(r: 193, g: 193, b: 190)
+            return UIColor(r: 188, g: 187, b: 193)
         } else {
-            return UIColor(r: 66, g: 66, b: 64)
+            return UIColor(r: 42, g: 42, b: 42)
         }
     }
     
     static public var textColor: UIColor {
         if isDarkMode == false {
-            return UIColor(r: 147, g: 147, b: 146)
+            return UIColor(r: 130, g: 130, b: 136)
         } else {
-            return UIColor(r: 107, g: 107, b: 107)
+            return UIColor(r: 119, g: 119, b: 125)
         }
     }
     
     static public var highlightedTextColor: UIColor {
         if isDarkMode == false {
-            return UIColor(r: 26, g: 26, b: 26)
+            return UIColor(r: 57, g: 57, b: 57)
         } else {
-            return UIColor(r: 174, g: 174, b: 174)
+            return UIColor(r: 249, g: 247, b: 247)
         }
     }
     
     static public var accentColor: UIColor {
         if isDarkMode == false {
-            return UIColor(r: 0, g: 209, b: 172)
+            return UIColor(r: 0, g: 191, b: 192)
         } else {
-            return UIColor(r: 0, g: 100, b: 209)
+            return UIColor(r: 79, g: 78, b: 254)
         }
     }
 }

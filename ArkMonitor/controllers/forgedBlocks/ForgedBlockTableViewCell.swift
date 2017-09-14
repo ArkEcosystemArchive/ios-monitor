@@ -18,7 +18,7 @@ class ForgedBlockTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
         heightLabel = UILabel()
@@ -66,6 +66,14 @@ class ForgedBlockTableViewCell: UITableViewCell {
             make.top.bottom.equalToSuperview()
             make.left.equalTo(feeLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.2)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     
