@@ -29,7 +29,7 @@ class VotersTableViewCell: UITableViewCell {
         addSubview(usernameLabel)
         
         usernameLabel.snp.makeConstraints { (make) in
-            make.top.bottom.left.equalToSuperview()
+            make.top.bottom.equalToSuperview()
             make.width.equalTo((_screenWidth / 3.0) - 10.0)
             make.centerX.equalTo(_screenWidth / 6.0)
         }
