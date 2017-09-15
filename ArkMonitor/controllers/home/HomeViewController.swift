@@ -39,7 +39,8 @@ class HomeViewController: ArkViewController {
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.left.right.top.bottom.equalToSuperview()
+            make.left.top.right.bottom.equalToSuperview()
+            make.top.equalTo(10.0)
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(homeUpdateNotificationRecieved), name: NSNotification.Name(rawValue: ArkNotifications.homeUpdated.rawValue), object: nil)
