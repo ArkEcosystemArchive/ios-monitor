@@ -15,10 +15,10 @@ class VotersSectionHeader: UIView {
         backgroundColor = ArkPalette.backgroundColor
 
         let usernameLabel = UILabel()
-        usernameLabel.textColor = ArkPalette.highlightedTextColor
+        usernameLabel.textColor = ArkPalette.textColor
         usernameLabel.text = "Username"
         usernameLabel.textAlignment = .center
-        usernameLabel.font = UIFont.systemFont(ofSize: 14.0)
+        usernameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(usernameLabel)
         
         usernameLabel.snp.makeConstraints { (make) in
@@ -27,10 +27,10 @@ class VotersSectionHeader: UIView {
         }
         
         let addressLabel = UILabel()
-        addressLabel.textColor = ArkPalette.highlightedTextColor
+        addressLabel.textColor = ArkPalette.textColor
         addressLabel.text = "Address"
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 14.0)
+        addressLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in
@@ -40,10 +40,10 @@ class VotersSectionHeader: UIView {
         }
         
         let balanceLabel = UILabel()
-        balanceLabel.textColor = ArkPalette.highlightedTextColor
+        balanceLabel.textColor = ArkPalette.textColor
         balanceLabel.text = "Balance"
         balanceLabel.textAlignment = .center
-        balanceLabel.font = UIFont.systemFont(ofSize: 14.0)
+        balanceLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(balanceLabel)
         
         balanceLabel.snp.makeConstraints { (make) in

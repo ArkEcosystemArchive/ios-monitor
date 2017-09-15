@@ -13,17 +13,19 @@ class VotersTableViewCell: UITableViewCell {
     var usernameLabel : UILabel!
     var balanceLabel  : UILabel!
     var addressLabel  : UILabel!
+    var seperator    : UIView!
+
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
         usernameLabel = UILabel()
         usernameLabel.textColor = ArkPalette.textColor
         usernameLabel.textAlignment = .center
-        usernameLabel.font = UIFont.systemFont(ofSize: 14.0)
+        usernameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(usernameLabel)
         
         usernameLabel.snp.makeConstraints { (make) in
@@ -34,7 +36,7 @@ class VotersTableViewCell: UITableViewCell {
         addressLabel = UILabel()
         addressLabel.textColor = ArkPalette.textColor
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 14.0)
+        addressLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in
@@ -44,15 +46,23 @@ class VotersTableViewCell: UITableViewCell {
         }
         
         balanceLabel = UILabel()
-        balanceLabel.textColor = ArkPalette.highlightedTextColor
+        balanceLabel.textColor = ArkPalette.textColor
         balanceLabel.textAlignment = .center
-        balanceLabel.font = UIFont.systemFont(ofSize: 14.0)
+        balanceLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(balanceLabel)
         
         balanceLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(addressLabel.snp.right)
             make.width.equalToSuperview().dividedBy(3.0)
+        }
+        
+        seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

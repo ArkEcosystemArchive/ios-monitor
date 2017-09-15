@@ -24,7 +24,7 @@ class MiscViewController: ArkViewController {
         
         navigationItem.title = items[0]
 
-        let spacerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 35.0))
+        let spacerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
         spacerView.backgroundColor = ArkPalette.secondaryBackgroundColor
         
         segmentControl = UISegmentedControl(items: items)
@@ -110,7 +110,7 @@ extension MiscViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 35.0
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

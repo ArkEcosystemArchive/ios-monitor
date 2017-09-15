@@ -13,17 +13,18 @@ class VotesTableViewCell: UITableViewCell {
     var rankLabel    : UILabel!
     var nameLabel    : UILabel!
     var addressLabel : UILabel!
+    var seperator    : UIView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
         rankLabel = UILabel()
-        rankLabel.textColor = ArkPalette.highlightedTextColor
+        rankLabel.textColor = ArkPalette.textColor
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 14.0)
+        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
@@ -34,7 +35,7 @@ class VotesTableViewCell: UITableViewCell {
         nameLabel = UILabel()
         nameLabel.textColor = ArkPalette.textColor
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 14.0)
+        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
@@ -46,13 +47,21 @@ class VotesTableViewCell: UITableViewCell {
         addressLabel = UILabel()
         addressLabel.textColor = ArkPalette.textColor
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 14.0)
+        addressLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(nameLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.4)
+        }
+        
+        seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

@@ -13,17 +13,18 @@ class PeerTableViewCell: UITableViewCell {
     var ipLabel      : UILabel!
     var portLabel    : UILabel!
     var versionLabel : UILabel!
+    var seperator    : UIView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
         ipLabel = UILabel()
-        ipLabel.textColor = ArkPalette.highlightedTextColor
+        ipLabel.textColor = ArkPalette.textColor
         ipLabel.textAlignment = .center
-        ipLabel.font = UIFont.systemFont(ofSize: 14.0)
+        ipLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(ipLabel)
         
         ipLabel.snp.makeConstraints { (make) in
@@ -34,7 +35,7 @@ class PeerTableViewCell: UITableViewCell {
         portLabel = UILabel()
         portLabel.textColor = ArkPalette.textColor
         portLabel.textAlignment = .center
-        portLabel.font = UIFont.systemFont(ofSize: 14.0)
+        portLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(portLabel)
         
         portLabel.snp.makeConstraints { (make) in
@@ -46,13 +47,21 @@ class PeerTableViewCell: UITableViewCell {
         versionLabel = UILabel()
         versionLabel.textColor = ArkPalette.textColor
         versionLabel.textAlignment = .center
-        versionLabel.font = UIFont.systemFont(ofSize: 14.0)
+        versionLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(versionLabel)
         
         versionLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(portLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     
@@ -64,7 +73,10 @@ class PeerTableViewCell: UITableViewCell {
         ipLabel.text = peer.ip
         portLabel.text =  String(peer.port)
         versionLabel.text = peer.version
-        
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
+
+
         let state : PeerStatus = PeerStatus.fromState(state: peer.status)
         
         switch state {
@@ -77,7 +89,7 @@ class PeerTableViewCell: UITableViewCell {
             portLabel.textColor    = UIColor(red: 255/255, green: 165/255, blue: 0/255, alpha: 1.0)
             versionLabel.textColor = UIColor(red: 255/255, green: 165/255, blue: 0/255, alpha: 1.0)
         default:
-            ipLabel.textColor      = ArkPalette.highlightedTextColor
+            ipLabel.textColor      = ArkPalette.textColor
             portLabel.textColor    = ArkPalette.textColor
             versionLabel.textColor = ArkPalette.textColor
             
