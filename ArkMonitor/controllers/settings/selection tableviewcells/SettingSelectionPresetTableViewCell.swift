@@ -25,7 +25,7 @@ class SettingSelectionPresetTableViewCell: UITableViewCell {
         nameLabel = UILabel()
         nameLabel.textAlignment = .left
         nameLabel.textColor = ArkPalette.highlightedTextColor
-        nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .light)
+        nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
             make.right.top.bottom.equalToSuperview()

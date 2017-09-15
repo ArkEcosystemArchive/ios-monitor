@@ -28,7 +28,7 @@ class SettingsSaveTableViewCell: UITableViewCell {
         saveButton = UIButton()
         saveButton.title("Save", color: ArkPalette.highlightedTextColor)
         saveButton.setBackgroundColor(ArkPalette.accentColor, forState: UIControlState())
-        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
+        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .semibold)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         saveButton.clipsToBounds = true
         saveButton.layer.cornerRadius = 8.0
