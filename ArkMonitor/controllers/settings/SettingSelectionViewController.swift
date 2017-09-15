@@ -287,6 +287,32 @@ extension SettingSelectionViewController {
 // MARK: UITableViewDataSource
 extension SettingSelectionViewController : UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let cell = tableView.cellForRow(at: indexPath) as? SettingSelectionCustomTableViewCell else {
+            return false
+        }
+        
+        if cell.server == currentCustom {
+            return false
+        }
+        
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, index) in
+            //
+        }
+        
+        delete.backgroundColor = ArkPalette.accentColor
+        return [delete]
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
