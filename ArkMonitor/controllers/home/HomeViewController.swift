@@ -31,7 +31,7 @@ class HomeViewController: ArkViewController {
         super.viewDidLoad()
         
         navigationItem.title              = "Home"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "whiteGear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "preferences"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate = self
