@@ -34,12 +34,16 @@ class SettingSelectionViewController: ArkViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadSettings()
         customServers = ArkCustomServerManager.CustomServers
         
-        if let currentCustomServer = ArkCustomServerManager.CurrentCustomServer, settings.serverType == .custom {
-            self.currentCustom = currentCustomServer
+        if let currentCustomServer  = ArkCustomServerManager.CurrentCustomServer {
+            if settings.serverType == .custom {
+                self.currentCustom = currentCustomServer
+            } else {
+                ArkCustomServerManager.CurrentCustomServer = nil
+            }
         }
+        loadSettings()
     }
     
     private func loadSettings() {
@@ -101,6 +105,10 @@ extension SettingSelectionViewController : UITableViewDelegate {
             changeServerToPreset(cell.mode)
         }
         
+        if let cell = tableView.cellForRow(at: indexPath) as? SettingSelectionCustomTableViewCell {
+            changeServerToCustom(cell.server)
+        }
+        
         if let _ = tableView.cellForRow(at: indexPath) as? SettingsSelectionAddServerTableViewCell {
             let customServerVC = SettingsCustomServerViewController()
             navigationController?.pushViewController(customServerVC, animated: true)
@@ -150,6 +158,17 @@ extension SettingSelectionViewController : UITableViewDelegate {
         updatePreset()
     }
     
+    private func changeServerToCustom(_ server: CustomServer) {
+        currentMode = .custom
+        guard server != currentCustom else {
+            return
+        }
+        
+        currentCustom = server
+        ArkCustomServerManager.CurrentCustomServer = server
+        updateCustom()
+    }
+    
     private func updatePreset() {
         tableview.reloadData()
         
@@ -169,6 +188,36 @@ extension SettingSelectionViewController : UITableViewDelegate {
 
         settings.setServerType(serverType: currentMode)
         settings.username = username
+        ArkService.sharedInstance.requestDelegate(settings: settings, listener: RequestData(myClass: self))
+    }
+    
+    private func updateCustom() {
+        tableview.reloadData()
+        view.endEditing(true)
+        
+        guard Reachability.isConnectedToNetwork() == true else {
+            ArkActivityView.showMessage("Please connect to internet.")
+            return
+        }
+        
+        guard let server = currentCustom else {
+            ArkActivityView.showMessage("Error configuring server")
+            return
+        }
+        
+        let settings = Settings()
+        
+        if (!Utils.validateUsername(username: username)) {
+            ArkActivityView.showMessage("Username invalid.")
+            return
+        }
+        
+        settings.username   = username
+        settings.ipAddress  = server.ipAddress
+        settings.port       = server.port
+        settings.sslEnabled = server.isSSL
+        
+        settings.setServerType(serverType: currentMode)
         ArkService.sharedInstance.requestDelegate(settings: settings, listener: RequestData(myClass: self))
     }
 }
@@ -201,35 +250,28 @@ extension SettingSelectionViewController {
                     selfReference.settings = settings
                     Settings.saveSettings(settings: settings)
                     ArkDataManager.shared.updateData()
+                    ArkCustomServerManager.CurrentCustomServer = nil
+                    selfReference.currentCustom = nil
                     ArkActivityView.showSuccessMessage("Settings successfully updated")
                 } else {
-                    
-                }
-                
-               /* settings.sslEnabled = selfReference.sslEnabled
-                
-                if let ipAddress = selfReference.ipAddress {
-                    if (Utils.validateIpAddress(ipAddress: ipAddress)) {
-                        settings.ipAddress = ipAddress
+                    guard let currentServer = selfReference.currentCustom else {
+                        ArkActivityView.showMessage("Failed to find custom server")
+                        return
                     }
+                    settings.username = selfReference.username
+                    settings.sslEnabled = currentServer.isSSL
+                    settings.setServerType(serverType: selfReference.currentMode)
+                    settings.ipAddress = currentServer.ipAddress
+                    settings.port = currentServer.port
+                    settings.arkAddress = delegate.address
+                    settings.publicKey = delegate.publicKey
+                    selfReference.settings = settings
+                    Settings.saveSettings(settings: settings)
+                    ArkDataManager.shared.updateData()
+                    ArkActivityView.showSuccessMessage("Settings successfully updated")
                 }
-                
-                if let port = selfReference.port {
-                    if (Utils.validatePortStr(portStr: String(port))) {
-                        settings.port = Int(port)
-                    }
-                }
-                
-                settings.arkAddress = delegate.address
-                settings.publicKey = delegate.publicKey
-                
-                selfReference.settings = settings
-                Settings.saveSettings(settings: settings)
-                
-                ArkDataManager.shared.updateData()
-                ArkActivityView.showSuccessMessage("Settings successfully updated") */
             } else {
-                ArkActivityView.showMessage("Unable to retrieve data. Please try again later.")
+                ArkActivityView.showMessage("Error configuring server")
             }
         }
     }

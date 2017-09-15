@@ -12,7 +12,7 @@ extension HomeViewController {
 class HomeTableViewCell: UITableViewCell {
     
     internal var descriptionLabel : UILabel!
-    internal var valueLabel       : UILabel!
+    internal var valueLabel       : ArkCopyableLabel!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,22 +23,25 @@ class HomeTableViewCell: UITableViewCell {
         descriptionLabel = UILabel()
         descriptionLabel.textAlignment = .left
         descriptionLabel.textColor = ArkPalette.textColor
-        descriptionLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .light)
+        descriptionLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
+        descriptionLabel.adjustsFontSizeToFitWidth = true
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { (make) in
-            make.right.top.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview()
             make.left.equalTo(12.5)
+            make.width.equalTo((_screenWidth / 2.0) - 12.5)
         }
         
-        valueLabel = UILabel()
+        valueLabel = ArkCopyableLabel()
         valueLabel.textAlignment = .right
         valueLabel.textColor = ArkPalette.highlightedTextColor
-        valueLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .light)
+        valueLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
 
         addSubview(valueLabel)
         valueLabel.snp.makeConstraints { (make) in
-            make.left.top.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview()
             make.right.equalToSuperview().offset(-12.5)
+            make.width.equalTo((_screenWidth / 2.0) - 12.5)
         }
         
         let seperator = UIView()

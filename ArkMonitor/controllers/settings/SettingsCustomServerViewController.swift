@@ -12,9 +12,10 @@ class SettingsCustomServerViewController: ArkViewController {
     
     fileprivate var tableview     : ArkTableView!
     
-    fileprivate var ipAddress : String?
-    fileprivate var port      : Int?
-    fileprivate var isSSL     = false
+    fileprivate var serverName : String?
+    fileprivate var ipAddress  : String?
+    fileprivate var port       : Int?
+    fileprivate var isSSL      = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +73,7 @@ extension SettingsCustomServerViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-            case 0, 1, 2:
+            case 0, 1, 2, 3:
                 return 50
             default:
                 return 100.0
@@ -88,20 +89,24 @@ extension SettingsCustomServerViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = SettingsIPTableViewCell(.custom)
+            let cell = SettingsServerNameTableViewCell(.custom)
             cell.delegate = self
             return cell
         case 1:
-            let cell = SettingsPortTableViewCell(.custom)
+            let cell = SettingsIPTableViewCell(.custom)
             cell.delegate = self
             return cell
         case 2:
+            let cell = SettingsPortTableViewCell(.custom)
+            cell.delegate = self
+            return cell
+        case 3:
             let cell = SettingsSSLTableViewCell(.custom)
             cell.delegate = self
             return cell
@@ -110,6 +115,13 @@ extension SettingsCustomServerViewController: UITableViewDataSource {
             cell.delegate = self
             return cell
         }
+    }
+}
+
+// MARK: SettingsServerNameTableViewCellDelegate
+extension SettingsCustomServerViewController : SettingsServerNameTableViewCellDelegate {
+    func ipCell(_ cell: SettingsServerNameTableViewCell, didChangeText text: String?) {
+        self.serverName = text
     }
 }
 
@@ -140,6 +152,11 @@ extension SettingsCustomServerViewController : SettingsSSLTableViewCellDelegate 
 extension SettingsCustomServerViewController : SettingsSaveTableViewCellDelegate {
     func saveCellButtonWasTapped(_ cell: SettingsSaveTableViewCell) {
         
+        guard let currentServerName = serverName else {
+            ArkActivityView.showMessage("Server name cannot be blank")
+            return
+        }
+        
         guard let ip = ipAddress else {
             ArkActivityView.showMessage("IP Address cannot be blank")
             return
@@ -159,10 +176,18 @@ extension SettingsCustomServerViewController : SettingsSaveTableViewCellDelegate
             ArkActivityView.showMessage("Port is invalid")
             return
         }
-
-        print(ip)
-        print(currentPort)
-        print(isSSL)
+        
+        let newCustomServer = CustomServer(currentServerName, ipAddress: ip, port: currentPort, isSSL: isSSL)
+        
+        ArkCustomServerManager.add(newCustomServer) { (success) in
+            if success == true {
+                ArkActivityView.showSuccessMessage("Successfully added server")
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                ArkActivityView.showMessage("Server already exists with that name")
+                return
+            }
+        }
     }
 }
 

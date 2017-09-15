@@ -12,7 +12,6 @@ class LatestTransactionTableViewCell: UITableViewCell {
     
     var timeLabel : UILabel!
     var idLabel   : UILabel!
-    var chevron   : UIImageView!
     var seperator : UIView!
 
     
@@ -25,7 +24,7 @@ class LatestTransactionTableViewCell: UITableViewCell {
         timeLabel = UILabel()
         timeLabel.textColor = ArkPalette.textColor
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -36,31 +35,13 @@ class LatestTransactionTableViewCell: UITableViewCell {
         idLabel = UILabel()
         idLabel.textColor = ArkPalette.highlightedTextColor
         idLabel.textAlignment = .center
-        idLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .light)
+        idLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(idLabel)
         
         idLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(timeLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.45)
-        }
-        
-        let spacer = UIView()
-        addSubview(spacer)
-        spacer.snp.makeConstraints { (make) in
-            make.top.bottom.right.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.15)
-        }
-        
-        
-        let chevonImage = #imageLiteral(resourceName: "chevron")
-        chevron = UIImageView()
-        chevron.image = chevonImage.maskWithColor(color: ArkPalette.accentColor)
-        
-        spacer.addSubview(chevron)
-        chevron.snp.makeConstraints { (make) in
-            make.height.width.equalTo(15.0)
-            make.center.equalToSuperview()
+            make.right.equalToSuperview().offset(-12.5)
         }
         
         seperator = UIView()
@@ -83,10 +64,6 @@ class LatestTransactionTableViewCell: UITableViewCell {
         backgroundColor     = ArkPalette.secondaryBackgroundColor
         timeLabel.textColor = ArkPalette.textColor
         idLabel.textColor  = ArkPalette.highlightedTextColor
-        
-        let chevonImage = #imageLiteral(resourceName: "chevron")
-        chevron.image = chevonImage.maskWithColor(color: ArkPalette.accentColor)
-
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
     }
 }

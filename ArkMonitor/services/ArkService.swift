@@ -523,6 +523,8 @@ class ArkService: NSObject {
                 
                 let response = JSON as! NSDictionary
                 
+                print(response)
+                
                 let success = response.object(forKey: "success")! as! Bool
                 
                 if (success) {
@@ -540,6 +542,7 @@ class ArkService: NSObject {
 
                 
             case .failure(let error):
+                print(error.localizedDescription)
                 listener.onFailure(e: error)
             }
         }

@@ -10,7 +10,7 @@ import UIKit
 
 struct ArkCustomServerManager {
     
-    static public private(set) var CurrentCustomServer: CustomServer? {
+    static public var CurrentCustomServer: CustomServer? {
         get {
             guard let rawData = UserDefaults.standard.object(forKey: "currentCustomServer") as? [String: AnyObject] else {
                 return nil

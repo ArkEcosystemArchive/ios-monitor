@@ -1,32 +1,32 @@
 //
-//  SettingsIPTableViewCell.swift
+//  SettingsServerNameTableViewCell.swift
 //  ArkMonitor
 //
-//  Created by Andrew on 2017-09-13.
+//  Created by Andrew on 2017-09-15.
 //  Copyright © 2017 vrlc92. All rights reserved.
 //
 
 import UIKit
 
-protocol SettingsIPTableViewCellDelegate: class {
-    func ipCell(_ cell: SettingsIPTableViewCell, didChangeText text: String?)
+protocol SettingsServerNameTableViewCellDelegate: class {
+    func ipCell(_ cell: SettingsServerNameTableViewCell, didChangeText text: String?)
 }
 
-class SettingsIPTableViewCell: UITableViewCell {
+class SettingsServerNameTableViewCell: UITableViewCell {
     
-    public weak var delegate: SettingsIPTableViewCellDelegate?
+    public weak var delegate: SettingsServerNameTableViewCellDelegate?
     
     var nameLabel      : UILabel!
     var nameTextField  : ArkTextField!
     
     init(_ mode: Server) {
-        super.init(style: .default, reuseIdentifier: "ip")
+        super.init(style: .default, reuseIdentifier: "servername")
         
         backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle = .none
         
         let nameLabel = UILabel()
-        nameLabel.text          = "IP Address"
+        nameLabel.text          = "Server name"
         nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0)
@@ -38,7 +38,7 @@ class SettingsIPTableViewCell: UITableViewCell {
             make.width.equalToSuperview().multipliedBy(0.35)
         }
         
-        nameTextField = ArkTextField(settings: true, placeHolder: "169.254.51.183")
+        nameTextField = ArkTextField(settings: true, placeHolder: "Custom Server")
         nameTextField.delegate = self
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         addSubview(nameTextField)
@@ -68,7 +68,7 @@ class SettingsIPTableViewCell: UITableViewCell {
 }
 
 // MARK: UITextFieldDelegate
-extension SettingsIPTableViewCell : UITextFieldDelegate {
+extension SettingsServerNameTableViewCell : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

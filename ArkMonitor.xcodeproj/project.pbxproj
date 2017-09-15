@@ -40,6 +40,7 @@
 		1656B5F71F6874EE006FCDE5 /* ArkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */; };
 		1656B5F91F687852006FCDE5 /* ArkNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */; };
 		165B94DF1F6B3BB7004CDE38 /* SettingsCustomServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B94DE1F6B3BB7004CDE38 /* SettingsCustomServerViewController.swift */; };
+		1676F48A1F6C3D1900364F37 /* ArkCopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1676F4891F6C3D1900364F37 /* ArkCopyableLabel.swift */; };
 		169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */; };
 		169FB77F1F67855800DDDBD9 /* HomeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */; };
 		169FB7811F6786B900DDDBD9 /* HomeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */; };
@@ -53,6 +54,7 @@
 		16A9AFF41F6AF08D001838ED /* SettingSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFF31F6AF08D001838ED /* SettingSelectionViewController.swift */; };
 		16A9AFF61F6AF703001838ED /* SettingSelectionPresetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFF51F6AF703001838ED /* SettingSelectionPresetTableViewCell.swift */; };
 		16A9AFF81F6AFB8E001838ED /* SettingsSelectionUsernameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9AFF71F6AFB8E001838ED /* SettingsSelectionUsernameTableViewCell.swift */; };
+		16BD42571F6C2681004280B1 /* SettingsServerNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BD42561F6C2681004280B1 /* SettingsServerNameTableViewCell.swift */; };
 		16D14DE71F6731C800C4B765 /* ArkActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DE61F6731C800C4B765 /* ArkActivityView.swift */; };
 		16D14DF01F6745CB00C4B765 /* ArkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D14DEF1F6745CB00C4B765 /* ArkColors.swift */; };
 		16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */; };
@@ -118,6 +120,7 @@
 		1656B5F61F6874EE006FCDE5 /* ArkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkDataManager.swift; sourceTree = "<group>"; };
 		1656B5F81F687852006FCDE5 /* ArkNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkNotificationManager.swift; sourceTree = "<group>"; };
 		165B94DE1F6B3BB7004CDE38 /* SettingsCustomServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCustomServerViewController.swift; sourceTree = "<group>"; };
+		1676F4891F6C3D1900364F37 /* ArkCopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkCopyableLabel.swift; sourceTree = "<group>"; };
 		169FB77C1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceTableViewCell.swift; sourceTree = "<group>"; };
 		169FB77E1F67855800DDDBD9 /* HomeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressTableViewCell.swift; sourceTree = "<group>"; };
 		169FB7801F6786B900DDDBD9 /* HomeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerTableViewCell.swift; sourceTree = "<group>"; };
@@ -131,6 +134,7 @@
 		16A9AFF31F6AF08D001838ED /* SettingSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSelectionViewController.swift; sourceTree = "<group>"; };
 		16A9AFF51F6AF703001838ED /* SettingSelectionPresetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSelectionPresetTableViewCell.swift; sourceTree = "<group>"; };
 		16A9AFF71F6AFB8E001838ED /* SettingsSelectionUsernameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectionUsernameTableViewCell.swift; sourceTree = "<group>"; };
+		16BD42561F6C2681004280B1 /* SettingsServerNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServerNameTableViewCell.swift; sourceTree = "<group>"; };
 		16D14DE61F6731C800C4B765 /* ArkActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkActivityView.swift; sourceTree = "<group>"; };
 		16D14DEF1F6745CB00C4B765 /* ArkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkColors.swift; sourceTree = "<group>"; };
 		16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 				1621496B1F69925800F33CAF /* tableviewcells */,
 				16A9AFF31F6AF08D001838ED /* SettingSelectionViewController.swift */,
 				165B94DE1F6B3BB7004CDE38 /* SettingsCustomServerViewController.swift */,
+				16BD42561F6C2681004280B1 /* SettingsServerNameTableViewCell.swift */,
 				162149701F69A19F00F33CAF /* SettingsSaveTableViewCell.swift */,
 				162149751F69A5C200F33CAF /* SettingsIPTableViewCell.swift */,
 				162149771F69A7C500F33CAF /* SettingsPortTableViewCell.swift */,
@@ -451,6 +456,7 @@
 				164919C61F68880B003A8B08 /* ArkTableView.swift */,
 				1621496C1F69957F00F33CAF /* ArkTextField.swift */,
 				16A9AFEF1F6A031C001838ED /* ArkViewController.swift */,
+				1676F4891F6C3D1900364F37 /* ArkCopyableLabel.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -609,6 +615,7 @@
 				1621496F1F69994900F33CAF /* SettingsServerTableViewCell.swift in Sources */,
 				16D9A3C01F675F8100AA0637 /* ArkConstants.swift in Sources */,
 				1656B5E61F683E38006FCDE5 /* VotersSectionHeader.swift in Sources */,
+				16BD42571F6C2681004280B1 /* SettingsServerNameTableViewCell.swift in Sources */,
 				16A9AFF01F6A031C001838ED /* ArkViewController.swift in Sources */,
 				9A103B831E719C6300621D88 /* Voters.swift in Sources */,
 				1632ED3F1F6B0AAB00A867B7 /* ArkCustomServerManager.swift in Sources */,
@@ -632,6 +639,7 @@
 				16D9A3C61F6776B500AA0637 /* HomeLastBlockTableViewCell.swift in Sources */,
 				16A9AFEC1F69E0C7001838ED /* UINavigationBar+Extension.swift in Sources */,
 				16A9AFF61F6AF703001838ED /* SettingSelectionPresetTableViewCell.swift in Sources */,
+				1676F48A1F6C3D1900364F37 /* ArkCopyableLabel.swift in Sources */,
 				169FB7831F67889B00DDDBD9 /* HomeVersionTableViewCell.swift in Sources */,
 				1621496A1F69925300F33CAF /* SettingsUsernameTableViewCell.swift in Sources */,
 				16D9A3C41F676F0800AA0637 /* HomeForgingTableViewCell.swift in Sources */,

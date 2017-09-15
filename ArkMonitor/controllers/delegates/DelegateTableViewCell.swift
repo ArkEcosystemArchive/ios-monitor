@@ -30,19 +30,19 @@ class DelegateTableViewCell: UITableViewCell {
             nameLabel.textColor         = ArkPalette.accentColor
             approvalLabel.textColor     = ArkPalette.accentColor
             productivityLabel.textColor = ArkPalette.accentColor
-            rankLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .medium)
-            nameLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .medium)
-            approvalLabel.font          = UIFont.systemFont(ofSize: 15.0, weight: .medium)
-            productivityLabel.font      = UIFont.systemFont(ofSize: 15.0, weight: .medium)
+            rankLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+            nameLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+            approvalLabel.font          = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+            productivityLabel.font      = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         } else {
             rankLabel.textColor         = ArkPalette.accentColor
             nameLabel.textColor         = ArkPalette.textColor
             approvalLabel.textColor     = ArkPalette.textColor
             productivityLabel.textColor = ArkPalette.textColor
-            rankLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .light)
-            nameLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .light)
-            approvalLabel.font          = UIFont.systemFont(ofSize: 15.0, weight: .light)
-            productivityLabel.font      = UIFont.systemFont(ofSize: 15.0, weight: .light)
+            rankLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+            nameLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+            approvalLabel.font          = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+            productivityLabel.font      = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         }
     }
     
@@ -55,7 +55,7 @@ class DelegateTableViewCell: UITableViewCell {
         rankLabel = UILabel()
         rankLabel.textColor = ArkPalette.accentColor
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .light)
+        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
@@ -66,7 +66,7 @@ class DelegateTableViewCell: UITableViewCell {
         nameLabel = UILabel()
         nameLabel.textColor = ArkPalette.textColor
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .light)
+        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
@@ -78,7 +78,7 @@ class DelegateTableViewCell: UITableViewCell {
         approvalLabel = UILabel()
         approvalLabel.textColor = ArkPalette.textColor
         approvalLabel.textAlignment = .center
-        approvalLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .light)
+        approvalLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(approvalLabel)
         
         approvalLabel.snp.makeConstraints { (make) in
@@ -90,7 +90,7 @@ class DelegateTableViewCell: UITableViewCell {
         productivityLabel = UILabel()
         productivityLabel.textColor = ArkPalette.textColor
         productivityLabel.textAlignment = .center
-        productivityLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .light)
+        productivityLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(productivityLabel)
         
         productivityLabel.snp.makeConstraints { (make) in

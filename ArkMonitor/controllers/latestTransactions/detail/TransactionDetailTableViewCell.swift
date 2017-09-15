@@ -10,16 +10,18 @@ import UIKit
 
 class TransactionDetailTableViewCell: UITableViewCell {
     
+    var titleLabel: ArkCopyableLabel!
+    
     init(_ title: String) {
         super.init(style: .default, reuseIdentifier: "detail")
         
         backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
-        let titleLabel           = UILabel()
+        titleLabel               = ArkCopyableLabel()
         titleLabel.text          = title
         titleLabel.textColor     = ArkPalette.highlightedTextColor
-        titleLabel.font          = UIFont.systemFont(ofSize: 14.0, weight: .light)
+        titleLabel.font          = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         titleLabel.textAlignment = .left
         titleLabel.adjustsFontSizeToFitWidth = true
         addSubview(titleLabel)
