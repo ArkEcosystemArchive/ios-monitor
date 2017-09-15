@@ -20,6 +20,8 @@
 		1632ED411F6B0F0700A867B7 /* SettingSelectionCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1632ED401F6B0F0700A867B7 /* SettingSelectionCustomTableViewCell.swift */; };
 		163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */; };
 		163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */; };
+		1647B0CF1F6C79BC008D4BD8 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647B0CE1F6C79BC008D4BD8 /* PreferencesViewController.swift */; };
+		1647B0D11F6C7BA2008D4BD8 /* DarkModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647B0D01F6C7BA2008D4BD8 /* DarkModeTableViewCell.swift */; };
 		164919C71F68880B003A8B08 /* ArkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164919C61F68880B003A8B08 /* ArkTableView.swift */; };
 		1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */; };
 		1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */; };
@@ -98,6 +100,8 @@
 		1632ED401F6B0F0700A867B7 /* SettingSelectionCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSelectionCustomTableViewCell.swift; sourceTree = "<group>"; };
 		163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerSectionHeader.swift; sourceTree = "<group>"; };
 		163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
+		1647B0CE1F6C79BC008D4BD8 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		1647B0D01F6C7BA2008D4BD8 /* DarkModeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeTableViewCell.swift; sourceTree = "<group>"; };
 		164919C61F68880B003A8B08 /* ArkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTableView.swift; sourceTree = "<group>"; };
 		1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockViewController.swift; sourceTree = "<group>"; };
 		1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockSectionHeader.swift; sourceTree = "<group>"; };
@@ -363,6 +367,8 @@
 			isa = PBXGroup;
 			children = (
 				16D9A3BB1F67521C00AA0637 /* HomeViewController.swift */,
+				1647B0CE1F6C79BC008D4BD8 /* PreferencesViewController.swift */,
+				1647B0D01F6C7BA2008D4BD8 /* DarkModeTableViewCell.swift */,
 				169FB7841F678A2300DDDBD9 /* TableView cells */,
 			);
 			path = home;
@@ -629,6 +635,7 @@
 				16D9A3C41F676F0800AA0637 /* HomeForgingTableViewCell.swift in Sources */,
 				9A103B801E719C6300621D88 /* Status.swift in Sources */,
 				1656B5F41F687287006FCDE5 /* TransactionDetailTableViewCell.swift in Sources */,
+				1647B0D11F6C7BA2008D4BD8 /* DarkModeTableViewCell.swift in Sources */,
 				169FB78C1F679AFF00DDDBD9 /* DelegateViewController.swift in Sources */,
 				163EB5991F67AA42001074F2 /* PeerSectionHeader.swift in Sources */,
 				9A103B7F1E719C6300621D88 /* Settings.swift in Sources */,
@@ -652,6 +659,7 @@
 				169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */,
 				16A9AFEE1F69EA29001838ED /* UIImage+Extension.swift in Sources */,
 				1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */,
+				1647B0CF1F6C79BC008D4BD8 /* PreferencesViewController.swift in Sources */,
 				9A103B841E719C6300621D88 /* Votes.swift in Sources */,
 				9A103B7E1E719C6300621D88 /* PeerVersion.swift in Sources */,
 				165B94DF1F6B3BB7004CDE38 /* SettingsCustomServerViewController.swift in Sources */,

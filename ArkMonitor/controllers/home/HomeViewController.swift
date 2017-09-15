@@ -18,7 +18,7 @@ class HomeViewController: ArkViewController {
     fileprivate var peerVersion : PeerVersion = PeerVersion()
     fileprivate var block       : Block       = Block()
     
-    fileprivate var tableView      : ArkTableView!
+    fileprivate var tableView   : ArkTableView!
     
     private var balance         : Double?
     private var arkBTCValue     : Double?
@@ -40,7 +40,6 @@ class HomeViewController: ArkViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
-            make.top.equalTo(10.0)
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(homeUpdateNotificationRecieved), name: NSNotification.Name(rawValue: ArkNotifications.homeUpdated.rawValue), object: nil)
@@ -85,8 +84,8 @@ class HomeViewController: ArkViewController {
     }
     
     @objc private func settingsButtonTapped() {
-        //let settingsVC = SettingViewController()
-       // navigationController?.pushViewController(settingsVC, animated: true)
+        let settingsVC = PreferencesViewController()
+        navigationController?.pushViewController(settingsVC, animated: true)
     }
     
     @objc private func homeUpdateNotificationRecieved() {

@@ -24,9 +24,6 @@ class MainTabViewController: UITabBarController, UITabBarControllerDelegate {
         let nav1 = UINavigationController(rootViewController: homeViewController)
         nav1.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "homeUnfilled"), selectedImage: #imageLiteral(resourceName: "homeFilled"))
         
-        
-        //let forgedBlocksViewController =  ForgedBlockViewController()
-        
         let settingVC = SettingSelectionViewController()
         let nav2 = UINavigationController(rootViewController: settingVC)
         nav2.tabBarItem = UITabBarItem(title: "Server", image: #imageLiteral(resourceName: "hammerUnfilled"), selectedImage: #imageLiteral(resourceName: "hammerFilled"))

@@ -30,11 +30,12 @@ class ArkViewController: UIViewController {
     }
     
     @objc public func colorsUpdated() {
+        
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ArkPalette.accentColor]
         }
         navigationController?.navigationBar.barTintColor  = ArkPalette.secondaryBackgroundColor
-        navigationController?.navigationBar.tintColor     = ArkPalette.textColor
+        navigationController?.navigationBar.tintColor     = ArkPalette.accentColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: ArkPalette.accentColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20.0)]
         tabBarController?.tabBar.tintColor                = ArkPalette.accentColor
         tabBarController?.tabBar.unselectedItemTintColor  = ArkPalette.textColor

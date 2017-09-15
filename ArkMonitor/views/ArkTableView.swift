@@ -59,15 +59,24 @@ class ArkTableView: UITableView, UIGestureRecognizerDelegate {
         
         if translation > 100.0 && isDarkMode == false {
             isDarkMode = true
+            selectionChangedHaptic()
         }
         
         if translation < -100.0 && isDarkMode == true {
             isDarkMode = false
+            selectionChangedHaptic()
         }  
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return false
+    }
+    
+    private func selectionChangedHaptic() {
+        if #available(iOS 10, *) {
+            let feedbackGenerator = UISelectionFeedbackGenerator()
+            feedbackGenerator.selectionChanged()
+        }
     }
 }
 
