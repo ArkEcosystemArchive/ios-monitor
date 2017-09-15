@@ -1,21 +1,22 @@
 //
-//  TransactionDetailViewController.swift
+//  DelegateDetailViewController.swift
 //  ArkMonitor
 //
-//  Created by Andrew on 2017-09-12.
+//  Created by Andrew on 2017-09-15.
 //  Copyright © 2017 vrlc92. All rights reserved.
 //
 
 import UIKit
 
-class TransactionDetailViewController: ArkViewController {
+class DelegateDetailViewController: ArkViewController {
+
+    fileprivate let delegate  : Delegate
+    fileprivate var tableView : ArkTableView!
     
-    fileprivate let transaction : Transaction
-    fileprivate var tableView   : ArkTableView!
-    
-    init(_ transaction: Transaction) {
-        self.transaction = transaction
+    init(_ delegate: Delegate) {
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,8 +26,8 @@ class TransactionDetailViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Detail"
-
+        navigationItem.title = delegate.username
+        
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate       = self
         tableView.dataSource     = self
@@ -45,7 +46,7 @@ class TransactionDetailViewController: ArkViewController {
 }
 
 // MARK: UITableViewDelegate
-extension TransactionDetailViewController : UITableViewDelegate {
+extension DelegateDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40.0
@@ -62,19 +63,21 @@ extension TransactionDetailViewController : UITableViewDelegate {
         
         switch section {
         case 0:
-            headerLabel.text = "Transaction ID"
+            headerLabel.text = "Address"
         case 1:
-            headerLabel.text = "Time"
+            headerLabel.text = "Public Key"
         case 2:
-            headerLabel.text = "From"
+            headerLabel.text = "Votes"
         case 3:
-            headerLabel.text = "To"
+            headerLabel.text = "Produced Blocks"
         case 4:
-            headerLabel.text = "Amount"
+            headerLabel.text = "Missed Blocks"
         case 5:
-            headerLabel.text = "Fee"
+            headerLabel.text = "Rank"
+        case 6:
+            headerLabel.text = "Productivity"
         default:
-            headerLabel.text = "Confirmations"
+            headerLabel.text = "Approval"
         }
         headerView.addSubview(headerLabel)
         
@@ -100,10 +103,10 @@ extension TransactionDetailViewController : UITableViewDelegate {
 }
 
 // MARK: UITableViewDelegate
-extension TransactionDetailViewController : UITableViewDataSource {
+extension DelegateDetailViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return 8
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,19 +119,25 @@ extension TransactionDetailViewController : UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            titleString = transaction.id
+            titleString = delegate.address
         case 1:
-            titleString = Utils.getTimeAgo(timestamp: Double(transaction.timestamp))
+            titleString = delegate.publicKey
         case 2:
-            titleString = transaction.senderId
+            if let voteInt = Int64(delegate.vote) {
+                titleString = String(Utils.convertToArkBase(value: voteInt))
+            } else {
+                titleString = delegate.vote
+            }
         case 3:
-            titleString = transaction.recipientId
+            titleString = String(delegate.producedblocks)
         case 4:
-            titleString = String(Utils.convertToArkBase(value: transaction.amount))
+            titleString = String(delegate.missedblocks)
         case 5:
-            titleString = String(Utils.convertToArkBase(value: Int64(transaction.fee)))
+            titleString = String(delegate.rate)
+        case 6:
+            titleString = String(delegate.productivity) + "%"
         default:
-            titleString = String(transaction.confirmations)
+            titleString = String(delegate.approval) + "%"
         }
         
         let cell = TransactionDetailTableViewCell(titleString)

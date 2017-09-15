@@ -10,6 +10,8 @@ import UIKit
 
 class DelegateTableViewCell: UITableViewCell {
     
+    var delegate = Delegate()
+    
     var rankLabel         : UILabel!
     var nameLabel         : UILabel!
     var approvalLabel     : UILabel!
@@ -17,6 +19,7 @@ class DelegateTableViewCell: UITableViewCell {
     var seperator         : UIView!
     
     public func update(_ delegate: Delegate) {
+        self.delegate          = delegate
         rankLabel.text         = String(delegate.rate)
         nameLabel.text         = delegate.username
         approvalLabel.text     = String(delegate.approval) + "%"

@@ -98,6 +98,13 @@ extension DelegateViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? DelegateTableViewCell {
+            let vc = DelegateDetailViewController(cell.delegate)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 // MARK: UITableViewDatasource
