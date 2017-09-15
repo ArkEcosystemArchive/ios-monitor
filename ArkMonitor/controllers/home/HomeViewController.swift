@@ -85,8 +85,8 @@ class HomeViewController: ArkViewController {
     }
     
     @objc private func settingsButtonTapped() {
-        let settingsVC = SettingViewController()
-        navigationController?.pushViewController(settingsVC, animated: true)
+        //let settingsVC = SettingViewController()
+       // navigationController?.pushViewController(settingsVC, animated: true)
     }
     
     @objc private func homeUpdateNotificationRecieved() {

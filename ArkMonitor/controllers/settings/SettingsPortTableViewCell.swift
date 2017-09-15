@@ -39,7 +39,7 @@ class SettingsPortTableViewCell: UITableViewCell {
             make.width.equalToSuperview().multipliedBy(0.35)
         }
         
-        nameTextField = ArkTextField(settings: true, placeHolder: "8080")
+        nameTextField = ArkTextField(settings: true, placeHolder: "4001")
         nameTextField.keyboardType = .numberPad
         nameTextField.delegate = self
         nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)

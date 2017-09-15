@@ -12,6 +12,7 @@ class MiscViewController: ArkViewController {
     
     fileprivate var segmentControl : UISegmentedControl!
     fileprivate var tableView      : ArkTableView!
+    fileprivate var spacerView     : UIView!
     
     let items = ["Peers", "Votes", "Voters"]
     
@@ -24,7 +25,7 @@ class MiscViewController: ArkViewController {
         
         navigationItem.title = items[0]
 
-        let spacerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+        spacerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
         spacerView.backgroundColor = ArkPalette.secondaryBackgroundColor
         
         segmentControl = UISegmentedControl(items: items)
@@ -64,7 +65,10 @@ class MiscViewController: ArkViewController {
     override func colorsUpdated() {
         super.colorsUpdated()
         tableView.reloadData()
-        tableView.backgroundColor = ArkPalette.backgroundColor
+        tableView.backgroundColor  = ArkPalette.backgroundColor
+        spacerView.backgroundColor = ArkPalette.secondaryBackgroundColor
+        segmentControl.tintColor   = ArkPalette.accentColor
+
     }
     
     @objc private func loadData() {

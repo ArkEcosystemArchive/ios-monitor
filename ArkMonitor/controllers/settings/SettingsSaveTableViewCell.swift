@@ -26,7 +26,7 @@ class SettingsSaveTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         saveButton = UIButton()
-        saveButton.title("Save", color: ArkPalette.highlightedTextColor)
+        saveButton.title("Save", color: UIColor.white)
         saveButton.setBackgroundColor(ArkPalette.accentColor, forState: UIControlState())
         saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .semibold)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
