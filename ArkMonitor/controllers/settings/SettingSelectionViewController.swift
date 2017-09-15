@@ -69,9 +69,9 @@ extension SettingSelectionViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 60.0
+            return 65
         }
-        return 40.0
+        return 50.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -306,7 +306,14 @@ extension SettingSelectionViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, index) in
-            //
+            
+            guard let cell = tableView.cellForRow(at: indexPath) as? SettingSelectionCustomTableViewCell else {
+                return
+            }
+            
+            self.customServers.remove(object: cell.server)
+            ArkCustomServerManager.remove(cell.server)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
         delete.backgroundColor = ArkPalette.accentColor
