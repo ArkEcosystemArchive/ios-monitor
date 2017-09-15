@@ -151,6 +151,15 @@ extension MiscViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ArkHaptics.selectionChanged()
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? VotesTableViewCell {
+            let vc = DelegateDetailViewController(cell.vote)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 // MARK: UITableViewDatasource

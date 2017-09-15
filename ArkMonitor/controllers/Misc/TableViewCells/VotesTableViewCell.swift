@@ -14,6 +14,7 @@ class VotesTableViewCell: UITableViewCell {
     var nameLabel    : UILabel!
     var addressLabel : UILabel!
     var seperator    : UIView!
+    var vote = Delegate()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -71,6 +72,7 @@ class VotesTableViewCell: UITableViewCell {
     }
     
     public func update(_ votes: Delegate) {
+        self.vote        = votes
         rankLabel.text    = String(votes.rate)
         nameLabel.text    = votes.username
         addressLabel.text = votes.address
