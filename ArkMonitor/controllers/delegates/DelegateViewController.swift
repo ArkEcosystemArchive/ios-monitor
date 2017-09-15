@@ -100,6 +100,7 @@ extension DelegateViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ArkHaptics.selectionChanged()
         if let cell = tableView.cellForRow(at: indexPath) as? DelegateTableViewCell {
             let vc = DelegateDetailViewController(cell.delegate)
             navigationController?.pushViewController(vc, animated: true)

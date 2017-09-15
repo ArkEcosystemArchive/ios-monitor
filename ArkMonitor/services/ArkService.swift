@@ -522,9 +522,7 @@ class ArkService: NSObject {
             case .success(let JSON):
                 
                 let response = JSON as! NSDictionary
-                
-                print(response)
-                
+                                
                 let success = response.object(forKey: "success")! as! Bool
                 
                 if (success) {

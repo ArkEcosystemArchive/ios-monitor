@@ -47,4 +47,8 @@ class MainTabViewController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         viewController.viewDidAppear(true)
     }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        ArkHaptics.selectionChanged()
+    }
 }

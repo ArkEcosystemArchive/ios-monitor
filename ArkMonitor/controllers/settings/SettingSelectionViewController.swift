@@ -120,6 +120,7 @@ extension SettingSelectionViewController : UITableViewDelegate {
         
         if let _ = tableView.cellForRow(at: indexPath) as? SettingsSelectionAddServerTableViewCell {
             let customServerVC = SettingsCustomServerViewController()
+            ArkHaptics.selectionChanged()
             navigationController?.pushViewController(customServerVC, animated: true)
         }
     }
@@ -153,7 +154,7 @@ extension SettingSelectionViewController : UITableViewDelegate {
     
     private func updateServer() {
         if currentMode == .custom {
-            
+            updateCustom()
         } else {
             updatePreset()
         }
@@ -164,6 +165,7 @@ extension SettingSelectionViewController : UITableViewDelegate {
             return
         }
         
+        ArkHaptics.selectionChanged()
         currentMode = mode
         updatePreset()
     }
@@ -174,6 +176,7 @@ extension SettingSelectionViewController : UITableViewDelegate {
             return
         }
         
+        ArkHaptics.selectionChanged()
         currentCustom = server
         ArkCustomServerManager.CurrentCustomServer = server
         updateCustom()

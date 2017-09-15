@@ -22,8 +22,8 @@
 		163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */; };
 		1647B0CF1F6C79BC008D4BD8 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647B0CE1F6C79BC008D4BD8 /* PreferencesViewController.swift */; };
 		1647B0D11F6C7BA2008D4BD8 /* DarkModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647B0D01F6C7BA2008D4BD8 /* DarkModeTableViewCell.swift */; };
+		1647B0D31F6C810B008D4BD8 /* ArkHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647B0D21F6C810B008D4BD8 /* ArkHaptics.swift */; };
 		164919C71F68880B003A8B08 /* ArkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164919C61F68880B003A8B08 /* ArkTableView.swift */; };
-		1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */; };
 		1656B5DB1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */; };
 		1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */; };
 		1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */; };
@@ -102,8 +102,8 @@
 		163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerTableViewCell.swift; sourceTree = "<group>"; };
 		1647B0CE1F6C79BC008D4BD8 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		1647B0D01F6C7BA2008D4BD8 /* DarkModeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeTableViewCell.swift; sourceTree = "<group>"; };
+		1647B0D21F6C810B008D4BD8 /* ArkHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkHaptics.swift; sourceTree = "<group>"; };
 		164919C61F68880B003A8B08 /* ArkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTableView.swift; sourceTree = "<group>"; };
-		1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockViewController.swift; sourceTree = "<group>"; };
 		1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockSectionHeader.swift; sourceTree = "<group>"; };
 		1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgedBlockTableViewCell.swift; sourceTree = "<group>"; };
 		1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +230,7 @@
 		1656B5E11F683BCF006FCDE5 /* Section Headers */ = {
 			isa = PBXGroup;
 			children = (
+				1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */,
 				163EB5981F67AA42001074F2 /* PeerSectionHeader.swift */,
 				1656B5E31F683D34006FCDE5 /* VotesSectionHeader.swift */,
 				1656B5E51F683E38006FCDE5 /* VotersSectionHeader.swift */,
@@ -240,6 +241,7 @@
 		1656B5E21F683BD7006FCDE5 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */,
 				163EB59A1F67ABC2001074F2 /* PeerTableViewCell.swift */,
 				1656B5E71F683FA2006FCDE5 /* VotesTableViewCell.swift */,
 				1656B5E91F6840EA006FCDE5 /* VotersTableViewCell.swift */,
@@ -337,7 +339,6 @@
 				9A103B091E719C6300621D88 /* delegates */,
 				9A103B181E719C6300621D88 /* latestTransactions */,
 				1656B5E01F68345F006FCDE5 /* Misc */,
-				9A103B0F1E719C6300621D88 /* forgedBlocks */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -351,16 +352,6 @@
 				1676F48B1F6C484100364F37 /* DelegateDetailViewController.swift */,
 			);
 			path = delegates;
-			sourceTree = "<group>";
-		};
-		9A103B0F1E719C6300621D88 /* forgedBlocks */ = {
-			isa = PBXGroup;
-			children = (
-				1656B5D81F682FE4006FCDE5 /* ForgedBlockViewController.swift */,
-				1656B5DA1F6830AF006FCDE5 /* ForgedBlockSectionHeader.swift */,
-				1656B5DC1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift */,
-			);
-			path = forgedBlocks;
 			sourceTree = "<group>";
 		};
 		9A103B151E719C6300621D88 /* home */ = {
@@ -446,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				164919C61F68880B003A8B08 /* ArkTableView.swift */,
+				1647B0D21F6C810B008D4BD8 /* ArkHaptics.swift */,
 				1621496C1F69957F00F33CAF /* ArkTextField.swift */,
 				16A9AFEF1F6A031C001838ED /* ArkViewController.swift */,
 				1676F4891F6C3D1900364F37 /* ArkCopyableLabel.swift */,
@@ -652,7 +644,6 @@
 				1656B5F21F686F9C006FCDE5 /* TransactionDetailViewController.swift in Sources */,
 				9A103B851E719C6300621D88 /* ExchangeService.swift in Sources */,
 				1656B5EA1F6840EA006FCDE5 /* VotersTableViewCell.swift in Sources */,
-				1656B5D91F682FE4006FCDE5 /* ForgedBlockViewController.swift in Sources */,
 				162149711F69A19F00F33CAF /* SettingsSaveTableViewCell.swift in Sources */,
 				1632ED3D1F6AFFAA00A867B7 /* SettingsSelectionAddServerTableViewCell.swift in Sources */,
 				9A103B7A1E719C6300621D88 /* Block.swift in Sources */,
@@ -663,6 +654,7 @@
 				9A103B841E719C6300621D88 /* Votes.swift in Sources */,
 				9A103B7E1E719C6300621D88 /* PeerVersion.swift in Sources */,
 				165B94DF1F6B3BB7004CDE38 /* SettingsCustomServerViewController.swift in Sources */,
+				1647B0D31F6C810B008D4BD8 /* ArkHaptics.swift in Sources */,
 				163EB59B1F67ABC2001074F2 /* PeerTableViewCell.swift in Sources */,
 				1656B5E41F683D34006FCDE5 /* VotesSectionHeader.swift in Sources */,
 			);

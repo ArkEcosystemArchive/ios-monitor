@@ -1,5 +1,5 @@
 //
-//  ForgedBlockSectionHeader.swift
+//  ForgedBlockTableViewCell.swift
 //  ArkMonitor
 //
 //  Created by Andrew on 2017-09-12.
@@ -8,18 +8,24 @@
 
 import UIKit
 
-class ForgedBlockSectionHeader: UIView {
+class ForgedBlockTableViewCell: UITableViewCell {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    var heightLabel  : UILabel!
+    var timeLabel    : UILabel!
+    var feeLabel     : UILabel!
+    var rewardLabel  : UILabel!
+    var seperator    : UIView!
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = ArkPalette.backgroundColor
+        backgroundColor = ArkPalette.secondaryBackgroundColor
+        selectionStyle  = .none
         
-        let heightLabel = UILabel()
+        heightLabel = UILabel()
         heightLabel.textColor = ArkPalette.textColor
-        heightLabel.text = "Height"
         heightLabel.textAlignment = .center
-        heightLabel.font = UIFont.systemFont(ofSize: 15.0)
+        heightLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(heightLabel)
         
         heightLabel.snp.makeConstraints { (make) in
@@ -27,11 +33,10 @@ class ForgedBlockSectionHeader: UIView {
             make.width.equalToSuperview().multipliedBy(0.3)
         }
         
-        let timeLabel = UILabel()
+        timeLabel = UILabel()
         timeLabel.textColor = ArkPalette.textColor
-        timeLabel.text = "Time"
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 15.0)
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -40,11 +45,10 @@ class ForgedBlockSectionHeader: UIView {
             make.width.equalToSuperview().multipliedBy(0.3)
         }
         
-        let feeLabel = UILabel()
+        feeLabel = UILabel()
         feeLabel.textColor = ArkPalette.textColor
-        feeLabel.text = "Fee"
         feeLabel.textAlignment = .center
-        feeLabel.font = UIFont.systemFont(ofSize: 15.0)
+        feeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(feeLabel)
         
         feeLabel.snp.makeConstraints { (make) in
@@ -53,11 +57,10 @@ class ForgedBlockSectionHeader: UIView {
             make.width.equalToSuperview().multipliedBy(0.2)
         }
         
-        let rewardLabel = UILabel()
+        rewardLabel = UILabel()
         rewardLabel.textColor = ArkPalette.textColor
-        rewardLabel.text = "Reward"
         rewardLabel.textAlignment = .center
-        rewardLabel.font = UIFont.systemFont(ofSize: 15.0)
+        rewardLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(rewardLabel)
         
         rewardLabel.snp.makeConstraints { (make) in
@@ -66,7 +69,7 @@ class ForgedBlockSectionHeader: UIView {
             make.width.equalToSuperview().multipliedBy(0.2)
         }
         
-        let seperator = UIView()
+        seperator = UIView()
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
         addSubview(seperator)
         seperator.snp.makeConstraints { (make) in
@@ -77,5 +80,19 @@ class ForgedBlockSectionHeader: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func update(_ block: Block) {
+        heightLabel.text = String(block.height)
+        timeLabel.text   = Utils.getTimeAgo(timestamp: Double(block.timestamp))
+        feeLabel.text    = String(Utils.convertToArkBase(value: Int64(block.totalFee)))
+        rewardLabel.text = String(Utils.convertToArkBase(value: Int64(block.reward)))
+        
+        backgroundColor           = ArkPalette.secondaryBackgroundColor
+        heightLabel.textColor     = ArkPalette.textColor
+        timeLabel.textColor       = ArkPalette.textColor
+        feeLabel.textColor        = ArkPalette.textColor
+        rewardLabel.textColor     = ArkPalette.textColor
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
     }
 }

@@ -164,6 +164,8 @@ extension SettingsCustomServerViewController : SettingsSSLTableViewCellDelegate 
 extension SettingsCustomServerViewController : SettingsSaveTableViewCellDelegate {
     func saveCellButtonWasTapped(_ cell: SettingsSaveTableViewCell) {
         
+        ArkHaptics.selectionChanged()
+        
         guard let currentServerName = serverName else {
             ArkActivityView.showMessage("Server name cannot be blank")
             return

@@ -85,6 +85,7 @@ class HomeViewController: ArkViewController {
     
     @objc private func settingsButtonTapped() {
         let settingsVC = PreferencesViewController()
+        ArkHaptics.selectionChanged()
         navigationController?.pushViewController(settingsVC, animated: true)
     }
     

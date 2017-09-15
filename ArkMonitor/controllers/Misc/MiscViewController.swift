@@ -14,11 +14,13 @@ class MiscViewController: ArkViewController {
     fileprivate var tableView      : ArkTableView!
     fileprivate var spacerView     : UIView!
     
-    let items = ["Peers", "Votes", "Voters"]
+    let items = ["Blocks", "Peers", "Votes", "Voters"]
     
     var peers  : [Peer]     = []
     var votes  : [Delegate] = []
     var voters : [Account]  = []
+    var blocks : [Block]    = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +36,9 @@ class MiscViewController: ArkViewController {
         segmentControl.selectedSegmentIndex = 0
         spacerView.addSubview(segmentControl)
         segmentControl.snp.makeConstraints { (make) in
-            make.width.equalTo(250.0)
-            make.centerX.top.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.equalTo(25.0)
+            make.right.equalToSuperview().offset(-25.0)
             make.height.equalTo(30.0)
         }
         
@@ -50,6 +53,7 @@ class MiscViewController: ArkViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(miscInfoUpdatedNotification), name: NSNotification.Name(rawValue: ArkNotifications.delegatesUpdated.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(miscInfoUpdatedNotification), name: NSNotification.Name(rawValue: ArkNotifications.forgedBlocksUpdated.rawValue), object: nil)
     }
     
     deinit {
@@ -83,10 +87,12 @@ class MiscViewController: ArkViewController {
         peers = ArkDataManager.Misc.peers
         votes = ArkDataManager.Misc.votes
         voters = ArkDataManager.Misc.voters
+        blocks = ArkDataManager.ForgedBlocks.blocks
         tableView.reloadData()
     }
     
     @objc private func segmentSelected(sender: UISegmentedControl) {
+        ArkHaptics.selectionChanged()
         navigationItem.title = items[sender.selectedSegmentIndex]
         tableView.reloadData()
     }
@@ -102,9 +108,12 @@ extension MiscViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch segmentControl.selectedSegmentIndex {
         case 0:
-            let header = PeerSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+            let header = ForgedBlockSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
             return header
         case 1:
+            let header = PeerSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+            return header
+        case 2:
             let header = VotesSectionHeader(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
             return header
         default:
@@ -129,6 +138,10 @@ extension MiscViewController : UITableViewDelegate {
         if let aCell = cell as? VotersTableViewCell {
             aCell.update(voters[indexPath.row])
         }
+        
+        if let aCell = cell as? ForgedBlockTableViewCell {
+            aCell.update(blocks[indexPath.row])
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -150,8 +163,10 @@ extension MiscViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentControl.selectedSegmentIndex {
         case 0:
-            return peers.count
+            return blocks.count
         case 1:
+            return peers.count
+        case 2:
             return votes.count
         default:
             return voters.count
@@ -161,12 +176,18 @@ extension MiscViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch segmentControl.selectedSegmentIndex {
         case 0:
+            var cell = tableView.dequeueReusableCell(withIdentifier: "block") as? ForgedBlockTableViewCell
+            if cell == nil {
+                cell = ForgedBlockTableViewCell(style: .default, reuseIdentifier: "block")
+            }
+            return cell!
+        case 1:
             var cell = tableView.dequeueReusableCell(withIdentifier: "peer") as? PeerTableViewCell
             if cell == nil {
                 cell = PeerTableViewCell(style: .default, reuseIdentifier: "peer")
             }
             return cell!
-        case 1:
+        case 2:
             var cell = tableView.dequeueReusableCell(withIdentifier: "votes") as? VotesTableViewCell
             if cell == nil {
                 cell = VotesTableViewCell(style: .default, reuseIdentifier: "votes")

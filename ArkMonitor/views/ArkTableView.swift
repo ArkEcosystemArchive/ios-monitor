@@ -40,7 +40,8 @@ class ArkTableView: UITableView, UIGestureRecognizerDelegate {
         if visibleCells.isEmpty == true {
             let emptyBackgroundView = UIView(frame: frame)
             let emptyLabel = UILabel()
-            emptyLabel.textColor = ArkPalette.highlightedTextColor
+            emptyLabel.textColor = ArkPalette.textColor
+            emptyLabel.font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
             emptyLabel.textAlignment = .center
             emptyLabel.text = "No data available"
             emptyBackgroundView.addSubview(emptyLabel)
@@ -59,24 +60,17 @@ class ArkTableView: UITableView, UIGestureRecognizerDelegate {
         
         if translation > 100.0 && isDarkMode == false {
             isDarkMode = true
-            selectionChangedHaptic()
+            ArkHaptics.selectionChanged()
         }
         
         if translation < -100.0 && isDarkMode == true {
             isDarkMode = false
-            selectionChangedHaptic()
-        }  
+            ArkHaptics.selectionChanged()
+        }
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return false
-    }
-    
-    private func selectionChangedHaptic() {
-        if #available(iOS 10, *) {
-            let feedbackGenerator = UISelectionFeedbackGenerator()
-            feedbackGenerator.selectionChanged()
-        }
     }
 }
 

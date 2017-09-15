@@ -97,6 +97,7 @@ extension LastestTransactionsViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ArkHaptics.selectionChanged()
         let vc = TransactionDetailViewController(transactions[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
