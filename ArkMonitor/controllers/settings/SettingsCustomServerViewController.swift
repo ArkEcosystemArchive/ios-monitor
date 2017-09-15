@@ -31,6 +31,12 @@ class SettingsCustomServerViewController: ArkViewController {
             make.left.right.top.bottom.equalToSuperview()
         }
     }
+    
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableview.reloadData()
+        tableview.backgroundColor = ArkPalette.backgroundColor
+    }
 }
 
 // MARK: UITableViewDelegate

@@ -46,6 +46,12 @@ class SettingSelectionViewController: ArkViewController {
         loadSettings()
     }
     
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableview.reloadData()
+        tableview.backgroundColor = ArkPalette.backgroundColor
+    }
+    
     private func loadSettings() {
         settings    = Settings.getSettings()
         currentMode = settings.serverType

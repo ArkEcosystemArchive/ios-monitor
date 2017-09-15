@@ -42,7 +42,7 @@ class MainTabViewController: UITabBarController {
         let nav5 = UINavigationController(rootViewController: miscViewController)
         nav5.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "moreUnfilled"), selectedImage: #imageLiteral(resourceName: "moreFilled"))
 
-        viewControllers = [nav1, nav2, nav3, nav4, nav5]
+        viewControllers = [nav1, nav2, nav4, nav3, nav5]
     }
 
 }
