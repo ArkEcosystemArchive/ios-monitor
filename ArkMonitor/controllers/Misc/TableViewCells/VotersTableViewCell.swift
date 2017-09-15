@@ -25,36 +25,37 @@ class VotersTableViewCell: UITableViewCell {
         usernameLabel = UILabel()
         usernameLabel.textColor = ArkPalette.textColor
         usernameLabel.textAlignment = .center
-        usernameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        usernameLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(usernameLabel)
         
         usernameLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth / 6.0)
         }
         
         addressLabel = UILabel()
         addressLabel.textColor = ArkPalette.textColor
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalTo(usernameLabel.snp.right)
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth / 2.0)
         }
         
         balanceLabel = UILabel()
         balanceLabel.textColor = ArkPalette.textColor
         balanceLabel.textAlignment = .center
-        balanceLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        balanceLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(balanceLabel)
         
         balanceLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalTo(addressLabel.snp.right)
-            make.width.equalToSuperview().dividedBy(3.0)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth * 5.0 / 6.0)
         }
         
         seperator = UIView()

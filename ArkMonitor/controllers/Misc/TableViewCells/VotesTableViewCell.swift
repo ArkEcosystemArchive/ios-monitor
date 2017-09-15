@@ -24,36 +24,37 @@ class VotesTableViewCell: UITableViewCell {
         rankLabel = UILabel()
         rankLabel.textColor = ArkPalette.textColor
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        rankLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth / 6.0)
         }
         
         nameLabel = UILabel()
         nameLabel.textColor = ArkPalette.textColor
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalTo(rankLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.4)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth / 2.0)
         }
         
         addressLabel = UILabel()
         addressLabel.textColor = ArkPalette.textColor
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalTo(nameLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.4)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth * 5.0 / 6.0)
         }
         
         seperator = UIView()

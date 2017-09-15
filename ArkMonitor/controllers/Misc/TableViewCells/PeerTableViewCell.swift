@@ -24,36 +24,37 @@ class PeerTableViewCell: UITableViewCell {
         ipLabel = UILabel()
         ipLabel.textColor = ArkPalette.textColor
         ipLabel.textAlignment = .center
-        ipLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        ipLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(ipLabel)
         
         ipLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.4)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth / 6.0)
         }
         
         portLabel = UILabel()
         portLabel.textColor = ArkPalette.textColor
         portLabel.textAlignment = .center
-        portLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        portLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(portLabel)
         
         portLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalTo(ipLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.3)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth / 2.0)
         }
         
         versionLabel = UILabel()
         versionLabel.textColor = ArkPalette.textColor
         versionLabel.textAlignment = .center
-        versionLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        versionLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         addSubview(versionLabel)
         
         versionLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalTo(portLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.3)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth * 5.0 / 6.0)
         }
         
         seperator = UIView()
