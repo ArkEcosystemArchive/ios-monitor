@@ -12,8 +12,8 @@ class VotersSectionHeader: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = ArkPalette.secondaryBackgroundColor
-        
+        backgroundColor = ArkPalette.backgroundColor
+
         let usernameLabel = UILabel()
         usernameLabel.textColor = ArkPalette.highlightedTextColor
         usernameLabel.text = "Username"
@@ -52,7 +52,13 @@ class VotersSectionHeader: UIView {
             make.width.equalToSuperview().dividedBy(3.0)
         }
         
-
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

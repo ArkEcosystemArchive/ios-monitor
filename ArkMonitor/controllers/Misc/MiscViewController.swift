@@ -13,6 +13,8 @@ class MiscViewController: ArkViewController {
     fileprivate var segmentControl : UISegmentedControl!
     fileprivate var tableView      : ArkTableView!
     
+    let items = ["Peers", "Votes", "Voters"]
+    
     var peers  : [Peer]     = []
     var votes  : [Delegate] = []
     var voters : [Account]  = []
@@ -20,16 +22,26 @@ class MiscViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let items = ["Peers", "Votes", "Voters"]
+        navigationItem.title = items[0]
+
+        let spacerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 35.0))
+        spacerView.backgroundColor = ArkPalette.secondaryBackgroundColor
+        
         segmentControl = UISegmentedControl(items: items)
-        segmentControl.frame.size = CGSize(width: 250.0, height: 30.0)
         segmentControl.addTarget(self, action: #selector(segmentSelected(sender:)), for: .valueChanged)
-        navigationItem.titleView = segmentControl
+        segmentControl.tintColor = ArkPalette.accentColor
         segmentControl.selectedSegmentIndex = 0
+        spacerView.addSubview(segmentControl)
+        segmentControl.snp.makeConstraints { (make) in
+            make.width.equalTo(250.0)
+            make.centerX.top.equalToSuperview()
+            make.height.equalTo(30.0)
+        }
         
         tableView            = ArkTableView(frame: CGRect.zero)
         tableView.delegate   = self
         tableView.dataSource = self
+        tableView.tableHeaderView = spacerView
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
@@ -71,6 +83,7 @@ class MiscViewController: ArkViewController {
     }
     
     @objc private func segmentSelected(sender: UISegmentedControl) {
+        navigationItem.title = items[sender.selectedSegmentIndex]
         tableView.reloadData()
     }
 }

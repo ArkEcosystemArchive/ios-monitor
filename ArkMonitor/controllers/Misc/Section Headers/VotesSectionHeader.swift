@@ -12,8 +12,8 @@ class VotesSectionHeader: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = ArkPalette.secondaryBackgroundColor
-        
+        backgroundColor = ArkPalette.backgroundColor
+
         let rankLabel = UILabel()
         rankLabel.textColor = ArkPalette.highlightedTextColor
         rankLabel.text = "Rank"
@@ -50,6 +50,14 @@ class VotesSectionHeader: UIView {
             make.top.bottom.equalToSuperview()
             make.left.equalTo(nameLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.4)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

@@ -13,13 +13,13 @@ class PeerSectionHeader: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = ArkPalette.secondaryBackgroundColor
-        
+        backgroundColor = ArkPalette.backgroundColor
+
         let ipLabel = UILabel()
-        ipLabel.textColor = ArkPalette.highlightedTextColor
+        ipLabel.textColor = ArkPalette.textColor
         ipLabel.text = "Ip Address"
         ipLabel.textAlignment = .center
-        ipLabel.font = UIFont.systemFont(ofSize: 14.0)
+        ipLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(ipLabel)
         
         ipLabel.snp.makeConstraints { (make) in
@@ -28,10 +28,10 @@ class PeerSectionHeader: UIView {
         }
         
         let portLabel = UILabel()
-        portLabel.textColor = ArkPalette.highlightedTextColor
+        portLabel.textColor = ArkPalette.textColor
         portLabel.text = "Port"
         portLabel.textAlignment = .center
-        portLabel.font = UIFont.systemFont(ofSize: 14.0)
+        portLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(portLabel)
         
         portLabel.snp.makeConstraints { (make) in
@@ -41,16 +41,24 @@ class PeerSectionHeader: UIView {
         }
         
         let versionLabel = UILabel()
-        versionLabel.textColor = ArkPalette.highlightedTextColor
+        versionLabel.textColor = ArkPalette.textColor
         versionLabel.text = "Version"
         versionLabel.textAlignment = .center
-        versionLabel.font = UIFont.systemFont(ofSize: 14.0)
+        versionLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         addSubview(versionLabel)
         
         versionLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(portLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

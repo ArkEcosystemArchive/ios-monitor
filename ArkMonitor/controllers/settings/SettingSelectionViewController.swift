@@ -35,14 +35,6 @@ class SettingSelectionViewController: ArkViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         customServers = ArkCustomServerManager.CustomServers
-        
-        if let currentCustomServer  = ArkCustomServerManager.CurrentCustomServer {
-            if settings.serverType == .custom {
-                self.currentCustom = currentCustomServer
-            } else {
-                ArkCustomServerManager.CurrentCustomServer = nil
-            }
-        }
         loadSettings()
     }
     
@@ -56,6 +48,14 @@ class SettingSelectionViewController: ArkViewController {
         settings    = Settings.getSettings()
         currentMode = settings.serverType
         username    = settings.username
+        
+        if let currentCustomServer  = ArkCustomServerManager.CurrentCustomServer {
+            if settings.serverType == .custom {
+                self.currentCustom = currentCustomServer
+            } else {
+                ArkCustomServerManager.CurrentCustomServer = nil
+            }
+        }
         tableview.reloadData()
     }
 }
@@ -134,7 +134,8 @@ extension SettingSelectionViewController : UITableViewDelegate {
             }
         }
         
-        if let aCell = cell as? SettingSelectionCustomTableViewCell {
+        if let aCell = cell as? SettingSelectionCustomTableViewCell,
+            currentMode == .custom {
             if let currentCustomServer = self.currentCustom {
                 if currentCustomServer == aCell.server {
                     aCell.setServerSelction(true)
@@ -274,6 +275,7 @@ extension SettingSelectionViewController {
                     selfReference.settings = settings
                     Settings.saveSettings(settings: settings)
                     ArkDataManager.shared.updateData()
+                    ArkCustomServerManager.CurrentCustomServer = currentServer
                     ArkActivityView.showSuccessMessage("Settings successfully updated")
                 }
             } else {
@@ -314,6 +316,7 @@ extension SettingSelectionViewController : UITableViewDataSource {
             self.customServers.remove(object: cell.server)
             ArkCustomServerManager.remove(cell.server)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            ArkActivityView.showSuccessMessage("Successfully removed server")
         }
         
         delete.backgroundColor = ArkPalette.accentColor

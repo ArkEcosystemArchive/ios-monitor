@@ -8,11 +8,13 @@
 
 import UIKit
 
-class MainTabViewController: UITabBarController {
+class MainTabViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        delegate                       = self
         tabBar.tintColor               = ArkPalette.accentColor
         tabBar.unselectedItemTintColor = ArkPalette.textColor
         tabBar.barTintColor            = ArkPalette.secondaryBackgroundColor
@@ -44,5 +46,8 @@ class MainTabViewController: UITabBarController {
 
         viewControllers = [nav1, nav2, nav4, nav3, nav5]
     }
-
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        viewController.viewDidAppear(true)
+    }
 }
