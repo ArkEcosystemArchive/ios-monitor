@@ -73,6 +73,14 @@ class DelegateSectionHeaderView: UIView {
             make.left.right.bottom.equalToSuperview()
             make.height.equalTo(0.5)
         }
+        
+        let seperator2 = UIView()
+        seperator2.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator2)
+        seperator2.snp.makeConstraints { (make) in
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(0.5)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

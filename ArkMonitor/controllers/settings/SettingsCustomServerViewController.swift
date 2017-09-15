@@ -66,8 +66,14 @@ extension SettingsCustomServerViewController: UITableViewDelegate {
         let seperator = UIView(frame: CGRect(x: 0.0, y: 39.5, width: _screenWidth, height: 0.5))
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
         
+        let seperator2 = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 0.5))
+        seperator2.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        headerView.addSubview(seperator2)
+        
         headerView.addSubview(seperator)
-        return headerView    }
+        return headerView
+        
+    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude

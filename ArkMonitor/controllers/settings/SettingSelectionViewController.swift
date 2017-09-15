@@ -85,6 +85,9 @@ extension SettingSelectionViewController : UITableViewDelegate {
         
         if section == 0 {
             headerLabel.text = "Username"
+            let seperator2 = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 0.5))
+            seperator2.backgroundColor = ArkPalette.tertiaryBackgroundColor
+            headerView.addSubview(seperator2)
         } else {
             headerLabel.text = "Select Server"
         }
