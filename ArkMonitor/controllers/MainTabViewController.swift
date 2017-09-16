@@ -13,7 +13,6 @@ class MainTabViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         delegate                       = self
         tabBar.tintColor               = ArkPalette.accentColor
         tabBar.unselectedItemTintColor = ArkPalette.textColor
