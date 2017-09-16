@@ -224,6 +224,14 @@
 			path = "Peer Detail";
 			sourceTree = "<group>";
 		};
+		160238681F6CE4CB00169371 /* Voter Detail */ = {
+			isa = PBXGroup;
+			children = (
+				160238661F6CE2CC00169371 /* VotersDetailViewController.swift */,
+			);
+			path = "Voter Detail";
+			sourceTree = "<group>";
+		};
 		160D7DF31F68B8BE009544F5 /* tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */,
-				160238661F6CE2CC00169371 /* VotersDetailViewController.swift */,
+				160238681F6CE4CB00169371 /* Voter Detail */,
 				160238651F6CE2B300169371 /* Peer Detail */,
 				160238621F6CDFAB00169371 /* Block Detail */,
 				1656B5E11F683BCF006FCDE5 /* Section Headers */,
