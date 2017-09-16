@@ -1,5 +1,5 @@
 //
-//  PeerDetailViewController.swift
+//  VotersDetailViewController.swift
 //  ArkMonitor
 //
 //  Created by Andrew on 2017-09-15.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class PeerDetailViewController: ArkViewController {
-
-    fileprivate let peer      : Peer
+class VotersDetailViewController: ArkViewController {
+    
+    fileprivate let voter     : Account
     fileprivate var tableView : ArkTableView!
     
-    init(_ peer: Peer) {
-        self.peer = peer
+    init(_ voter: Account) {
+        self.voter = voter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,7 +45,7 @@ class PeerDetailViewController: ArkViewController {
 }
 
 // MARK: UITableViewDelegate
-extension PeerDetailViewController : UITableViewDelegate {
+extension VotersDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40.0
@@ -62,15 +62,13 @@ extension PeerDetailViewController : UITableViewDelegate {
         
         switch section {
         case 0:
-            headerLabel.text = "IP Address"
+            headerLabel.text = "Username"
         case 1:
-            headerLabel.text = "Port"
+            headerLabel.text = "IP Address"
         case 2:
-            headerLabel.text = "Status"
-        case 3:
-            headerLabel.text = "Version"
+            headerLabel.text = "Public Key"
         default:
-            headerLabel.text = "Operating System"
+            headerLabel.text = "Balance"
         }
         
         headerView.addSubview(headerLabel)
@@ -83,6 +81,9 @@ extension PeerDetailViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 2 {
+            return 60.0
+        }
         return 40.0
     }
     
@@ -97,10 +98,10 @@ extension PeerDetailViewController : UITableViewDelegate {
 }
 
 // MARK: UITableViewDelegate
-extension PeerDetailViewController : UITableViewDataSource {
+extension VotersDetailViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,15 +115,14 @@ extension PeerDetailViewController : UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            titleString = peer.ip
+            titleString = voter.username
         case 1:
-            titleString = String(peer.port)
+            titleString = voter.address
         case 2:
-            titleString = peer.status
-        case 3:
-            titleString = peer.version
+            titleString = voter.publicKey
+            numberOfLines = 2
         default:
-            titleString = peer.os
+            titleString = String(Utils.convertToArkBase(value: voter.balance))
         }
         
         let cell = BlockDetailTableViewCell(titleString, numberOfLines: numberOfLines)

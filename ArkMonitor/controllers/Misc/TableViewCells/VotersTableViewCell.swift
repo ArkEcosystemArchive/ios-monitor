@@ -14,6 +14,7 @@ class VotersTableViewCell: UITableViewCell {
     var balanceLabel  : UILabel!
     var addressLabel  : UILabel!
     var seperator    : UIView!
+    var voter = Account()
 
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -72,6 +73,7 @@ class VotersTableViewCell: UITableViewCell {
     }
     
     public func update(_ voters: Account) {
+        self.voter = voters
         usernameLabel.text = voters.username
         addressLabel.text  = voters.address
         balanceLabel.text  = String(Utils.convertToArkBase(value: voters.balance))
