@@ -66,7 +66,7 @@ public struct ArkPalette {
     
     static public var textColor: UIColor {
         if isDarkMode == false {
-            return UIColor(r: 144, g: 143, b: 139)
+            return UIColor(r: 123, g: 123, b: 130)
         } else {
             return UIColor(r: 119, g: 119, b: 125)
         }

@@ -28,7 +28,7 @@ class MiscViewController: ArkViewController {
         navigationItem.title = items[0]
 
         spacerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
-        spacerView.backgroundColor = ArkPalette.secondaryBackgroundColor
+        spacerView.backgroundColor = ArkPalette.navigationBarColor
         
         segmentControl = UISegmentedControl(items: items)
         segmentControl.addTarget(self, action: #selector(segmentSelected(sender:)), for: .valueChanged)
@@ -70,7 +70,7 @@ class MiscViewController: ArkViewController {
         super.colorsUpdated()
         tableView.reloadData()
         tableView.backgroundColor  = ArkPalette.backgroundColor
-        spacerView.backgroundColor = ArkPalette.secondaryBackgroundColor
+        spacerView.backgroundColor = ArkPalette.navigationBarColor
         segmentControl.tintColor   = ArkPalette.accentColor
 
     }
