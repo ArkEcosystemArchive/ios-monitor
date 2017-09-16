@@ -164,6 +164,11 @@ extension MiscViewController : UITableViewDelegate {
             let vc = BlockDetailViewController(cell.block)
             navigationController?.pushViewController(vc, animated: true)
         }
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? PeerTableViewCell {
+            let vc = PeerDetailViewController(cell.peer)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

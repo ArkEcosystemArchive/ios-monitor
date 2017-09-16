@@ -1,5 +1,5 @@
 //
-//  BlockDetailViewController.swift
+//  PeerDetailViewController.swift
 //  ArkMonitor
 //
 //  Created by Andrew on 2017-09-15.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-class BlockDetailViewController: ArkViewController {
-    
-    fileprivate let block     : Block
+class PeerDetailViewController: ArkViewController {
+
+    fileprivate let peer      : Peer
     fileprivate var tableView : ArkTableView!
     
-    init(_ block: Block) {
-        self.block = block
+    init(_ peer: Peer) {
+        self.peer = peer
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,10 +36,16 @@ class BlockDetailViewController: ArkViewController {
             make.left.right.top.bottom.equalToSuperview()
         }
     }
+    
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableView.reloadData()
+        tableView.backgroundColor = ArkPalette.backgroundColor
+    }
 }
 
 // MARK: UITableViewDelegate
-extension BlockDetailViewController : UITableViewDelegate {
+extension PeerDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40.0
@@ -56,28 +62,17 @@ extension BlockDetailViewController : UITableViewDelegate {
         
         switch section {
         case 0:
-            headerLabel.text = "Block ID"
+            headerLabel.text = "IP Address"
         case 1:
-            headerLabel.text = "Height"
+            headerLabel.text = "Port"
         case 2:
-            headerLabel.text = "Previous Block"
+            headerLabel.text = "Status"
         case 3:
-            headerLabel.text = "Number of Transactions"
-        case 4:
-            headerLabel.text = "Total Amount"
-        case 5:
-            headerLabel.text = "Total Fee"
-        case 6:
-            headerLabel.text = "Rewards Fee"
-        case 7:
-            headerLabel.text = "Payload Length"
-        case 8:
-            headerLabel.text = "Generator Public Key"
-        case 9:
-            headerLabel.text = "Block Signature"
+            headerLabel.text = "Version"
         default:
-            headerLabel.text = "Confirmations"
+            headerLabel.text = "Operating System"
         }
+        
         headerView.addSubview(headerLabel)
         
         let seperator = UIView(frame: CGRect(x: 0.0, y: 39.5, width: _screenWidth, height: 0.5))
@@ -88,11 +83,6 @@ extension BlockDetailViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 8  {
-            return 60.0
-        } else if indexPath.section == 9 {
-            return 90.0
-        }
         return 40.0
     }
     
@@ -107,10 +97,10 @@ extension BlockDetailViewController : UITableViewDelegate {
 }
 
 // MARK: UITableViewDelegate
-extension BlockDetailViewController : UITableViewDataSource {
+extension PeerDetailViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 11
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,30 +114,17 @@ extension BlockDetailViewController : UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            titleString = String(block.id)
+            titleString = peer.ip
         case 1:
-            titleString = String(block.height)
+            titleString = String(peer.port)
         case 2:
-            titleString = block.previousBlock
+            titleString = peer.status
         case 3:
-            titleString = String(block.numberOfTransactions)
-        case 4:
-            titleString = String(Utils.convertToArkBase(value: Int64(block.totalAmount)))
-        case 5:
-            titleString = String(Utils.convertToArkBase(value: Int64(block.totalFee)))
-        case 6:
-            titleString = String(Utils.convertToArkBase(value: Int64(block.reward)))
-        case 7:
-            titleString = String(block.payloadLength)
-        case 8:
-            titleString   = block.generatorPublicKey
-            numberOfLines = 2
-        case 9:
-            titleString = block.blockSignature
-            numberOfLines = 4
+            titleString = peer.version
         default:
-            titleString = String(block.confirmations)
+            titleString = peer.os
         }
+        
         let cell = BlockDetailTableViewCell(titleString, numberOfLines: numberOfLines)
         return cell
     }

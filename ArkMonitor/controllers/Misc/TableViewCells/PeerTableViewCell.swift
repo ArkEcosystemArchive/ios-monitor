@@ -14,6 +14,7 @@ class PeerTableViewCell: UITableViewCell {
     var portLabel    : UILabel!
     var versionLabel : UILabel!
     var seperator    : UIView!
+    var peer = Peer()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -73,6 +74,7 @@ class PeerTableViewCell: UITableViewCell {
     }
     
     public func update(_ peer: Peer) {
+        self.peer = peer
         ipLabel.text = peer.ip
         portLabel.text =  String(peer.port)
         versionLabel.text = peer.version
