@@ -25,7 +25,7 @@ class SettingSelectionPresetTableViewCell: UITableViewCell {
         nameLabel = UILabel()
         nameLabel.textAlignment = .left
         nameLabel.textColor = ArkPalette.highlightedTextColor
-        nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
             make.right.top.bottom.equalToSuperview()
@@ -65,7 +65,7 @@ class SettingSelectionPresetTableViewCell: UITableViewCell {
         let checkImage = #imageLiteral(resourceName: "serverCheck")
         check.image = checkImage.maskWithColor(color: ArkPalette.accentColor)
         if isCurrentServer == true {
-            nameLabel.textColor = ArkPalette.highlightedTextColor
+            nameLabel.textColor = ArkPalette.accentColor
             check.isHidden = false
         } else {
             nameLabel.textColor = ArkPalette.highlightedTextColor

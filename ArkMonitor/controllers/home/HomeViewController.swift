@@ -151,7 +151,7 @@ extension HomeViewController: UITableViewDelegate {
         headerView.backgroundColor = ArkPalette.backgroundColor
         
         let headerLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
-        headerLabel.font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
+        headerLabel.font = UIFont.systemFont(ofSize: 18.0, weight:  ArkPalette.fontWeight)
         headerLabel.textColor = ArkPalette.textColor
         headerLabel.textAlignment = .center
         

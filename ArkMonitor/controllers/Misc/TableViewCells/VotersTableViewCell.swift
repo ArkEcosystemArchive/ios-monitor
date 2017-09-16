@@ -23,9 +23,9 @@ class VotersTableViewCell: UITableViewCell {
         selectionStyle  = .none
         
         usernameLabel = UILabel()
-        usernameLabel.textColor = ArkPalette.textColor
+        usernameLabel.textColor = ArkPalette.highlightedTextColor
         usernameLabel.textAlignment = .center
-        usernameLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        usernameLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(usernameLabel)
         
         usernameLabel.snp.makeConstraints { (make) in
@@ -35,9 +35,9 @@ class VotersTableViewCell: UITableViewCell {
         }
         
         addressLabel = UILabel()
-        addressLabel.textColor = ArkPalette.textColor
+        addressLabel.textColor = ArkPalette.highlightedTextColor
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in
@@ -47,9 +47,9 @@ class VotersTableViewCell: UITableViewCell {
         }
         
         balanceLabel = UILabel()
-        balanceLabel.textColor = ArkPalette.textColor
+        balanceLabel.textColor = ArkPalette.highlightedTextColor
         balanceLabel.textAlignment = .center
-        balanceLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        balanceLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(balanceLabel)
         
         balanceLabel.snp.makeConstraints { (make) in
@@ -75,5 +75,17 @@ class VotersTableViewCell: UITableViewCell {
         usernameLabel.text = voters.username
         addressLabel.text  = voters.address
         balanceLabel.text  = String(Utils.convertToArkBase(value: voters.balance))
+        
+        usernameLabel.textColor = ArkPalette.highlightedTextColor
+        addressLabel.textColor = ArkPalette.highlightedTextColor
+        balanceLabel.textColor = ArkPalette.highlightedTextColor
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+
+        backgroundColor = ArkPalette.secondaryBackgroundColor
+
+        
+        usernameLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        balanceLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
     }
 }

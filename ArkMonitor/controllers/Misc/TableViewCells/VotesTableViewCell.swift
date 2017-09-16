@@ -23,9 +23,9 @@ class VotesTableViewCell: UITableViewCell {
         selectionStyle  = .none
         
         rankLabel = UILabel()
-        rankLabel.textColor = ArkPalette.textColor
+        rankLabel.textColor = ArkPalette.highlightedTextColor
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        rankLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
@@ -35,9 +35,9 @@ class VotesTableViewCell: UITableViewCell {
         }
         
         nameLabel = UILabel()
-        nameLabel.textColor = ArkPalette.textColor
+        nameLabel.textColor = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
@@ -47,9 +47,9 @@ class VotesTableViewCell: UITableViewCell {
         }
         
         addressLabel = UILabel()
-        addressLabel.textColor = ArkPalette.textColor
+        addressLabel.textColor = ArkPalette.highlightedTextColor
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in
@@ -76,5 +76,17 @@ class VotesTableViewCell: UITableViewCell {
         rankLabel.text    = String(votes.rate)
         nameLabel.text    = votes.username
         addressLabel.text = votes.address
+        
+        rankLabel.textColor = ArkPalette.highlightedTextColor
+        nameLabel.textColor = ArkPalette.highlightedTextColor
+        addressLabel.textColor = ArkPalette.highlightedTextColor
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+
+        backgroundColor = ArkPalette.secondaryBackgroundColor
+
+        rankLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        nameLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        
     }
 }

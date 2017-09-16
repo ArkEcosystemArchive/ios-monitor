@@ -21,7 +21,7 @@ class ArkTextField: UITextField {
         tintColor = ArkPalette.accentColor
         placeholder = placeHolder
         placeHolderTextColor = ArkPalette.textColor
-        font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
+        font = UIFont.systemFont(ofSize: 18.0, weight:  ArkPalette.fontWeight)
     }
     
     init(placeHolder: String) {
@@ -35,7 +35,7 @@ class ArkTextField: UITextField {
         tintColor = ArkPalette.accentColor
         placeholder = placeHolder
         placeHolderTextColor = ArkPalette.textColor
-        font = UIFont.systemFont(ofSize: 22.0, weight: .semibold)
+        font = UIFont.systemFont(ofSize: 22.0, weight:  ArkPalette.fontWeight)
     }
     
     

@@ -22,8 +22,8 @@ class HomeTableViewCell: UITableViewCell {
         
         descriptionLabel = UILabel()
         descriptionLabel.textAlignment = .left
-        descriptionLabel.textColor = ArkPalette.textColor
-        descriptionLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
+        descriptionLabel.textColor = ArkPalette.highlightedTextColor
+        descriptionLabel.font = UIFont.systemFont(ofSize: 16.0, weight:  ArkPalette.fontWeight)
         descriptionLabel.adjustsFontSizeToFitWidth = true
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { (make) in
@@ -34,8 +34,8 @@ class HomeTableViewCell: UITableViewCell {
         
         valueLabel = ArkCopyableLabel()
         valueLabel.textAlignment = .right
-        valueLabel.textColor = ArkPalette.highlightedTextColor
-        valueLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
+        valueLabel.textColor = ArkPalette.accentColor
+        valueLabel.font = UIFont.systemFont(ofSize: 16.0, weight:  ArkPalette.fontWeight)
 
         addSubview(valueLabel)
         valueLabel.snp.makeConstraints { (make) in

@@ -16,10 +16,10 @@ class MiscViewController: ArkViewController {
     
     let items = ["Blocks", "Peers", "Votes", "Voters"]
     
+    var blocks : [Block]    = []
     var peers  : [Peer]     = []
     var votes  : [Delegate] = []
     var voters : [Account]  = []
-    var blocks : [Block]    = []
 
 
     override func viewDidLoad() {

@@ -30,7 +30,7 @@ class SettingsPortTableViewCell: UITableViewCell {
         nameLabel.text          = "Port"
         nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
-        nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in

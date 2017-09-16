@@ -41,7 +41,7 @@ class ArkTableView: UITableView, UIGestureRecognizerDelegate {
             let emptyBackgroundView = UIView(frame: frame)
             let emptyLabel = UILabel()
             emptyLabel.textColor = ArkPalette.textColor
-            emptyLabel.font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
+            emptyLabel.font = UIFont.systemFont(ofSize: 18.0, weight:  ArkPalette.fontWeight)
             emptyLabel.textAlignment = .center
             emptyLabel.text = "No data available"
             emptyBackgroundView.addSubview(emptyLabel)

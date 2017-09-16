@@ -19,7 +19,7 @@ class DelegateSectionHeaderView: UIView {
         rankLabel.textColor = ArkPalette.textColor
         rankLabel.text = "Rank"
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
@@ -31,7 +31,7 @@ class DelegateSectionHeaderView: UIView {
         nameLabel.textColor = ArkPalette.textColor
         nameLabel.text = "Username"
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
@@ -44,7 +44,7 @@ class DelegateSectionHeaderView: UIView {
         approvalLabel.textColor = ArkPalette.textColor
         approvalLabel.text = "Approval"
         approvalLabel.textAlignment = .center
-        approvalLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        approvalLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(approvalLabel)
         
         approvalLabel.snp.makeConstraints { (make) in
@@ -57,7 +57,7 @@ class DelegateSectionHeaderView: UIView {
         productivityLabel.textColor = ArkPalette.textColor
         productivityLabel.text = "Productivity"
         productivityLabel.textAlignment = .center
-        productivityLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        productivityLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(productivityLabel)
         
         productivityLabel.snp.makeConstraints { (make) in

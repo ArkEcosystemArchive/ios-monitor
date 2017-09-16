@@ -19,7 +19,7 @@ class PeerSectionHeader: UIView {
         ipLabel.textColor = ArkPalette.textColor
         ipLabel.text = "Ip Address"
         ipLabel.textAlignment = .center
-        ipLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        ipLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(ipLabel)
         
         ipLabel.snp.makeConstraints { (make) in
@@ -31,7 +31,7 @@ class PeerSectionHeader: UIView {
         portLabel.textColor = ArkPalette.textColor
         portLabel.text = "Port"
         portLabel.textAlignment = .center
-        portLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        portLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(portLabel)
         
         portLabel.snp.makeConstraints { (make) in
@@ -44,7 +44,7 @@ class PeerSectionHeader: UIView {
         versionLabel.textColor = ArkPalette.textColor
         versionLabel.text = "Version"
         versionLabel.textAlignment = .center
-        versionLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        versionLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(versionLabel)
         
         versionLabel.snp.makeConstraints { (make) in

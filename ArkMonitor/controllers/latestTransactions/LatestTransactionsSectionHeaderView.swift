@@ -19,7 +19,7 @@ class LatestTransactionsSectionHeaderView: UIView {
         timeLabel.textColor = ArkPalette.textColor
         timeLabel.textAlignment = .center
         timeLabel.text = "Time"
-        timeLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        timeLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -31,7 +31,7 @@ class LatestTransactionsSectionHeaderView: UIView {
         idLabel.textColor = ArkPalette.textColor
         idLabel.textAlignment = .center
         idLabel.text = "Transaction Id"
-        idLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        idLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(idLabel)
         
         idLabel.snp.makeConstraints { (make) in

@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             UIApplication.shared.statusBarStyle = .default
         }
-        UINavigationBar.appearance().barTintColor  = ArkPalette.secondaryBackgroundColor
+        UINavigationBar.appearance().barTintColor  = ArkPalette.navigationBarColor
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor     = ArkPalette.accentColor
         UINavigationBar.appearance().shadowImage   = UIImage()

@@ -19,7 +19,7 @@ class ForgedBlockSectionHeader: UIView {
         heightLabel.textColor = ArkPalette.textColor
         heightLabel.text = "Height"
         heightLabel.textAlignment = .center
-        heightLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        heightLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(heightLabel)
         
         heightLabel.snp.makeConstraints { (make) in
@@ -31,7 +31,7 @@ class ForgedBlockSectionHeader: UIView {
         timeLabel.textColor = ArkPalette.textColor
         timeLabel.text = "Time"
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        timeLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -44,7 +44,7 @@ class ForgedBlockSectionHeader: UIView {
         feeLabel.textColor = ArkPalette.textColor
         feeLabel.text = "Fee"
         feeLabel.textAlignment = .center
-        feeLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        feeLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(feeLabel)
         
         feeLabel.snp.makeConstraints { (make) in
@@ -57,7 +57,7 @@ class ForgedBlockSectionHeader: UIView {
         rewardLabel.textColor = ArkPalette.textColor
         rewardLabel.text = "Reward"
         rewardLabel.textAlignment = .center
-        rewardLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        rewardLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(rewardLabel)
         
         rewardLabel.snp.makeConstraints { (make) in

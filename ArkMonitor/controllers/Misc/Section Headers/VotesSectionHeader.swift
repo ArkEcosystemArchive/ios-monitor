@@ -18,7 +18,7 @@ class VotesSectionHeader: UIView {
         rankLabel.textColor = ArkPalette.textColor
         rankLabel.text = "Rank"
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
@@ -30,7 +30,7 @@ class VotesSectionHeader: UIView {
         nameLabel.textColor = ArkPalette.textColor
         nameLabel.text = "Username"
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
@@ -43,7 +43,7 @@ class VotesSectionHeader: UIView {
         addressLabel.textColor = ArkPalette.textColor
         addressLabel.text = "Address"
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        addressLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in

@@ -33,19 +33,19 @@ class DelegateTableViewCell: UITableViewCell {
             nameLabel.textColor         = ArkPalette.accentColor
             approvalLabel.textColor     = ArkPalette.accentColor
             productivityLabel.textColor = ArkPalette.accentColor
-            rankLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
-            nameLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
-            approvalLabel.font          = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
-            productivityLabel.font      = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+            rankLabel.font              = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
+            nameLabel.font              = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
+            approvalLabel.font          = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
+            productivityLabel.font      = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         } else {
             rankLabel.textColor         = ArkPalette.accentColor
-            nameLabel.textColor         = ArkPalette.textColor
-            approvalLabel.textColor     = ArkPalette.textColor
-            productivityLabel.textColor = ArkPalette.textColor
-            rankLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
-            nameLabel.font              = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
-            approvalLabel.font          = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
-            productivityLabel.font      = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+            nameLabel.textColor         = ArkPalette.highlightedTextColor
+            approvalLabel.textColor     = ArkPalette.highlightedTextColor
+            productivityLabel.textColor = ArkPalette.highlightedTextColor
+            rankLabel.font              = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
+            nameLabel.font              = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
+            approvalLabel.font          = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
+            productivityLabel.font      = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         }
     }
     
@@ -58,7 +58,7 @@ class DelegateTableViewCell: UITableViewCell {
         rankLabel = UILabel()
         rankLabel.textColor = ArkPalette.accentColor
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
@@ -67,9 +67,9 @@ class DelegateTableViewCell: UITableViewCell {
         }
         
         nameLabel = UILabel()
-        nameLabel.textColor = ArkPalette.textColor
+        nameLabel.textColor = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
@@ -79,9 +79,9 @@ class DelegateTableViewCell: UITableViewCell {
         }
         
         approvalLabel = UILabel()
-        approvalLabel.textColor = ArkPalette.textColor
+        approvalLabel.textColor = ArkPalette.highlightedTextColor
         approvalLabel.textAlignment = .center
-        approvalLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        approvalLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(approvalLabel)
         
         approvalLabel.snp.makeConstraints { (make) in
@@ -91,9 +91,9 @@ class DelegateTableViewCell: UITableViewCell {
         }
         
         productivityLabel = UILabel()
-        productivityLabel.textColor = ArkPalette.textColor
+        productivityLabel.textColor = ArkPalette.highlightedTextColor
         productivityLabel.textAlignment = .center
-        productivityLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        productivityLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(productivityLabel)
         
         productivityLabel.snp.makeConstraints { (make) in

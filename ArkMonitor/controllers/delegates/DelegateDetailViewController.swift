@@ -59,7 +59,7 @@ extension DelegateDetailViewController : UITableViewDelegate {
         let headerLabel = UILabel(frame: CGRect(x: 12.5, y: 0.0, width: _screenWidth - 12.5, height: 40.0))
         headerLabel.textColor = ArkPalette.textColor
         headerLabel.textAlignment = .center
-        headerLabel.font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
+        headerLabel.font = UIFont.systemFont(ofSize: 18.0, weight:  ArkPalette.fontWeight)
         
         switch section {
         case 0:

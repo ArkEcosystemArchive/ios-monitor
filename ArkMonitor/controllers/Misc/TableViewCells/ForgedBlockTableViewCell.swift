@@ -23,9 +23,9 @@ class ForgedBlockTableViewCell: UITableViewCell {
         selectionStyle  = .none
         
         heightLabel = UILabel()
-        heightLabel.textColor = ArkPalette.textColor
+        heightLabel.textColor = ArkPalette.highlightedTextColor
         heightLabel.textAlignment = .center
-        heightLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        heightLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(heightLabel)
         
         heightLabel.snp.makeConstraints { (make) in
@@ -34,9 +34,9 @@ class ForgedBlockTableViewCell: UITableViewCell {
         }
         
         timeLabel = UILabel()
-        timeLabel.textColor = ArkPalette.textColor
+        timeLabel.textColor = ArkPalette.highlightedTextColor
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -46,9 +46,9 @@ class ForgedBlockTableViewCell: UITableViewCell {
         }
         
         feeLabel = UILabel()
-        feeLabel.textColor = ArkPalette.textColor
+        feeLabel.textColor = ArkPalette.highlightedTextColor
         feeLabel.textAlignment = .center
-        feeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        feeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(feeLabel)
         
         feeLabel.snp.makeConstraints { (make) in
@@ -58,9 +58,9 @@ class ForgedBlockTableViewCell: UITableViewCell {
         }
         
         rewardLabel = UILabel()
-        rewardLabel.textColor = ArkPalette.textColor
+        rewardLabel.textColor = ArkPalette.highlightedTextColor
         rewardLabel.textAlignment = .center
-        rewardLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        rewardLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(rewardLabel)
         
         rewardLabel.snp.makeConstraints { (make) in
@@ -89,10 +89,16 @@ class ForgedBlockTableViewCell: UITableViewCell {
         rewardLabel.text = String(Utils.convertToArkBase(value: Int64(block.reward)))
         
         backgroundColor           = ArkPalette.secondaryBackgroundColor
-        heightLabel.textColor     = ArkPalette.textColor
-        timeLabel.textColor       = ArkPalette.textColor
-        feeLabel.textColor        = ArkPalette.textColor
-        rewardLabel.textColor     = ArkPalette.textColor
+        heightLabel.textColor     = ArkPalette.highlightedTextColor
+        timeLabel.textColor       = ArkPalette.highlightedTextColor
+        feeLabel.textColor        = ArkPalette.highlightedTextColor
+        rewardLabel.textColor     = ArkPalette.highlightedTextColor
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+                
+        heightLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        feeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        rewardLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+
     }
 }

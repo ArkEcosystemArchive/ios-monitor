@@ -22,9 +22,9 @@ class LatestTransactionTableViewCell: UITableViewCell {
         selectionStyle  = .none
         
         timeLabel = UILabel()
-        timeLabel.textColor = ArkPalette.textColor
+        timeLabel.textColor = ArkPalette.highlightedTextColor
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -33,9 +33,9 @@ class LatestTransactionTableViewCell: UITableViewCell {
         }
         
         idLabel = UILabel()
-        idLabel.textColor = ArkPalette.highlightedTextColor
+        idLabel.textColor = ArkPalette.accentColor
         idLabel.textAlignment = .center
-        idLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        idLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(idLabel)
         
         idLabel.snp.makeConstraints { (make) in
@@ -62,8 +62,12 @@ class LatestTransactionTableViewCell: UITableViewCell {
         timeLabel.text = Utils.getTimeAgo(timestamp: Double(transaction.timestamp))
         
         backgroundColor     = ArkPalette.secondaryBackgroundColor
-        timeLabel.textColor = ArkPalette.textColor
-        idLabel.textColor  = ArkPalette.highlightedTextColor
+        timeLabel.textColor = ArkPalette.highlightedTextColor
+        idLabel.textColor  = ArkPalette.accentColor
+        
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        idLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+
         seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
     }
 }

@@ -22,9 +22,9 @@ class PeerTableViewCell: UITableViewCell {
         selectionStyle  = .none
         
         ipLabel = UILabel()
-        ipLabel.textColor = ArkPalette.textColor
+        ipLabel.textColor = ArkPalette.highlightedTextColor
         ipLabel.textAlignment = .center
-        ipLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        ipLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(ipLabel)
         
         ipLabel.snp.makeConstraints { (make) in
@@ -34,9 +34,9 @@ class PeerTableViewCell: UITableViewCell {
         }
         
         portLabel = UILabel()
-        portLabel.textColor = ArkPalette.textColor
+        portLabel.textColor = ArkPalette.highlightedTextColor
         portLabel.textAlignment = .center
-        portLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        portLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(portLabel)
         
         portLabel.snp.makeConstraints { (make) in
@@ -46,9 +46,9 @@ class PeerTableViewCell: UITableViewCell {
         }
         
         versionLabel = UILabel()
-        versionLabel.textColor = ArkPalette.textColor
+        versionLabel.textColor = ArkPalette.highlightedTextColor
         versionLabel.textAlignment = .center
-        versionLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        versionLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(versionLabel)
         
         versionLabel.snp.makeConstraints { (make) in
@@ -80,6 +80,10 @@ class PeerTableViewCell: UITableViewCell {
 
         let state : PeerStatus = PeerStatus.fromState(state: peer.status)
         
+        ipLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        portLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        versionLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        
         switch state {
         case .banned:
             ipLabel.textColor      = UIColor.red
@@ -90,9 +94,9 @@ class PeerTableViewCell: UITableViewCell {
             portLabel.textColor    = UIColor(red: 255/255, green: 165/255, blue: 0/255, alpha: 1.0)
             versionLabel.textColor = UIColor(red: 255/255, green: 165/255, blue: 0/255, alpha: 1.0)
         default:
-            ipLabel.textColor      = ArkPalette.textColor
-            portLabel.textColor    = ArkPalette.textColor
-            versionLabel.textColor = ArkPalette.textColor
+            ipLabel.textColor      = ArkPalette.highlightedTextColor
+            portLabel.textColor    = ArkPalette.highlightedTextColor
+            versionLabel.textColor = ArkPalette.highlightedTextColor
             
         }
     }

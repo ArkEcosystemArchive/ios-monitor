@@ -20,8 +20,8 @@ class TransactionDetailTableViewCell: UITableViewCell {
         
         titleLabel               = ArkCopyableLabel()
         titleLabel.text          = title
-        titleLabel.textColor     = ArkPalette.highlightedTextColor
-        titleLabel.font          = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
+        titleLabel.textColor     = ArkPalette.accentColor
+        titleLabel.font          = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         titleLabel.textAlignment = .left
         titleLabel.adjustsFontSizeToFitWidth = true
         addSubview(titleLabel)
