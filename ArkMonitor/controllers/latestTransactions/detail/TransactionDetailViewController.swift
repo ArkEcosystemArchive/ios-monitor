@@ -63,6 +63,9 @@ extension TransactionDetailViewController : UITableViewDelegate {
         switch section {
         case 0:
             headerLabel.text = "Transaction ID"
+            let seperator2 = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 0.5))
+            seperator2.backgroundColor = ArkPalette.tertiaryBackgroundColor
+            headerView.addSubview(seperator2)
         case 1:
             headerLabel.text = "Time"
         case 2:
