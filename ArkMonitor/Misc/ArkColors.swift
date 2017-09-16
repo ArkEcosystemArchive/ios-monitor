@@ -82,7 +82,7 @@ public struct ArkPalette {
     
     static public var accentColor: UIColor {
         if isDarkMode == false {
-            return UIColor(r: 38, g: 160, b: 255)
+            return UIColor(r: 0, g: 104, b: 222)
         } else {
             return UIColor(r: 0, g: 191, b: 192)
         }
