@@ -1,32 +1,32 @@
 //
-//  TransactionDetailViewController.swift
+//  BlockDetailViewController.swift
 //  ArkMonitor
 //
-//  Created by Andrew on 2017-09-12.
+//  Created by Andrew on 2017-09-15.
 //  Copyright © 2017 vrlc92. All rights reserved.
 //
 
 import UIKit
 
-class TransactionDetailViewController: ArkViewController {
+class BlockDetailViewController: ArkViewController {
     
-    fileprivate let transaction : Transaction
-    fileprivate var tableView   : ArkTableView!
+    fileprivate let block     : Block
+    fileprivate var tableView : ArkTableView!
     
-    init(_ transaction: Transaction) {
-        self.transaction = transaction
+    init(_ block: Block) {
+        self.block = block
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Detail"
-
+        
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate       = self
         tableView.dataSource     = self
@@ -36,16 +36,10 @@ class TransactionDetailViewController: ArkViewController {
             make.left.right.top.bottom.equalToSuperview()
         }
     }
-    
-    override func colorsUpdated() {
-        super.colorsUpdated()
-        tableView.reloadData()
-        tableView.backgroundColor = ArkPalette.backgroundColor
-    }
 }
 
 // MARK: UITableViewDelegate
-extension TransactionDetailViewController : UITableViewDelegate {
+extension BlockDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40.0
@@ -62,17 +56,25 @@ extension TransactionDetailViewController : UITableViewDelegate {
         
         switch section {
         case 0:
-            headerLabel.text = "Transaction ID"
+            headerLabel.text = "Block ID"
         case 1:
-            headerLabel.text = "Time"
+            headerLabel.text = "Height"
         case 2:
-            headerLabel.text = "From"
+            headerLabel.text = "Previous Block"
         case 3:
-            headerLabel.text = "To"
+            headerLabel.text = "Number of Transactions"
         case 4:
-            headerLabel.text = "Amount"
+            headerLabel.text = "Total Amount"
         case 5:
-            headerLabel.text = "Fee"
+            headerLabel.text = "Total Fee"
+        case 6:
+            headerLabel.text = "Rewards Fee"
+        case 7:
+            headerLabel.text = "Payload Length"
+        case 8:
+            headerLabel.text = "Generator Public Key"
+        case 9:
+            headerLabel.text = "Block Signature"
         default:
             headerLabel.text = "Confirmations"
         }
@@ -86,8 +88,10 @@ extension TransactionDetailViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+        if indexPath.section == 8  {
             return 60.0
+        } else if indexPath.section == 9 {
+            return 90.0
         }
         return 40.0
     }
@@ -103,10 +107,10 @@ extension TransactionDetailViewController : UITableViewDelegate {
 }
 
 // MARK: UITableViewDelegate
-extension TransactionDetailViewController : UITableViewDataSource {
+extension BlockDetailViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return 11
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,24 +124,31 @@ extension TransactionDetailViewController : UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            titleString = transaction.id
-            numberOfLines = 2
+            titleString = String(block.id)
         case 1:
-            titleString = Utils.getTimeAgo(timestamp: Double(transaction.timestamp))
+            titleString = String(block.height)
         case 2:
-            titleString = transaction.senderId
+            titleString = block.previousBlock
         case 3:
-            titleString = transaction.recipientId
+            titleString = String(block.numberOfTransactions)
         case 4:
-            titleString = String(Utils.convertToArkBase(value: transaction.amount))
+            titleString = String(Utils.convertToArkBase(value: Int64(block.totalAmount)))
         case 5:
-            titleString = String(Utils.convertToArkBase(value: Int64(transaction.fee)))
+            titleString = String(Utils.convertToArkBase(value: Int64(block.totalFee)))
+        case 6:
+            titleString = String(Utils.convertToArkBase(value: Int64(block.reward)))
+        case 7:
+            titleString = String(block.payloadLength)
+        case 8:
+            titleString   = block.generatorPublicKey
+            numberOfLines = 2
+        case 9:
+            titleString = block.blockSignature
+            numberOfLines = 4
         default:
-            titleString = String(transaction.confirmations)
+            titleString = String(block.confirmations)
         }
-        
-        let cell = TransactionDetailTableViewCell(titleString, numberOfLines: numberOfLines)
+        let cell = BlockDetailTableViewCell(titleString, numberOfLines: numberOfLines)
         return cell
     }
 }
-

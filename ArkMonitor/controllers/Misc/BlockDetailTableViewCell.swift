@@ -1,14 +1,14 @@
 //
-//  TransactionDetailTableViewCell.swift
+//  BlockDetailTableViewCell.swift
 //  ArkMonitor
 //
-//  Created by Andrew on 2017-09-12.
+//  Created by Andrew on 2017-09-15.
 //  Copyright © 2017 vrlc92. All rights reserved.
 //
 
 import UIKit
 
-class TransactionDetailTableViewCell: UITableViewCell {
+class BlockDetailTableViewCell: UITableViewCell {
     
     var titleLabel: ArkCopyableLabel!
     

@@ -37,6 +37,7 @@ class VotesTableViewCell: UITableViewCell {
         nameLabel = UILabel()
         nameLabel.textColor = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .center
+        nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)
         

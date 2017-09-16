@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1602385F1F6CD30D00169371 /* BlockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1602385E1F6CD30C00169371 /* BlockDetailViewController.swift */; };
+		160238611F6CDB9B00169371 /* BlockDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160238601F6CDB9B00169371 /* BlockDetailTableViewCell.swift */; };
 		16089A041F679F4D0051E267 /* DelegateSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16089A031F679F4D0051E267 /* DelegateSectionHeaderView.swift */; };
 		16089A061F67A16A0051E267 /* DelegateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */; };
 		1621496D1F69957F00F33CAF /* ArkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621496C1F69957F00F33CAF /* ArkTextField.swift */; };
@@ -87,6 +89,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1602385E1F6CD30C00169371 /* BlockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockDetailViewController.swift; sourceTree = "<group>"; };
+		160238601F6CDB9B00169371 /* BlockDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockDetailTableViewCell.swift; sourceTree = "<group>"; };
 		16089A031F679F4D0051E267 /* DelegateSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateSectionHeaderView.swift; sourceTree = "<group>"; };
 		16089A051F67A16A0051E267 /* DelegateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTableViewCell.swift; sourceTree = "<group>"; };
 		1621496C1F69957F00F33CAF /* ArkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTextField.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				1656B5DE1F68345A006FCDE5 /* MiscViewController.swift */,
+				1602385E1F6CD30C00169371 /* BlockDetailViewController.swift */,
+				160238601F6CDB9B00169371 /* BlockDetailTableViewCell.swift */,
 				1656B5E11F683BCF006FCDE5 /* Section Headers */,
 				1656B5E21F683BD7006FCDE5 /* TableViewCells */,
 			);
@@ -609,6 +615,7 @@
 				9A103B861E719C6300621D88 /* ArkService.swift in Sources */,
 				9A103B891E719C6300621D88 /* Utils.swift in Sources */,
 				1656B5DD1F6831BF006FCDE5 /* ForgedBlockTableViewCell.swift in Sources */,
+				160238611F6CDB9B00169371 /* BlockDetailTableViewCell.swift in Sources */,
 				1632ED411F6B0F0700A867B7 /* SettingSelectionCustomTableViewCell.swift in Sources */,
 				16D9A3BC1F67521C00AA0637 /* HomeViewController.swift in Sources */,
 				1656B5EE1F685B71006FCDE5 /* LatestTransactionTableViewCell.swift in Sources */,
@@ -650,6 +657,7 @@
 				169FB77D1F6778B600DDDBD9 /* HomeBalanceTableViewCell.swift in Sources */,
 				16A9AFEE1F69EA29001838ED /* UIImage+Extension.swift in Sources */,
 				1656B5DF1F68345A006FCDE5 /* MiscViewController.swift in Sources */,
+				1602385F1F6CD30D00169371 /* BlockDetailViewController.swift in Sources */,
 				1647B0CF1F6C79BC008D4BD8 /* PreferencesViewController.swift in Sources */,
 				9A103B841E719C6300621D88 /* Votes.swift in Sources */,
 				9A103B7E1E719C6300621D88 /* PeerVersion.swift in Sources */,

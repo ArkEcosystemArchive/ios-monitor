@@ -89,7 +89,11 @@ extension DelegateDetailViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            return 60.0
+        }
         return 40.0
+        
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -115,13 +119,15 @@ extension DelegateDetailViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var titleString = ""
+        var titleString   = ""
+        var numberOfLines = 1
         
         switch indexPath.section {
         case 0:
             titleString = delegate.address
         case 1:
             titleString = delegate.publicKey
+            numberOfLines = 2
         case 2:
             if let voteInt = Int64(delegate.vote) {
                 titleString = String(Utils.convertToArkBase(value: voteInt))
@@ -140,7 +146,7 @@ extension DelegateDetailViewController : UITableViewDataSource {
             titleString = String(delegate.approval) + "%"
         }
         
-        let cell = TransactionDetailTableViewCell(titleString)
+        let cell = TransactionDetailTableViewCell(titleString, numberOfLines: numberOfLines)
         return cell
     }
 }

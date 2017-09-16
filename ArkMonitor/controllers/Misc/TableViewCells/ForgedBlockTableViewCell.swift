@@ -15,6 +15,7 @@ class ForgedBlockTableViewCell: UITableViewCell {
     var feeLabel     : UILabel!
     var rewardLabel  : UILabel!
     var seperator    : UIView!
+    var block        = Block()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -36,6 +37,7 @@ class ForgedBlockTableViewCell: UITableViewCell {
         timeLabel = UILabel()
         timeLabel.textColor = ArkPalette.highlightedTextColor
         timeLabel.textAlignment = .center
+        timeLabel.adjustsFontSizeToFitWidth = true
         timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(timeLabel)
         
@@ -83,6 +85,7 @@ class ForgedBlockTableViewCell: UITableViewCell {
     }
     
     public func update(_ block: Block) {
+        self.block = block
         heightLabel.text = String(block.height)
         timeLabel.text   = Utils.getTimeAgo(timestamp: Double(block.timestamp))
         feeLabel.text    = String(Utils.convertToArkBase(value: Int64(block.totalFee)))

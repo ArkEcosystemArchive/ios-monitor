@@ -68,6 +68,7 @@ class DelegateTableViewCell: UITableViewCell {
         
         nameLabel = UILabel()
         nameLabel.textColor = ArkPalette.highlightedTextColor
+        nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)

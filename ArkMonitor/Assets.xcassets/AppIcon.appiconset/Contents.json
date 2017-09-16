@@ -20,13 +20,13 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iphoneSettings@2x.png",
+      "filename" : "iphoneSpotlight@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "iphoneSettings@3x.png",
+      "filename" : "iphoneSpotlight@3x-1.png",
       "scale" : "3x"
     },
     {
@@ -54,37 +54,37 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iphone@2x.png",
+      "filename" : "AppIcon@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iphone@3x.png",
+      "filename" : "iphoneIcon@3X.png",
       "scale" : "3x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "ipadNotifications@1x.png",
+      "filename" : "ipadNotification@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "ipadNotifications@2x.png",
+      "filename" : "ipadNotification@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "ipadSettings@1x.png",
+      "filename" : "ipadSpotlight@1x-1.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "ipadSettings@2x.png",
+      "filename" : "ipadSpotlight@2x-1.png",
       "scale" : "2x"
     },
     {
@@ -128,7 +128,7 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "ipad@@2x.png",
+      "filename" : "ipad@2x.png",
       "scale" : "2x"
     },
     {
@@ -140,7 +140,7 @@
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "Light1024x1024.png",
+      "filename" : "appIcon1024x1024.png",
       "scale" : "1x"
     }
   ],

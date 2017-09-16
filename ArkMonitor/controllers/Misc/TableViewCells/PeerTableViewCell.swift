@@ -24,6 +24,8 @@ class PeerTableViewCell: UITableViewCell {
         ipLabel = UILabel()
         ipLabel.textColor = ArkPalette.highlightedTextColor
         ipLabel.textAlignment = .center
+        ipLabel.adjustsFontSizeToFitWidth = true
+
         ipLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(ipLabel)
         

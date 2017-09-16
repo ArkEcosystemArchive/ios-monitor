@@ -159,6 +159,11 @@ extension MiscViewController : UITableViewDelegate {
             let vc = DelegateDetailViewController(cell.vote)
             navigationController?.pushViewController(vc, animated: true)
         }
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? ForgedBlockTableViewCell {
+            let vc = BlockDetailViewController(cell.block)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
