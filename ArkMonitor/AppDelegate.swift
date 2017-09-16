@@ -64,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor     = ArkPalette.accentColor
         UINavigationBar.appearance().shadowImage   = UIImage()
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: ArkPalette.accentColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20.0)]
+
     }
     
     public func updateColors() {
