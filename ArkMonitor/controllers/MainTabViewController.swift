@@ -43,6 +43,16 @@ class MainTabViewController: UITabBarController, UITabBarControllerDelegate {
         viewControllers = [nav1, nav2, nav4, nav3, nav5]
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let settings = Settings.getSettings()
+        
+        if settings.isValid() == false {
+            selectedIndex = 1
+        }
+    }
+    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         viewController.viewDidAppear(true)
     }
