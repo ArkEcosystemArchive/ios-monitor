@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: ArkViewController {
     
     fileprivate var account     : Account     = Account()
     fileprivate var delegate    : Delegate    = Delegate()
@@ -18,81 +18,54 @@ class HomeViewController: UIViewController {
     fileprivate var peerVersion : PeerVersion = PeerVersion()
     fileprivate var block       : Block       = Block()
     
-    fileprivate var tableView      : ArkTableView!
-    fileprivate var refreshControl : UIRefreshControl!
+    fileprivate var tableView   : ArkTableView!
     
     private var balance         : Double?
     private var arkBTCValue     : Double?
     private var bitcoinUSDValue : Double?
     private var bitcoinEURValue : Double?
     
-    private var settingsAcknowledged = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView          = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "whiteGear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
+        navigationItem.title              = "Home"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "preferences"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkColors.blue
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.left.right.top.bottom.equalToSuperview()
+            make.left.top.right.bottom.equalToSuperview()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(homeUpdateNotificationRecieved), name: NSNotification.Name(rawValue: ArkNotifications.homeUpdated.rawValue), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(homeUpdateNotificationRecieved), name: NSNotification.Name(rawValue: ArkNotifications.homeUpdated.rawValue), object: nil)
         getDataFromDataManager()
         loadData()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        verifySettings()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    private func verifySettings() {
-        guard settingsAcknowledged == false else {
-            return
-        }
-        
-        settingsAcknowledged = true
-        let settings = Settings.getSettings()
-        
-        if settings.isValid() == false {
-           settingsButtonTapped()
-        }
+
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableView.reloadData()
+        tableView.backgroundColor = ArkPalette.backgroundColor
     }
     
     @objc fileprivate func loadData() {
         ArkDataManager.shared.updateHomeInfo()
-        
-        delay(0.75) {
-            self.refreshControl.endRefreshing()
-        }
     }
     
     @objc private func settingsButtonTapped() {
-        let settingsVC = SettingViewController()
+        let settingsVC = PreferencesViewController()
+        ArkHaptics.selectionChanged()
         navigationController?.pushViewController(settingsVC, animated: true)
     }
     
@@ -155,15 +128,19 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
-        headerView.backgroundColor = UIColor.white
+        headerView.backgroundColor = ArkPalette.backgroundColor
         
         let headerLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
-        headerLabel.textColor = ArkColors.darkGray
+        headerLabel.font = UIFont.systemFont(ofSize: 18.0, weight:  ArkPalette.fontWeight)
+        headerLabel.textColor = ArkPalette.textColor
         headerLabel.textAlignment = .center
         
         switch section {
         case 0:
             headerLabel.text = "Delegate"
+            let seperator2 = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 0.5))
+            seperator2.backgroundColor = ArkPalette.tertiaryBackgroundColor
+            headerView.addSubview(seperator2)
         case 1:
             headerLabel.text = "Forging"
         case 2:
@@ -172,11 +149,16 @@ extension HomeViewController: UITableViewDelegate {
             headerLabel.text = "Server"
         }
         headerView.addSubview(headerLabel)
+        
+        let seperator = UIView(frame: CGRect(x: 0.0, y: 39.5, width: _screenWidth, height: 0.5))
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        
+        headerView.addSubview(seperator)
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35.0
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -243,3 +225,5 @@ extension HomeViewController: UITableViewDataSource {
         }
     }
 }
+
+

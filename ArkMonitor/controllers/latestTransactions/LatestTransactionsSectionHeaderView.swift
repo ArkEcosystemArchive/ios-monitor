@@ -13,13 +13,13 @@ class LatestTransactionsSectionHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.backgroundColor
         
         let timeLabel = UILabel()
-        timeLabel.textColor = ArkColors.darkGray
+        timeLabel.textColor = ArkPalette.textColor
         timeLabel.textAlignment = .center
         timeLabel.text = "Time"
-        timeLabel.font = UIFont.systemFont(ofSize: 14.0)
+        timeLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -28,16 +28,32 @@ class LatestTransactionsSectionHeaderView: UIView {
         }
         
         let idLabel = UILabel()
-        idLabel.textColor = ArkColors.darkGray
+        idLabel.textColor = ArkPalette.textColor
         idLabel.textAlignment = .center
         idLabel.text = "Transaction Id"
-        idLabel.font = UIFont.systemFont(ofSize: 14.0)
+        idLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(idLabel)
         
         idLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(timeLabel.snp.right)
             make.width.equalToSuperview().multipliedBy(0.5)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
+        }
+        
+        let seperator2 = UIView()
+        seperator2.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator2)
+        seperator2.snp.makeConstraints { (make) in
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

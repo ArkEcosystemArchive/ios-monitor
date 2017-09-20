@@ -8,17 +8,89 @@
 
 import UIKit
 
-public struct ArkColors {
+var isDarkMode: Bool {
+    get {
+        return UserDefaults.standard.bool(forKey: "isDarkMode")
+    }
+    set {
+        UserDefaults.standard.set(newValue, forKey: "isDarkMode")
+        UserDefaults.standard.synchronize()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.updateColors()
+        ArkNotificationManager.postNotification(.colorUpdated)
+    }
+}
+
+public struct ArkPalette {
     
-    // 9E9E9E
-    static public let gray = UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1.0)
+    static public var fontWeight: UIFont.Weight {
+        if isDarkMode == false {
+            return .regular
+        } else {
+            return .semibold
+        }
+    }
     
-    // F1F8E9
-    static public let lightGreen = UIColor(red: 241/255, green: 248/255, blue: 233/255, alpha: 1.0)
+    static public var backgroundColor: UIColor {
+        if isDarkMode == false {
+            return UIColor(r: 235, g: 235, b: 235)
+        } else {
+            return UIColor(r: 0, g: 0, b: 0)
+        }
+    }
     
-    // 1e73be
-    static public let blue = UIColor(red: 30/255, green: 115/255, blue: 190/255, alpha: 1.0)
+    static public var secondaryBackgroundColor: UIColor {
+        if isDarkMode == false {
+            return UIColor(r: 255, g: 255, b: 255)
+        } else {
+            return UIColor(r: 19, g: 19, b: 19)
+        }
+    }
     
-    // 4c4c4c
-    static public let darkGray = UIColor(red: 76/255, green: 76/255, blue: 76/255, alpha: 1.0)
+    static public var navigationBarColor: UIColor {
+        if isDarkMode == false {
+            return UIColor(r: 245, g: 245, b: 245)
+        } else {
+            return UIColor(r: 19, g: 19, b: 19)
+        }
+    }
+    
+    static public var tertiaryBackgroundColor: UIColor {
+        if isDarkMode == false {
+            return UIColor(r: 200, g: 199, b: 204)
+        } else {
+            return UIColor(r: 42, g: 42, b: 42)
+        }
+    }
+    
+    static public var textColor: UIColor {
+        if isDarkMode == false {
+            return UIColor(r: 123, g: 123, b: 130)
+        } else {
+            return UIColor(r: 119, g: 119, b: 125)
+        }
+    }
+    
+    static public var highlightedTextColor: UIColor {
+        if isDarkMode == false {
+            return UIColor(r: 0, g: 0, b: 0)
+        } else {
+            return UIColor(r: 249, g: 247, b: 247)
+        }
+    }
+    
+    static public var accentColor: UIColor {
+        if isDarkMode == false {
+            return UIColor(r: 0, g: 104, b: 222)
+        } else {
+            return UIColor(r: 0, g: 191, b: 192)
+        }
+    }
+}
+
+extension UIColor {
+    convenience init(r: Int, g: Int, b: Int) {
+        self.init(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: 1.0)
+    }
 }

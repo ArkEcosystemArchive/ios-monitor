@@ -8,10 +8,9 @@
 
 import UIKit
 
-class DelegateViewController: UIViewController {
+class DelegateViewController: ArkViewController {
     
     fileprivate var tableView      : ArkTableView!
-    fileprivate var refreshControl : UIRefreshControl!
     
     fileprivate var delegates        = [Delegate]()
     fileprivate var standByDelegates = [Delegate]()
@@ -19,44 +18,38 @@ class DelegateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView          = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
-        
+        navigationItem.title = "Delegates"
+
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkColors.blue
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(delegatesUpdatedNotification), name: NSNotification.Name(rawValue: ArkNotifications.delegatesUpdated.rawValue), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(delegatesUpdatedNotification), name: NSNotification.Name(rawValue: ArkNotifications.delegatesUpdated.rawValue), object: nil)
         getDataFromDataManager()
         loadData()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableView.reloadData()
+        tableView.backgroundColor = ArkPalette.backgroundColor
     }
     
     @objc private func loadData() {
         ArkDataManager.shared.updateDelegates()
-        delay(0.75) {
-            self.refreshControl.endRefreshing()
-        }
     }
     
     @objc private func delegatesUpdatedNotification() {
@@ -84,7 +77,7 @@ extension DelegateViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 35.0
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -104,6 +97,14 @@ extension DelegateViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ArkHaptics.selectionChanged()
+        if let cell = tableView.cellForRow(at: indexPath) as? DelegateTableViewCell {
+            let vc = DelegateDetailViewController(cell.delegate)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

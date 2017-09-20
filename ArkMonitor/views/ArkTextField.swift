@@ -10,27 +10,32 @@ import UIKit
 
 class ArkTextField: UITextField {
     
-    private var bottomSeparator: UIView!
+    init(settings: Bool, placeHolder: String) {
+        super.init(frame: CGRect.zero)
+        isUserInteractionEnabled = true
+        textAlignment          = .right
+        autocapitalizationType = .none
+        autocorrectionType     = .no
+        spellCheckingType      = .no
+        textColor = ArkPalette.accentColor
+        tintColor = ArkPalette.accentColor
+        placeholder = placeHolder
+        placeHolderTextColor = ArkPalette.textColor
+        font = UIFont.systemFont(ofSize: 18.0, weight:  ArkPalette.fontWeight)
+    }
     
     init(placeHolder: String) {
         super.init(frame: CGRect.zero)
         isUserInteractionEnabled = true
-        bottomSeparator = UIView()
-        bottomSeparator.backgroundColor = ArkColors.gray
         textAlignment = .center
         autocapitalizationType = .none
         autocorrectionType     = .no
         spellCheckingType      = .no
-        textColor = ArkColors.blue
-        tintColor = ArkColors.blue
+        textColor = ArkPalette.accentColor
+        tintColor = ArkPalette.accentColor
         placeholder = placeHolder
-        placeHolderTextColor = ArkColors.gray
-        font = UIFont.systemFont(ofSize: 16.0)
-        addSubview(bottomSeparator)
-        bottomSeparator.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
-            make.height.equalTo(1.0)
-        }
+        placeHolderTextColor = ArkPalette.textColor
+        font = UIFont.systemFont(ofSize: 22.0, weight:  ArkPalette.fontWeight)
     }
     
     

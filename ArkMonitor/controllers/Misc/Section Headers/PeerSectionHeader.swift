@@ -13,44 +13,60 @@ class PeerSectionHeader: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.white
-        
+        backgroundColor = ArkPalette.backgroundColor
+
         let ipLabel = UILabel()
-        ipLabel.textColor = ArkColors.darkGray
+        ipLabel.textColor = ArkPalette.textColor
         ipLabel.text = "Ip Address"
         ipLabel.textAlignment = .center
-        ipLabel.font = UIFont.systemFont(ofSize: 14.0)
+        ipLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(ipLabel)
         
         ipLabel.snp.makeConstraints { (make) in
             make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.4)
+            make.width.equalToSuperview().dividedBy(3.0)
         }
         
         let portLabel = UILabel()
-        portLabel.textColor = ArkColors.darkGray
+        portLabel.textColor = ArkPalette.textColor
         portLabel.text = "Port"
         portLabel.textAlignment = .center
-        portLabel.font = UIFont.systemFont(ofSize: 14.0)
+        portLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(portLabel)
         
         portLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(ipLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.3)
+            make.width.equalToSuperview().dividedBy(3.0)
         }
         
         let versionLabel = UILabel()
-        versionLabel.textColor = ArkColors.darkGray
+        versionLabel.textColor = ArkPalette.textColor
         versionLabel.text = "Version"
         versionLabel.textAlignment = .center
-        versionLabel.font = UIFont.systemFont(ofSize: 14.0)
+        versionLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  ArkPalette.fontWeight)
         addSubview(versionLabel)
         
         versionLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(portLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.3)
+            make.width.equalToSuperview().dividedBy(3.0)
+        }
+        
+        let seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
+        }
+        
+        let seperator2 = UIView()
+        seperator2.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator2)
+        seperator2.snp.makeConstraints { (make) in
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = ArkColors.gray
+        window?.backgroundColor = ArkPalette.backgroundColor
         window?.makeKeyAndVisible()
         
         setNavigationBarStyle()
@@ -54,13 +54,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setNavigationBarStyle() {
-        UIApplication.shared.statusBarStyle        = .lightContent
-        UINavigationBar.appearance().barTintColor  = ArkColors.blue
+        if isDarkMode == true {
+            UIApplication.shared.statusBarStyle = .lightContent
+        } else {
+            UIApplication.shared.statusBarStyle = .default
+        }
+        UINavigationBar.appearance().barTintColor  = ArkPalette.navigationBarColor
         UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().tintColor     = UIColor.white
+        UINavigationBar.appearance().tintColor     = ArkPalette.accentColor
         UINavigationBar.appearance().shadowImage   = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: ArkPalette.accentColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20.0)]
+
+    }
+    
+    public func updateColors() {
+        setNavigationBarStyle()
     }
 }
 

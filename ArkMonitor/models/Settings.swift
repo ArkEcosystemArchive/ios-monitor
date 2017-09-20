@@ -123,7 +123,7 @@ class Settings: NSObject {
         if let serverType = defaults.object(forKey: Settings.serverTypeAttr) as? Int {
             settings.serverType = Server(rawValue: serverType)!
         }
-
+        
         return settings
     }
 

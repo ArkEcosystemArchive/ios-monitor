@@ -7,19 +7,9 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 import NotificationBannerSwift
 
 public struct ArkActivityView  {
-    static private let activityData = ActivityData(type: NVActivityIndicatorType.lineScale)
-
-    static public func startAnimating() {
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-    }
-    
-    static public func stopAnimating() {
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-    }
     
     static public func showMessage(_ text: String) {
         let banner = StatusBarNotificationBanner(title: text, style: .warning, colors: CustomBannerColors())
@@ -29,6 +19,7 @@ public struct ArkActivityView  {
     
     static public func showSuccessMessage(_ text: String) {
         let banner = StatusBarNotificationBanner(title: text, style: .success, colors: CustomBannerColors())
+        banner.duration = 2.0
         banner.show()
     }
 }
@@ -38,15 +29,15 @@ fileprivate class CustomBannerColors: BannerColorsProtocol {
     func color(for style: BannerStyle) -> UIColor {
         switch style {
         case .danger:
-            return ArkColors.gray
+            return ArkPalette.textColor
         case .info:     // Your custom .info color
-            return ArkColors.gray
+            return ArkPalette.textColor
         case .none:     // Your custom .none color
-            return ArkColors.gray
+            return ArkPalette.textColor
         case .success:  // Your custom .success color
-            return ArkColors.blue
+            return ArkPalette.accentColor
         case .warning:  // Your custom .warning color
-            return ArkColors.gray
+            return ArkPalette.textColor
         }
     }
 }

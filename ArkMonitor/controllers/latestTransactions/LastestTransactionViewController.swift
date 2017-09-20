@@ -8,54 +8,51 @@
 
 import UIKit
 
-class LastestTransactionsViewController: UIViewController {
+class LastestTransactionsViewController: ArkViewController {
     
     fileprivate var tableView      : ArkTableView!
-    fileprivate var refreshControl : UIRefreshControl!
     
     fileprivate var transactions : [Transaction] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
+        navigationItem.title = "Transactions"
         
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate       = self
         tableView.dataSource     = self
         
-        refreshControl = UIRefreshControl()
-        refreshControl.tintColor = ArkColors.blue
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(transactionsUpdateNotification), name: NSNotification.Name(rawValue: ArkNotifications.transactionsUpdated.rawValue), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(transactionsUpdateNotification), name: NSNotification.Name(rawValue: ArkNotifications.transactionsUpdated.rawValue), object: nil)
         getDataFromDataManager()
         loadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableView.reloadData()
+        tableView.backgroundColor = ArkPalette.backgroundColor
     }
     
     @objc private func loadData() {
         ArkDataManager.shared.updateLatestTransactions()
-        delay(0.75) {
-            self.refreshControl.endRefreshing()
-        }
     }
     
     @objc private func transactionsUpdateNotification() {
@@ -100,6 +97,7 @@ extension LastestTransactionsViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ArkHaptics.selectionChanged()
         let vc = TransactionDetailViewController(transactions[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionDetailViewController: UIViewController {
+class TransactionDetailViewController: ArkViewController {
     
     fileprivate let transaction : Transaction
     fileprivate var tableView   : ArkTableView!
@@ -25,8 +25,8 @@ class TransactionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "whiteLogo"))
-        
+        navigationItem.title = "Detail"
+
         tableView = ArkTableView(frame: CGRect.zero)
         tableView.delegate       = self
         tableView.dataSource     = self
@@ -35,7 +35,12 @@ class TransactionDetailViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
-
+    }
+    
+    override func colorsUpdated() {
+        super.colorsUpdated()
+        tableView.reloadData()
+        tableView.backgroundColor = ArkPalette.backgroundColor
     }
 }
 
@@ -43,20 +48,24 @@ class TransactionDetailViewController: UIViewController {
 extension TransactionDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35.0
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 35.0))
-        headerView.backgroundColor = UIColor.white
+        let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 40.0))
+        headerView.backgroundColor = ArkPalette.backgroundColor
         
-        let headerLabel = UILabel(frame: CGRect(x: 12.5, y: 0.0, width: _screenWidth - 12.5, height: 35.0))
-        headerLabel.textColor = ArkColors.darkGray
-        headerLabel.textAlignment = .left
+        let headerLabel = UILabel(frame: CGRect(x: 12.5, y: 0.0, width: _screenWidth - 12.5, height: 40.0))
+        headerLabel.textColor = ArkPalette.textColor
+        headerLabel.textAlignment = .center
+        headerLabel.font = UIFont.systemFont(ofSize: 18.0, weight:  ArkPalette.fontWeight)
         
         switch section {
         case 0:
             headerLabel.text = "Transaction ID"
+            let seperator2 = UIView(frame: CGRect(x: 0.0, y: 0.0, width: _screenWidth, height: 0.5))
+            seperator2.backgroundColor = ArkPalette.tertiaryBackgroundColor
+            headerView.addSubview(seperator2)
         case 1:
             headerLabel.text = "Time"
         case 2:
@@ -71,11 +80,19 @@ extension TransactionDetailViewController : UITableViewDelegate {
             headerLabel.text = "Confirmations"
         }
         headerView.addSubview(headerLabel)
+        
+        let seperator = UIView(frame: CGRect(x: 0.0, y: 39.5, width: _screenWidth, height: 0.5))
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        
+        headerView.addSubview(seperator)
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 35.0
+        if indexPath.section == 0 {
+            return 60.0
+        }
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -101,11 +118,13 @@ extension TransactionDetailViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var titleString = ""
+        var titleString   = ""
+        var numberOfLines = 1
         
         switch indexPath.section {
         case 0:
             titleString = transaction.id
+            numberOfLines = 2
         case 1:
             titleString = Utils.getTimeAgo(timestamp: Double(transaction.timestamp))
         case 2:
@@ -120,9 +139,8 @@ extension TransactionDetailViewController : UITableViewDataSource {
             titleString = String(transaction.confirmations)
         }
         
-        let cell = TransactionDetailTableViewCell(titleString)
+        let cell = TransactionDetailTableViewCell(titleString, numberOfLines: numberOfLines)
         return cell
     }
-    
 }
 

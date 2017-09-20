@@ -13,46 +13,58 @@ class VotesTableViewCell: UITableViewCell {
     var rankLabel    : UILabel!
     var nameLabel    : UILabel!
     var addressLabel : UILabel!
+    var seperator    : UIView!
+    var vote = Delegate()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
         rankLabel = UILabel()
-        rankLabel.textColor = ArkColors.blue
+        rankLabel.textColor = ArkPalette.highlightedTextColor
         rankLabel.textAlignment = .center
-        rankLabel.font = UIFont.systemFont(ofSize: 14.0)
+        rankLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(rankLabel)
         
         rankLabel.snp.makeConstraints { (make) in
-            make.top.bottom.left.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth / 6.0)
         }
         
         nameLabel = UILabel()
-        nameLabel.textColor = ArkColors.gray
+        nameLabel.textColor = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 14.0)
+        nameLabel.adjustsFontSizeToFitWidth = true
+        nameLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalTo(rankLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.4)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth / 2.0)
         }
         
         addressLabel = UILabel()
-        addressLabel.textColor = ArkColors.gray
+        addressLabel.textColor = ArkPalette.highlightedTextColor
         addressLabel.textAlignment = .center
-        addressLabel.font = UIFont.systemFont(ofSize: 14.0)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(addressLabel)
         
         addressLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
-            make.left.equalTo(nameLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.4)
+            make.width.equalTo((_screenWidth / 3.0) - 10.0)
+            make.centerX.equalTo(_screenWidth * 5.0 / 6.0)
+        }
+        
+        seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     
@@ -61,8 +73,21 @@ class VotesTableViewCell: UITableViewCell {
     }
     
     public func update(_ votes: Delegate) {
+        self.vote        = votes
         rankLabel.text    = String(votes.rate)
         nameLabel.text    = votes.username
         addressLabel.text = votes.address
+        
+        rankLabel.textColor = ArkPalette.highlightedTextColor
+        nameLabel.textColor = ArkPalette.highlightedTextColor
+        addressLabel.textColor = ArkPalette.highlightedTextColor
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+
+        backgroundColor = ArkPalette.secondaryBackgroundColor
+
+        rankLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        nameLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        
     }
 }

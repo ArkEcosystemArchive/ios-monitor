@@ -12,17 +12,19 @@ class LatestTransactionTableViewCell: UITableViewCell {
     
     var timeLabel : UILabel!
     var idLabel   : UILabel!
+    var seperator : UIView!
+
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.white
+        backgroundColor = ArkPalette.secondaryBackgroundColor
         selectionStyle  = .none
         
         timeLabel = UILabel()
-        timeLabel.textColor = ArkColors.gray
+        timeLabel.textColor = ArkPalette.highlightedTextColor
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont.systemFont(ofSize: 14.0)
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(timeLabel)
         
         timeLabel.snp.makeConstraints { (make) in
@@ -31,29 +33,23 @@ class LatestTransactionTableViewCell: UITableViewCell {
         }
         
         idLabel = UILabel()
-        idLabel.textColor = ArkColors.blue
+        idLabel.textColor = ArkPalette.accentColor
         idLabel.textAlignment = .center
-        idLabel.font = UIFont.systemFont(ofSize: 14.0)
+        idLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
         addSubview(idLabel)
         
         idLabel.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
             make.left.equalTo(timeLabel.snp.right)
-            make.width.equalToSuperview().multipliedBy(0.45)
+            make.right.equalToSuperview().offset(-12.5)
         }
         
-        let spacer = UIView()
-        addSubview(spacer)
-        spacer.snp.makeConstraints { (make) in
-            make.top.bottom.right.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.15)
-        }
-        
-        let chevron = UIImageView(image: #imageLiteral(resourceName: "chevron"))
-        spacer.addSubview(chevron)
-        chevron.snp.makeConstraints { (make) in
-            make.height.width.equalTo(20.0)
-            make.center.greaterThanOrEqualToSuperview()
+        seperator = UIView()
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
+        addSubview(seperator)
+        seperator.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
     
@@ -64,5 +60,14 @@ class LatestTransactionTableViewCell: UITableViewCell {
     public func update(_ transaction: Transaction) {
         idLabel.text   = transaction.id
         timeLabel.text = Utils.getTimeAgo(timestamp: Double(transaction.timestamp))
+        
+        backgroundColor     = ArkPalette.secondaryBackgroundColor
+        timeLabel.textColor = ArkPalette.highlightedTextColor
+        idLabel.textColor  = ArkPalette.accentColor
+        
+        timeLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+        idLabel.font = UIFont.systemFont(ofSize: 14.0, weight:  ArkPalette.fontWeight)
+
+        seperator.backgroundColor = ArkPalette.tertiaryBackgroundColor
     }
 }
