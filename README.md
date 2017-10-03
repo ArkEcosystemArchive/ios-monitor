@@ -6,8 +6,6 @@
 - Andrew Walz andrewjwalz@gmail.com
 - Victor Lins victor@ark.io
 
-Andrew Walz andrewjwalz@gmail.com
-
 ## License
 
 MIT License
