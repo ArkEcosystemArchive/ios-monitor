@@ -2,6 +2,12 @@
 
 <img src="https://cloud.githubusercontent.com/assets/937766/23776676/798237d0-050e-11e7-8d25-fe345ceb07ca.png" width="200" />
 
+## Authors
+- Andrew Walz andrewjwalz@gmail.com
+- Victor Lins victor@ark.io
+
+Andrew Walz andrewjwalz@gmail.com
+
 ## License
 
 MIT License
