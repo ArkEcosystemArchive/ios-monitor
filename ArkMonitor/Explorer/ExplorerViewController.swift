@@ -81,11 +81,11 @@ class ExplorerViewController: ArkViewController {
         block       = nil
         delegate    = nil
         setTableData()
-        if searchText.characters.count == 34 && searchText.characters.first == "A" {
+        if searchText.count == 34 && (searchText.first == "A" || searchText.first == "D") {
             fetchAddress(searchText)
-        } else if searchText.characters.count == 64 {
+        } else if searchText.count == 64 {
             fetchTransaction(searchText)
-        } else if searchText.characters.count >= 19 && searchText.isNumeric() {
+        } else if searchText.count >= 19 && searchText.isNumeric() {
             fetchBlock(searchText)
         } else {
             fetchDelegate(searchText)

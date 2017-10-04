@@ -27,7 +27,7 @@ class ReceiveTransferViewController: ArkViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Transfer"
+        navigationItem.title = "Account"
         
         let bottomButton = UIButton()
         bottomButton.backgroundColor = ArkPalette.accentColor

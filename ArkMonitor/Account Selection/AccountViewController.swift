@@ -134,7 +134,7 @@ class AccountViewController: ArkViewController {
             return
         }
         
-        if text.characters.count == 34 && text.characters.first == "A" {
+        if text.count == 34 && (text.first == "A" || text.first == "D") {
             enableButton()
         } else {
             disableButton()
