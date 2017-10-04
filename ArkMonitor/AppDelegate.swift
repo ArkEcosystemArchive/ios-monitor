@@ -1,74 +1,58 @@
+// Copyright (c) 2016 Ark
 //
-//  AppDelegate.swift
-//  ArkMonitor
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge,
+// publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+// subject to the following conditions:
 //
-//  Created by Victor Lins on 22/01/17.
-//  Copyright © 2017 vrlc92. All rights reserved.
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    
     var window: UIWindow?
-
-
+    public let center = UNUserNotificationCenter.current()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        UIApplication.shared.statusBarStyle = .lightContent
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = ArkPalette.backgroundColor
+        let homeVC = ArkTabViewController()
+        window!.rootViewController = homeVC
         window?.makeKeyAndVisible()
         
-        setNavigationBarStyle()
-
-        let newVC = MainTabViewController()
-        self.window?.rootViewController = newVC
-        self.window?.makeKeyAndVisible()
+        center.delegate = self
+        center.requestAuthorization(options: [.alert, .sound]) {
+            (granted, error) in
+            if let aError = error {
+                print(aError)
+            }
+        }
         
-        ArkDataManager.shared.updateData()
-        
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        ArkDataManager.startupOperations()
     }
     
-    private func setNavigationBarStyle() {
-        if isDarkMode == true {
-            UIApplication.shared.statusBarStyle = .lightContent
-        } else {
-            UIApplication.shared.statusBarStyle = .default
-        }
-        UINavigationBar.appearance().barTintColor  = ArkPalette.navigationBarColor
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().tintColor     = ArkPalette.accentColor
-        UINavigationBar.appearance().shadowImage   = UIImage()
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: ArkPalette.accentColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20.0)]
-
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        ArkBackgroundDownloadManager.shared.updateNewData()
+        completionHandler(.newData)
     }
     
-    public func updateColors() {
-        setNavigationBarStyle()
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print(notification.request.content.userInfo)
+        completionHandler(.alert)
     }
 }
 
