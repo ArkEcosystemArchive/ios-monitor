@@ -33,13 +33,12 @@ class AccountViewController: ArkViewController {
             make.left.right.top.bottom.equalToSuperview()
         }
         
-        let logoView = UIImageView(image: #imageLiteral(resourceName: "darkLogo"))
+        let logoView = UIImageView(image: #imageLiteral(resourceName: "ArkLogo"))
         view.addSubview(logoView)
         logoView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview().multipliedBy(0.7)
-            make.height.equalTo(_screenWidth * 0.7 / 3.0)
+            make.height.width.equalTo(_screenWidth * 0.6)
             make.centerX.equalToSuperview()
-            make.top.equalTo(_screenHeight * 0.2)
+            make.top.equalTo(_screenHeight * 0.1)
         }
         
         let infoLabel       = UILabel()

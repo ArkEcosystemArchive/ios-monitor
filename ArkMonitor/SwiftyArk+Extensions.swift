@@ -17,8 +17,8 @@ import Foundation
 import SwiftyArk
 
 
-public let _screenWidth    = UIScreen.main.bounds.width
-public let _screenHeight   = UIScreen.main.bounds.height
+public let _screenWidth  = UIScreen.main.bounds.width
+public let _screenHeight = UIScreen.main.bounds.height
 
 extension Transaction {
     

@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
     public let center = UNUserNotificationCenter.current()
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarStyle = .lightContent
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -33,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         center.delegate = self
         center.requestAuthorization(options: [.alert, .sound]) {
             (granted, error) in
-            if !granted {
-                print("Something went wrong")
+            if let aError = error {
+                print(aError)
             }
         }
         
@@ -44,12 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         ArkDataManager.startupOperations()
-        
-        
-    }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-        
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "darkLogo@2x.png",
+      "filename" : "ArkLogo@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "darkLogo@3x.png",
+      "filename" : "ArkLogo@3x.png",
       "scale" : "3x"
     }
   ],
