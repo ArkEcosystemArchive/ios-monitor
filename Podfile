@@ -5,5 +5,5 @@ target 'ArkMonitor' do
   use_frameworks!
     pod 'Alamofire', '~> 4.3'
     pod 'NotificationBannerSwift'
-    pod 'SnapKit'
+    pod 'SnapKit', '~> 3.2.0'
 end

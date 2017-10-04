@@ -25,9 +25,8 @@ class BlockDetailViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Detail"
-        
-        tableView = ArkTableView(frame: CGRect.zero)
+        navigationItem.title     = "Detail"
+        tableView                = ArkTableView(frame: CGRect.zero)
         tableView.delegate       = self
         tableView.dataSource     = self
         
