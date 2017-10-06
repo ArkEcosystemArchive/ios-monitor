@@ -1,6 +1,6 @@
 # Ark Monitor
 
-<img src="https://cloud.githubusercontent.com/assets/937766/23776676/798237d0-050e-11e7-8d25-fe345ceb07ca.png" width="200" />
+<img src="https://user-images.githubusercontent.com/937766/31292920-9f39d45e-aaab-11e7-8d8c-6049cee4c0bc.jpg" width="200" />
 
 ## Authors
 - Andrew Walz andrewjwalz@gmail.com
