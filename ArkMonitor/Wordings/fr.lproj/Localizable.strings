@@ -1,0 +1,88 @@
+/* 
+  Localizable.strings
+  ArkMonitor
+
+  Created by Sacha DSO on 11/12/2017.
+  Copyright (c) 2016 Ark. All rights reserved.
+*/
+
+"Account.Wording" = "Pour démarrer,\nentrez une adresse Ark:";
+"Submit" = "Valider";
+"ArkAddress" = "Adresse Ark";
+"Home.TransactionHistory" = "Historique des Transactions";
+"Home.Vote" = "Vote";
+"Home.Sent" = "Envoyé";
+"Home.Received" = "Reçu";
+"Account" = "Compte";
+"Delegate" = "Délégué";
+"Transaction" = "Transaction";
+"Block" = "Bloc";
+"ReceiveTransfer.CopyAddress" = "Copier l'Adresse";
+"ReceiveTransfer.AddressSuccessfullyCopied" = "Adresse copiée avec succès !";
+"Delegates" = "Délégués";
+"Delegates.Address" = "Adresse";
+"Delegates.PublicKey" = "Clé Publique";
+"Delegates.Votes" = "Votes";
+"Delegates.ProducedBlocks" = "Blocs Produits";
+"Delegates.MissedBlocks" = "Blocs Manqués";
+"Delegates.Rank" = "Rang";
+"Delegates.Productivity" = "Productivité";
+"Delegates.Approval" = "Approbation";
+"Delegates.Username" = "Pseudo";
+"TabBar.Home" = "Accueil";
+"TabBar.Delegate" = "Délégué";
+"TabBar.Explorer" = "Explorer";
+"TabBar.Delegates" = "Délégués";
+"TabBar.Settings" = "Paramètres";
+"Settings.SignOut" = "Déconnexion";
+"Settings.ReferenceCurrency" = "Monnaie de Référence";
+"Settings.TransactionNotifications" = "Notifications de Transaction";
+"Settings.TransactionNotificationsDetail" = "Si activé, vous recevrez des notifications push pour les nouvelles transactions";
+"Settings.DelegateNotifications" = "Notifications de délégué";
+"Settings.DelegateNotificationsDetail" = "Si activé, vous recevrez des notifications push pour les changements de statut de votre délegué";
+"Currency" = "Monnaie";
+"Server" = "Serveur";
+"Transaction.Detail" = "Détail";
+"Transaction.TransactionID" = "ID de transaction";
+"Transaction.Time" = "Date";
+"Transaction.From" = "De";
+"Transaction.To" = "À";
+"Transaction.Amount" = "Montant";
+"Transaction.Fee" = "Frais";
+"Transaction.Confirmations" = "Confirmations";
+"Transaction.VendorField" = "Champs Vendor";
+"Account.Detail" = "Détails du Compte";
+"Account.Address" = "Adresse";
+"Account.PublicKey" = "Clé Publique";
+"Account.Balance" = "Solde";
+"Account.UnconfirmedBalance" = "Solde non confirmé";
+"Message.SuccessfullyFoundAccount" = "Compte trouvé avec succès !";
+"Message.SuccessfullyUpdatedServer" = "Serveur mis à jour avec succès";
+"Message.UnableToFindAccount" = "Impossible de trouver le compte";
+"Message.NoDelegateForAccount" = "Aucun délégué trouvé pour le compte";
+"Message.CurrencySuccessfullyUpdated" = "Monnais mise à jour avec succès";
+"Message.SuccessfullyRemovedServer" = "Serveur supprimé avec succès";
+"Message.ServerNameCannotBeBlank" = "Le nom du serveur ne peut être vide";
+"Message.IPAddressCannotBeBlank" = "L'adresse IP ne peut être vide";
+"Message.PortCannotBeBlank" = "Le port ne peut être vide";
+"Message.SuccessfullyAddedServer" = "Serveur ajouté avec succès";
+"Message.ServerAlreadyExists" = "Un serveur du même nom existe déja";
+"Block.Detail" = "Détail du Bloc";
+"Block.BlockID" = "ID du Bloc";
+"Block.Height" = "Hauteur";
+"Block.PreviousBlock" = "Bloc Précédent";
+"Block.NumberOfTransactions" = "Nombre de Transactions";
+"Block.TotalAmount" = "Montant Amount";
+"Block.TotalFee" = "Total des Frais";
+"Block.RewardsFee" = "Frai de Récompense";
+"Block.PayloadLength" = "Longueur de la Payload";
+"Block.GeneratorPublicKey" = "Clé publique du Générateur";
+"Block.BlockSignature" = "Signature du Bloc";
+"Block.Confirmations" = "Confirmations";
+"Server.AddCustomServer" = "Ajouter un serveur custom";
+"IPAddress" = "Addresse IP";
+"Port" = "Port";
+"ServerName" = "Nom du Serveur";
+"SSLEnabled" = "SSL Activé ?";
+"ExplorerWording" = "Rechercher un bloc, une transaction, une adresse ou un délégué";
+"ExplorerNoResults" = "Aucun résultat trouvé !";

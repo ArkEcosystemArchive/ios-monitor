@@ -69,10 +69,10 @@ class ExplorerViewController: ArkViewController {
         emptyLabel.textAlignment = .center
         if searchView.text == "" {
             emptyLabel.numberOfLines = 2
-            emptyLabel.text = "Search for a block,transaction,\naddress, or delegate"
+            emptyLabel.text = NSLocalizedString("ExplorerWording", comment: "")
         } else {
             emptyLabel.numberOfLines = 1
-            emptyLabel.text = "No matching records found!"
+            emptyLabel.text = NSLocalizedString("ExplorerNoResults", comment: "")
         }
 
         emptyBackgroundView.addSubview(emptyLabel)
@@ -147,19 +147,19 @@ extension ExplorerViewController : UITableViewDelegate {
         headerLabel.textAlignment = .center
         headerLabel.font = UIFont.systemFont(ofSize: 18.0, weight:  .semibold)
         if account != nil {
-            headerLabel.text = "Account"
+            headerLabel.text = NSLocalizedString("Account", comment: "")
         }
         
         if delegate != nil {
-            headerLabel.text = "Delegate"
+            headerLabel.text = NSLocalizedString("Delegate", comment: "")
         }
         
         if transaction != nil {
-            headerLabel.text = "Transaction"
+            headerLabel.text = NSLocalizedString("Transaction", comment: "")
         }
         
         if block != nil {
-            headerLabel.text = "Block"
+            headerLabel.text = NSLocalizedString("Block", comment: "")
         }
         
         headerView.addSubview(headerLabel)

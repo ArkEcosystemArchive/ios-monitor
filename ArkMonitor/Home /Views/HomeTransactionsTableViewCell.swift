@@ -89,15 +89,15 @@ class HomeTransactionsTableViewCell: UITableViewCell {
     public func update(_ transaction: Transaction) {
         switch transaction.status() {
         case .received:
-            typeLabel.text = "RECEIVED"
+            typeLabel.text = NSLocalizedString("Home.Received", comment: "").uppercased()
             iconView.image = #imageLiteral(resourceName: "receivedCellIcon")
             quantityLabel.text = transaction.amount.formatString(3) + " Ark"
         case .sent:
-            typeLabel.text = "SENT"
+            typeLabel.text = NSLocalizedString("Home.Sent", comment: "").uppercased()
             iconView.image = #imageLiteral(resourceName: "sendCellIcon")
             quantityLabel.text = (-transaction.amount - transaction.fee).formatString(3)  + " Ark"
         case .vote:
-            typeLabel.text = "VOTE"
+            typeLabel.text = NSLocalizedString("Home.Vote", comment: "").uppercased()
             iconView.image = #imageLiteral(resourceName: "voteCellIcon")
             quantityLabel.text = (-transaction.amount - transaction.fee).formatString(3)  + " Ark"
         default:

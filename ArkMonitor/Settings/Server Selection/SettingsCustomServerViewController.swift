@@ -143,17 +143,17 @@ extension SettingsCustomServerViewController : SettingsSaveTableViewCellDelegate
     func saveCellButtonWasTapped(_ cell: SettingsSaveTableViewCell) {
         
         guard let currentServerName = serverName else {
-            ArkActivityView.showMessage("Server name cannot be blank", style: .warning)
+            ArkActivityView.showMessage(NSLocalizedString("Message.ServerNameCannotBeBlank", comment: ""), style: .warning)
             return
         }
         
         guard let ip = ipAddress else {
-            ArkActivityView.showMessage("IP Address cannot be blank", style: .warning)
+            ArkActivityView.showMessage(NSLocalizedString("Message.IPAddressCannotBeBlank", comment: ""), style: .warning)
             return
         }
         
         guard let currentPort = port else {
-            ArkActivityView.showMessage("Port cannot be blank", style: .warning)
+            ArkActivityView.showMessage(NSLocalizedString("Message.PortCannotBeBlank.PortCannotBeBlank", comment: ""), style: .warning)
             return
         }
         
@@ -161,10 +161,10 @@ extension SettingsCustomServerViewController : SettingsSaveTableViewCellDelegate
         
         ArkNetworkManager.add(newCustomServer) { (success) in
             if success == true {
-                ArkActivityView.showMessage("Successfully added server", style: .success)
+                ArkActivityView.showMessage(NSLocalizedString("Message.SuccessfullyAddedServer", comment: ""), style: .success)
                 self.navigationController?.popViewController(animated: true)
             } else {
-                ArkActivityView.showMessage("Server already exists with that name", style: .warning)
+                ArkActivityView.showMessage(NSLocalizedString("Message.ServerAlreadyExists", comment: ""), style: .warning)
                 return
             }
         }

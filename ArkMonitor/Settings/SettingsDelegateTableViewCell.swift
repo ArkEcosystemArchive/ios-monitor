@@ -27,7 +27,7 @@ class SettingsDelegateNotifcationTableViewCell: UITableViewCell {
         backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
         titleLabel = UILabel()
-        titleLabel.text = "Delegate Notifications"
+        titleLabel.text = NSLocalizedString("Settings.DelegateNotifications", comment: "")
         titleLabel.textColor = ArkPalette.highlightedTextColor
         titleLabel.font  = UIFont.systemFont(ofSize: 16.0, weight:  .semibold)
         addSubview(titleLabel)
@@ -49,7 +49,7 @@ class SettingsDelegateNotifcationTableViewCell: UITableViewCell {
         }
         
         descriptionLabel = UILabel()
-        descriptionLabel.text = "If enabled, you will recieve push notifications with changes to your delegate's status"
+        descriptionLabel.text = NSLocalizedString("Settings.DelegateNotificationsDetail", comment: "")
         descriptionLabel.numberOfLines = 2
         descriptionLabel.textColor = ArkPalette.textColor
         descriptionLabel.font  = UIFont.systemFont(ofSize: 13.0, weight:  .light)

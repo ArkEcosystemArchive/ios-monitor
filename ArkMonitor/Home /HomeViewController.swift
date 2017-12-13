@@ -136,7 +136,7 @@ extension HomeViewController : UITableViewDelegate {
         header.backgroundColor = ArkPalette.secondaryBackgroundColor
         
         let label = UILabel(frame: CGRect(x: 25.0, y: 0.0, width: _screenWidth - 25.0, height: 35.0))
-        label.text = "Transaction History"
+        label.text = NSLocalizedString("Home.TransactionHistory", comment: "")
         label.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
         label.textColor = ArkPalette.highlightedTextColor
         

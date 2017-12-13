@@ -22,7 +22,7 @@ class CurrencySelectionViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Currency"
+        navigationItem.title = NSLocalizedString("Currency", comment: "")
         
         tableView = ArkTableView(CGRect.zero)
         tableView.delegate       = self
@@ -64,7 +64,7 @@ extension CurrencySelectionViewController : UITableViewDelegate {
         }
         
         ArkDataManager.updateCurrency(aCell.currency)
-        ArkActivityView.showMessage("Currency successfully updated!", style: .success)
+        ArkActivityView.showMessage(NSLocalizedString("Message.CurrencySuccessfullyUpdated", comment: ""), style: .success)
 
         
         if let cells = tableView.visibleCells as? [CurrenctySelectionTableViewCell] {

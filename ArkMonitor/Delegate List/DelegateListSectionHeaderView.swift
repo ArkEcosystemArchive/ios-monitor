@@ -24,7 +24,7 @@ class DelegateListSectionHeaderView: UIView {
         
         let rankLabel = UILabel()
         rankLabel.textColor = ArkPalette.highlightedTextColor
-        rankLabel.text = "Rank"
+        rankLabel.text = NSLocalizedString("Delegates.Rank", comment: "")
         rankLabel.textAlignment = .center
         rankLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  .semibold)
         addSubview(rankLabel)
@@ -36,7 +36,7 @@ class DelegateListSectionHeaderView: UIView {
         
         let nameLabel = UILabel()
         nameLabel.textColor = ArkPalette.highlightedTextColor
-        nameLabel.text = "Username"
+        nameLabel.text = NSLocalizedString("Delegates.Username", comment: "")
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  .semibold)
         addSubview(nameLabel)
@@ -49,7 +49,7 @@ class DelegateListSectionHeaderView: UIView {
         
         let approvalLabel = UILabel()
         approvalLabel.textColor = ArkPalette.highlightedTextColor
-        approvalLabel.text = "Approval"
+        approvalLabel.text = NSLocalizedString("Delegates.Approval", comment: "")
         approvalLabel.textAlignment = .center
         approvalLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  .semibold)
         addSubview(approvalLabel)
@@ -62,7 +62,7 @@ class DelegateListSectionHeaderView: UIView {
         
         let productivityLabel = UILabel()
         productivityLabel.textColor = ArkPalette.highlightedTextColor
-        productivityLabel.text = "Productivity"
+        productivityLabel.text = NSLocalizedString("Delegates.Productivity", comment: "")
         productivityLabel.textAlignment = .center
         productivityLabel.font = UIFont.systemFont(ofSize: 15.0, weight:  .semibold)
         addSubview(productivityLabel)
