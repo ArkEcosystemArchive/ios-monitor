@@ -46,7 +46,7 @@ class HomeHeaderView: UIView {
         
         qrcodeButton = UIButton()
         qrcodeButton.addTarget(self, action: #selector(qrButtonTapped), for: .touchUpInside)
-        qrcodeButton.setImage(#imageLiteral(resourceName: "qrCode"), for: UIControlState())
+        qrcodeButton.setImage(#imageLiteral(resourceName: "qrCode"), for: .normal)
         addSubview(qrcodeButton)
         qrcodeButton.snp.makeConstraints { (make) in
             make.height.width.equalTo(30.0)
