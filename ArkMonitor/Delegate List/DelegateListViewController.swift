@@ -24,7 +24,7 @@ class DelegateListViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Delegates"
+        navigationItem.title = NSLocalizedString("Delegates", comment: "")
         tableView            = ArkTableView(CGRect.zero)
         tableView.delegate   = self
         tableView.dataSource = self

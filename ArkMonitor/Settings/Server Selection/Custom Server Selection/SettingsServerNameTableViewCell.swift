@@ -33,7 +33,7 @@ class SettingsServerNameTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         let nameLabel = UILabel()
-        nameLabel.text          = "Server name"
+        nameLabel.text          = NSLocalizedString("ServerName", comment: "")
         nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight:  .semibold)

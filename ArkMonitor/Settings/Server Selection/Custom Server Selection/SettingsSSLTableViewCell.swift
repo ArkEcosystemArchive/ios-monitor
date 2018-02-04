@@ -34,7 +34,7 @@ class SettingsSSLTableViewCell: UITableViewCell {
         
         
         nameLabel               = UILabel()
-        nameLabel.text          = "SSL Enabled?"
+        nameLabel.text          = NSLocalizedString("SSLEnabled", comment: "")
         nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font          = UIFont.systemFont(ofSize: 16.0, weight:  .semibold)

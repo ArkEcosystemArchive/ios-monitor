@@ -1,0 +1,88 @@
+/* 
+  Localizable.strings
+  ArkMonitor
+
+  Created by Sacha DSO on 11/12/2017.
+  Copyright (c) 2016 Ark. All rights reserved.
+*/
+
+"Account.Wording" = "To get started,\nenter an Ark Address:";
+"Submit" = "Submit";
+"ArkAddress" = "Ark Address";
+"Home.TransactionHistory" = "Transaction History";
+"Home.Vote" = "Vote";
+"Home.Sent" = "Sent";
+"Home.Received" = "Received";
+"Account" = "Account";
+"Delegate" = "Delegate";
+"Transaction" = "Transaction";
+"Block" = "Block";
+"ReceiveTransfer.CopyAddress" = "Copy Address";
+"ReceiveTransfer.AddressSuccessfullyCopied" = "Address successfully copied!";
+"Delegates" = "Delegates";
+"Delegates.Address" = "Address";
+"Delegates.PublicKey" = "Public Key";
+"Delegates.Votes" = "Votes";
+"Delegates.ProducedBlocks" = "Produced Blocks";
+"Delegates.MissedBlocks" = "Missed Blocks";
+"Delegates.Rank" = "Rank";
+"Delegates.Productivity" = "Productivity";
+"Delegates.Approval" = "Approval";
+"Delegates.Username" = "Username";
+"TabBar.Home" = "Home";
+"TabBar.Delegate" = "Delegate";
+"TabBar.Explorer" = "Explorer";
+"TabBar.Delegates" = "Delegates";
+"TabBar.Settings" = "Settings";
+"Settings.SignOut" = "Sign out";
+"Settings.ReferenceCurrency" = "Reference Currency";
+"Settings.TransactionNotifications" = "Transaction Notifications";
+"Settings.TransactionNotificationsDetail" = "If enabled, you will recieve push notifications for new transactions";
+"Settings.DelegateNotifications" = "Delegate Notifications";
+"Settings.DelegateNotificationsDetail" = "If enabled, you will recieve push notifications with changes to your delegate's status";
+"Currency" = "Currency";
+"Server" = "Server";
+"Transaction.Detail" = "Detail";
+"Transaction.TransactionID" = "Transaction ID";
+"Transaction.Time" = "Time";
+"Transaction.From" = "From";
+"Transaction.To" = "To";
+"Transaction.Amount" = "Amount";
+"Transaction.Fee" = "Fee";
+"Transaction.Confirmations" = "Confirmations";
+"Transaction.VendorField" = "Vendor Field";
+"Account.Detail" = "Account Detail";
+"Account.Address" = "Address";
+"Account.PublicKey" = "Public Key";
+"Account.Balance" = "Balance";
+"Account.UnconfirmedBalance" = "Unconfirmed Balance";
+"Message.SuccessfullyFoundAccount" = "Successfully found Account!";
+"Message.SuccessfullyUpdatedServer" = "Successfully updated server";
+"Message.UnableToFindAccount" = "Unable to find Account";
+"Message.NoDelegateForAccount" = "No delegate vote found for Account";
+"Message.CurrencySuccessfullyUpdated" = "Currency successfully updated!";
+"Message.SuccessfullyRemovedServer" = "Successfully removed server";
+"Message.ServerNameCannotBeBlank" = "Server name cannot be blank";
+"Message.IPAddressCannotBeBlank" = "IP Address cannot be blank";
+"Message.PortCannotBeBlank" = "Port cannot be blank";
+"Message.SuccessfullyAddedServer" = "Successfully added server";
+"Message.ServerAlreadyExists" = "Server already exists with that name";
+"Block.Detail" = "Block Detail";
+"Block.BlockID" = "Block ID";
+"Block.Height" = "Height";
+"Block.PreviousBlock" = "Previous Block";
+"Block.NumberOfTransactions" = "Number of Transactions";
+"Block.TotalAmount" = "Total Amount";
+"Block.TotalFee" = "Total Fee";
+"Block.RewardsFee" = "Rewards Fee";
+"Block.PayloadLength" = "Payload Length";
+"Block.GeneratorPublicKey" = "Generator Public Key";
+"Block.BlockSignature" = "Block Signature";
+"Block.Confirmations" = "Confirmations";
+"Server.AddCustomServer" = "Add custom server";
+"IPAddress" = "IP Address";
+"Port" = "Port";
+"ServerName" = "Server name";
+"SSLEnabled" = "SSL Enabled?";
+"ExplorerWording" = "Search for a block,transaction,\naddress, or delegate";
+"ExplorerNoResults" = "No matching records found!";

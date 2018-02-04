@@ -32,25 +32,25 @@ class ArkTabViewController: UITabBarController, UITabBarControllerDelegate {
         
         let homeViewController = HomeViewController()
         let homeNav = ArkNavigationViewController(rootViewController: homeViewController)
-        homeNav.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "homeFilled"), selectedImage: nil)
+        homeNav.tabBarItem = UITabBarItem(title: NSLocalizedString("TabBar.Home", comment: ""), image: #imageLiteral(resourceName: "homeFilled"), selectedImage: nil)
         
         let myDelegateVieController = MyDelegateViewController()
         let myDelegateNav = ArkNavigationViewController(rootViewController: myDelegateVieController)
-        myDelegateNav.tabBarItem = UITabBarItem(title: "Delegate", image: #imageLiteral(resourceName: "delegatesFilled"), selectedImage: nil)
+        myDelegateNav.tabBarItem = UITabBarItem(title: NSLocalizedString("TabBar.Delegate", comment: ""), image: #imageLiteral(resourceName: "delegatesFilled"), selectedImage: nil)
         
         let explorerVC = ExplorerViewController()
         let explorerNav = ArkNavigationViewController(rootViewController: explorerVC)
-        explorerNav.tabBarItem = UITabBarItem(title: "Explorer", image: #imageLiteral(resourceName: "explorerIcon"), selectedImage: nil)
+        explorerNav.tabBarItem = UITabBarItem(title: NSLocalizedString("TabBar.Explorer", comment: ""), image: #imageLiteral(resourceName: "explorerIcon"), selectedImage: nil)
 
 
         let delegatesViewController =  DelegateListViewController()
         let delegateNav = ArkNavigationViewController(rootViewController: delegatesViewController)
-        delegateNav.tabBarItem = UITabBarItem(title: "Delegates", image: #imageLiteral(resourceName: "delegateList"), selectedImage: nil)
+        delegateNav.tabBarItem = UITabBarItem(title: NSLocalizedString("TabBar.Delegates", comment: ""), image: #imageLiteral(resourceName: "delegateList"), selectedImage: nil)
         
         
         let settingsVC =  SettingsViewController()
         let miscNav = ArkNavigationViewController(rootViewController: settingsVC)
-        miscNav.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "settings"), selectedImage: nil)
+        miscNav.tabBarItem = UITabBarItem(title: NSLocalizedString("TabBar.Settings", comment: ""), image: #imageLiteral(resourceName: "settings"), selectedImage: nil)
         
         viewControllers = [homeNav, myDelegateNav, delegateNav, explorerNav, miscNav]
     }

@@ -28,7 +28,7 @@ class SettingsTransactionsNotificationTableViewCell: UITableViewCell {
         backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
         titleLabel = UILabel()
-        titleLabel.text = "Transaction Notifications"
+        titleLabel.text = NSLocalizedString("Settings.TransactionNotifications", comment: "")
         titleLabel.textColor = ArkPalette.highlightedTextColor
         titleLabel.font  = UIFont.systemFont(ofSize: 16.0, weight:  .semibold)
         addSubview(titleLabel)
@@ -50,7 +50,7 @@ class SettingsTransactionsNotificationTableViewCell: UITableViewCell {
         }
         
         descriptionLabel = UILabel()
-        descriptionLabel.text = "If enabled, you will recieve push notifications for new transactions"
+        descriptionLabel.text = NSLocalizedString("Settings.TransactionNotificationsDetail", comment: "")
         descriptionLabel.numberOfLines = 2
         descriptionLabel.textColor = ArkPalette.textColor
         descriptionLabel.font  = UIFont.systemFont(ofSize: 13.0, weight:  .light)

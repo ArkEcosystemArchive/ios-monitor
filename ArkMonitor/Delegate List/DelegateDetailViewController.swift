@@ -65,21 +65,21 @@ extension DelegateDetailViewController : UITableViewDelegate {
         
         switch section {
         case 0:
-            headerLabel.text = "Address"
+            headerLabel.text = NSLocalizedString("Delegates.Address", comment: "")
         case 1:
-            headerLabel.text = "Public Key"
+            headerLabel.text = NSLocalizedString("Delegates.PublicKey", comment: "")
         case 2:
-            headerLabel.text = "Votes"
+            headerLabel.text = NSLocalizedString("Delegates.Votes", comment: "")
         case 3:
-            headerLabel.text = "Produced Blocks"
+            headerLabel.text = NSLocalizedString("Delegates.ProducedBlocks", comment: "")
         case 4:
-            headerLabel.text = "Missed Blocks"
+            headerLabel.text = NSLocalizedString("Delegates.MissedBlocks", comment: "")
         case 5:
-            headerLabel.text = "Rank"
+            headerLabel.text = NSLocalizedString("Delegates.Rank", comment: "")
         case 6:
-            headerLabel.text = "Productivity"
+            headerLabel.text = NSLocalizedString("Delegates.Productivity", comment: "")
         default:
-            headerLabel.text = "Approval"
+            headerLabel.text = NSLocalizedString("Delegates.Approval", comment: "")
         }
         headerView.addSubview(headerLabel)
         return headerView

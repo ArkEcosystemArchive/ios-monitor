@@ -96,14 +96,14 @@ public struct ArkNetworkManager {
         currentNetwork = preset
         CurrentCustomServer = nil
         ArkDataManager.startupOperations()
-        ArkActivityView.showMessage("Successfully updated server", style: .success)
+        ArkActivityView.showMessage(NSLocalizedString("Message.SuccessfullyUpdatedServer", comment: ""), style: .success)
     }
     
     static public func updateNetwork(_ server: CustomServer) {
         CurrentCustomServer = server
         currentNetwork = nil
         ArkDataManager.startupOperations()
-        ArkActivityView.showMessage("Successfully updated server", style: .success)
+        ArkActivityView.showMessage(NSLocalizedString("Message.SuccessfullyUpdatedServer", comment: ""), style: .success)
     }
     
     static public func setNetwork(_ manager: ArkManager) {

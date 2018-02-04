@@ -34,11 +34,11 @@ class ReceiveTransferViewController: ArkViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Account"
+        navigationItem.title = NSLocalizedString("Account", comment: "")
         
         let bottomButton = UIButton()
         bottomButton.backgroundColor = ArkPalette.accentColor
-        bottomButton.setTitle("Copy Address", for: UIControlState())
+        bottomButton.setTitle(NSLocalizedString("ReceiveTransfer.CopyAddress", comment: ""), for: UIControlState())
         bottomButton.setTitleColor(ArkPalette.highlightedTextColor, for: UIControlState())
         bottomButton.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
         bottomButton.addTarget(self, action: #selector(copyAddressToClipboard), for: .touchUpInside)
@@ -67,7 +67,7 @@ class ReceiveTransferViewController: ArkViewController {
         addressDescription.textAlignment = .center
         addressDescription.textColor     = ArkPalette.highlightedTextColor
         addressDescription.font          = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
-        addressDescription.text          = "ARK ADDRESS"
+        addressDescription.text          = NSLocalizedString("ArkAddress", comment: "").uppercased()
         view.addSubview(addressDescription)
         addressDescription.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
@@ -99,6 +99,6 @@ class ReceiveTransferViewController: ArkViewController {
     
     @objc private func copyAddressToClipboard() {
         UIPasteboard.general.string = account.address
-        ArkActivityView.showMessage("Address successfully copied!", style: .success)
+        ArkActivityView.showMessage(NSLocalizedString("ReceiveTransfer.AddressSuccessfullyCopied", comment: ""), style: .success)
     }
 }
