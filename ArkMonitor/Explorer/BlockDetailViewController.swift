@@ -34,7 +34,7 @@ class BlockDetailViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Block Detail"
+        navigationItem.title = NSLocalizedString("Block.Detail", comment: "")
         
         tableView = ArkTableView(CGRect.zero)
         tableView.delegate       = self
@@ -65,27 +65,27 @@ extension BlockDetailViewController : UITableViewDelegate {
         
         switch section {
         case 0:
-            headerLabel.text = "Block ID"
+            headerLabel.text = NSLocalizedString("Block.BlockID", comment: "")
         case 1:
-            headerLabel.text = "Height"
+            headerLabel.text = NSLocalizedString("Block.Height", comment: "")
         case 2:
-            headerLabel.text = "Previous Block"
+            headerLabel.text = NSLocalizedString("Block.PreviousBlock", comment: "")
         case 3:
-            headerLabel.text = "Number of Transactions"
+            headerLabel.text = NSLocalizedString("Block.NumberOfTransactions", comment: "")
         case 4:
-            headerLabel.text = "Total Amount"
+            headerLabel.text = NSLocalizedString("Block.TotalAmount", comment: "")
         case 5:
-            headerLabel.text = "Total Fee"
+            headerLabel.text = NSLocalizedString("Block.TotalFee", comment: "")
         case 6:
-            headerLabel.text = "Rewards Fee"
+            headerLabel.text = NSLocalizedString("Block.RewardsFee", comment: "")
         case 7:
-            headerLabel.text = "Payload Length"
+            headerLabel.text = NSLocalizedString("Block.PayloadLength", comment: "")
         case 8:
-            headerLabel.text = "Generator Public Key"
+            headerLabel.text = NSLocalizedString("Block.GeneratorPublicKey", comment: "")
         case 9:
-            headerLabel.text = "Block Signature"
+            headerLabel.text = NSLocalizedString("Block.BlockSignature", comment: "")
         default:
-            headerLabel.text = "Confirmations"
+            headerLabel.text = NSLocalizedString("Block.Confirmations", comment: "")
         }
         
         headerView.addSubview(headerLabel)

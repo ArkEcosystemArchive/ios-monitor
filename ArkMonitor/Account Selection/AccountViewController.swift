@@ -42,7 +42,7 @@ class AccountViewController: ArkViewController {
         }
         
         let infoLabel       = UILabel()
-        infoLabel.text      = "To get started,\nenter an Ark Address:"
+        infoLabel.text      = NSLocalizedString("Account.Wording", comment: "")
         infoLabel.textColor = UIColor.white
         infoLabel.textAlignment = .center
         infoLabel.font = UIFont.systemFont(ofSize: 20.0, weight: .regular)
@@ -56,7 +56,7 @@ class AccountViewController: ArkViewController {
         
         submitButton = UIButton()
         submitButton.setTitleColor(UIColor.white, for: .normal)
-        submitButton.setTitle("Submit", for: .normal)
+        submitButton.setTitle(NSLocalizedString("Submit", comment: ""), for: .normal)
         submitButton.backgroundColor = ArkPalette.accentColor
         submitButton.addTarget(self, action: #selector(submitbuttonTapped), for: .touchUpInside)
         view.addSubview(submitButton)
@@ -77,7 +77,7 @@ class AccountViewController: ArkViewController {
             make.bottom.equalTo(submitButton.snp.top)
         }
         
-        addressText = ArkTextField(placeHolder: "Ark Address")
+        addressText = ArkTextField(placeHolder: NSLocalizedString("ArkAddress", comment: ""))
         addressText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         addressText.delegate = self
         spacer.addSubview(addressText)
@@ -168,15 +168,15 @@ class AccountViewController: ArkViewController {
             if let aError = error {
                 if let bError = aError as? ApiError {
                     if bError != ApiError.networkError {
-                        ArkActivityView.showMessage("Unable to find Account", style: .warning)
+                        ArkActivityView.showMessage(NSLocalizedString("Message.UnableToFindAccount", comment: ""), style: .warning)
                     }
                 } else {
-                    ArkActivityView.showMessage("Unable to find Account", style: .warning)
+                    ArkActivityView.showMessage(NSLocalizedString("Message.UnableToFindAccount", comment: ""), style: .warning)
                 }
             }
             if let fetchAccount = account {
                 ArkDataManager.registerWithAccount(fetchAccount)
-                ArkActivityView.showMessage("Successfully found Account!", style: .success)
+                ArkActivityView.showMessage(NSLocalizedString("Message.SuccessfullyFoundAccount", comment: ""), style: .success)
                 self.dismiss(animated: true, completion: nil)
             }
         }
@@ -218,10 +218,5 @@ extension AccountViewController {
         return keyboardCurve
     }
 }
-
-
-
-
-
 
 

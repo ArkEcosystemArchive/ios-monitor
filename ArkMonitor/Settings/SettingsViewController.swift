@@ -22,7 +22,7 @@ class SettingsViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Settings"
+        navigationItem.title = NSLocalizedString("TabBar.Settings", comment: "")
         
         tableView = ArkTableView(CGRect.zero)
         tableView.delegate       = self

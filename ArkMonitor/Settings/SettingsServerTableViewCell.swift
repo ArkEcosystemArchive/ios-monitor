@@ -26,7 +26,7 @@ class SettingsServerTableViewCell: UITableViewCell {
         backgroundColor = ArkPalette.backgroundColor
         selectionStyle = .none
         titleLabel = UILabel()
-        titleLabel.text = "Server"
+        titleLabel.text = NSLocalizedString("Server", comment: "")
         titleLabel.textColor = ArkPalette.highlightedTextColor
         titleLabel.font  = UIFont.systemFont(ofSize: 16.0, weight:  .semibold)
         addSubview(titleLabel)

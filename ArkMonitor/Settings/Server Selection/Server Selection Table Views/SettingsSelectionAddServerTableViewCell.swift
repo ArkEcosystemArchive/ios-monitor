@@ -25,7 +25,7 @@ class SettingsSelectionAddServerTableViewCell: UITableViewCell {
         
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
-        nameLabel.text = "Add custom server"
+        nameLabel.text = NSLocalizedString("Server.AddCustomServer", comment: "")
         nameLabel.textColor = ArkPalette.textColor
         nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
         addSubview(nameLabel)

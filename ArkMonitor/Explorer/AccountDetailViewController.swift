@@ -34,7 +34,7 @@ class AccountDetailViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Account Detail"
+        navigationItem.title = NSLocalizedString("Account.Detail", comment: "")
         
         tableView = ArkTableView(CGRect.zero)
         tableView.delegate       = self
@@ -65,13 +65,13 @@ extension AccountDetailViewController : UITableViewDelegate {
         
         switch section {
         case 0:
-            headerLabel.text = "Address"
+            headerLabel.text = NSLocalizedString("Account.Address", comment: "")
         case 1:
-            headerLabel.text = "Public Key"
+            headerLabel.text = NSLocalizedString("Account.PublicKey", comment: "")
         case 2:
-            headerLabel.text = "Balance"
+            headerLabel.text = NSLocalizedString("Account.Balance", comment: "")
         case 3:
-            headerLabel.text = "Unconfirmed Balance"
+            headerLabel.text = NSLocalizedString("Account.UnconfirmedBalance", comment: "")
         default:
             headerLabel.text = ""
         }

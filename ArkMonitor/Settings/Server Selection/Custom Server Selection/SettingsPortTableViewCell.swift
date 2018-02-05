@@ -34,7 +34,7 @@ class SettingsPortTableViewCell: UITableViewCell {
         
         
         let nameLabel = UILabel()
-        nameLabel.text          = "Port"
+        nameLabel.text          = NSLocalizedString("Port", comment: "")
         nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight:  .semibold)

@@ -23,7 +23,7 @@ class ServerSelectionViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Server"
+        navigationItem.title = NSLocalizedString("Server", comment: "")
         
         tableView = ArkTableView(CGRect.zero)
         tableView.delegate       = self
@@ -163,7 +163,7 @@ extension ServerSelectionViewController : UITableViewDataSource {
             self.customServers.remove(object: cell.server)
             ArkNetworkManager.remove(cell.server)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            ArkActivityView.showMessage("Successfully removed server", style: .success)
+            ArkActivityView.showMessage(NSLocalizedString("Message.SuccessfullyRemovedServer", comment: ""), style: .success)
         }
         
         delete.backgroundColor = ArkPalette.accentColor

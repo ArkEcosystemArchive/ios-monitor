@@ -33,7 +33,7 @@ class TransactionDetailViewController: ArkViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Detail"
+        navigationItem.title = NSLocalizedString("Transaction.Detail", comment: "")
 
         tableView = ArkTableView(CGRect.zero)
         tableView.delegate       = self
@@ -69,21 +69,21 @@ extension TransactionDetailViewController : UITableViewDelegate {
         
         switch section {
         case 0:
-            headerLabel.text = "Transaction ID"
+            headerLabel.text = NSLocalizedString("Transaction.TransactionID", comment: "")
         case 1:
-            headerLabel.text = "Time"
+            headerLabel.text = NSLocalizedString("Transaction.Time", comment: "")
         case 2:
-            headerLabel.text = "From"
+            headerLabel.text = NSLocalizedString("Transaction.From", comment: "")
         case 3:
-            headerLabel.text = "To"
+            headerLabel.text = NSLocalizedString("Transaction.To", comment: "")
         case 4:
-            headerLabel.text = "Amount"
+            headerLabel.text = NSLocalizedString("Transaction.Amount", comment: "")
         case 5:
-            headerLabel.text = "Fee"
+            headerLabel.text = NSLocalizedString("Transaction.Fee", comment: "")
         case 6:
-            headerLabel.text = "Confirmations"
+            headerLabel.text = NSLocalizedString("Transaction.Confirmations", comment: "")
         default:
-            headerLabel.text = "Vendor Field"
+            headerLabel.text = NSLocalizedString("Transaction.VendorField", comment: "")
         }
         headerView.addSubview(headerLabel)
         return headerView

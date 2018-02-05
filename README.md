@@ -1,5 +1,10 @@
 # Ark Monitor
 
+[![Language: Swift 4](https://img.shields.io/badge/language-swift%204-f48041.svg?style=flat)](https://developer.apple.com/swift)
+![Platform: iOS 8+](https://img.shields.io/badge/platform-iOS-blue.svg?style=flat)
+[![License: MIT](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](https://github.com/ArkEcosystem/ark-ios-monitor/blob/master/LICENSE)
+
+
 <img src="https://user-images.githubusercontent.com/937766/31292920-9f39d45e-aaab-11e7-8d8c-6049cee4c0bc.jpg" width="200" />
 
 ## Authors

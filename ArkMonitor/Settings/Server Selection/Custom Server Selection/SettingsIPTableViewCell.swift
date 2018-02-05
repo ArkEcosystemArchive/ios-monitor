@@ -33,7 +33,7 @@ class SettingsIPTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         let nameLabel = UILabel()
-        nameLabel.text          = "IP Address"
+        nameLabel.text          = NSLocalizedString("IPAddress", comment: "")
         nameLabel.textColor     = ArkPalette.highlightedTextColor
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight:  .semibold)
