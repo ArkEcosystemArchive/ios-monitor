@@ -183,8 +183,8 @@ extension CALayer {
 extension UIButton {
     
     public func title(_ text: String, color: UIColor) {
-        setTitle(text, for: UIControlState())
-        setTitleColor(color, for: UIControlState())
+        setTitle(text, for: .normal)
+        setTitleColor(color, for: .normal)
     }
     
     public func setBackgroundColor(_ color: UIColor, forState: UIControlState) {

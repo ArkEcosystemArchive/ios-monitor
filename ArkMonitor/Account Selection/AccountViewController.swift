@@ -55,8 +55,8 @@ class AccountViewController: ArkViewController {
         }
         
         submitButton = UIButton()
-        submitButton.setTitleColor(UIColor.white, for: UIControlState())
-        submitButton.setTitle(NSLocalizedString("Submit", comment: ""), for: UIControlState())
+        submitButton.setTitleColor(UIColor.white, for: .normal)
+        submitButton.setTitle(NSLocalizedString("Submit", comment: ""), for: .normal)
         submitButton.backgroundColor = ArkPalette.accentColor
         submitButton.addTarget(self, action: #selector(submitbuttonTapped), for: .touchUpInside)
         view.addSubview(submitButton)

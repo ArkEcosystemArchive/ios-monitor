@@ -38,8 +38,8 @@ class ReceiveTransferViewController: ArkViewController {
         
         let bottomButton = UIButton()
         bottomButton.backgroundColor = ArkPalette.accentColor
-        bottomButton.setTitle(NSLocalizedString("ReceiveTransfer.CopyAddress", comment: ""), for: UIControlState())
-        bottomButton.setTitleColor(ArkPalette.highlightedTextColor, for: UIControlState())
+        bottomButton.setTitle(NSLocalizedString("ReceiveTransfer.CopyAddress", comment: ""), for: .normal)
+        bottomButton.setTitleColor(ArkPalette.highlightedTextColor, for: .normal)
         bottomButton.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
         bottomButton.addTarget(self, action: #selector(copyAddressToClipboard), for: .touchUpInside)
         view.addSubview(bottomButton)
